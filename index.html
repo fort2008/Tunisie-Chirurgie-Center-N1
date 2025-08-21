@@ -1,254 +1,121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Tunisie Chirurgie Esthétique Center N°1 – Liposuccion, Liftings, BBL Soft, J‑Plasma, Hollywood Smile, Greffe capillaire</title>
-<meta name="description" content="Plateforme esthétique haut de gamme : liposuccion, liftings, BBL Soft, J‑Plasma, Hollywood Smile, greffe capillaire. Encadrement médical complet. Clinique Lac 2, Tunis. Devis WhatsApp et e‑mail." />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tunisie Chirurgie Center N°1</title>
 
-<!-- Open Graph -->
-<meta property="og:title" content="Tunisie Chirurgie Esthétique Center N°1" />
-<meta property="og:description" content="Votre esthétique, notre expertise : liposuccion, liftings, BBL Soft, J‑Plasma, Hollywood Smile, greffe capillaire. Devis rapide WhatsApp." />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="assets/img/hero.jpg" />
-<meta property="og:url" content="https://fort2008.github.io/Tunisie-Chirurgie-Center-N1/" />
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Tunisie Chirurgie Esthétique Center N°1" />
-<meta name="twitter:description" content="Plateforme esthétique haut de gamme – devis rapide WhatsApp" />
-<meta name="twitter:image" content="assets/img/hero.jpg" />
-
-<link rel="preload" as="image" href="assets/img/hero.jpg">
-<link rel="stylesheet" href="assets/css/style.css" />
-<script defer src="assets/js/app.js"></script>
-
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "MedicalClinic", "name": "Tunisie Chirurgie Esthétique Center N°1", "description": "Clinique esthétique haut de gamme à Tunis (Lac 2). Liposuccion, Liftings, BBL Soft, J‑Plasma, Hollywood Smile, greffe capillaire. Encadrement médical complet.", "image": "assets/img/hero.jpg", "url": "https://fort2008.github.io/Tunisie-Chirurgie-Center-N1/", "telephone": "+216 28 296 239", "email": "aboprof.bm2@gmail.com", "address": {"@type": "PostalAddress", "addressLocality": "Tunis", "streetAddress": "Les Berges du Lac 2", "addressCountry": "TN"}, "sameAs": ["https://wa.me/21628296239"], "openingHours": "Mo-Sa 09:00-18:00"}
-</script>
+<!-- CSS embarqué (pas de style.css séparé) -->
+<style>
+:root{--rose:#F5E6EA;--rose-2:#F0D6DF;--gold:#D4AF37;--ink:#2E2A2A;--bg:#fff}
+*{box-sizing:border-box} html,body{margin:0;padding:0;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--ink);text-decoration:none} a:hover{text-decoration:underline}
+.container{max-width:1200px;margin:0 auto;padding:16px}
+header{position:sticky;top:0;background:#fff8;backdrop-filter:blur(6px);border-bottom:2px solid var(--gold);z-index:10}
+header .row{display:flex;gap:16px;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700}
+.brand .dot{width:14px;height:14px;border-radius:50%;background:linear-gradient(45deg,var(--gold),#F7E7B2);border:1px solid #C9A227}
+nav a{padding:10px 12px;border-radius:999px} nav a:hover{background:var(--rose)}
+.cta{display:inline-block;padding:10px 16px;border-radius:999px;border:2px solid var(--gold)} .cta:hover{background:var(--gold);color:#fff}
+/* HERO */
+.hero{position:relative;isolation:isolate;min-height:70vh;display:grid;place-items:center;overflow:hidden;background:var(--rose-2);border-bottom:4px solid var(--gold)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.45),rgba(0,0,0,.15),rgba(0,0,0,0))}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.05) saturate(1.06) brightness(.95)}
+.hero-content{position:relative;z-index:1;text-align:center;color:#fff;padding:16px}
+.hero h1{font-size:clamp(28px,6vw,56px);margin:0 0 10px}
+.hero p{font-size:clamp(16px,2.4vw,22px);margin:0 0 16px;opacity:.95}
+.badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.badge{padding:8px 12px;border-radius:999px;background:#ffffff22;border:1px solid #ffffff66}
+/* Sections */
+section{padding:54px 0} h2{font-size:clamp(22px,4vw,36px);margin:0 0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:#fff;border:1px solid #eee;border-radius:16px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.05)}
+.card img{width:100%;height:180px;object-fit:cover}
+.card .pad{padding:14px}
+footer{padding:24px 0;border-top:2px solid var(--gold);background:#fff}
+.lang{display:flex;gap:8px;flex-wrap:wrap} .lang a{padding:6px 10px;border:1px solid #eee;border-radius:10px} .lang a:hover{background:var(--rose)}
+</style>
 </head>
 <body>
-  <div class="topbar">
-    <div class="container">
-      <div><strong>Clinique Lac 2</strong> · <span class="badge">Esthétique haut de gamme</span></div>
-      <div class="langs">
-        <span>FR</span>
-        <a href="#fr" onclick="setLang('EN');return false;">EN</a>
-        <a href="#it" onclick="setLang('IT');return false;">IT</a>
-        <a href="#de" onclick="setLang('DE');return false;">DE</a>
-        <a href="#nl" onclick="setLang('NL');return false;">NL</a>
-      </div>
-    </div>
-  </div>
-
   <header>
-    <nav class="container">
-      <a class="brand" href="#">
-        <div class="logo"></div>
-        <span>Tunisie Chirurgie Esthétique Center N°1</span>
-      </a>
-      <div class="menu">
-        <a class="nav-services" href="#services">Services</a>
-        <a class="nav-gallery" href="#galerie">Galerie</a>
-        <a class="nav-prices" href="#prix">Prix</a>
-        <a class="nav-quote" href="#devis">Devis</a>
-        <a class="nav-contact" href="#contact">Contact</a>
-      </div>
-      <div class="cta">
-        <a class="btn btn-outline" href="mailto:aboprof.bm2@gmail.com">Email</a>
-        <a class="btn btn-gold" href="https://wa.me/21628296239" target="_blank">WhatsApp</a>
-      </div>
-    </nav>
+    <div class="container row">
+      <div class="brand"><span class="dot"></span><span>Tunisie Chirurgie Center N°1</span></div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#prix">Prix</a>
+        <a href="#devis">Devis</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="cta" href="https://wa.me/21628296239" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
   </header>
 
-  <section class="hero" id="hero">
-    
-<video autoplay muted playsinline loop poster="assets/img/hero.jpg">
-  <source src="assets/video/hero.mp4" type="video/mp4">
-  <img class="fallback" src="assets/img/hero.jpg" alt="Clinique esthétique – couverture" />
-</video>
-
-    <div class="content container">
-      <div class="badge">Esthétique haut de gamme · Clinique Lac 2</div>
-      <h1 data-i18n="heroTitle">Votre esthétique, notre expertise</h1>
-      <p data-i18n="heroSub">Liposuccion, Liftings, BBL Soft, J‑Plasma, Hollywood Smile, Greffe capillaire — encadrement médical complet.</p>
-      <div class="actions">
-        <a id="wa-btn" class="btn btn-primary" href="#" data-i18n="cta1">Devis WhatsApp</a>
-        <a class="btn btn-outline" href="#devis" data-i18n="cta2">Demande de devis</a>
+  <!-- HERO avec la même couverture -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline poster="assets/img/hero.jpg">
+      <source src="assets/video/hero.mp4" type="video/mp4">
+      <!-- Fallback image si la vidéo est bloquée -->
+      <img src="assets/img/hero.jpg" alt="Couverture">
+    </video>
+    <div class="hero-content">
+      <h1>Chirurgie esthétique, dentaire & greffe capillaire</h1>
+      <p>Accompagnement premium en Tunisie : devis rapide, prix clairs, prise en charge complète.</p>
+      <div class="badges">
+        <span class="badge">Clinique certifiée</span>
+        <span class="badge">Médecins qualifiés</span>
+        <span class="badge">Transfert & hôtel</span>
       </div>
-      <div class="notice">Réponse rapide · Devis clair · Accompagnement voyage médical</div>
     </div>
   </section>
 
-  <section class="section" id="services">
-    <div class="container">
-      <h2>Services</h2>
-      <p class="lead">Chirurgie esthétique (femme & homme), dentaire et greffe capillaire.</p>
-
+  <main class="container">
+    <section id="services">
+      <h2>Services phares</h2>
       <div class="grid">
         <article class="card">
-          <img src="assets/img/liposuccion.jpg" alt="Liposuccion" />
-          <div class="pad">
-            <h3>Liposuccion</h3>
-            <p>Affiner la silhouette en ciblant les zones résistantes.</p>
-          </div>
+          <img src="assets/img/liposuccion.jpg" alt="Liposuccion">
+          <div class="pad"><h3>Liposuccion</h3><p>Affinez la silhouette avec des techniques modernes.</p></div>
         </article>
         <article class="card">
-          <img src="assets/img/liftings.jpg" alt="Liftings" />
-          <div class="pad">
-            <h3>Liftings</h3>
-            <p>Effet rajeunissant naturel du visage et du cou.</p>
-          </div>
+          <img src="assets/img/liftings.jpg" alt="Liftings">
+          <div class="pad"><h3>Liftings</h3><p>Rajeunissement naturel du visage et du cou.</p></div>
         </article>
         <article class="card">
-          <img src="assets/img/bbl-soft.jpg" alt="BBL Soft" />
-          <div class="pad">
-            <h3>BBL Soft</h3>
-            <p>Redessin des courbes avec approche sécurisée.</p>
-          </div>
+          <img src="assets/img/bbl-soft.jpg" alt="BBL Soft">
+          <div class="pad"><h3>BBL Soft</h3><p>Projection harmonieuse et résultats durables.</p></div>
         </article>
         <article class="card">
-          <img src="assets/img/j-plasma.jpg" alt="J‑Plasma" />
-          <div class="pad">
-            <h3>J‑Plasma</h3>
-            <p>Retension cutanée de haute précision.</p>
-          </div>
+          <img src="assets/img/j-plasma.jpg" alt="J-Plasma">
+          <div class="pad"><h3>J-Plasma</h3><p>Retension cutanée haute précision.</p></div>
         </article>
         <article class="card">
-          <img src="assets/img/hollywood-smile.jpg" alt="Hollywood Smile" />
-          <div class="pad">
-            <h3>Hollywood Smile</h3>
-            <p>Alignement et blancheur pour un sourire éclatant.</p>
-          </div>
+          <img src="assets/img/hollywood-smile.jpg" alt="Hollywood Smile">
+          <div class="pad"><h3>Hollywood Smile</h3><p>Facettes & implants pour un sourire éclatant.</p></div>
         </article>
         <article class="card">
-          <img src="assets/img/greffe-capillaire.jpg" alt="Greffe capillaire" />
-          <div class="pad">
-            <h3>Greffe capillaire</h3>
-            <p>Densité retrouvée, ligne frontale redessinée.</p>
-          </div>
+          <img src="assets/img/greffe-capillaire.jpg" alt="Greffe capillaire">
+          <div class="pad"><h3>Greffe capillaire</h3><p>Solutions personnalisées, résultats naturels.</p></div>
         </article>
       </div>
+    </section>
 
-      <div class="kpis">
-        <div class="kpi" data-i18n="kpi1">Équipe experte</div>
-        <div class="kpi" data-i18n="kpi2">Accompagnement voyage</div>
-        <div class="kpi" data-i18n="kpi3">Clinique haut de gamme</div>
-        <div class="kpi" data-i18n="kpi4">Réponse en 24h</div>
-      </div>
-    </div>
-  </section>
+    <section id="devis">
+      <h2>Demander un devis</h2>
+      <p>Contact direct : <a href="mailto:aboprof.bm2@gmail.com?subject=Devis%20Tunisie%20Chirurgie%20Center%20N%C2%B01">aboprof.bm2@gmail.com</a> ou <a href="https://wa.me/21628296239" target="_blank" rel="noopener">WhatsApp</a>.</p>
+    </section>
 
-  <section class="section alt" id="galerie">
-    <div class="container">
-      <h2>Galerie</h2>
-      <p class="lead">Aperçu de l'univers clinique (images libres d'usage placeholders).</p>
-      <div class="gallery">
-        <img src="assets/img/gallery-1.jpg" alt="Clinique" />
-        <img src="assets/img/gallery-2.jpg" alt="Bloc opératoire" />
-        <img src="assets/img/hollywood-smile.jpg" alt="Dentaire" />
-        <img src="assets/img/greffe-capillaire.jpg" alt="Capillaire" />
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="prix">
-    <div class="container">
-      <h2>Prix (indicatifs)</h2>
-      <p class="lead" data-i18n="priceNote">Exemples indicatifs, prix final après consultation médicale.</p>
-      <table class="table">
-        <thead>
-          <tr><th>Procédure</th><th>À partir de (EUR)</th><th>À partir de (TND)</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Liposuccion (zone)</td><td>1 490 €</td><td>5 000 TND</td></tr>
-          <tr><td>Liftings visage &amp; cou</td><td>3 900 €</td><td>12 700 TND</td></tr>
-          <tr><td>BBL Soft</td><td>3 200 €</td><td>10 400 TND</td></tr>
-          <tr><td>J‑Plasma (abdomen)</td><td>2 100 €</td><td>6 800 TND</td></tr>
-          <tr><td>Hollywood Smile (16 facettes)</td><td>4 800 €</td><td>15 900 TND</td></tr>
-          <tr><td>Greffe capillaire (FUE 3 000 greffons)</td><td>2 200 €</td><td>7 300 TND</td></tr>
-        </tbody>
-      </table>
-      <p class="small">⚠️ Valeurs purement indicatives. Un devis personnalisé est établi après analyse de votre dossier médical et de vos photos.</p>
-    </div>
-  </section>
-
-  <section class="section alt" id="devis">
-    <div class="container">
-      <h2 data-i18n="formTitle">Demande de devis</h2>
-      <form id="quote-form">
-        <div class="row">
-          <div>
-            <label for="name">Nom complet</label>
-            <input id="name" name="name" placeholder="Votre nom" required />
-          </div>
-          <div>
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="exemple@mail.com" required />
-          </div>
-          <div>
-            <label for="phone">Téléphone / WhatsApp</label>
-            <input id="phone" name="phone" placeholder="+32 … / +216 …" />
-          </div>
-          <div>
-            <label for="procedure">Procédure</label>
-            <select id="procedure" name="procedure">
-              <option value="Liposuccion">Liposuccion</option>
-              <option value="Liftings">Liftings</option>
-              <option value="BBL Soft">BBL Soft</option>
-              <option value="J-Plasma">J‑Plasma</option>
-              <option value="Hollywood Smile">Hollywood Smile</option>
-              <option value="Greffe capillaire">Greffe capillaire</option>
-              <option value="Autre">Autre</option>
-            </select>
-          </div>
-        </div>
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" placeholder="Décrivez votre besoin, joignez si possible des photos (face/profil)…"></textarea>
-        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-          <button class="btn btn-primary" type="submit" data-i18n="formBtn">Envoyer</button>
-          <a class="btn btn-outline" href="#" onclick="whatsAppQuote();return false;">WhatsApp</a>
-          <a class="btn" style="border-color:#ccc" href="mailto:aboprof.bm2@gmail.com">Email direct</a>
-        </div>
-      </form>
-    </div>
-  </section>
-
-  <section class="section" id="contact">
-    <div class="container">
+    <section id="contact">
       <h2>Contact</h2>
-      <div class="grid">
-        <div class="card">
-          <img src="assets/img/map-placeholder.jpg" alt="Emplacement – Les Berges du Lac 2" />
-          <div class="pad">
-            <p><strong>Adresse :</strong> Les Berges du Lac 2, Tunis (exemple)</p>
-            <p><strong>Téléphone / WhatsApp :</strong> <a href="https://wa.me/21628296239" target="_blank">+216 28 296 239</a></p>
-            <p><strong>Email :</strong> <a href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a></p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="pad">
-            <h3>Pourquoi nous ?</h3>
-            <ul>
-              <li>Encadrement médical et suivi post‑op.</li>
-              <li>Devis clair et rapide via WhatsApp.</li>
-              <li>Accompagnement voyage (transferts, hôtel).</li>
-              <li>Clinique haut de gamme au Lac 2.</li>
-            </ul>
-          </div>
-        </div>
+      <p>WhatsApp : <a href="https://wa.me/21628296239">+216 28 296 239</a><br>
+         Email : <a href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a></p>
+      <div class="lang">
+        <a href="#fr">FR</a><a href="#be">BE</a><a href="#tn">TN</a><a href="#en">EN</a><a href="#it">IT</a><a href="#de">DE</a><a href="#nl">NL</a>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
-    <div class="container">
-      <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap">
-        <div>© 2025 Tunisie Chirurgie Esthétique Center N°1</div>
-        <div>WhatsApp : <a href="https://wa.me/21628296239">+216 28 296 239</a> · Email : <a href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a></div>
-      </div>
-      <div class="small" style="margin-top:8px">Les informations de ce site sont données à titre informatif et ne remplacent pas une consultation médicale.</div>
-    </div>
+    <div class="container">© 2025 Tunisie Chirurgie Center N°1 · <a href="#contact">Contact</a></div>
   </footer>
 </body>
 </html>
