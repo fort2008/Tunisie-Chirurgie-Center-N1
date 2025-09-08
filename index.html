@@ -31,10 +31,7 @@
   <link rel="alternate" hreflang="nl" href="#nl" />
 
   <style>
-    :root {
-      --rose:#E91E63; --rose-700:#C2185B; --gold:#D4AF37;
-      --ink:#1b1b1f; --bg:#fff7fb; --card:#ffffff;
-    }
+    :root { --rose:#E91E63; --rose-700:#C2185B; --gold:#D4AF37; --ink:#1b1b1f; --bg:#fff7fb; --card:#ffffff; }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;line-height:1.5}
     a{color:var(--rose);text-decoration:none} a:hover{text-decoration:underline}
@@ -72,10 +69,12 @@
     .card .p{padding:14px 14px 18px}
     .chip{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid #f1d6f6;background:#fff7fb;font-weight:700;color:var(--rose-700);font-size:12px}
 
-    table.pricing{width:100%;border-collapse:collapse;overflow:hidden;border-radius:14px;background:#fff;box-shadow:0 8px 20px rgba(0,0,0,.06)}
-    table.pricing th,table.pricing td{padding:12px;border-bottom:1px solid #f2e8f6;text-align:left}
-    table.pricing th{background:linear-gradient(90deg,#fff,#fff7fb)}
-    table.pricing tr:hover td{background:#fffafc}
+    table.table, table.pricing, table.compare{width:100%;border-collapse:collapse;overflow:hidden;border-radius:14px;background:#fff;box-shadow:0 8px 20px rgba(0,0,0,.06)}
+    table.table th, table.table td,
+    table.pricing th, table.pricing td,
+    table.compare th, table.compare td{padding:12px;border-bottom:1px solid #f2e8f6;text-align:left;vertical-align:top}
+    table.table th, table.pricing th, table.compare th{background:linear-gradient(90deg,#fff,#fff7fb);font-weight:800}
+    table.pricing tr:hover td, table.compare tr:hover td{background:#fffafc}
     .price{font-weight:900;color:var(--rose-700)}
 
     /* Detailed service sections */
@@ -84,19 +83,11 @@
     .service .lead{opacity:.9}
     .pill{display:inline-block;margin-top:8px;padding:6px 10px;border:1px solid #f1d6f6;border-radius:999px;background:#fff7fb;font-size:12px;font-weight:700;color:var(--rose-700)}
     .service .cta{justify-content:flex-start}
-
-    /* Lifting compare table */
-    table.compare{width:100%;border-collapse:collapse;overflow:hidden;border-radius:14px;background:#fff;margin-top:14px}
-    table.compare th, table.compare td{padding:12px;border-bottom:1px solid #f4e7fb;text-align:left;vertical-align:top}
-    table.compare th{background:linear-gradient(90deg,#fff,#fff7fb);font-weight:800}
-    table.compare td strong{font-weight:800}
+    .note{font-size:12px;opacity:.8;margin-top:6px}
 
     footer{background:#0e0e10;color:#ddd;border-top:3px solid var(--gold)}
     footer .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
     .credits a{color:#ccc;text-decoration:underline}
-
-    /* Small helper */
-    .note{font-size:12px;opacity:.8;margin-top:6px}
   </style>
 
   <!-- JSON-LD: Organization + Clinic -->
@@ -110,12 +101,7 @@
     "logo": "https://fort2008.github.io/fort2008-Tunisie-Chirurgie-Center/logo.png",
     "email": "mailto:aboprof.bm2@gmail.com",
     "telephone": "+21628296239",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Les Berges du Lac 2",
-      "addressLocality": "Tunis",
-      "addressCountry": "TN"
-    },
+    "address": { "@type": "PostalAddress", "streetAddress": "Les Berges du Lac 2", "addressLocality": "Tunis", "addressCountry": "TN" },
     "sameAs": ["https://wa.me/21628296239"],
     "openingHours": "Mo-Sa 09:00-19:00",
     "medicalSpecialty": ["PlasticSurgery","CosmeticSurgery","Dentistry","Dermatology"]
@@ -155,7 +141,7 @@
     </div>
   </header>
 
-  <!-- HERO with medical video (MP4 first) -->
+  <!-- HERO -->
   <section class="hero" aria-label="Couverture">
     <video autoplay muted loop playsinline poster="https://images.pexels.com/photos/2324837/pexels-photo-2324837.jpeg?auto=compress&cs=tinysrgb&h=1200">
       <source src="https://cdn.pixabay.com/vimeo/133084691/Medicine-Health-440-1280x720.mp4" type="video/mp4" />
@@ -181,70 +167,34 @@
       <h2 class="section-title">Actes phares</h2>
       <div class="grid">
         <article class="card">
-          <a href="#liposuccion">
-            <img alt="Bloc opératoire - intervention" src="https://images.pexels.com/photos/6291298/pexels-photo-6291298.jpeg?auto=compress&cs=tinysrgb&w=1200" />
-          </a>
-          <div class="p">
-            <span class="chip">Liposuccion</span>
-            <h3><a href="#liposuccion">Affiner la silhouette</a></h3>
-            <p>Technique d’aspiration des excès graisseux (abdomen, hanches, cuisses). Récupération rapide avec gaine.</p>
-          </div>
+          <a href="#liposuccion"><img alt="Liposuccion" src="https://images.pexels.com/photos/6291298/pexels-photo-6291298.jpeg?auto=compress&cs=tinysrgb&w=1200" /></a>
+          <div class="p"><span class="chip">Liposuccion</span><h3><a href="#liposuccion">Affiner la silhouette</a></h3><p>Excès graisseux abdomen, hanches, cuisses, bras. Gaine incluse.</p></div>
         </article>
         <article class="card">
-          <a href="#lifting">
-            <img alt="Consultation pré-opératoire esthétique" src="https://images.pexels.com/photos/10521230/pexels-photo-10521230.jpeg?auto=compress&cs=tinysrgb&w=1200" />
-          </a>
-          <div class="p">
-            <span class="chip">Liftings</span>
-            <h3><a href="#lifting">Visage rajeuni</a></h3>
-            <p>Mini-lift, cervico-facial : retendre, lisser, redéfinir les contours avec cicatrices discrètes.</p>
-          </div>
+          <a href="#lifting"><img alt="Liftings" src="https://images.pexels.com/photos/10521230/pexels-photo-10521230.jpeg?auto=compress&cs=tinysrgb&w=1200" /></a>
+          <div class="p"><span class="chip">Liftings</span><h3><a href="#lifting">Visage rajeuni</a></h3><p>Mini-lift, cervico-facial, lipofilling. Cicatrices discrètes.</p></div>
         </article>
         <article class="card">
-          <a href="#bbl">
-            <img alt="Soin corporel non invasif" src="https://images.pexels.com/photos/5042605/pexels-photo-5042605.jpeg?auto=compress&cs=tinysrgb&w=1200" />
-          </a>
-          <div class="p">
-            <span class="chip">BBL Soft</span>
-            <h3><a href="#bbl">Courbes naturelles</a></h3>
-            <p>Transfert de graisse qualifiée avec approche sécurisée pour un galbe harmonieux et naturel.</p>
-          </div>
+          <a href="#bbl"><img alt="BBL Soft" src="https://images.pexels.com/photos/5042605/pexels-photo-5042605.jpeg?auto=compress&cs=tinysrgb&w=1200" /></a>
+          <div class="p"><span class="chip">BBL Soft</span><h3><a href="#bbl">Courbes naturelles</a></h3><p>Transfert de graisse sécurisé pour galbe harmonieux.</p></div>
         </article>
         <article class="card">
-          <a href="#jplasma">
-            <img alt="Mesure pré-opératoire J-Plasma" src="https://images.pexels.com/photos/7585313/pexels-photo-7585313.jpeg?auto=compress&cs=tinysrgb&w=1200" />
-          </a>
-          <div class="p">
-            <span class="chip">J-Plasma</span>
-            <h3><a href="#jplasma">Retension cutanée</a></h3>
-            <p>Énergie plasma froide pour retendre la peau (bras, abdomen, cou) — souvent associée à une lipo douce.</p>
-          </div>
+          <a href="#jplasma"><img alt="J-Plasma" src="https://images.pexels.com/photos/7585313/pexels-photo-7585313.jpeg?auto=compress&cs=tinysrgb&w=1200" /></a>
+          <div class="p"><span class="chip">J-Plasma</span><h3><a href="#jplasma">Retension cutanée</a></h3><p>Plasma froid pour retendre la peau (bras, abdomen, cou).</p></div>
         </article>
         <article class="card">
-          <a href="#hollywood">
-            <img alt="Examen dentaire moderne" src="https://images.pexels.com/photos/6528858/pexels-photo-6528858.jpeg?auto=compress&cs=tinysrgb&w=1200" />
-          </a>
-          <div class="p">
-            <span class="chip">Hollywood Smile</span>
-            <h3><a href="#hollywood">Facettes & blanchiment</a></h3>
-            <p>Sourire lumineux : facettes, alignement, blanchiment guidé par design numérique du sourire.</p>
-          </div>
+          <a href="#hollywood"><img alt="Hollywood Smile" src="https://images.pexels.com/photos/6528858/pexels-photo-6528858.jpeg?auto=compress&cs=tinysrgb&w=1200" /></a>
+          <div class="p"><span class="chip">Hollywood Smile</span><h3><a href="#hollywood">Facettes & blanchiment</a></h3><p>Design numérique du sourire, facettes céramique.</p></div>
         </article>
         <article class="card">
-          <a href="#capillaire">
-            <img alt="Cabinet moderne au Lac 2" src="https://images.pexels.com/photos/5619462/pexels-photo-5619462.jpeg?auto=compress&cs=tinysrgb&w=1200" />
-          </a>
-          <div class="p">
-            <span class="chip">Greffe capillaire</span>
-            <h3><a href="#capillaire">Technique FUE/DHI</a></h3>
-            <p>Densité et ligne frontale naturelles avec plan personnalisé — hommes et femmes.</p>
-          </div>
+          <a href="#capillaire"><img alt="Greffe capillaire" src="https://images.pexels.com/photos/5619462/pexels-photo-5619462.jpeg?auto=compress&cs=tinysrgb&w=1200" /></a>
+          <div class="p"><span class="chip">Greffe capillaire</span><h3><a href="#capillaire">FUE / DHI</a></h3><p>Densité et ligne frontale naturelles, PRP inclus.</p></div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- DETAILED SERVICES -->
+  <!-- LIFTING DETAIL -->
   <section id="lifting">
     <div class="wrap">
       <div class="eyebrow">Lifting</div>
@@ -254,142 +204,163 @@
         <h3>Lifting « mannequin » (mini-lifting)</h3>
         <p class="lead">Effet sculpté de l’ovale et des pommettes, récupération rapide, cicatrices discrètes.</p>
         <span class="pill">Durée efficacité : 5–7 ans</span>
-        <div class="cta">
-          <a class="btn whatsapp" href="https://wa.me/21628296239?text=Devis%20mini-lift%20mannequin">Demander un devis</a>
-        </div>
+        <div class="cta"><a class="btn whatsapp" href="https://wa.me/21628296239?text=Devis%20mini-lift%20mannequin">Demander un devis</a></div>
       </div>
 
       <table class="compare" aria-label="Tableau comparatif liftings">
-        <thead>
-          <tr>
-            <th>Intervention</th>
-            <th>Zones traitées</th>
-            <th>Résultat recherché</th>
-            <th>Durée d’efficacité</th>
-            <th>Prix indicatif</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Intervention</th><th>Zones</th><th>Objectif</th><th>Durée</th><th>Prix indicatif</th></tr></thead>
         <tbody>
-          <tr>
-            <td><strong>Lifting mannequin</strong></td>
-            <td>Ovale, pommettes</td>
-            <td>Aspect sculpté, frais</td>
-            <td>5–7 ans</td>
-            <td>1 600 €</td>
-          </tr>
-          <tr>
-            <td><strong>Lifting cervico-facial</strong></td>
-            <td>Cou + bas du visage</td>
-            <td>Rajeunissement global de l’ovale et du cou</td>
-            <td>8–12 ans</td>
-            <td>2 100 €</td>
-          </tr>
-          <tr>
-            <td><strong>Lifting + lipofilling</strong></td>
-            <td>Visage + volumes par graisse autologue</td>
-            <td>Tenseur + restauration des volumes</td>
-            <td>8–12 ans (part de graisse définitive)</td>
-            <td>2 400 €</td>
-          </tr>
-          <tr>
-            <td><strong>Lifting complet (+ lipo du cou)</strong></td>
-            <td>Visage entier + cou</td>
-            <td>Rajeunissement profond et harmonieux</td>
-            <td>10–12 ans</td>
-            <td>2 400–3 000 €</td>
-          </tr>
+          <tr><td><strong>Lifting mannequin</strong></td><td>Ovale, pommettes</td><td>Aspect sculpté, frais</td><td>5–7 ans</td><td>2 100 €</td></tr>
+          <tr><td><strong>Lifting cervico-facial</strong></td><td>Cou + bas du visage</td><td>Ovale net, cou lissé</td><td>8–12 ans</td><td>2 600 €</td></tr>
+          <tr><td><strong>Lifting + lipofilling</strong></td><td>Visage + volumes graisse</td><td>Tenseur + volumes naturels</td><td>8–12 ans</td><td>2 900 €</td></tr>
+          <tr><td><strong>Lifting complet (+ lipo du cou)</strong></td><td>Visage entier + cou</td><td>Rajeunissement profond</td><td>10–12 ans</td><td>2 900–3 500 €</td></tr>
         </tbody>
       </table>
-
-      <p class="note">* Prix indicatifs non contractuels. Un devis personnalisé est établi après photos et visio.</p>
+      <p class="note">* Prix indicatifs non contractuels. Devis personnalisé après photos et visio.</p>
 
       <div class="service">
-        <h3>Comment choisir ?</h3>
-        <p class="lead">Le mini-lift convient aux relâchements modérés (40–55 ans). Le cervico-facial vise un rajeunissement plus durable si le cou et l’ovale sont plus marqués. L’ajout de lipofilling améliore le naturel en restaurant les volumes.</p>
-        <div class="cta">
-          <a class="btn secondary" href="#devis">📄 Envoyer mes photos pour avis</a>
-        </div>
+        <h3>Choisir la bonne option</h3>
+        <p class="lead">Mini-lift pour relâchement modéré (40–55 ans). Cervico-facial si cou et bajoues marqués. L’ajout de lipofilling améliore le naturel en restaurant les volumes perdus.</p>
+        <div class="cta"><a class="btn secondary" href="#devis">📄 Envoyer mes photos pour avis</a></div>
       </div>
     </div>
   </section>
 
+  <!-- LIPOSUCCION DETAIL -->
   <section id="liposuccion">
     <div class="wrap">
       <div class="eyebrow">Liposuccion</div>
       <h2 class="section-title">Affiner et redessiner les contours</h2>
+
       <div class="service">
-        <h3>Zones fréquentes</h3>
-        <p class="lead">Abdomen, hanches, culotte de cheval, cuisses, bras, sous-menton. Gaine post-op incluse.</p>
+        <h3>Zones fréquentes & inclus</h3>
+        <p class="lead">Abdomen, hanches, culotte de cheval, cuisses, bras, sous-menton. Gaine post-op incluse, conseils de récupération, suivi.</p>
         <span class="pill">À partir de 1 690 €</span>
         <div class="cta">
           <a class="btn whatsapp" href="https://wa.me/21628296239?text=Devis%20Liposuccion">Devis WhatsApp</a>
           <a class="btn secondary" href="#devis">Formulaire devis</a>
         </div>
       </div>
+
+      <table class="compare" aria-label="Forfaits liposuccion">
+        <thead><tr><th>Forfait</th><th>Zones</th><th>Objectif</th><th>Récupération</th><th>À partir de</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Mono-zone</strong></td><td>1 zone ciblée</td><td>Correction locale</td><td>7–10 jours</td><td>1 690 €</td></tr>
+          <tr><td><strong>Multi-zones</strong></td><td>2–3 zones</td><td>Affiner la silhouette</td><td>10–14 jours</td><td>2 150 €</td></tr>
+          <tr><td><strong>360° Abdomen+Flancs</strong></td><td>Ceinture abdominale</td><td>Taille marquée</td><td>14–21 jours</td><td>2 450 €</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Le port d’une gaine 4–6 semaines optimise le résultat. Résultat définitif ≈ 3 mois.</p>
     </div>
   </section>
 
+  <!-- BBL SOFT DETAIL -->
   <section id="bbl">
     <div class="wrap">
       <div class="eyebrow">BBL Soft</div>
       <h2 class="section-title">Transfert de graisse naturel</h2>
+
       <div class="service">
-        <h3>Galbe harmonieux</h3>
-        <p class="lead">Lipofilling fessier avec sélection de graisse, approche sécurisée pour un rendu naturel.</p>
+        <h3>Principe & sécurité</h3>
+        <p class="lead">Lipofilling fessier avec graisse purifiée, plan de zones donneuses, canules adaptées, respect des plans sécuritaires.</p>
         <span class="pill">À partir de 2 990 €</span>
         <div class="cta">
           <a class="btn whatsapp" href="https://wa.me/21628296239?text=Devis%20BBL%20Soft">Devis WhatsApp</a>
           <a class="btn secondary" href="#devis">Formulaire devis</a>
         </div>
       </div>
+
+      <table class="compare" aria-label="BBL Soft">
+        <thead><tr><th>Option</th><th>Inclut</th><th>Objectif</th><th>Récupération</th><th>À partir de</th></tr></thead>
+        <tbody>
+          <tr><td><strong>BBL Soft Essentiel</strong></td><td>Lipo 1–2 zones + transfert</td><td>Galbe discret</td><td>10–14 jours</td><td>2 990 €</td></tr>
+          <tr><td><strong>BBL Soft Plus</strong></td><td>Lipo 3+ zones + transfert</td><td>Galbe marqué, taille fine</td><td>14–21 jours</td><td>3 400 €</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Survie graisse 50–70 % (variable). Coussin BBL recommandé 2–3 semaines.</p>
     </div>
   </section>
 
+  <!-- J-PLASMA DETAIL -->
   <section id="jplasma">
     <div class="wrap">
       <div class="eyebrow">J-Plasma</div>
       <h2 class="section-title">Retendre la peau sans lourde chirurgie</h2>
+
       <div class="service">
-        <h3>Plasma froid</h3>
-        <p class="lead">Améliore la tonicité cutanée (bras, abdomen, cou). Souvent combiné à une lipo douce.</p>
+        <h3>Indications</h3>
+        <p class="lead">Relâchement cutané modéré après perte de poids ou grossesses. Zones : bras, abdomen, cou, dos. Souvent combiné à lipo douce.</p>
         <span class="pill">À partir de 2 150 €</span>
         <div class="cta">
           <a class="btn whatsapp" href="https://wa.me/21628296239?text=Devis%20J-Plasma">Devis WhatsApp</a>
           <a class="btn secondary" href="#devis">Formulaire devis</a>
         </div>
       </div>
+
+      <table class="compare" aria-label="J-Plasma">
+        <thead><tr><th>Option</th><th>Zones</th><th>Objectif</th><th>Récupération</th><th>À partir de</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Local</strong></td><td>1 zone</td><td>Tonicité ciblée</td><td>5–7 jours</td><td>2 150 €</td></tr>
+          <tr><td><strong>Combiné Lipo</strong></td><td>1–2 zones + J-Plasma</td><td>Affiner + retendre</td><td>10–14 jours</td><td>2 650 €</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Amélioration progressive 1–3 mois, stabilisation à 6 mois.</p>
     </div>
   </section>
 
+  <!-- HOLLYWOOD SMILE DETAIL -->
   <section id="hollywood">
     <div class="wrap">
       <div class="eyebrow">Hollywood Smile</div>
       <h2 class="section-title">Facettes, alignement et blanchiment</h2>
+
       <div class="service">
-        <h3>Sourire lumineux</h3>
-        <p class="lead">Design numérique du sourire, facettes céramique, blanchiment en clinique.</p>
+        <h3>Plan du sourire</h3>
+        <p class="lead">Design numérique du sourire (DSD), mock-up, facettes céramique, blanchiment en clinique. Couleur et forme validées avec vous.</p>
         <span class="pill">Facette unitaire : 240 €</span>
         <div class="cta">
           <a class="btn whatsapp" href="https://wa.me/21628296239?text=Devis%20Hollywood%20Smile">Devis WhatsApp</a>
           <a class="btn secondary" href="#devis">Formulaire devis</a>
         </div>
       </div>
+
+      <table class="compare" aria-label="Hollywood Smile">
+        <thead><tr><th>Acte</th><th>Inclut</th><th>Objectif</th><th>Récupération</th><th>À partir de</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Facette céramique</strong></td><td>Empreinte + pose</td><td>Forme & teinte idéales</td><td>48–72 h</td><td>240 € / dent</td></tr>
+          <tr><td><strong>Blanchiment in-office</strong></td><td>1 séance</td><td>Éclaircissement 2–4 teintes</td><td>Immédiat</td><td>170 €</td></tr>
+          <tr><td><strong>Alignement (aligneurs)</strong></td><td>Bilan + gouttières</td><td>Aligner les dents</td><td>Progressif</td><td>Sur devis</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Biomatériaux céramiques, teinte contrôlée. Entretien : gouttières de contention si alignement.</p>
     </div>
   </section>
 
+  <!-- GREFFE CAPILLAIRE DETAIL -->
   <section id="capillaire">
     <div class="wrap">
       <div class="eyebrow">Greffe capillaire</div>
-      <h2 class="section-title">FUE/DHI — densité et ligne naturelle</h2>
+      <h2 class="section-title">FUE / DHI — densité et ligne naturelle</h2>
+
       <div class="service">
-        <h3>Jusqu’à 3 000 greffons</h3>
-        <p class="lead">Plan personnalisé, PRP inclus, soins post-op. Hommes et femmes.</p>
+        <h3>Protocole</h3>
+        <p class="lead">Évaluation Norwood/Ludwig, ligne frontale personnalisée, FUE/DHI, PRP inclus, soins post-op. Hommes & femmes.</p>
         <span class="pill">À partir de 1 490 €</span>
         <div class="cta">
           <a class="btn whatsapp" href="https://wa.me/21628296239?text=Devis%20Greffe%20capillaire">Devis WhatsApp</a>
           <a class="btn secondary" href="#devis">Formulaire devis</a>
         </div>
       </div>
+
+      <table class="compare" aria-label="Greffe capillaire">
+        <thead><tr><th>Pack</th><th>Greffons</th><th>Objectif</th><th>Récupération</th><th>À partir de</th></tr></thead>
+        <tbody>
+          <tr><td><strong>FUE Standard</strong></td><td>Jusqu’à 3 000</td><td>Densifier + ligne</td><td>7–10 jours</td><td>1 490 €</td></tr>
+          <tr><td><strong>FUE/DHI Plus</strong></td><td>3 000–4 000</td><td>Densité renforcée</td><td>10–14 jours</td><td>1 990 €</td></tr>
+          <tr><td><strong>Greffe barbe (FUE)</strong></td><td>Selon besoin</td><td>Contours & densité</td><td>7–10 jours</td><td>1 200 €</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Repousse visible 3–4 mois, résultat final 10–12 mois. PRP et shampooings fournis.</p>
     </div>
   </section>
 
@@ -398,14 +369,14 @@
     <div class="wrap">
       <div class="eyebrow">Galerie</div>
       <h2 class="section-title">Avant / Après & Ambiances</h2>
-      <div class="grid">
-        <figure class="card"><img alt="Salle d'opération moderne" src="https://images.pexels.com/photos/2324837/pexels-photo-2324837.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Bloc opératoire</strong><p>Environnement stérile, matériel de pointe.</p></div></figure>
-        <figure class="card"><img alt="Consultation esthétique" src="https://images.pexels.com/photos/5327654/pexels-photo-5327654.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Consultation</strong><p>Plan personnalisé selon vos objectifs.</p></div></figure>
-        <figure class="card"><img alt="Soins post-op" src="https://images.pexels.com/photos/6129236/pexels-photo-6129236.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Suivi</strong><p>Suivi post-op attentif et structuré.</p></div></figure>
-        <figure class="card"><img alt="Sourire dentaire" src="https://images.pexels.com/photos/4269693/pexels-photo-4269693.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Dentaire</strong><p>Facettes & blanchiment (Hollywood Smile).</p></div></figure>
-        <figure class="card"><img alt="Greffe capillaire" src="https://images.pexels.com/photos/5327652/pexels-photo-5327652.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Capillaire</strong><p>Zones donneuses & repousse naturelle.</p></div></figure>
-        <figure class="card"><img alt="Espace accueil" src="https://images.pexels.com/photos/8459996/pexels-photo-8459996.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Accueil</strong><p>Clinique lumineuse au Lac 2.</p></div></figure>
-      </div>
+    <div class="grid">
+      <figure class="card"><img alt="Salle d'opération moderne" src="https://images.pexels.com/photos/2324837/pexels-photo-2324837.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Bloc opératoire</strong><p>Environnement stérile, matériel de pointe.</p></div></figure>
+      <figure class="card"><img alt="Consultation esthétique" src="https://images.pexels.com/photos/5327654/pexels-photo-5327654.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Consultation</strong><p>Plan personnalisé selon vos objectifs.</p></div></figure>
+      <figure class="card"><img alt="Soins post-op" src="https://images.pexels.com/photos/6129236/pexels-photo-6129236.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Suivi</strong><p>Suivi post-op attentif et structuré.</p></div></figure>
+      <figure class="card"><img alt="Sourire dentaire" src="https://images.pexels.com/photos/4269693/pexels-photo-4269693.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Dentaire</strong><p>Facettes & blanchiment (Hollywood Smile).</p></div></figure>
+      <figure class="card"><img alt="Greffe capillaire" src="https://images.pexels.com/photos/5327652/pexels-photo-5327652.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Capillaire</strong><p>Zones donneuses & repousse naturelle.</p></div></figure>
+      <figure class="card"><img alt="Espace accueil" src="https://images.pexels.com/photos/8459996/pexels-photo-8459996.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Accueil</strong><p>Clinique lumineuse au Lac 2.</p></div></figure>
+    </div>
     </div>
   </section>
 
@@ -422,11 +393,12 @@
               <thead><tr><th>Acte</th><th>À partir de</th><th>Inclut</th></tr></thead>
               <tbody>
                 <tr><td>Liposuccion (zones ciblées)</td><td class="price">1 690€</td><td>Clinique, honoraires, gaine</td></tr>
-                <tr><td>Mini-lift visage</td><td class="price">2 400€</td><td>Bloc + 1 nuit</td></tr>
+                <tr><td>Mini-lift visage</td><td class="price">2 900€</td><td>Bloc + 1 nuit</td></tr>
                 <tr><td>BBL Soft (lipofilling)</td><td class="price">2 990€</td><td>Bloc + séjour clinique</td></tr>
                 <tr><td>J-Plasma + lipo douce</td><td class="price">2 150€</td><td>Zones ciblées</td></tr>
               </tbody>
             </table>
+            <p class="note">Les prix lifting détaillés sont dans la section <a href="#lifting">Lifting</a> (+500 € appliqués).</p>
           </div>
         </div>
         <div class="card">
@@ -465,37 +437,37 @@
       <div class="eyebrow">SEO</div>
       <h2 class="section-title">Ancrages multilingues</h2>
 
-      <div id="fr" class="lang-block">
+      <div id="fr" class="lang-block service">
         <h3>FR — Chirurgie esthétique Tunisie (Lac 2, Tunis)</h3>
         <p>Clinique d’esthétique au <strong>Lac 2, Tunis</strong> : <em>liposuccion Tunisie prix</em>, <em>lifting visage</em>, <em>BBL soft</em>, <em>J-Plasma</em>, <em>Hollywood smile</em>, <em>greffe capillaire FUE/DHI</em>. Devis gratuit, accompagnement francophone.</p>
       </div>
 
-      <div id="fr-be" class="lang-block">
+      <div id="fr-be" class="lang-block service">
         <h3>FR-BE — Depuis la Belgique</h3>
         <p><strong>Chirurgie esthétique Tunisie depuis la Belgique</strong> : packs tout compris, prise en charge aéroport, clinique accréditée. Départ Bruxelles/Charleroi, suivi à distance.</p>
       </div>
 
-      <div id="fr-tn" class="lang-block">
+      <div id="fr-tn" class="lang-block service">
         <h3>FR-TN — Local (Tunisie)</h3>
         <p>Consultation au <strong>Lac 2</strong>, médecins expérimentés, devis clair et délais rapides. Soins esthétiques et dentaires pour résidents Tunisie.</p>
       </div>
 
-      <div id="en" class="lang-block">
+      <div id="en" class="lang-block service">
         <h3>EN — Cosmetic surgery in Tunisia</h3>
         <p>Premium clinic in <strong>Lake 2, Tunis</strong>: liposuction, face-lift, <em>BBL</em>, <em>J-Plasma</em>, <em>Hollywood Smile</em>, hair transplant (FUE/DHI). <strong>Free quote on WhatsApp</strong>.</p>
       </div>
 
-      <div id="it" class="lang-block">
+      <div id="it" class="lang-block service">
         <h3>IT — Chirurgia estetica in Tunisia</h3>
         <p>Clinica al <strong>Lago 2, Tunisi</strong>: liposuzione, lifting, <em>BBL</em>, <em>J-Plasma</em>, <em>Hollywood Smile</em>, trapianto capelli. <strong>Preventivo gratuito</strong>.</p>
       </div>
 
-      <div id="de" class="lang-block">
+      <div id="de" class="lang-block service">
         <h3>DE — Schönheitschirurgie in Tunesien</h3>
         <p>Exklusive Klinik in <strong>See 2, Tunis</strong>: Fettabsaugung, Facelifting, <em>BBL</em>, <em>J-Plasma</em>, <em>Hollywood Smile</em>, Haartransplantation. <strong>Kostenloses Angebot</strong>.</p>
       </div>
 
-      <div id="nl" class="lang-block">
+      <div id="nl" class="lang-block service">
         <h3>NL — Plastische chirurgie in Tunesië</h3>
         <p>Premium kliniek in <strong>Lac 2, Tunis</strong>: liposuctie, facelift, <em>BBL</em>, <em>J-Plasma</em>, haartransplantatie (FUE/DHI). <strong>Gratis offerte via WhatsApp</strong>.</p>
       </div>
@@ -509,46 +481,26 @@
       <h2 class="section-title">Demande de devis rapide</h2>
       <form class="devis" action="mailto:aboprof.bm2@gmail.com" method="post" enctype="text/plain">
         <div class="row two">
-          <div>
-            <label>Nom & Prénom</label>
-            <input name="nom" placeholder="Votre nom" required />
-          </div>
-          <div>
-            <label>WhatsApp</label>
-            <input name="whatsapp" placeholder="+216 28 296 239" />
-          </div>
+          <div><label>Nom & Prénom</label><input name="nom" placeholder="Votre nom" required /></div>
+          <div><label>WhatsApp</label><input name="whatsapp" placeholder="+216 28 296 239" /></div>
         </div>
         <div class="row two">
           <div>
             <label>Service</label>
             <select name="service">
-              <option>Liposuccion</option>
-              <option>Liftings</option>
-              <option>BBL Soft</option>
-              <option>J-Plasma</option>
-              <option>Hollywood Smile</option>
-              <option>Greffe capillaire</option>
+              <option>Liposuccion</option><option>Liftings</option><option>BBL Soft</option>
+              <option>J-Plasma</option><option>Hollywood Smile</option><option>Greffe capillaire</option>
             </select>
           </div>
           <div>
             <label>Pays</label>
             <select name="pays">
-              <option>Belgique</option>
-              <option>France</option>
-              <option>Tunisie</option>
-              <option>Italie</option>
-              <option>Allemagne</option>
-              <option>Pays-Bas</option>
-              <option>Autre</option>
+              <option>Belgique</option><option>France</option><option>Tunisie</option>
+              <option>Italie</option><option>Allemagne</option><option>Pays-Bas</option><option>Autre</option>
             </select>
           </div>
         </div>
-        <div class="row">
-          <div style="flex:1">
-            <label>Votre message</label>
-            <textarea name="message" rows="4" placeholder="Dites-nous vos objectifs (zones, photos, délais)"></textarea>
-          </div>
-        </div>
+        <div class="row"><div style="flex:1"><label>Votre message</label><textarea name="message" rows="4" placeholder="Dites-nous vos objectifs (zones, photos, délais)"></textarea></div></div>
         <div class="row">
           <button type="submit" class="btn whatsapp">Envoyer le devis par e-mail</button>
           <a class="btn secondary" href="https://wa.me/21628296239?text=Bonjour%2C%20je%20souhaite%20un%20devis%20:%20" target="_blank" rel="noopener">Ou via WhatsApp</a>
@@ -588,16 +540,16 @@
     <div class="wrap" style="padding:26px 0">
       <div class="grid">
         <div>
-          <strong>Tunisie Chirurgie Esthétique Center N°1 — EstheConnect</strong><br/>
-          © 2025 — Tous droits réservés.
+          <strong>Tunisie Chirurgie Esthétique Center N°1 — EstheConnect</strong><br/>© 2025 — Tous droits réservés.
         </div>
         <div class="credits">
-          <strong>Crédits médias</strong><br/>
-          Vidéo héro : Pixabay (MP4) + Wikimedia (OGV). Photos libres : Pexels.
+          <strong>Crédits médias</strong><br/>Vidéo héro : Pixabay (MP4) + Wikimedia (OGV). Photos libres : Pexels.
         </div>
         <div>
           <strong>Navigation</strong><br/>
-          <a href="#services">Services</a> • <a href="#lifting">Lifting</a> • <a href="#liposuccion">Liposuccion</a> • <a href="#bbl">BBL</a> • <a href="#jplasma">J-Plasma</a> • <a href="#hollywood">Hollywood Smile</a> • <a href="#capillaire">Greffe capillaire</a> • <a href="#prix">Prix</a> • <a href="#devis">Devis</a> • <a href="#contact">Contact</a>
+          <a href="#services">Services</a> • <a href="#lifting">Lifting</a> • <a href="#liposuccion">Liposuccion</a> •
+          <a href="#bbl">BBL</a> • <a href="#jplasma">J-Plasma</a> • <a href="#hollywood">Hollywood Smile</a> •
+          <a href="#capillaire">Greffe capillaire</a> • <a href="#prix">Prix</a> • <a href="#devis">Devis</a> • <a href="#contact">Contact</a>
         </div>
       </div>
     </div>
