@@ -85,9 +85,23 @@
     .service .cta{justify-content:flex-start}
     .note{font-size:12px;opacity:.8;margin-top:6px}
 
-    footer{background:#0e0e10;color:#ddd;border-top:3px solid var(--gold)}
-    footer .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-    .credits a{color:#ccc;text-decoration:underline}
+    /* Galerie services + Lightbox */
+    .svc-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:10px}
+    .svc-card{background:#fff;border:1px solid #f2e8f6;border-radius:14px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,.06)}
+    .svc-media{position:relative;aspect-ratio:4/3;background:#faf6fb}
+    .svc-media img{width:100%;height:100%;object-fit:cover;display:block}
+    .svc-tag{position:absolute;left:10px;top:10px;background:#fff7fb;color:#C2185B;border:1px solid #f1d6f6;font-weight:800;padding:4px 8px;border-radius:999px;font-size:11px}
+    .svc-cap{padding:10px 12px}
+    .svc-cap h4{margin:0 0 6px;font-size:15px}
+    .svc-cap p{margin:0;font-size:13px;opacity:. Nine}
+    .before-after{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:640px){.before-after{grid-template-columns:1fr}}
+    .lightbox{position:fixed;inset:0;display:none;place-items:center;background:rgba(0,0,0,.72);z-index:1000;padding:18px}
+    .lightbox.open{display:grid}
+    .lightbox img{max-width:min(1200px,95vw);max-height:88vh;object-fit:contain;border-radius:12px;box-shadow:0 10px 32px rgba(0,0,0,.5)}
+    .lightbox .close{position:absolute;top:12px;right:12px;background:#fff;border:0;padding:8px 12px;border-radius:999px;font-weight:800;cursor:pointer}
+    .lightbox .caption{margin-top:10px;color:#fff;text-align:center;font-size:14px;max-width:900px}
+    .svc-media button{all:unset;cursor:zoom-in;position:absolute;inset:0}
   </style>
 
   <!-- JSON-LD -->
@@ -218,10 +232,45 @@
       </table>
       <p class="note">* Prix indicatifs non contractuels. Devis personnalisé après photos et visio.</p>
 
-      <div class="service">
-        <h3>Choisir la bonne option</h3>
-        <p class="lead">Mini-lift pour relâchement modéré (40–55 ans). Cervico-facial si cou et bajoues marqués. L’ajout de lipofilling améliore le naturel en restaurant les volumes perdus.</p>
-        <div class="cta"><a class="btn secondary" href="#devis">📄 Envoyer mes photos pour avis</a></div>
+      <!-- Galerie Lifting -->
+      <h3 style="margin-top:22px">Galerie lifting</h3>
+      <div class="svc-gallery">
+        <figure class="svc-card">
+          <div class="svc-media before-after">
+            <button data-zoom data-caption="Mini-lift — Avant"><img loading="lazy" src="/images/lifting/minilift-avant.jpg" alt="Mini-lift avant"></button>
+            <button data-zoom data-caption="Mini-lift — 3 mois"><img loading="lazy" src="/images/lifting/minilift-apres.jpg" alt="Mini-lift après 3 mois"></button>
+            <span class="svc-tag">Avant / Après</span>
+          </div>
+          <figcaption class="svc-cap">
+            <h4>Mini-lift (mannequin)</h4>
+            <p>Ovale redessiné, pommettes projetées, cicatrices discrètes.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="svc-card">
+          <div class="svc-media before-after">
+            <button data-zoom data-caption="Cervico-facial — Avant"><img loading="lazy" src="/images/lifting/cf-avant.jpg" alt="Lifting cervico-facial avant"></button>
+            <button data-zoom data-caption="Cervico-facial — 6 mois"><img loading="lazy" src="/images/lifting/cf-apres.jpg" alt="Lifting cervico-facial après 6 mois"></button>
+            <span class="svc-tag">Avant / Après</span>
+          </div>
+          <figcaption class="svc-cap">
+            <h4>Cervico-facial</h4>
+            <p>Cou lissé, ovale net. Durée d’efficacité estimée 8–12 ans.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="svc-card">
+          <div class="svc-media">
+            <button data-zoom data-caption="Lifting + lipofilling — restauration des volumes">
+              <img loading="lazy" src="/images/lifting/lipofilling.jpg" alt="Lifting avec lipofilling">
+            </button>
+            <span class="svc-tag">Focus</span>
+          </div>
+          <figcaption class="svc-cap">
+            <h4>Lifting + lipofilling</h4>
+            <p>Effet tenseur + volumes naturels (pommettes, sillons, tempes).</p>
+          </figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -232,25 +281,67 @@
       <div class="eyebrow">Liposuccion</div>
       <h2 class="section-title">Affiner et redessiner les contours</h2>
 
-    <div class="service">
-      <h3>Zones fréquentes & inclus</h3>
-      <p class="lead">Abdomen, hanches, culotte de cheval, cuisses, bras, sous-menton. Gaine post-op incluse, conseils de récupération, suivi.</p>
-      <span class="pill">À partir de 1 650 €</span>
-      <div class="cta">
-        <a class="btn whatsapp" href="https://wa.me/21628296239?text=Devis%20Liposuccion">Devis WhatsApp</a>
-        <a class="btn secondary" href="#devis">Formulaire devis</a>
+      <div class="service">
+        <h3>Zones fréquentes & inclus</h3>
+        <p class="lead">Abdomen, hanches, culotte de cheval, cuisses, bras, sous-menton. Gaine post-op incluse, conseils de récupération, suivi.</p>
+        <span class="pill">À partir de 1 650 €</span>
+        <div class="cta">
+          <a class="btn whatsapp" href="https://wa.me/21628296239?text=Devis%20Liposuccion">Devis WhatsApp</a>
+          <a class="btn secondary" href="#devis">Formulaire devis</a>
+        </div>
       </div>
-    </div>
 
-    <table class="compare" aria-label="Forfaits liposuccion">
-      <thead><tr><th>Forfait</th><th>Zones</th><th>Objectif</th><th>Récupération</th><th>À partir de</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Mono-zone</strong></td><td>1 zone ciblée</td><td>Correction locale</td><td>7–10 jours</td><td>1 650 €</td></tr>
-        <tr><td><strong>Multi-zones</strong></td><td>2–3 zones</td><td>Affiner la silhouette</td><td>10–14 jours</td><td>2 100 €</td></tr>
-        <tr><td><strong>360° Abdomen+Flancs</strong></td><td>Ceinture abdominale</td><td>Taille marquée</td><td>14–21 jours</td><td>2 400 €</td></tr>
-      </tbody>
-    </table>
-    <p class="note">Le port d’une gaine 4–6 semaines optimise le résultat. Résultat définitif ≈ 3 mois.</p>
+      <table class="compare" aria-label="Forfaits liposuccion">
+        <thead><tr><th>Forfait</th><th>Zones</th><th>Objectif</th><th>Récupération</th><th>À partir de</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Mono-zone</strong></td><td>1 zone ciblée</td><td>Correction locale</td><td>7–10 jours</td><td>1 650 €</td></tr>
+          <tr><td><strong>Multi-zones</strong></td><td>2–3 zones</td><td>Affiner la silhouette</td><td>10–14 jours</td><td>2 100 €</td></tr>
+          <tr><td><strong>360° Abdomen+Flancs</strong></td><td>Ceinture abdominale</td><td>Taille marquée</td><td>14–21 jours</td><td>2 400 €</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Le port d’une gaine 4–6 semaines optimise le résultat. Résultat définitif ≈ 3 mois.</p>
+
+      <!-- Galerie Liposuccion -->
+      <h3 style="margin-top:22px">Galerie liposuccion</h3>
+      <div class="svc-gallery">
+        <figure class="svc-card">
+          <div class="svc-media before-after">
+            <button data-zoom data-caption="Liposuccion abdomen — Avant"><img loading="lazy" src="/images/lipo/abdomen-avant.jpg" alt="Liposuccion abdomen avant"></button>
+            <button data-zoom data-caption="Liposuccion abdomen — 3 mois"><img loading="lazy" src="/images/lipo/abdomen-apres.jpg" alt="Liposuccion abdomen après"></button>
+            <span class="svc-tag">Avant / Après</span>
+          </div>
+          <figcaption class="svc-cap">
+            <h4>Abdomen & flancs</h4>
+            <p>Affiner la taille, améliorer la projection. Gaine 4–6 semaines.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="svc-card">
+          <div class="svc-media">
+            <button data-zoom data-caption="Liposuccion cuisses — résultat 6 semaines">
+              <img loading="lazy" src="/images/lipo/cuisses.jpg" alt="Liposuccion cuisses résultat">
+            </button>
+            <span class="svc-tag">Résultat</span>
+          </div>
+          <figcaption class="svc-cap">
+            <h4>Cuisses (interne/culotte de cheval)</h4>
+            <p>Harmoniser la silhouette en conservant des courbes naturelles.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="svc-card">
+          <div class="svc-media">
+            <button data-zoom data-caption="Liposuccion bras — 8 semaines">
+              <img loading="lazy" src="/images/lipo/bras.jpg" alt="Liposuccion bras">
+            </button>
+            <span class="svc-tag">Résultat</span>
+          </div>
+          <figcaption class="svc-cap">
+            <h4>Bras</h4>
+            <p>Déstockage localisé avec retension cutanée progressive.</p>
+          </figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -278,6 +369,35 @@
         </tbody>
       </table>
       <p class="note">Survie graisse 50–70 % (variable). Coussin BBL recommandé 2–3 semaines.</p>
+
+      <!-- Galerie BBL -->
+      <h3 style="margin-top:22px">Galerie BBL Soft</h3>
+      <div class="svc-gallery">
+        <figure class="svc-card">
+          <div class="svc-media before-after">
+            <button data-zoom data-caption="BBL Soft — Avant"><img loading="lazy" src="/images/bbl/avant.jpg" alt="BBL Soft avant"></button>
+            <button data-zoom data-caption="BBL Soft — 3 mois"><img loading="lazy" src="/images/bbl/apres.jpg" alt="BBL Soft après"></button>
+            <span class="svc-tag">Avant / Après</span>
+          </div>
+          <figcaption class="svc-cap">
+            <h4>Galbe naturel</h4>
+            <p>Transfert de graisse purifiée, respect des plans sécuritaires.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="svc-card">
+          <div class="svc-media">
+            <button data-zoom data-caption="Zones donneuses (lipo douce) pour BBL">
+              <img loading="lazy" src="/images/bbl/donneuses.jpg" alt="Zones donneuses BBL">
+            </button>
+            <span class="svc-tag">Technique</span>
+          </div>
+          <figcaption class="svc-cap">
+            <h4>Zones donneuses</h4>
+            <p>Ceinture abdominale / hanches pour creuser la taille et valoriser le galbe.</p>
+          </figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -305,6 +425,35 @@
         </tbody>
       </table>
       <p class="note">Amélioration progressive 1–3 mois, stabilisation à 6 mois.</p>
+
+      <!-- Galerie J-Plasma -->
+      <h3 style="margin-top:22px">Galerie J-Plasma</h3>
+      <div class="svc-gallery">
+        <figure class="svc-card">
+          <div class="svc-media before-after">
+            <button data-zoom data-caption="J-Plasma abdomen — Avant"><img loading="lazy" src="/images/jplasma/abdomen-avant.jpg" alt="J-Plasma abdomen avant"></button>
+            <button data-zoom data-caption="J-Plasma abdomen — 2 mois"><img loading="lazy" src="/images/jplasma/abdomen-apres.jpg" alt="J-Plasma abdomen après"></button>
+            <span class="svc-tag">Avant / Après</span>
+          </div>
+          <figcaption class="svc-cap">
+            <h4>Abdomen</h4>
+            <p>Retension cutanée après perte de poids ou grossesses.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="svc-card">
+          <div class="svc-media">
+            <button data-zoom data-caption="J-Plasma cou — souvent associé à lipo douce">
+              <img loading="lazy" src="/images/jplasma/cou.jpg" alt="J-Plasma cou">
+            </button>
+            <span class="svc-tag">Association</span>
+          </div>
+          <figcaption class="svc-cap">
+            <h4>Cou</h4>
+            <p>Définition de l’angle cervico-mentonnier, effet progressif 1–3 mois.</p>
+          </figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -312,7 +461,7 @@
   <section id="hollywood">
     <div class="wrap">
       <div class="eyebrow">Hollywood Smile</div>
-      <h2 class="section-title">Facettes, alignement et blanchiment</h2>
+    <h2 class="section-title">Facettes, alignement et blanchiment</h2>
 
       <div class="service">
         <h3>Plan du sourire</h3>
@@ -333,6 +482,35 @@
         </tbody>
       </table>
       <p class="note">Biomatériaux céramiques, teinte contrôlée. Entretien : gouttières de contention si alignement.</p>
+
+      <!-- Galerie Hollywood Smile -->
+      <h3 style="margin-top:22px">Galerie Hollywood Smile</h3>
+      <div class="svc-gallery">
+        <figure class="svc-card">
+          <div class="svc-media before-after">
+            <button data-zoom data-caption="Facettes — Avant"><img loading="lazy" src="/images/dentaire/facettes-avant.jpg" alt="Facettes avant"></button>
+            <button data-zoom data-caption="Facettes — Après"><img loading="lazy" src="/images/dentaire/facettes-apres.jpg" alt="Facettes après"></button>
+            <span class="svc-tag">Avant / Après</span>
+          </div>
+          <figcaption class="svc-cap">
+            <h4>Facettes céramique</h4>
+            <p>DSD, mock-up, teinte validée. Pose précise et durable.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="svc-card">
+          <div class="svc-media">
+            <button data-zoom data-caption="Blanchiment en clinique — résultats immédiats">
+              <img loading="lazy" src="/images/dentaire/blanchiment.jpg" alt="Blanchiment dentaire">
+            </button>
+            <span class="svc-tag">Résultat</span>
+          </div>
+          <figcaption class="svc-cap">
+            <h4>Blanchiment</h4>
+            <p>Éclaircissement 2–4 teintes, protocole sécurisé.</p>
+          </figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -361,10 +539,39 @@
         </tbody>
       </table>
       <p class="note">Repousse visible 3–4 mois, résultat final 10–12 mois. PRP et shampooings fournis.</p>
+
+      <!-- Galerie Greffe capillaire -->
+      <h3 style="margin-top:22px">Galerie greffe capillaire</h3>
+      <div class="svc-gallery">
+        <figure class="svc-card">
+          <div class="svc-media before-after">
+            <button data-zoom data-caption="FUE — Avant"><img loading="lazy" src="/images/hair/fue-avant.jpg" alt="Greffe FUE avant"></button>
+            <button data-zoom data-caption="FUE — 10 mois"><img loading="lazy" src="/images/hair/fue-apres.jpg" alt="Greffe FUE après 10 mois"></button>
+            <span class="svc-tag">Avant / Après</span>
+          </div>
+          <figcaption class="svc-cap">
+            <h4>FUE Standard</h4>
+            <p>Densité homogène, ligne frontale naturelle. PRP inclus.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="svc-card">
+          <div class="svc-media">
+            <button data-zoom data-caption="Greffe barbe — comblement des zones clairsemées">
+              <img loading="lazy" src="/images/hair/barbe.jpg" alt="Greffe barbe">
+            </button>
+            <span class="svc-tag">Résultat</span>
+          </div>
+          <figcaption class="svc-cap">
+            <h4>Greffe barbe</h4>
+            <p>Redéfinition des contours, densité contrôlée selon style.</p>
+          </figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
-  <!-- GALERIE -->
+  <!-- GALERIE (ambiance) -->
   <section id="galerie">
     <div class="wrap">
       <div class="eyebrow">Galerie</div>
@@ -555,6 +762,13 @@
     </div>
   </footer>
 
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="close" aria-label="Fermer">Fermer ✕</button>
+    <img alt="" id="lb-img" />
+    <div class="caption" id="lb-cap"></div>
+  </div>
+
   <script>
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -574,6 +788,26 @@
         a.href = u.toString();
       } catch(e){}
     });
+
+    // Lightbox simple
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbCap = document.getElementById('lb-cap');
+    document.addEventListener('click', (e)=>{
+      const btn = e.target.closest('[data-zoom]');
+      if(btn){
+        const img = btn.querySelector('img');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt || '';
+        lbCap.textContent = btn.dataset.caption || '';
+        lb.classList.add('open'); lb.setAttribute('aria-hidden','false');
+      }
+      if(e.target.classList.contains('close') || e.target===lb){
+        lb.classList.remove('open'); lb.setAttribute('aria-hidden','true');
+        lbImg.removeAttribute('src'); lbCap.textContent='';
+      }
+    });
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ lb.classList.remove('open'); }});
   </script>
 </body>
 </html>
