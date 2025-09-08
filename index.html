@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Accueil — EstheConnect</title>
+  <title>Accueil — EstheConnect Center</title>
 
-  <!-- ✅ On conserve tous tes CSS existants pour garder EXACTEMENT le même style/couverture -->
+  <!-- ✅ On conserve TES CSS existants pour garder exactement le look/couverture -->
   <link rel="stylesheet" href="/EstheConnect/assets/css/style.css"/>
   <link rel="stylesheet" href="/EstheConnect/assets/site.css"/>
   <link rel="stylesheet" href="/EstheConnect/style.css"/>
@@ -17,39 +17,84 @@
     :root{--ink:#111;--rose:#e6b0ba;--gold:#c8a64b;--bg:#0c0c0d}
     *{box-sizing:border-box}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:#eee}
-    .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-    a{color:inherit}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1160px;margin:0 auto;padding:0 16px}
+    .muted{opacity:.85}
+    .card{background:#111;border:1px solid #222;border-radius:18px;padding:16px}
+    .tag{display:inline-block;background:#1a1a1a;border:1px solid #333;border-radius:999px;padding:6px 12px;font-size:12px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:12px;border:1px solid #333;background:#151515}
+    .grid{display:grid;gap:14px}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
 
-    /* 🪄 Badge convertisseur */
+    header.hero{padding:32px 0 10px;border-bottom:1px solid #222;background:linear-gradient(180deg,#0c0c0d,rgba(12,12,13,.6)),url('assets/img/hero.jpg') center/cover no-repeat}
+    header.hero .box{display:flex;gap:18px;align-items:center}
+    header.hero img{border-radius:16px;object-fit:cover}
+    h1{margin:0 0 6px;font-size:28px;letter-spacing:.2px}
+    h2{margin:0 0 12px;font-size:24px}
+    h3{margin:0 0 8px;font-size:18px}
+
+    nav.quick{position:sticky;top:0;background:#0c0c0dbf;backdrop-filter:blur(6px);border-bottom:1px solid #222;z-index:30}
+    nav.quick .wrap{display:flex;gap:8px;flex-wrap:wrap;padding:10px 16px}
+
+    .price{font-weight:700}
+    .badge{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;border:1px solid #333;background:#1a1a1a;font-size:12px}
+    .ok{color:#9ae6b4}
+
+    /* Galerie */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+    .gallery img, .gallery video{width:100%;height:180px;object-fit:cover;border-radius:12px}
+
+    /* Widget devise */
     .currency-widget{position:fixed;right:12px;bottom:12px;z-index:9999;background:#111a;border:1px solid #222;padding:10px 12px;border-radius:14px;backdrop-filter:blur(6px)}
     .currency-widget label{font-size:12px;opacity:.8;margin-right:6px}
     .currency-widget select{background:#000;border:1px solid #333;color:#fff;border-radius:10px;padding:6px}
     .currency-note{font-size:11px;opacity:.7;margin-top:6px}
 
-    /* Sections utilitaires optionnelles (non intrusif si déjà présent dans tes CSS) */
-    section{padding:28px 0}
-    .muted{opacity:.8}
-    .card{background:#111;border:1px solid #222;border-radius:18px;padding:16px}
-    .tag{display:inline-block;background:#1a1a1a;border:1px solid #333;border-radius:999px;padding:4px 10px;font-size:12px}
+    footer{border-top:1px solid #222;margin-top:30px}
   </style>
+
+  <!-- ✅ JSON‑LD pour SEO (MedicalClinic) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "EstheConnect Center",
+    "description": "Plateforme esthétique haut de gamme — chirurgie, dentaire, greffe capillaire, médecine esthétique.",
+    "url": "https://fort2008.github.io/EstheConnect/",
+    "image": "https://fort2008.github.io/EstheConnect/assets/img/hero.jpg",
+    "areaServed": ["Belgique","Tunisie","Turquie","Europe"],
+    "telephone": "+21628296239",
+    "email": "aboprof.bm2@gmail.com",
+    "priceRange": "€€",
+    "medicalSpecialty": ["PlasticSurgery","CosmeticSurgery","Dentistry","Dermatology"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "TN"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "telephone": "+21628296239",
+      "email": "aboprof.bm2@gmail.com",
+      "availableLanguage": ["fr","nl","en","de","it","ar"]
+    },
+    "currenciesAccepted": "EUR, TND, TRY, USD, GBP, MAD"
+  }
+  </script>
 </head>
 <body>
 
-  <!-- ⛑️ COUVERTURE / HERO : LAISSÉE INTacte (aucune modif structurelle).
-       Si ton index original contient déjà un header/hero/vidéo, remplace UNIQUEMENT
-       cette section par ton code existant. Tout le reste (JS auto-srcset + conversion)
-       fonctionnera sans toucher au design. -->
-  <header id="hero">
+  <!-- ================= HERO (conservé) ================= -->
+  <header class="hero" id="hero">
     <div class="wrap">
-      <div class="card" style="display:flex;gap:18px;align-items:center">
-        <picture style="flex:0 0 120px">
-          <!-- 📸 Exemple: on garde src ET on ajoute srcset automatiquement via JS si manquant -->
-          <img src="assets/img/hero.jpg" alt="EstheConnect" width="120" height="120" style="border-radius:16px;object-fit:cover" loading="lazy">
-        </picture>
+      <div class="box card">
+        <img src="assets/img/hero.jpg" alt="EstheConnect" width="120" height="120" loading="lazy">
         <div>
-          <h1 style="margin:0 0 6px;font-size:28px;letter-spacing:.2px">EstheConnect Center</h1>
-          <p class="muted" style="margin:0">Plateforme esthétique haut de gamme — Tunisie & Turquie</p>
-          <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+          <h1>EstheConnect Center</h1>
+          <p class="muted">Plateforme esthétique haut de gamme — Tunisie & Turquie</p>
+          <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
             <span class="tag">Chirurgie</span>
             <span class="tag">Dentaire</span>
             <span class="tag">Greffe capillaire</span>
@@ -60,46 +105,269 @@
     </div>
   </header>
 
-  <!-- 🧾 SECTION PRIX (exemple non intrusif).
-       Si tes tableaux de prix existent déjà, tu n'as rien à changer.
-       Le convertisseur lit soit data-price-eur, soit du texte commençant par €/. -->
-  <section id="prix" class="wrap">
-    <h2>Tarifs — exemples</h2>
+  <!-- ============== NAV RAPIDE (ancrages) ============== -->
+  <nav class="quick">
+    <div class="wrap">
+      <a class="tag" href="#srv-lifting-mannequin">Lifting mannequin</a>
+      <a class="tag" href="#srv-cervico-facial">Cervico-facial</a>
+      <a class="tag" href="#srv-lifting-lipofilling">Lifting + lipofilling</a>
+      <a class="tag" href="#srv-lifting-complet">Lifting complet</a>
+      <a class="tag" href="#srv-lipo">Liposuccion</a>
+      <a class="tag" href="#srv-bbl">BBL</a>
+      <a class="tag" href="#srv-abdomino">Abdominoplastie</a>
+      <a class="tag" href="#srv-greffe">Greffe capillaire</a>
+      <a class="tag" href="#srv-dentaire">Dentaire (facettes, implants)</a>
+      <a class="tag" href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ================== TARIFS RÉSUMÉ ================== -->
+  <section id="prix" class="wrap" style="padding:22px 0">
+    <h2>Tarifs — aperçu rapide</h2>
     <div class="card">
-      <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px">
-        <li>
-          <strong>Lifting mannequin</strong>
-          <div class="muted">Déroulement, anesthésie générale, 2–3h</div>
-          <div class="price" data-price-eur="2400">€ 2 400</div>
-        </li>
-        <li>
-          <strong>Lifting cervico‑facial</strong>
-          <div class="muted">2–4h, 1 nuit clinique</div>
-          <div class="price" data-price-eur="2500">€ 2 500</div>
-        </li>
-        <li>
-          <strong>Lifting + lipofilling</strong>
-          <div class="muted">Greffe de graisse autologue</div>
-          <div class="price" data-price-eur="2400">€ 2 400</div>
-        </li>
-        <li>
-          <strong>Lifting complet</strong>
-          <div class="muted">Plan complet personnalisé</div>
-          <div class="price" data-price-eur="2900" data-range-max-eur="3500">€ 2 900 – 3 500</div>
-        </li>
-      </ul>
-      <p class="currency-note">Affichage converti automatiquement selon la devise choisie (base EUR).</p>
+      <div class="grid grid-4">
+        <div><strong>Lifting mannequin</strong><div class="price" data-price-eur="2350">€ 2 350</div></div>
+        <div><strong>Cervico‑facial</strong><div class="price" data-price-eur="2450">€ 2 450</div></div>
+        <div><strong>Lifting + lipofilling</strong><div class="price" data-price-eur="2350">€ 2 350</div></div>
+        <div><strong>Lifting complet</strong><div class="price" data-price-eur="2850" data-range-max-eur="3450">€ 2 850 – 3 450</div></div>
+        <div><strong>Liposuccion (multi‑zones)</strong><div class="price" data-price-eur="2200">€ 2 200</div></div>
+        <div><strong>BBL (avec lipo multi‑zones)</strong><div class="price" data-price-eur="2500">€ 2 500</div></div>
+        <div><strong>Abdominoplastie</strong><div class="price" data-price-eur="1900">€ 1 900</div></div>
+        <div><strong>Lipo + Abdomino + BBL</strong><div class="price" data-price-eur="2600" data-range-max-eur="3000">€ 2 600 – 3 000</div></div>
+        <div><strong>Greffe capillaire (FUE)</strong><div class="price" data-price-eur="1800">€ 1 800</div></div>
+        <div><strong>Facettes dentaires (par unité)</strong><div class="price" data-price-eur="300">€ 300</div></div>
+        <div><strong>Implant dentaire (par implant)</strong><div class="price" data-price-eur="550">€ 550</div></div>
+        <div><strong>Botox (zone)</strong><div class="price" data-price-eur="130">€ 130</div></div>
+      </div>
+      <p class="currency-note">Affichage converti automatiquement selon la devise choisie. Prix de base en EUR, indicatifs « à partir de ».
+      </p>
     </div>
   </section>
 
-  <!-- 📞 CONTACT (WhatsApp & Email cliquables, conservés si déjà présents) -->
-  <section id="contact">
-    <div class="wrap card">
-      <h2>Contact</h2>
-      <p>WhatsApp : <a href="https://wa.me/21628296239" target="_blank" rel="noopener">+216 28 296 239</a><br/>
-         Email : <a href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a></p>
+  <!-- ============== TEMPLATES DE SECTION SERVICE ============== -->
+  
+  <!-- LIFTING MANNEQUIN -->
+  <section id="srv-lifting-mannequin" class="wrap" style="padding:24px 0">
+    <h2>Lifting mannequin</h2>
+    <div class="card grid grid-2">
+      <div>
+        <picture>
+          <img src="assets/img/services/lifting-mannequin/hero.jpg" alt="Lifting mannequin" loading="lazy" style="width:100%;height:260px;object-fit:cover;border-radius:14px">
+        </picture>
+        <div class="gallery" style="margin-top:10px">
+          <img src="assets/img/services/lifting-mannequin/gal-1.jpg" alt="Avant" loading="lazy">
+          <img src="assets/img/services/lifting-mannequin/gal-2.jpg" alt="Après" loading="lazy">
+          <video src="assets/video/services/lifting-mannequin/hero.mp4" controls preload="metadata"></video>
+        </div>
+      </div>
+      <div>
+        <p class="muted">Remise en tension des tissus du visage pour un résultat naturel, cicatrices discrètes, anesthésie générale.
+          Durée opératoire 2–3h. Reprise sociale 10–14 jours.</p>
+        <ul class="muted">
+          <li>Consultation pré‑opératoire, bilan sanguin</li>
+          <li>1 nuit de clinique incluse selon indication</li>
+          <li>Suivi post‑opératoire et contrôle J3/J7</li>
+        </ul>
+        <p class="badge"><span class="ok">●</span> <span class="price" data-price-eur="2350">€ 2 350</span> — à partir de</p>
+        <a class="btn" href="#contact">Demander un devis</a>
+      </div>
     </div>
   </section>
+
+  <!-- CERVICO-FACIAL -->
+  <section id="srv-cervico-facial" class="wrap" style="padding:24px 0">
+    <h2>Lifting cervico‑facial</h2>
+    <div class="card grid grid-2">
+      <div>
+        <img src="assets/img/services/cervico-facial/hero.jpg" alt="Lifting cervico-facial" loading="lazy" style="width:100%;height:260px;object-fit:cover;border-radius:14px">
+        <div class="gallery" style="margin-top:10px">
+          <img src="assets/img/services/cervico-facial/gal-1.jpg" alt="Avant" loading="lazy">
+          <img src="assets/img/services/cervico-facial/gal-2.jpg" alt="Après" loading="lazy">
+          <video src="assets/video/services/cervico-facial/hero.mp4" controls preload="metadata"></video>
+        </div>
+      </div>
+      <div>
+        <p class="muted">Redéfinition de l’ovale, traitement du cou et des bajoues. 2–4h d’intervention, souvent 1 nuit.
+        Décollement limité, prise en charge des muscles (SMAS/platysma) selon indication.</p>
+        <p class="badge"><span class="ok">●</span> <span class="price" data-price-eur="2450">€ 2 450</span> — à partir de</p>
+        <a class="btn" href="#contact">Demander un devis</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIFTING + LIPOFILLING -->
+  <section id="srv-lifting-lipofilling" class="wrap" style="padding:24px 0">
+    <h2>Lifting + lipofilling</h2>
+    <div class="card grid grid-2">
+      <div>
+        <img src="assets/img/services/lifting-lipofilling/hero.jpg" alt="Lifting + lipofilling" loading="lazy" style="width:100%;height:260px;object-fit:cover;border-radius:14px">
+        <div class="gallery" style="margin-top:10px">
+          <img src="assets/img/services/lifting-lipofilling/gal-1.jpg" alt="Avant" loading="lazy">
+          <img src="assets/img/services/lifting-lipofilling/gal-2.jpg" alt="Après" loading="lazy">
+          <video src="assets/video/services/lifting-lipofilling/hero.mp4" controls preload="metadata"></video>
+        </div>
+      </div>
+      <div>
+        <p class="muted">Association du lifting à une greffe de graisse autologue (restauration des volumes : pommettes, sillons, tempes). 
+          Résultat progressif et durable.</p>
+        <p class="badge"><span class="ok">●</span> <span class="price" data-price-eur="2350">€ 2 350</span> — à partir de</p>
+        <a class="btn" href="#contact">Demander un devis</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIFTING COMPLET (FOURCHETTE) -->
+  <section id="srv-lifting-complet" class="wrap" style="padding:24px 0">
+    <h2>Lifting complet</h2>
+    <div class="card grid grid-2">
+      <div>
+        <img src="assets/img/services/lifting-complet/hero.jpg" alt="Lifting complet" loading="lazy" style="width:100%;height:260px;object-fit:cover;border-radius:14px">
+        <div class="gallery" style="margin-top:10px">
+          <img src="assets/img/services/lifting-complet/gal-1.jpg" alt="Avant" loading="lazy">
+          <img src="assets/img/services/lifting-complet/gal-2.jpg" alt="Après" loading="lazy">
+          <video src="assets/video/services/lifting-complet/hero.mp4" controls preload="metadata"></video>
+        </div>
+      </div>
+      <div>
+        <p class="muted">Prise en charge globale visage + cou. Options selon cas : canthopexie, mini‑lift temporal, lipofilling ciblé.</p>
+        <p class="badge"><span class="ok">●</span> <span class="price" data-price-eur="2850" data-range-max-eur="3450">€ 2 850 – 3 450</span></p>
+        <a class="btn" href="#contact">Demander un devis</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIPOSUCCION -->
+  <section id="srv-lipo" class="wrap" style="padding:24px 0">
+    <h2>Liposuccion (multi‑zones)</h2>
+    <div class="card grid grid-2">
+      <div>
+        <img src="assets/img/services/liposuccion/hero.jpg" alt="Liposuccion" loading="lazy" style="width:100%;height:260px;object-fit:cover;border-radius:14px">
+        <div class="gallery" style="margin-top:10px">
+          <img src="assets/img/services/liposuccion/gal-1.jpg" alt="Avant" loading="lazy">
+          <img src="assets/img/services/liposuccion/gal-2.jpg" alt="Après" loading="lazy">
+          <video src="assets/video/services/liposuccion/hero.mp4" controls preload="metadata"></video>
+        </div>
+      </div>
+      <div>
+        <p class="muted">Aspiration des excès graisseux (abdomen, flancs, cuisses, bras, etc.). Possibilité VASER/micro‑air selon indication.</p>
+        <p class="badge"><span class="ok">●</span> <span class="price" data-price-eur="2200">€ 2 200</span> — à partir de</p>
+        <a class="btn" href="#contact">Demander un devis</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BBL -->
+  <section id="srv-bbl" class="wrap" style="padding:24px 0">
+    <h2>BBL (Brazilian Butt Lift)</h2>
+    <div class="card grid grid-2">
+      <div>
+        <img src="assets/img/services/bbl/hero.jpg" alt="BBL" loading="lazy" style="width:100%;height:260px;object-fit:cover;border-radius:14px">
+        <div class="gallery" style="margin-top:10px">
+          <img src="assets/img/services/bbl/gal-1.jpg" alt="Avant" loading="lazy">
+          <img src="assets/img/services/bbl/gal-2.jpg" alt="Après" loading="lazy">
+          <video src="assets/video/services/bbl/hero.mp4" controls preload="metadata"></video>
+        </div>
+      </div>
+      <div>
+        <p class="muted">Remodelage fessier par réinjection de graisse (prélevée par lipo). Compression post‑opératoire et coussin BBL recommandés.</p>
+        <p class="badge"><span class="ok">●</span> <span class="price" data-price-eur="2500">€ 2 500</span> — avec lipo multi‑zones</p>
+        <a class="btn" href="#contact">Demander un devis</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABDOMINOPLASTIE -->
+  <section id="srv-abdomino" class="wrap" style="padding:24px 0">
+    <h2>Abdominoplastie</h2>
+    <div class="card grid grid-2">
+      <div>
+        <img src="assets/img/services/abdominoplastie/hero.jpg" alt="Abdominoplastie" loading="lazy" style="width:100%;height:260px;object-fit:cover;border-radius:14px">
+        <div class="gallery" style="margin-top:10px">
+          <img src="assets/img/services/abdominoplastie/gal-1.jpg" alt="Avant" loading="lazy">
+          <img src="assets/img/services/abdominoplastie/gal-2.jpg" alt="Après" loading="lazy">
+          <video src="assets/video/services/abdominoplastie/hero.mp4" controls preload="metadata"></video>
+        </div>
+      </div>
+      <div>
+        <p class="muted">Plastie abdominale avec remise en tension cutanée et éventuelle cure de diastasis. Peut être associée à lipo des flancs.</p>
+        <p class="badge"><span class="ok">●</span> <span class="price" data-price-eur="1900">€ 1 900</span> — à partir de</p>
+        <a class="btn" href="#contact">Demander un devis</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GREFFE CAPILLAIRE -->
+  <section id="srv-greffe" class="wrap" style="padding:24px 0">
+    <h2>Greffe capillaire (FUE)</h2>
+    <div class="card grid grid-2">
+      <div>
+        <img src="assets/img/services/greffe/hero.jpg" alt="Greffe capillaire FUE" loading="lazy" style="width:100%;height:260px;object-fit:cover;border-radius:14px">
+        <div class="gallery" style="margin-top:10px">
+          <img src="assets/img/services/greffe/gal-1.jpg" alt="Avant" loading="lazy">
+          <img src="assets/img/services/greffe/gal-2.jpg" alt="Après" loading="lazy">
+          <video src="assets/video/services/greffe/hero.mp4" controls preload="metadata"></video>
+        </div>
+      </div>
+      <div>
+        <p class="muted">Extraction folliculaire FUE, implantation zones frontale/tonsure selon plan. Traitement PRP possible.</p>
+        <p class="badge"><span class="ok">●</span> <span class="price" data-price-eur="1800">€ 1 800</span> — à partir de</p>
+        <a class="btn" href="#contact">Demander un devis</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DENTAIRE -->
+  <section id="srv-dentaire" class="wrap" style="padding:24px 0">
+    <h2>Dentaire</h2>
+    <div class="card grid grid-2">
+      <div>
+        <img src="assets/img/services/dentaire/hero.jpg" alt="Dentaire" loading="lazy" style="width:100%;height:260px;object-fit:cover;border-radius:14px">
+        <div class="gallery" style="margin-top:10px">
+          <img src="assets/img/services/dentaire/gal-1.jpg" alt="Facettes" loading="lazy">
+          <img src="assets/img/services/dentaire/gal-2.jpg" alt="Implants" loading="lazy">
+          <video src="assets/video/services/dentaire/hero.mp4" controls preload="metadata"></video>
+        </div>
+      </div>
+      <div>
+        <p class="muted">Facettes céramiques/zircone, implants, blanchiment. Plan de traitement sur devis avec radios si besoin.</p>
+        <div class="grid grid-2">
+          <div><strong>Facette / unité</strong><div class="price" data-price-eur="300">€ 300</div></div>
+          <div><strong>Implant / unité</strong><div class="price" data-price-eur="550">€ 550</div></div>
+        </div>
+        <a class="btn" href="#contact">Demander un devis</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== CONTACT =================== -->
+  <section id="contact" class="wrap" style="padding:28px 0">
+    <h2>Contact</h2>
+    <div class="card grid grid-3">
+      <div>
+        <p><strong>WhatsApp</strong><br>
+          <a href="https://wa.me/21628296239" target="_blank" rel="noopener">+216 28 296 239</a></p>
+        <p><strong>Email</strong><br>
+          <a href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a></p>
+      </div>
+      <div>
+        <p><strong>Langues</strong><br>
+          FR · NL · EN · DE · IT · AR</p>
+        <p><span class="badge">Réponse sous 24h</span></p>
+      </div>
+      <div>
+        <p class="muted">Merci d’inclure : nom, âge, taille/poids, antécédents, photos bien éclairées (face/profil), dates souhaitées.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap" style="padding:16px 0 40px;display:flex;justify-content:space-between;align-items:center;gap:10px">
+      <div class="muted">© <span id="y"></span> EstheConnect Center</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a class="tag" href="#hero">Haut de page</a>
+      </div>
+    </div>
+  </footer>
 
   <!-- 💱 Widget sélection devise -->
   <div class="currency-widget" aria-live="polite">
@@ -116,45 +384,27 @@
   </div>
 
   <!-- =============================== -->
-  <!-- 🚀 JS UTILITAIRE INTÉGRÉ       -->
+  <!-- 🚀 SCRIPT INTÉGRÉ (src→srcset + conversion) -->
   <!-- =============================== -->
   <script>
+  // Année footer
+  document.getElementById('y').textContent = new Date().getFullYear();
+
   ;(function(){
-    // 1) 🔁 Remplacement automatique "src" -> pattern "srcset" (sans rien casser)
-    //    👉 On ne supprime PAS src, on ajoute srcset si absent pour compatibilité
+    // 1) 🔁 IMG: ajouter srcset si absent, conserver src
     function ensureSrcset(img){
       if(!img || img.tagName !== 'IMG') return;
       if(!img.getAttribute('src')) return;
       if(!img.hasAttribute('srcset')){
-        // On duplique la même URL pour 1x (et laisser le navigateur gérer)
         const s = img.getAttribute('src').trim();
         if(s){ img.setAttribute('srcset', s + ' 1x'); }
       }
       if(!img.hasAttribute('loading')){ img.setAttribute('loading','lazy'); }
       if(!img.hasAttribute('decoding')){ img.setAttribute('decoding','async'); }
     }
+    function walkAndPatchSrcset(root){ root.querySelectorAll('img').forEach(ensureSrcset); }
 
-    function walkAndPatchSrcset(root){
-      const imgs = root.querySelectorAll('img');
-      imgs.forEach(ensureSrcset);
-    }
-
-    document.addEventListener('DOMContentLoaded', function(){
-      walkAndPatchSrcset(document);
-      const mo = new MutationObserver(muts=>{
-        muts.forEach(m=>{
-          m.addedNodes && m.addedNodes.forEach(n=>{
-            if(n.nodeType===1){
-              if(n.tagName==='IMG') ensureSrcset(n);
-              else walkAndPatchSrcset(n);
-            }
-          });
-        });
-      });
-      mo.observe(document.documentElement,{childList:true,subtree:true});
-    });
-
-    // 2) 💱 Auto‑conversion de devises (base EUR)
+    // 2) 💱 Auto‑conversion (base EUR)
     const STORE_KEY = 'estheconnect.currency';
     const RATES_KEY = 'estheconnect.rates';
     const RATES_TTL_MS = 1000*60*60*12; // 12h
@@ -163,14 +413,8 @@
     const info   = document.getElementById('currencyInfo');
 
     const preferred = localStorage.getItem(STORE_KEY) || guessCurrency();
-    if(select && preferred){
-      select.value = preferred;
-    }
-
-    select && select.addEventListener('change', ()=>{
-      localStorage.setItem(STORE_KEY, select.value);
-      convertAllPrices();
-    });
+    if(select && preferred){ select.value = preferred; }
+    select && select.addEventListener('change', ()=>{ localStorage.setItem(STORE_KEY, select.value); convertAllPrices(); });
 
     function guessCurrency(){
       try{
@@ -185,43 +429,25 @@
     }
 
     async function getRates(){
-      // Cache avec TTL
       try{
         const cached = JSON.parse(localStorage.getItem(RATES_KEY)||'null');
-        if(cached && (Date.now()-cached.timestamp < RATES_TTL_MS)){
-          return cached.data;
-        }
+        if(cached && (Date.now()-cached.timestamp < RATES_TTL_MS)) return cached.data;
       }catch(e){}
-
-      // Récupère taux base EUR (CORS OK)
       try{
         const res = await fetch('https://api.exchangerate.host/latest?base=EUR');
         const data = await res.json();
-        if(data && data.rates){
-          localStorage.setItem(RATES_KEY, JSON.stringify({timestamp:Date.now(), data:data.rates}));
-          return data.rates;
-        }
-      }catch(e){
-        console.warn('Rates fetch failed, using fallback', e);
-      }
-      // Fallback minimal (à ajuster si besoin)
-      const fallback = {TND:3.40, TRY:35.0, USD:1.08, GBP:0.84, MAD:10.7, EUR:1};
-      return fallback;
+        if(data && data.rates){ localStorage.setItem(RATES_KEY, JSON.stringify({timestamp:Date.now(), data:data.rates})); return data.rates; }
+      }catch(e){ console.warn('Rates fetch failed, using fallback', e); }
+      return {TND:3.40, TRY:35.0, USD:1.08, GBP:0.84, MAD:10.7, EUR:1};
     }
 
     function formatCurrency(val, code){
-      try{
-        // Quelques devise manquent parfois dans Intl, on gère EUR par défaut
-        return new Intl.NumberFormat(undefined, {style:'currency', currency:code}).format(val);
-      }catch(e){
-        const sym = code==='TND'?'د.ت':code==='TRY'?'₺':code==='USD'?'$':code==='GBP'?'£':code==='MAD'?'د.م.':'€';
-        return sym+' '+val.toFixed(0);
-      }
+      try{ return new Intl.NumberFormat(undefined, {style:'currency', currency:code}).format(val); }
+      catch(e){ const sym = code==='TND'?'د.ت':code==='TRY'?'₺':code==='USD'?'$':code==='GBP'?'£':code==='MAD'?'د.م.':'€'; return sym+' '+val.toFixed(0); }
     }
 
     function parseEuroText(txt){
-      // Cherche € 2 400 ou 2400€ etc.
-      const m = txt.replace(/\u00A0/g,' ').match(/€\s*([0-9][0-9 .\u00A0]*)/);
+      const m = (txt||'').replace(/\u00A0/g,' ').match(/€\s*([0-9][0-9 .\u00A0]*)/);
       if(!m) return null;
       const num = parseFloat(m[1].replace(/[ .\u00A0]/g,''));
       return isFinite(num) ? num : null;
@@ -232,44 +458,36 @@
       const rate = rates[currency] || 1;
       const conv = eur * rate;
       const converted = formatCurrency(conv, currency);
-
-      // Affichage: on garde le texte d'origine et on ajoute (≈ XXX)
       const base = el.getAttribute('data-original-text') || el.textContent.trim();
       if(!el.hasAttribute('data-original-text')) el.setAttribute('data-original-text', base);
-
-      // Gestion éventuelle d'une plage de prix (data-range-max-eur)
       const max = parseFloat(el.getAttribute('data-range-max-eur'));
       let extra = '';
-      if(isFinite(max)){
-        const convMax = formatCurrency(max * rate, currency);
-        extra = ' – ' + convMax;
-      }
-
+      if(isFinite(max)){ extra = ' – ' + formatCurrency(max * rate, currency); }
       el.textContent = base.replace(/\(≈.*\)$/,'').trim() + ' (≈ ' + converted + extra + ')';
     }
 
     async function convertAllPrices(){
       const currency = (select && select.value) || 'EUR';
       const rates = await getRates();
-
-      // 1. éléments explicites
-      document.querySelectorAll('[data-price-eur]').forEach(el=>{
-        const eur = parseFloat(el.getAttribute('data-price-eur'));
-        setConvertedText(el, eur, currency, rates);
-      });
-
-      // 2. détection douce: toutes les .price sans data attr, si elles contiennent €
-      document.querySelectorAll('.price:not([data-price-eur])').forEach(el=>{
-        const eur = parseEuroText(el.textContent||'');
-        if(eur!=null) setConvertedText(el, eur, currency, rates);
-      });
-
+      document.querySelectorAll('[data-price-eur]').forEach(el=>{ const eur = parseFloat(el.getAttribute('data-price-eur')); setConvertedText(el, eur, currency, rates); });
+      document.querySelectorAll('.price:not([data-price-eur])').forEach(el=>{ const eur = parseEuroText(el.textContent||''); if(eur!=null) setConvertedText(el, eur, currency, rates); });
       info && (info.textContent = currency==='EUR' ? 'Affichage en EUR' : 'Conversion en '+currency+' (base EUR)');
     }
 
-    // Lancer au chargement
-    document.addEventListener('DOMContentLoaded', convertAllPrices);
+    document.addEventListener('DOMContentLoaded', function(){
+      // Images
+      walkAndPatchSrcset(document);
+      const mo = new MutationObserver(muts=>{ muts.forEach(m=>{ m.addedNodes && m.addedNodes.forEach(n=>{ if(n.nodeType===1){ if(n.tagName==='IMG') ensureSrcset(n); else walkAndPatchSrcset(n); } }); }); });
+      mo.observe(document.documentElement,{childList:true,subtree:true});
+      // Prix
+      convertAllPrices();
+    });
   })();
+  </script>
+
+  <script>
+    // Défilement doux (au cas où absent de tes CSS)
+    try{ document.documentElement.style.scrollBehavior = 'smooth'; }catch(e){}
   </script>
 
 </body>
