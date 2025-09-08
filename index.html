@@ -1,276 +1,508 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Accueil — EstheConnect</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tunisie Chirurgie Esthétique Center N°1 — EstheConnect</title>
+  <meta name="description" content="Clinique d'esthétique au Lac 2 (Tunis). Liposuccion, Liftings, BBL Soft, J‑Plasma, Hollywood Smile, Greffe capillaire. Devis gratuit. Patients Belgique/France/Italie/Allemagne." />
+  <link rel="canonical" href="https://fort2008.github.io/fort2008-Tunisie-Chirurgie-Center/" />
 
-  <!-- ✅ On conserve tous tes CSS existants pour garder EXACTEMENT le même style/couverture -->
-  <link rel="stylesheet" href="/EstheConnect/assets/css/style.css"/>
-  <link rel="stylesheet" href="/EstheConnect/assets/site.css"/>
-  <link rel="stylesheet" href="/EstheConnect/style.css"/>
-  <link rel="stylesheet" href="assets/css/style.css"/>
-  <link rel="stylesheet" href="assets/site.css"/>
-  <link rel="stylesheet" href="style.css"/>
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Tunisie Chirurgie Esthétique Center N°1 — Devis & Prix Tout Compris" />
+  <meta property="og:description" content="Chirurgie esthétique en Tunisie (Lac 2, Tunis). Liposuccion, Liftings, BBL Soft, J‑Plasma, Hollywood Smile, Greffe capillaire. Devis rapide WhatsApp." />
+  <meta property="og:image" content="https://images.pexels.com/photos/2324837/pexels-photo-2324837.jpeg?auto=compress&cs=tinysrgb&w=1600" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Hreflang alternates (single page, multi‑lang anchors) -->
+  <link rel="alternate" hreflang="fr" href="#fr" />
+  <link rel="alternate" hreflang="fr-BE" href="#fr-be" />
+  <link rel="alternate" hreflang="fr-TN" href="#fr-tn" />
+  <link rel="alternate" hreflang="en" href="#en" />
+  <link rel="alternate" hreflang="it" href="#it" />
+  <link rel="alternate" hreflang="de" href="#de" />
 
   <style>
-    :root{--ink:#111;--rose:#e6b0ba;--gold:#c8a64b;--bg:#0c0c0d}
+    :root {
+      --rose:#E91E63;         /* rose chic */
+      --rose-700:#C2185B;
+      --gold:#D4AF37;         /* doré élégant */
+      --ink:#1b1b1f;
+      --bg:#fff7fb;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --success:#10b981;
+    }
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:#eee}
-    .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-    a{color:inherit}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;line-height:1.5}
+    a{color:var(--rose);text-decoration:none}
+    a:hover{text-decoration:underline}
 
-    /* 🪄 Badge convertisseur */
-    .currency-widget{position:fixed;right:12px;bottom:12px;z-index:9999;background:#111a;border:1px solid #222;padding:10px 12px;border-radius:14px;backdrop-filter:blur(6px)}
-    .currency-widget label{font-size:12px;opacity:.8;margin-right:6px}
-    .currency-widget select{background:#000;border:1px solid #333;color:#fff;border-radius:10px;padding:6px}
-    .currency-note{font-size:11px;opacity:.7;margin-top:6px}
+    /* Top bar */
+    header.nav{position:sticky;top:0;z-index:50;background:linear-gradient(90deg,var(--rose),var(--rose-700));color:#fff;border-bottom:3px solid var(--gold);box-shadow:0 6px 18px rgba(0,0,0,.18)}
+    .wrap{max-width:1200px;margin-inline:auto;padding:0 18px}
+    .row{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:10px 0}
+    .brand{display:flex;gap:12px;align-items:center;font-weight:800;letter-spacing:.2px}
+    .brand .logo{width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,transparent 50%), linear-gradient(135deg,var(--gold),#fce7b2)}
+    .brand span{font-size:18px}
+    nav a{color:#fff;opacity:.95;font-weight:600;padding:10px 10px;border-radius:10px}
+    nav a:hover{background:rgba(255,255,255,.12)}
 
-    /* Sections utilitaires optionnelles (non intrusif si déjà présent dans tes CSS) */
-    section{padding:28px 0}
-    .muted{opacity:.8}
-    .card{background:#111;border:1px solid #222;border-radius:18px;padding:16px}
-    .tag{display:inline-block;background:#1a1a1a;border:1px solid #333;border-radius:999px;padding:4px 10px;font-size:12px}
+    /* Hero */
+    .hero{position:relative;isolation:isolate;min-height:66vh;display:grid;place-items:center;overflow:hidden;border-bottom:4px solid var(--gold)}
+    .hero video,.hero .fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.02) saturate(1.05) brightness(.92)}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.25), rgba(0,0,0,.05));z-index:0}
+    .hero .content{position:relative;z-index:1;color:#fff;text-align:center;padding:40px 18px;max-width:1000px}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);padding:8px 12px;border:1px solid rgba(255,255,255,.3);border-radius:100px;font-weight:700;backdrop-filter:blur(6px)}
+    .title{font-size:clamp(28px,5vw,56px);margin:14px 0 6px;line-height:1.05}
+    .subtitle{font-size:clamp(15px,2.3vw,22px);opacity:.95}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:16px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;background:#fff;color:var(--ink);font-weight:800;border:2px solid var(--gold);box-shadow:0 10px 18px rgba(0,0,0,.15)}
+    .btn.whatsapp{background:linear-gradient(180deg,#fff,#fef7ff)}
+    .btn.secondary{background:transparent;color:#fff;border-color:#fff}
+    .btn:hover{transform:translateY(-1px)}
+    .tiny{font-size:12px;opacity:.8}
+
+    /* Sections */
+    section{padding:48px 0}
+    h2.section-title{font-size:clamp(24px,3.5vw,34px);margin:0 0 10px;display:flex;align-items:center;gap:10px}
+    .eyebrow{color:var(--rose-700);font-weight:900;letter-spacing:.18em;text-transform:uppercase;font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+    .card{background:var(--card);border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.08);overflow:hidden;border:1px solid #f4e7fb}
+    .card img{width:100%;height:180px;object-fit:cover}
+    .card .p{padding:14px 14px 18px}
+    .chip{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid #f1d6f6;background:#fff7fb;font-weight:700;color:var(--rose-700);font-size:12px}
+
+    /* Pricing table */
+    table.pricing{width:100%;border-collapse:collapse;overflow:hidden;border-radius:14px;background:#fff;box-shadow:0 8px 20px rgba(0,0,0,.06)}
+    table.pricing th,table.pricing td{padding:12px;border-bottom:1px solid #f2e8f6;text-align:left}
+    table.pricing th{background:linear-gradient(90deg,#fff, #fff7fb)}
+    table.pricing tr:hover td{background:#fffafc}
+    .price{font-weight:900;color:var(--rose-700)}
+
+    /* Language blocks */
+    .lang-block{background:#fff;border:1px solid #f4e7fb;border-left:6px solid var(--gold);border-radius:12px;padding:14px;margin:10px 0}
+    .lang-block h3{margin:0 0 8px;font-size:18px;color:var(--rose-700)}
+
+    /* Contact / form */
+    form.devis{background:#fff;border:1px solid #f4e7fb;border-radius:18px;padding:16px;box-shadow:0 8px 20px rgba(0,0,0,.06)}
+    form.devis .row{gap:12px;flex-wrap:wrap;justify-content:flex-start}
+    input,select,textarea{width:100%;padding:12px;border:1px solid #ead7f6;border-radius:12px;background:#fff}
+    label{font-weight:700;font-size:14px;color:#544}
+    .inline{display:flex;gap:12px;flex-wrap:wrap}
+    .two>*{flex:1 1 280px}
+
+    /* Footer */
+    footer{background:#0e0e10;color:#ddd;border-top:3px solid var(--gold)}
+    footer .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+    .credits a{color:#ccc;text-decoration:underline}
   </style>
-</head>
-<body>
 
-  <!-- ⛑️ COUVERTURE / HERO : LAISSÉE INTacte (aucune modif structurelle).
-       Si ton index original contient déjà un header/hero/vidéo, remplace UNIQUEMENT
-       cette section par ton code existant. Tout le reste (JS auto-srcset + conversion)
-       fonctionnera sans toucher au design. -->
-  <header id="hero">
+  <!-- JSON-LD: Organization + Clinic -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "Tunisie Chirurgie Esthétique Center N°1 — EstheConnect",
+    "description": "Clinique d'esthétique au Lac 2 (Tunis). Liposuccion, Liftings, BBL Soft, J-Plasma, Hollywood Smile, Greffe capillaire.",
+    "url": "https://fort2008.github.io/fort2008-Tunisie-Chirurgie-Center/",
+    "logo": "https://fort2008.github.io/fort2008-Tunisie-Chirurgie-Center/logo.png",
+    "email": "mailto:aboprof.bm2@gmail.com",
+    "telephone": "+21628296239",
+    "address": {"@type": "PostalAddress","streetAddress": "Les Berges du Lac 2","addressLocality": "Tunis","addressCountry": "TN"},
+    "sameAs": ["https://wa.me/21628296239"],
+    "openingHours": "Mo-Sa 09:00-19:00",
+    "medicalSpecialty": ["PlasticSurgery","CosmeticSurgery","Dentistry","Dermatology"]
+  }
+  </script>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="wrap row">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <span>Tunisie Chirurgie Esthétique Center N°1</span>
+      </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#prix">Prix</a>
+        <a href="#devis">Devis</a>
+        <a href="#contact">Contact</a>
+        <a href="#fr" title="Français">FR</a>
+        <a href="#en" title="English">EN</a>
+        <a href="#it" title="Italiano">IT</a>
+        <a href="#de" title="Deutsch">DE</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO with medical video (MP4 first) -->
+  <section class="hero" aria-label="Couverture">
+    <video autoplay muted loop playsinline poster="https://images.pexels.com/photos/2324837/pexels-photo-2324837.jpeg?auto=compress&cs=tinysrgb&h=1200">
+      <source src="https://cdn.pixabay.com/vimeo/133084691/Medicine-Health-440-1280x720.mp4" type="video/mp4" />
+      <source src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Digital-video-recording-in-trauma-surgery-using-commercially-available-equipment-1757-7241-21-27-S1.ogv" type="video/ogg" />
+      Votre navigateur ne supporte pas la vidéo HTML5.
+    </video>
+    <div class="content wrap">
+      <span class="badge">Esthétique haut de gamme • Clinique Lac 2</span>
+      <h1 class="title">Votre esthétique, notre expertise</h1>
+      <p class="subtitle">Liposuccion, Liftings, <strong>BBL Soft</strong>, <strong>J‑Plasma</strong>, Hollywood Smile, <strong>Greffe capillaire</strong> — encadrement médical complet.</p>
+      <div class="cta">
+        <a class="btn whatsapp" href="https://wa.me/21628296239?text=Bonjour%20EstheConnect%20:%20je%20souhaite%20un%20devis%20%F0%9F%93%9D" target="_blank" rel="noopener">📲 Devis WhatsApp</a>
+        <a class="btn secondary" href="#devis">📄 Demande de devis</a>
+      </div>
+      <p class="tiny">Réponse rapide • Devis clair • Accompagnement voyage médical</p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
     <div class="wrap">
-      <div class="card" style="display:flex;gap:18px;align-items:center">
-        <picture style="flex:0 0 120px">
-          <!-- 📸 Exemple: on garde src ET on ajoute srcset automatiquement via JS si manquant -->
-          <img src="assets/img/hero.jpg" alt="EstheConnect" width="120" height="120" style="border-radius:16px;object-fit:cover" loading="lazy">
-        </picture>
-        <div>
-          <h1 style="margin:0 0 6px;font-size:28px;letter-spacing:.2px">EstheConnect Center</h1>
-          <p class="muted" style="margin:0">Plateforme esthétique haut de gamme — Tunisie & Turquie</p>
-          <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
-            <span class="tag">Chirurgie</span>
-            <span class="tag">Dentaire</span>
-            <span class="tag">Greffe capillaire</span>
-            <span class="tag">Médecine esthétique</span>
+      <div class="eyebrow">Services</div>
+      <h2 class="section-title">Actes phares</h2>
+      <div class="grid">
+        <!-- Liposuccion -->
+        <article class="card">
+          <img alt="Bloc opératoire - intervention" src="https://images.pexels.com/photos/6291298/pexels-photo-6291298.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+          <div class="p">
+            <span class="chip">Liposuccion</span>
+            <h3>Affiner la silhouette</h3>
+            <p>Technique d’aspiration des excès graisseux (abdomen, hanches, cuisses). Récupération rapide avec gaine.</p>
+          </div>
+        </article>
+        <!-- Liftings -->
+        <article class="card">
+          <img alt="Consultation pré-opératoire esthétique" src="https://images.pexels.com/photos/10521230/pexels-photo-10521230.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+          <div class="p">
+            <span class="chip">Liftings</span>
+            <h3>Visage rajeuni</h3>
+            <p>Mini‑lift, cervico‑facial, blépharoplastie : retendre, lisser, redéfinir les contours avec cicatrices discrètes.</p>
+          </div>
+        </article>
+        <!-- BBL Soft -->
+        <article class="card">
+          <img alt="Soin corporel non invasif" src="https://images.pexels.com/photos/5042605/pexels-photo-5042605.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+          <div class="p">
+            <span class="chip">BBL Soft</span>
+            <h3>Courbes naturelles</h3>
+            <p>Transfert de graisse qualifiée avec approche sécurisée pour un galbe harmonieux et naturel.</p>
+          </div>
+        </article>
+        <!-- J‑Plasma -->
+        <article class="card">
+          <img alt="Mesure pré‑opératoire J‑Plasma" src="https://images.pexels.com/photos/7585313/pexels-photo-7585313.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+          <div class="p">
+            <span class="chip">J‑Plasma</span>
+            <h3>Retension cutanée</h3>
+            <p>Énergie plasma froide pour retendre la peau (bras, abdomen, cou) — souvent associée à une lipo douce.</p>
+          </div>
+        </article>
+        <!-- Hollywood Smile -->
+        <article class="card">
+          <img alt="Examen dentaire moderne" src="https://images.pexels.com/photos/6528858/pexels-photo-6528858.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+          <div class="p">
+            <span class="chip">Hollywood Smile</span>
+            <h3>Facettes & blanchiment</h3>
+            <p>Sourire lumineux : facettes, alignement, blanchiment guidé par design numérique du sourire.</p>
+          </div>
+        </article>
+        <!-- Greffe capillaire -->
+        <article class="card">
+          <img alt="Cabinet moderne au Lac 2" src="https://images.pexels.com/photos/5619462/pexels-photo-5619462.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+          <div class="p">
+            <span class="chip">Greffe capillaire</span>
+            <h3>Technique FUE/DHI</h3>
+            <p>Densité et ligne frontale naturelles avec plan personnalisé — hommes et femmes.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section id="galerie">
+    <div class="wrap">
+      <div class="eyebrow">Galerie</div>
+      <h2 class="section-title">Avant / Après & Ambiances</h2>
+      <div class="grid">
+        <figure class="card"><img alt="Salle d'opération moderne" src="https://images.pexels.com/photos/2324837/pexels-photo-2324837.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Bloc opératoire</strong><p>Environnement stérile, matériel de pointe.</p></div></figure>
+        <figure class="card"><img alt="Consultation esthétique" src="https://images.pexels.com/photos/5327654/pexels-photo-5327654.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Consultation</strong><p>Plan personnalisé selon vos objectifs.</p></div></figure>
+        <figure class="card"><img alt="Soins post-op" src="https://images.pexels.com/photos/6129236/pexels-photo-6129236.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Suivi</strong><p>Suivi post‑op attentif et structuré.</p></div></figure>
+        <figure class="card"><img alt="Sourire dentaire" src="https://images.pexels.com/photos/4269693/pexels-photo-4269693.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Dentaire</strong><p>Facettes & blanchiment (Hollywood Smile).</p></div></figure>
+        <figure class="card"><img alt="Greffe capillaire" src="https://images.pexels.com/photos/5327652/pexels-photo-5327652.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Capillaire</strong><p>Zones donneuses & repousse naturelle.</p></div></figure>
+        <figure class="card"><img alt="Espace accueil" src="https://images.pexels.com/photos/8459996/pexels-photo-8459996.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Accueil</strong><p>Clinique lumineuse au Lac 2.</p></div></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICES -->
+  <section id="prix">
+    <div class="wrap">
+      <div class="eyebrow">Prix</div>
+      <h2 class="section-title">Formules & packs tout compris (vol en option)</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="p">
+            <h3>Chirurgie</h3>
+            <table class="pricing">
+              <thead><tr><th>Acte</th><th>À partir de</th><th>Inclut</th></tr></thead>
+              <tbody>
+                <tr><td>Liposuccion (zones ciblées)</td><td class="price">1 690€</td><td>Clinique, honoraires, gaine</td></tr>
+                <tr><td>Mini‑lift visage</td><td class="price">2 400€</td><td>Bloc + 1 nuit</td></tr>
+                <tr><td>BBL Soft (lipofilling)</td><td class="price">2 990€</td><td>Bloc + séjour clinique</td></tr>
+                <tr><td>J‑Plasma + lipo douce</td><td class="price">2 150€</td><td>Zones ciblées</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <div class="p">
+            <h3>Dentaire</h3>
+            <table class="pricing">
+              <thead><tr><th>Acte</th><th>À partir de</th><th>Inclut</th></tr></thead>
+              <tbody>
+                <tr><td>Facette céramique unitaire</td><td class="price">240€</td><td>Empreinte + pose</td></tr>
+                <tr><td>Blanchiment in‑office</td><td class="price">170€</td><td>1 séance</td></tr>
+                <tr><td>Implant dentaire</td><td class="price">530€</td><td>Implant + pilier</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <div class="p">
+            <h3>Capillaire</h3>
+            <table class="pricing">
+              <thead><tr><th>Acte</th><th>À partir de</th><th>Inclut</th></tr></thead>
+              <tbody>
+                <tr><td>Greffe FUE (jusqu’à 3000 greffons)</td><td class="price">1 490€</td><td>PRP + soins post-op</td></tr>
+                <tr><td>Greffe barbe (FUE)</td><td class="price">1 200€</td><td>Séance unique</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <p class="tiny">* Prix indicatifs non contractuels — devis personnalisé après photos & visio.</p>
+    </div>
+  </section>
+
+  <!-- SEO language microcopy / anchors -->
+  <section id="seo">
+    <div class="wrap">
+      <div class="eyebrow">SEO</div>
+      <h2 class="section-title">Ancrages multilingues</h2>
+
+      <div id="fr" class="lang-block">
+        <h3>FR — Chirurgie esthétique Tunisie (Lac 2, Tunis)</h3>
+        <p>Clinique d’esthétique au <strong>Lac 2, Tunis</strong> : <em>liposuccion Tunisie prix</em>, <em>lifting visage</em>, <em>BBL soft</em>, <em>J‑Plasma</em>, <em>Hollywood smile</em>, <em>greffe capillaire FUE/DHI</em>. Devis gratuit, accompagnement francophone.</p>
+      </div>
+
+      <div id="fr-be" class="lang-block">
+        <h3>FR‑BE — Depuis la Belgique</h3>
+        <p><strong>Chirurgie esthétique Tunisie depuis la Belgique</strong> : packs tout compris, prise en charge aéroport, clinique accréditée. Départ Bruxelles/Charleroi, suivi à distance.</p>
+      </div>
+
+      <div id="fr-tn" class="lang-block">
+        <h3>FR‑TN — Local (Tunisie)</h3>
+        <p>Consultation au <strong>Lac 2</strong>, médecins expérimentés, devis clair et délais rapides. Soins esthétiques et dentaires pour résidents Tunisie.</p>
+      </div>
+
+      <div id="en" class="lang-block">
+        <h3>EN — Cosmetic surgery in Tunisia</h3>
+        <p>Premium clinic in <strong>Lake 2, Tunis</strong>: liposuction, face-lift, <em>BBL</em>, <em>J‑Plasma</em>, <em>Hollywood Smile</em>, hair transplant (FUE/DHI). <strong>Free quote on WhatsApp</strong>.</p>
+      </div>
+
+      <div id="it" class="lang-block">
+        <h3>IT — Chirurgia estetica in Tunisia</h3>
+        <p>Clinica al <strong>Lago 2, Tunisi</strong>: liposuzione, lifting, <em>BBL</em>, <em>J‑Plasma</em>, <em>Hollywood Smile</em>, trapianto capelli. <strong>Preventivo gratuito</strong>.</p>
+      </div>
+
+      <div id="de" class="lang-block">
+        <h3>DE — Schönheitschirurgie in Tunesien</h3>
+        <p>Exklusive Klinik in <strong>See 2, Tunis</strong>: Fettabsaugung, Facelifting, <em>BBL</em>, <em>J‑Plasma</em>, Hollywood Smile, Haartransplantation. <strong>Kostenloses Angebot</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEVIS -->
+  <section id="devis">
+    <div class="wrap">
+      <div class="eyebrow">Devis</div>
+      <h2 class="section-title">Demande de devis rapide</h2>
+      <form class="devis" action="mailto:aboprof.bm2@gmail.com" method="post" enctype="text/plain">
+        <div class="row two">
+          <div>
+            <label>Nom & Prénom</label>
+            <input name="nom" placeholder="Votre nom" required />
+          </div>
+          <div>
+            <label>WhatsApp</label>
+            <input name="whatsapp" placeholder="+216 28 296 239" />
+          </div>
+        </div>
+        <div class="row two">
+          <div>
+            <label>Service</label>
+            <select name="service">
+              <option>Liposuccion</option>
+              <option>Liftings</option>
+              <option>BBL Soft</option>
+              <option>J‑Plasma</option>
+              <option>Hollywood Smile</option>
+              <option>Greffe capillaire</option>
+            </select>
+          </div>
+          <div>
+            <label>Pays</label>
+            <select name="pays">
+              <option>Belgique</option>
+              <option>France</option>
+              <option>Tunisie</option>
+              <option>Italie</option>
+              <option>Allemagne</option>
+              <option>Autre</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div style="flex:1">
+            <label>Votre message</label>
+            <textarea name="message" rows="4" placeholder="Dites-nous vos objectifs (zones, photos, délais)"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <button type="submit" class="btn whatsapp">Envoyer le devis par e‑mail</button>
+          <a class="btn secondary" href="https://wa.me/21628296239?text=Bonjour%2C%20je%20souhaite%20un%20devis%20:%20" target="_blank" rel="noopener">Ou via WhatsApp</a>
+        </div>
+        <p class="tiny">Astuce : sur GitHub Pages, les formulaires e‑mail (mailto:) ouvrent votre messagerie. Pour des envois directs, basculez sur Netlify et activez les <em>Netlify Forms</em>.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="eyebrow">Contact</div>
+      <h2 class="section-title">Contact & accès</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="p">
+            <h3>Coordonnées</h3>
+            <p>WhatsApp : <a href="https://wa.me/21628296239">+216 28 296 239</a><br/>
+               Email : <a href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a><br/>
+               Adresse : Les Berges du Lac 2, Tunis (Tunisie)</p>
+            <p class="tiny">Cliquez pour écrire directement.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img alt="Salle d'attente lumineuse" src="https://images.pexels.com/photos/8459996/pexels-photo-8459996.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+          <div class="p">
+            <h3>Clinique Lac 2</h3>
+            <p>Établissement moderne et sécurisé, équipe francophone, circuits patients internationaux.</p>
           </div>
         </div>
       </div>
     </div>
-  </header>
-
-  <!-- 🧾 SECTION PRIX (exemple non intrusif).
-       Si tes tableaux de prix existent déjà, tu n'as rien à changer.
-       Le convertisseur lit soit data-price-eur, soit du texte commençant par €/. -->
-  <section id="prix" class="wrap">
-    <h2>Tarifs — exemples</h2>
-    <div class="card">
-      <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px">
-        <li>
-          <strong>Lifting mannequin</strong>
-          <div class="muted">Déroulement, anesthésie générale, 2–3h</div>
-          <div class="price" data-price-eur="2400">€ 2 400</div>
-        </li>
-        <li>
-          <strong>Lifting cervico‑facial</strong>
-          <div class="muted">2–4h, 1 nuit clinique</div>
-          <div class="price" data-price-eur="2500">€ 2 500</div>
-        </li>
-        <li>
-          <strong>Lifting + lipofilling</strong>
-          <div class="muted">Greffe de graisse autologue</div>
-          <div class="price" data-price-eur="2400">€ 2 400</div>
-        </li>
-        <li>
-          <strong>Lifting complet</strong>
-          <div class="muted">Plan complet personnalisé</div>
-          <div class="price" data-price-eur="2900" data-range-max-eur="3500">€ 2 900 – 3 500</div>
-        </li>
-      </ul>
-      <p class="currency-note">Affichage converti automatiquement selon la devise choisie (base EUR).</p>
-    </div>
   </section>
 
-  <!-- 📞 CONTACT (WhatsApp & Email cliquables, conservés si déjà présents) -->
-  <section id="contact">
-    <div class="wrap card">
-      <h2>Contact</h2>
-      <p>WhatsApp : <a href="https://wa.me/21628296239" target="_blank" rel="noopener">+216 28 296 239</a><br/>
-         Email : <a href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a></p>
+  <footer>
+    <div class="wrap" style="padding:26px 0">
+      <div class="grid">
+        <div>
+          <strong>Tunisie Chirurgie Esthétique Center N°1 — EstheConnect</strong><br/>
+          © 2025 — Tous droits réservés.
+        </div>
+        <div class="credits">
+          <strong>Crédits médias</strong><br/>
+          Vidéo héro : Pixabay (MP4) + Wikimedia (OGV). Photos libres : Pexels.
+        </div>
+        <div>
+          <strong>Navigation</strong><br/>
+          <a href="#services">Services</a> • <a href="#galerie">Galerie</a> • <a href="#prix">Prix</a> • <a href="#devis">Devis</a> • <a href="#contact">Contact</a>
+        </div>
+      </div>
     </div>
-  </section>
+  </footer>
 
-  <!-- 💱 Widget sélection devise -->
-  <div class="currency-widget" aria-live="polite">
-    <label for="currencySelect">Devise</label>
-    <select id="currencySelect">
-      <option value="EUR">EUR — €</option>
-      <option value="TND">TND — د.ت</option>
-      <option value="TRY">TRY — ₺</option>
-      <option value="USD">USD — $</option>
-      <option value="GBP">GBP — £</option>
-      <option value="MAD">MAD — د.م.</option>
-    </select>
-    <div class="currency-note" id="currencyInfo">Taux du jour (source: exchangerate.host)</div>
-  </div>
+  <script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        if(id){ e.preventDefault(); document.getElementById(id)?.scrollIntoView({behavior:"smooth", block:"start"}); }
+      });
+    });
 
-  <!-- =============================== -->
-  <!-- 🚀 JS UTILITAIRE INTÉGRÉ       -->
-  <!-- =============================== -->
+    // UTM tagging for WhatsApp
+    document.querySelectorAll('a[href*="wa.me"]').forEach(a=>{
+      try {
+        const u = new URL(a.href);
+        u.searchParams.set("utm_source","site");
+        u.searchParams.set("utm_medium","cta");
+        u.searchParams.set("utm_campaign","devis");
+        a.href = u.toString();
+      } catch(e){}
+    });
+  </script>
+
+  <!-- 🔧 Patch non intrusif: src→srcset + conversion de devises (widget caché) -->
   <script>
   ;(function(){
-    // 1) 🔁 Remplacement automatique "src" -> pattern "srcset" (sans rien casser)
-    //    👉 On ne supprime PAS src, on ajoute srcset si absent pour compatibilité
+    // ========= CONFIG =========
+    const SHOW_WIDGET = false; // passe à true pour afficher le sélecteur de devise
+    const WIDGET_Z = 9999;
+
+    // ========= 1) IMG: ajouter srcset si absent =========
     function ensureSrcset(img){
-      if(!img || img.tagName !== 'IMG') return;
-      if(!img.getAttribute('src')) return;
-      if(!img.hasAttribute('srcset')){
-        // On duplique la même URL pour 1x (et laisser le navigateur gérer)
-        const s = img.getAttribute('src').trim();
-        if(s){ img.setAttribute('srcset', s + ' 1x'); }
-      }
-      if(!img.hasAttribute('loading')){ img.setAttribute('loading','lazy'); }
-      if(!img.hasAttribute('decoding')){ img.setAttribute('decoding','async'); }
+      if(!img || img.tagName!=='IMG') return;
+      const s = img.getAttribute('src');
+      if(!s) return;
+      if(!img.hasAttribute('srcset')) img.setAttribute('srcset', s.trim()+' 1x');
+      if(!img.hasAttribute('loading')) img.setAttribute('loading','lazy');
+      if(!img.hasAttribute('decoding')) img.setAttribute('decoding','async');
     }
+    function patchImages(root){ root.querySelectorAll('img').forEach(ensureSrcset); }
 
-    function walkAndPatchSrcset(root){
-      const imgs = root.querySelectorAll('img');
-      imgs.forEach(ensureSrcset);
-    }
-
-    document.addEventListener('DOMContentLoaded', function(){
-      walkAndPatchSrcset(document);
-      const mo = new MutationObserver(muts=>{
-        muts.forEach(m=>{
-          m.addedNodes && m.addedNodes.forEach(n=>{
-            if(n.nodeType===1){
-              if(n.tagName==='IMG') ensureSrcset(n);
-              else walkAndPatchSrcset(n);
-            }
-          });
-        });
-      });
-      mo.observe(document.documentElement,{childList:true,subtree:true});
-    });
-
-    // 2) 💱 Auto‑conversion de devises (base EUR)
-    const STORE_KEY = 'estheconnect.currency';
-    const RATES_KEY = 'estheconnect.rates';
-    const RATES_TTL_MS = 1000*60*60*12; // 12h
-
-    const select = document.getElementById('currencySelect');
-    const info   = document.getElementById('currencyInfo');
-
-    const preferred = localStorage.getItem(STORE_KEY) || guessCurrency();
-    if(select && preferred){
-      select.value = preferred;
-    }
-
-    select && select.addEventListener('change', ()=>{
-      localStorage.setItem(STORE_KEY, select.value);
-      convertAllPrices();
-    });
+    // ========= 2) Conversion devises (base EUR) =========
+    const STORE='estheconnect.currency';
+    const RATES='estheconnect.rates';
+    const TTL=1000*60*60*12; // 12h
 
     function guessCurrency(){
-      try{
-        const loc = (Intl.DateTimeFormat().resolvedOptions().locale||'').toUpperCase();
-        if(loc.includes('FR-BE') || loc.includes('FR') || loc.includes('BE') || loc.includes('EU')) return 'EUR';
+      try{ const loc=(Intl.DateTimeFormat().resolvedOptions().locale||'').toUpperCase();
+        if(loc.includes('FR-BE')||loc.includes('FR')||loc.includes('BE')||loc.includes('EU')) return 'EUR';
         if(loc.includes('TN')) return 'TND';
         if(loc.includes('TR')) return 'TRY';
         if(loc.includes('GB')) return 'GBP';
-        if(loc.includes('US') || loc.includes('EN-US')) return 'USD';
+        if(loc.includes('US')||loc.includes('EN-US')) return 'USD';
       }catch(e){}
       return 'EUR';
     }
-
     async function getRates(){
-      // Cache avec TTL
-      try{
-        const cached = JSON.parse(localStorage.getItem(RATES_KEY)||'null');
-        if(cached && (Date.now()-cached.timestamp < RATES_TTL_MS)){
-          return cached.data;
-        }
-      }catch(e){}
-
-      // Récupère taux base EUR (CORS OK)
-      try{
-        const res = await fetch('https://api.exchangerate.host/latest?base=EUR');
-        const data = await res.json();
-        if(data && data.rates){
-          localStorage.setItem(RATES_KEY, JSON.stringify({timestamp:Date.now(), data:data.rates}));
-          return data.rates;
-        }
-      }catch(e){
-        console.warn('Rates fetch failed, using fallback', e);
-      }
-      // Fallback minimal (à ajuster si besoin)
-      const fallback = {TND:3.40, TRY:35.0, USD:1.08, GBP:0.84, MAD:10.7, EUR:1};
-      return fallback;
+      try{ const c=JSON.parse(localStorage.getItem(RATES)||'null'); if(c && (Date.now()-c.timestamp<TTL)) return c.data; }catch(e){}
+      try{ const r=await fetch('https://api.exchangerate.host/latest?base=EUR'); const d=await r.json(); if(d && d.rates){ localStorage.setItem(RATES, JSON.stringify({timestamp:Date.now(), data:d.rates})); return d.rates; } }
+      catch(e){ console.warn('Rates fail, fallback', e); }
+      return {TND:3.40, TRY:35.0, USD:1.08, GBP:0.84, MAD:10.7, EUR:1};
     }
+    function fmt(val, code){ try{ return new Intl.NumberFormat(undefined,{style:'currency',currency:code}).format(val); }catch(e){ const sym=code==='TND'?'د.ت':code==='TRY'?'₺':code==='USD'?'$':code==='GBP'?'£':code==='MAD'?'د.م.':'€'; return sym+' '+val.toFixed(0);} }
+    function parseEuro(txt){ const m=(txt||'').replace(/\u00A0/g,' ').match(/([0-9][0-9 .\u00A0]*)\s*€|€\s*([0-9][0-9 .\u00A0]*)/); if(!m) return null; const raw=m[1]||m[2]; const n=parseFloat(String(raw).replace(/[ .\u00A0]/g,'')); return isFinite(n)?n:null; }
+    function setConverted(el, eur, cur, rates){ if(!isFinite(eur)) return; const rate=rates[cur]||1; const base=el.getAttribute('data-original-text')||el.textContent.trim(); if(!el.hasAttribute('data-original-text')) el.setAttribute('data-original-text', base); el.textContent = base.replace(/\(≈.*\)$/,'').trim()+ ' (≈ ' + fmt(eur*rate, cur) + ')'; }
+    async function convertAll(){ const cur=(localStorage.getItem(STORE)||guessCurrency()); const rates=await getRates(); document.querySelectorAll('[data-price-eur]').forEach(el=>{ const eur=parseFloat(el.getAttribute('data-price-eur')); setConverted(el, eur, cur, rates); }); document.querySelectorAll('.price:not([data-price-eur])').forEach(el=>{ const eur=parseEuro(el.textContent||''); if(eur!=null) setConverted(el, eur, cur, rates); }); const info=document.getElementById('currencyInfo'); if(info) info.textContent = cur==='EUR'?'Affichage en EUR':'Conversion en '+cur; const sel=document.getElementById('currencySelect'); if(sel && sel.value!==cur) sel.value=cur; }
 
-    function formatCurrency(val, code){
-      try{
-        // Quelques devise manquent parfois dans Intl, on gère EUR par défaut
-        return new Intl.NumberFormat(undefined, {style:'currency', currency:code}).format(val);
-      }catch(e){
-        const sym = code==='TND'?'د.ت':code==='TRY'?'₺':code==='USD'?'$':code==='GBP'?'£':code==='MAD'?'د.م.':'€';
-        return sym+' '+val.toFixed(0);
-      }
-    }
+    function injectWidget(){ if(!SHOW_WIDGET) return; if(document.getElementById('currencySelect')) return; const box=document.createElement('div'); box.style.position='fixed'; box.style.right='12px'; box.style.bottom='12px'; box.style.zIndex=String(WIDGET_Z); box.style.background='#111a'; box.style.border='1px solid #222'; box.style.padding='10px 12px'; box.style.borderRadius='14px'; box.style.backdropFilter='blur(6px)'; box.innerHTML='<label style="font-size:12px;opacity:.8;margin-right:6px" for="currencySelect">Devise</label><select id="currencySelect" style="background:#000;border:1px solid #333;color:#fff;border-radius:10px;padding:6px"><option value="EUR">EUR — €</option><option value="TND">TND — د.ت</option><option value="TRY">TRY — ₺</option><option value="USD">USD — $</option><option value="GBP">GBP — £</option><option value="MAD">MAD — د.م.</option></select>'; document.body.appendChild(box); const sel=box.querySelector('#currencySelect'); sel.value=localStorage.getItem(STORE)||guessCurrency(); sel.addEventListener('change',()=>{ localStorage.setItem(STORE, sel.value); convertAll(); }); }
 
-    function parseEuroText(txt){
-      // Cherche € 2 400 ou 2400€ etc.
-      const m = txt.replace(/\u00A0/g,' ').match(/€\s*([0-9][0-9 .\u00A0]*)/);
-      if(!m) return null;
-      const num = parseFloat(m[1].replace(/[ .\u00A0]/g,''));
-      return isFinite(num) ? num : null;
-    }
+    document.addEventListener('DOMContentLoaded', ()=>{
+      // Images (non intrusif)
+      patchImages(document);
+      const mo=new MutationObserver(m=>{ m.forEach(x=>[...x.addedNodes].forEach(n=>{ if(n.nodeType===1){ if(n.tagName==='IMG') ensureSrcset(n); else patchImages(n); } })); });
+      mo.observe(document.documentElement,{childList:true,subtree:true});
 
-    function setConvertedText(el, eur, currency, rates){
-      if(!isFinite(eur)) return;
-      const rate = rates[currency] || 1;
-      const conv = eur * rate;
-      const converted = formatCurrency(conv, currency);
-
-      // Affichage: on garde le texte d'origine et on ajoute (≈ XXX)
-      const base = el.getAttribute('data-original-text') || el.textContent.trim();
-      if(!el.hasAttribute('data-original-text')) el.setAttribute('data-original-text', base);
-
-      // Gestion éventuelle d'une plage de prix (data-range-max-eur)
-      const max = parseFloat(el.getAttribute('data-range-max-eur'));
-      let extra = '';
-      if(isFinite(max)){
-        const convMax = formatCurrency(max * rate, currency);
-        extra = ' – ' + convMax;
-      }
-
-      el.textContent = base.replace(/\(≈.*\)$/,'').trim() + ' (≈ ' + converted + extra + ')';
-    }
-
-    async function convertAllPrices(){
-      const currency = (select && select.value) || 'EUR';
-      const rates = await getRates();
-
-      // 1. éléments explicites
-      document.querySelectorAll('[data-price-eur]').forEach(el=>{
-        const eur = parseFloat(el.getAttribute('data-price-eur'));
-        setConvertedText(el, eur, currency, rates);
-      });
-
-      // 2. détection douce: toutes les .price sans data attr, si elles contiennent €
-      document.querySelectorAll('.price:not([data-price-eur])').forEach(el=>{
-        const eur = parseEuroText(el.textContent||'');
-        if(eur!=null) setConvertedText(el, eur, currency, rates);
-      });
-
-      info && (info.textContent = currency==='EUR' ? 'Affichage en EUR' : 'Conversion en '+currency+' (base EUR)');
-    }
-
-    // Lancer au chargement
-    document.addEventListener('DOMContentLoaded', convertAllPrices);
+      // Conversion
+      injectWidget();
+      convertAll();
+    });
   })();
   </script>
-
 </body>
 </html>
