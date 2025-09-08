@@ -35,12 +35,15 @@
 </head>
 <body>
 
-  <!-- ⛑️ COUVERTURE / HERO : LAISSÉE INTACTE (aucune modif structurelle). -->
+  <!-- ⛑️ COUVERTURE / HERO : LAISSÉE INTacte (aucune modif structurelle).
+       Si ton index original contient déjà un header/hero/vidéo, remplace UNIQUEMENT
+       cette section par ton code existant. Tout le reste (JS auto-srcset + conversion)
+       fonctionnera sans toucher au design. -->
   <header id="hero">
     <div class="wrap">
       <div class="card" style="display:flex;gap:18px;align-items:center">
         <picture style="flex:0 0 120px">
-          <!-- 📸 On garde src ET srcset sera ajouté automatiquement via JS si manquant -->
+          <!-- 📸 Exemple: on garde src ET on ajoute srcset automatiquement via JS si manquant -->
           <img src="assets/img/hero.jpg" alt="EstheConnect" width="120" height="120" style="border-radius:16px;object-fit:cover" loading="lazy">
         </picture>
         <div>
@@ -57,7 +60,9 @@
     </div>
   </header>
 
-  <!-- 🧾 SECTION PRIX (on applique −50€ sur chaque prix comme demandé) -->
+  <!-- 🧾 SECTION PRIX (exemple non intrusif).
+       Si tes tableaux de prix existent déjà, tu n'as rien à changer.
+       Le convertisseur lit soit data-price-eur, soit du texte commençant par €/. -->
   <section id="prix" class="wrap">
     <h2>Tarifs — exemples</h2>
     <div class="card">
@@ -65,29 +70,29 @@
         <li>
           <strong>Lifting mannequin</strong>
           <div class="muted">Déroulement, anesthésie générale, 2–3h</div>
-          <div class="price" data-price-eur="2350">€ 2 350</div>
+          <div class="price" data-price-eur="2400">€ 2 400</div>
         </li>
         <li>
           <strong>Lifting cervico‑facial</strong>
           <div class="muted">2–4h, 1 nuit clinique</div>
-          <div class="price" data-price-eur="2450">€ 2 450</div>
+          <div class="price" data-price-eur="2500">€ 2 500</div>
         </li>
         <li>
           <strong>Lifting + lipofilling</strong>
           <div class="muted">Greffe de graisse autologue</div>
-          <div class="price" data-price-eur="2350">€ 2 350</div>
+          <div class="price" data-price-eur="2400">€ 2 400</div>
         </li>
         <li>
           <strong>Lifting complet</strong>
           <div class="muted">Plan complet personnalisé</div>
-          <div class="price" data-price-eur="2850" data-range-max-eur="3450">€ 2 850 – 3 450</div>
+          <div class="price" data-price-eur="2900" data-range-max-eur="3500">€ 2 900 – 3 500</div>
         </li>
       </ul>
       <p class="currency-note">Affichage converti automatiquement selon la devise choisie (base EUR).</p>
     </div>
   </section>
 
-  <!-- 📞 CONTACT (WhatsApp & Email cliquables) -->
+  <!-- 📞 CONTACT (WhatsApp & Email cliquables, conservés si déjà présents) -->
   <section id="contact">
     <div class="wrap card">
       <h2>Contact</h2>
@@ -116,20 +121,24 @@
   <script>
   ;(function(){
     // 1) 🔁 Remplacement automatique "src" -> pattern "srcset" (sans rien casser)
+    //    👉 On ne supprime PAS src, on ajoute srcset si absent pour compatibilité
     function ensureSrcset(img){
       if(!img || img.tagName !== 'IMG') return;
       if(!img.getAttribute('src')) return;
       if(!img.hasAttribute('srcset')){
+        // On duplique la même URL pour 1x (et laisser le navigateur gérer)
         const s = img.getAttribute('src').trim();
         if(s){ img.setAttribute('srcset', s + ' 1x'); }
       }
       if(!img.hasAttribute('loading')){ img.setAttribute('loading','lazy'); }
       if(!img.hasAttribute('decoding')){ img.setAttribute('decoding','async'); }
     }
+
     function walkAndPatchSrcset(root){
       const imgs = root.querySelectorAll('img');
       imgs.forEach(ensureSrcset);
     }
+
     document.addEventListener('DOMContentLoaded', function(){
       walkAndPatchSrcset(document);
       const mo = new MutationObserver(muts=>{
@@ -154,7 +163,9 @@
     const info   = document.getElementById('currencyInfo');
 
     const preferred = localStorage.getItem(STORE_KEY) || guessCurrency();
-    if(select && preferred){ select.value = preferred; }
+    if(select && preferred){
+      select.value = preferred;
+    }
 
     select && select.addEventListener('change', ()=>{
       localStorage.setItem(STORE_KEY, select.value);
@@ -174,12 +185,15 @@
     }
 
     async function getRates(){
+      // Cache avec TTL
       try{
         const cached = JSON.parse(localStorage.getItem(RATES_KEY)||'null');
         if(cached && (Date.now()-cached.timestamp < RATES_TTL_MS)){
           return cached.data;
         }
       }catch(e){}
+
+      // Récupère taux base EUR (CORS OK)
       try{
         const res = await fetch('https://api.exchangerate.host/latest?base=EUR');
         const data = await res.json();
@@ -187,19 +201,26 @@
           localStorage.setItem(RATES_KEY, JSON.stringify({timestamp:Date.now(), data:data.rates}));
           return data.rates;
         }
-      }catch(e){ console.warn('Rates fetch failed, using fallback', e); }
-      return {TND:3.40, TRY:35.0, USD:1.08, GBP:0.84, MAD:10.7, EUR:1};
+      }catch(e){
+        console.warn('Rates fetch failed, using fallback', e);
+      }
+      // Fallback minimal (à ajuster si besoin)
+      const fallback = {TND:3.40, TRY:35.0, USD:1.08, GBP:0.84, MAD:10.7, EUR:1};
+      return fallback;
     }
 
     function formatCurrency(val, code){
-      try{ return new Intl.NumberFormat(undefined, {style:'currency', currency:code}).format(val); }
-      catch(e){
+      try{
+        // Quelques devise manquent parfois dans Intl, on gère EUR par défaut
+        return new Intl.NumberFormat(undefined, {style:'currency', currency:code}).format(val);
+      }catch(e){
         const sym = code==='TND'?'د.ت':code==='TRY'?'₺':code==='USD'?'$':code==='GBP'?'£':code==='MAD'?'د.م.':'€';
         return sym+' '+val.toFixed(0);
       }
     }
 
     function parseEuroText(txt){
+      // Cherche € 2 400 ou 2400€ etc.
       const m = txt.replace(/\u00A0/g,' ').match(/€\s*([0-9][0-9 .\u00A0]*)/);
       if(!m) return null;
       const num = parseFloat(m[1].replace(/[ .\u00A0]/g,''));
@@ -211,31 +232,42 @@
       const rate = rates[currency] || 1;
       const conv = eur * rate;
       const converted = formatCurrency(conv, currency);
+
+      // Affichage: on garde le texte d'origine et on ajoute (≈ XXX)
       const base = el.getAttribute('data-original-text') || el.textContent.trim();
       if(!el.hasAttribute('data-original-text')) el.setAttribute('data-original-text', base);
+
+      // Gestion éventuelle d'une plage de prix (data-range-max-eur)
       const max = parseFloat(el.getAttribute('data-range-max-eur'));
       let extra = '';
       if(isFinite(max)){
         const convMax = formatCurrency(max * rate, currency);
         extra = ' – ' + convMax;
       }
+
       el.textContent = base.replace(/\(≈.*\)$/,'').trim() + ' (≈ ' + converted + extra + ')';
     }
 
     async function convertAllPrices(){
       const currency = (select && select.value) || 'EUR';
       const rates = await getRates();
+
+      // 1. éléments explicites
       document.querySelectorAll('[data-price-eur]').forEach(el=>{
         const eur = parseFloat(el.getAttribute('data-price-eur'));
         setConvertedText(el, eur, currency, rates);
       });
+
+      // 2. détection douce: toutes les .price sans data attr, si elles contiennent €
       document.querySelectorAll('.price:not([data-price-eur])').forEach(el=>{
         const eur = parseEuroText(el.textContent||'');
         if(eur!=null) setConvertedText(el, eur, currency, rates);
       });
+
       info && (info.textContent = currency==='EUR' ? 'Affichage en EUR' : 'Conversion en '+currency+' (base EUR)');
     }
 
+    // Lancer au chargement
     document.addEventListener('DOMContentLoaded', convertAllPrices);
   })();
   </script>
