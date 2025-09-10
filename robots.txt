@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://fort2008.github.io/Tunisie-Chirurgie-Center-N1/sitemap.xml
+
+Sitemap: https://fort2008.github.io/fort2008-Tunisie-Chirurgie-Center/sitemap.xml
