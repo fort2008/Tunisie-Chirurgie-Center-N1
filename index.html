@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Tunisie Chirurgie Center — Devis gratuit (Lipo, BBL, Lifting, Dentaire, Greffe)</title>
-  <meta name="description" content="Devis gratuit et rapide pour liposuccion, BBL, liftings, dentaire et greffe en Tunisie. Patients Belgique, France, Italie, Allemagne." />
+  <meta name="description" content="Devis gratuit et rapide pour liposuccion, BBL, liftings, soins dentaires et greffe capillaire en Tunisie. Accompagnement complet pour patients Belgique/France/Italie/Allemagne." />
 
   <!-- Canonical + hreflang -->
   <link rel="canonical" href="https://www.tunisiechirurgiecenter.com/">
@@ -21,17 +21,92 @@
   <meta property="og:image" content="https://www.tunisiechirurgiecenter.com/assets/img/hero.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Redirection douce vers WWW -->
+  <!-- WWW redirect (doux) -->
   <script>
     (function(){
-      var h = window.location.host;
+      var h = location.host;
       if (h === "tunisiechirurgiecenter.com") {
-        window.location.replace(window.location.href.replace("://tunisiechirurgiecenter.com","://www.tunisiechirurgiecenter.com"));
+        location.replace(location.href.replace("://tunisiechirurgiecenter.com", "://www.tunisiechirurgiecenter.com"));
       }
     })();
   </script>
 
-  <!-- Schema.org (MedicalClinic, invisible) -->
+  <!-- Styles autonomes (rose chic + doré) -->
+  <style>
+    :root{
+      --ink:#111; --bg:#fff; --muted:#6b7280;
+      --rose:#e6b0ba; --gold:#d4af37;
+      --card:#ffffff; --line:#eee;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto}
+    .wrap{max-width:1160px;margin:0 auto;padding:0 16px}
+
+    /* Header */
+    .top{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px}
+    .pill{border:1px solid var(--rose);padding:6px 10px;border-radius:999px}
+    .cta{display:flex;gap:8px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:10px 14px;border-radius:999px;font-weight:700}
+    .btn-rose{background:var(--rose);color:#111;border:0}
+    .btn-outline{background:#fff;border:1px solid var(--rose)}
+    .lang{display:flex;gap:8px;align-items:center}
+
+    /* COVER EXISTANTE (placeholder qui respecte tes fichiers) */
+    .hero{position:relative;isolation:isolate}
+    .hero video{width:100%;height:62vh;object-fit:cover;display:block}
+    .hero .overlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,.35), rgba(0,0,0,.0));}
+    .hero .inner{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);color:#fff;text-align:center;padding:0 12px}
+    .hero h1{font-size:clamp(22px,4vw,42px);margin:0 0 8px;font-weight:800}
+    .hero p{margin:0 0 12px;opacity:.95}
+    .hero .cta{justify-content:center}
+
+    /* Sections génériques */
+    section{padding:40px 0}
+    h2{font-size:clamp(20px,3.2vw,28px);margin:0 0 18px;font-weight:800}
+    .sub{color:var(--muted);margin-top:-6px;margin-bottom:18px}
+
+    /* Services grid */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+    .span-3{grid-column:span 12}
+    @media(min-width:700px){.span-3{grid-column:span 6}}
+    @media(min-width:980px){.span-3{grid-column:span 3}}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+    .card img{width:100%;height:170px;object-fit:cover;display:block}
+    .card .body{padding:12px}
+    .price{font-weight:800}
+    .muted{color:var(--muted)}
+
+    /* Tableau prix simple */
+    table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+    th,td{padding:12px;border-bottom:1px solid var(--line);text-align:left}
+    th{background:#fafafa;font-weight:800}
+
+    /* FAQ accordéon (CSS only) */
+    details{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:#fff}
+    details+details{margin-top:10px}
+    summary{cursor:pointer;font-weight:700}
+
+    /* Formulaire */
+    .form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .form .full{grid-column:span 2}
+    @media(max-width:700px){.form{grid-template-columns:1fr}.form .full{grid-column:span 1}}
+    .form input,.form select,.form textarea{padding:12px;border:1px solid #ddd;border-radius:10px;font:15px system-ui;background:#fff}
+    .form button{background:var(--gold);border:0;color:#111;padding:12px 16px;border-radius:10px;font-weight:800;cursor:pointer}
+
+    /* Footer */
+    footer{background:#111;color:#eee}
+    footer a{color:#eee}
+
+    /* WhatsApp flottant */
+    .wa{position:fixed;right:16px;bottom:16px;z-index:9999}
+    .wa a{display:inline-block;background:#25D366;color:#fff;padding:12px 16px;border-radius:999px;font:700 14px system-ui;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.15)}
+  </style>
+
+  <!-- Schema.org (MedicalClinic) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -44,25 +119,195 @@
     "address":{"@type":"PostalAddress","addressCountry":"TN"}
   }
   </script>
-
-  <!-- Tes CSS actuels (inchangés) -->
-  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 
-  <!-- ⚠️ Garde exactement ta couverture actuelle ici -->
-  <!-- Mets tout ton code existant de cover/hero sans modification -->
-
-  <!-- Tes sections et contenus existants restent identiques -->
-  <!-- (Services, cartes Liposuccion, BBL, Lifting, etc.) -->
-
-  <!-- Bouton WhatsApp flottant -->
-  <div style="position:fixed;right:16px;bottom:16px;z-index:9999;">
-    <a href="https://wa.me/21628296239" target="_blank" rel="noopener"
-       style="display:inline-block;background:#25D366;color:#fff;padding:12px 16px;border-radius:999px;font:600 14px system-ui;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.15)">
-       WhatsApp Devis
-    </a>
+  <!-- HEADER -->
+  <div class="top">
+    <div class="wrap nav">
+      <div class="brand">
+        <span class="pill">TN</span>
+        <span>Tunisie Chirurgie Center</span>
+      </div>
+      <div class="cta">
+        <a class="btn btn-rose" href="https://wa.me/21628296239" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn btn-outline" href="mailto:contact@tunisiechirurgiecenter.com">contact@tunisiechirurgiecenter.com</a>
+      </div>
+      <div class="lang">
+        <a class="pill" href="/">FR</a>
+        <a class="pill" href="/nl/">NL</a>
+        <a class="pill" href="/ar/">AR</a>
+      </div>
+    </div>
   </div>
 
+  <!-- COVER EXISTANTE (ne change rien à ton style: utilise tes fichiers hero.mp4/hero.jpg) -->
+  <section class="hero" aria-label="Couverture">
+    <video autoplay muted playsinline loop poster="assets/img/hero.jpg">
+      <source src="assets/video/hero.mp4" type="video/mp4">
+      <!-- fallback image -->
+      <img src="assets/img/hero.jpg" alt="Clinique esthétique Tunisie" />
+    </video>
+    <div class="overlay" aria-hidden="true"></div>
+    <div class="inner">
+      <h1>Tunisie Chirurgie Center</h1>
+      <p>Devis gratuit en 24h — Lipo, BBL, Lifting, Dentaire, Greffe</p>
+      <div class="cta">
+        <a class="btn btn-rose" href="#devis">Obtenir un devis</a>
+        <a class="btn btn-outline" href="https://wa.me/21628296239" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <h2>Interventions phares</h2>
+      <p class="sub">Prix indicatifs « à partir de », confirmés sur devis personnalisé.</p>
+      <div class="grid">
+        <article class="card span-3">
+          <img src="assets/img/liposuccion.jpg" alt="Liposuccion en Tunisie" loading="lazy">
+          <div class="body">
+            <h3>Liposuccion</h3>
+            <p class="price">à partir de 1 490 €</p>
+            <p class="muted">Durée 1–3 h — Séjour 4–6 j — Reprise 7–10 j.</p>
+          </div>
+        </article>
+        <article class="card span-3">
+          <img src="assets/img/bbl.jpg" alt="BBL lipofilling fessier" loading="lazy">
+          <div class="body">
+            <h3>BBL (Lipofilling fessier)</h3>
+            <p class="price">à partir de 2 190 €</p>
+            <p class="muted">Durée 2–4 h — Séjour 6–7 j — Coussin 2–4 sem.</p>
+          </div>
+        </article>
+        <article class="card span-3">
+          <img src="assets/img/lifting.jpg" alt="Lifting cervico-facial" loading="lazy">
+          <div class="body">
+            <h3>Lifting cervico-facial</h3>
+            <p class="price">à partir de 2 500 €</p>
+            <p class="muted">Durée 3–4 h — Séjour 7 j — Œdèmes 2–3 sem.</p>
+          </div>
+        </article>
+        <article class="card span-3">
+          <img src="assets/img/dentaire.jpg" alt="Soins dentaires Hollywood Smile" loading="lazy">
+          <div class="body">
+            <h3>Dentaire (Hollywood Smile)</h3>
+            <p class="price">à partir de 1 990 €</p>
+            <p class="muted">Facettes/Implants — Plan selon radios.</p>
+          </div>
+        </article>
+        <article class="card span-3">
+          <img src="assets/img/greffe.jpg" alt="Greffe capillaire" loading="lazy">
+          <div class="body">
+            <h3>Greffe capillaire</h3>
+            <p class="price">à partir de 1 450 €</p>
+            <p class="muted">FUE/DHI — 1 journée — Suivi inclus.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIX / INCLUS -->
+  <section id="tarifs" aria-label="Tarifs">
+    <div class="wrap">
+      <h2>Tarifs & inclusions</h2>
+      <table>
+        <thead>
+          <tr><th>Intervention</th><th>À partir de</th><th>Inclus</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Liposuccion</td><td><strong>1 490 €</strong></td><td>Bilan, honoraires, clinique, gaine, transferts</td></tr>
+          <tr><td>BBL</td><td><strong>2 190 €</strong></td><td>Prélèvements, réinjection, 1 coussin BBL</td></tr>
+          <tr><td>Lifting cervico-facial</td><td><strong>2 500 €</strong></td><td>Chirurgie, hospitalisation, pansements</td></tr>
+          <tr><td>Dentaire</td><td><strong>1 990 €</strong></td><td>Consultation, plan de traitement, devis final</td></tr>
+          <tr><td>Greffe capillaire</td><td><strong>1 450 €</strong></td><td>Greffons, soins post-op, suivi</td></tr>
+        </tbody>
+      </table>
+      <p class="muted" style="margin-top:8px">* Les prix varient selon l’indication médicale et les options retenues.</p>
+    </div>
+  </section>
+
+  <!-- AVANT / APRÈS -->
+  <section id="avant-apres" aria-label="Avant / Après">
+    <div class="wrap">
+      <h2>Avant / Après</h2>
+      <p class="sub">Photos à titre indicatif. Résultats variables selon patients.</p>
+      <div class="grid">
+        <div class="span-3 card"><img src="assets/img/avant-apres-1.jpg" alt="Avant Après liposuccion" loading="lazy"></div>
+        <div class="span-3 card"><img src="assets/img/avant-apres-2.jpg" alt="Avant Après BBL" loading="lazy"></div>
+        <div class="span-3 card"><img src="assets/img/avant-apres-3.jpg" alt="Avant Après lifting" loading="lazy"></div>
+        <div class="span-3 card"><img src="assets/img/avant-apres-4.jpg" alt="Avant Après dentaire" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <h2>FAQ</h2>
+      <details>
+        <summary>Combien de jours faut-il prévoir sur place ?</summary>
+        <p>En moyenne 6–7 jours (arrivée J-1, chirurgie J0, contrôles J+2 à J+5).</p>
+      </details>
+      <details>
+        <summary>Douleur et convalescence ?</summary>
+        <p>Douleur contrôlée par antalgiques. Reprise des activités légères en 7–10 jours pour la plupart des gestes.</p>
+      </details>
+      <details>
+        <summary>Que comprend le prix ?</summary>
+        <p>Évaluation, honoraires de chirurgie/anesthésie, clinique, pansements, suivi. Les extras (hôtel, vols) sont sur devis.</p>
+      </details>
+      <details>
+        <summary>Peut-on combiner plusieurs interventions ?</summary>
+        <p>Oui selon l’évaluation médicale (sécurité d’abord). Le devis précisera les combinaisons possibles.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- CONTACT / DEVIS -->
+  <section id="devis">
+    <div class="wrap">
+      <h2>Obtenir un devis gratuit</h2>
+      <p class="sub">Réponse en 24h par email/WhatsApp.</p>
+      <form name="devis" method="POST" data-netlify="true" action="/merci" class="form">
+        <input type="hidden" name="form-name" value="devis">
+        <input name="nom" placeholder="Nom & Prénom" required>
+        <input name="email" type="email" placeholder="Email" required>
+        <input name="whatsapp" placeholder="WhatsApp (ex: +32…)" required>
+        <select name="intervention" required>
+          <option value="">Intervention souhaitée…</option>
+          <option>Liposuccion</option><option>BBL</option><option>Lifting cervico-facial</option>
+          <option>Dentaire</option><option>Greffe capillaire</option>
+        </select>
+        <textarea class="full" name="message" rows="5" placeholder="Âge, taille/poids, zones ciblées, antécédents…"></textarea>
+        <button class="full" type="submit">Envoyer ma demande</button>
+      </form>
+      <p style="margin-top:10px">
+        Ou écrivez-nous : <a href="mailto:contact@tunisiechirurgiecenter.com">contact@tunisiechirurgiecenter.com</a> —
+        <a href="https://wa.me/21628296239" target="_blank" rel="noopener">WhatsApp</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap" style="padding:28px 0">
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+        <p style="margin:0">© Tunisie Chirurgie Center — Tous droits réservés.</p>
+        <p style="margin:0">
+          <a href="/mentions-legales.html">Mentions légales</a> ·
+          <a href="/confidentialite.html">Confidentialité</a> ·
+          <a href="/cookies.html">Cookies</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP flottant -->
+  <div class="wa">
+    <a href="https://wa.me/21628296239" target="_blank" rel="noopener">WhatsApp Devis</a>
+  </div>
 </body>
 </html>
