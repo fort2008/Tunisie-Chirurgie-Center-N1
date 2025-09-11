@@ -8,6 +8,620 @@
   <link rel="canonical" href="https://www.tunisiechirurgiecenter.com/" />
   <link rel="icon" href="assets/img/favicon.png" />
 
+  <!-- On conserve tes CSS si présents -->
+  <link rel="stylesheet" href="/EstheConnect/assets/css/style.css" />
+  <link rel="stylesheet" href="/EstheConnect/assets/site.css" />
+  <link rel="stylesheet" href="/EstheConnect/style.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/site.css" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    :root{--rose:#e6b0ba;--gold:#b8860b;--ink:#111;--soft:#fafafa}
+    body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+
+    header.tcc-nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eee}
+    header.tcc-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+    .tcc-brand{display:flex;gap:10px;align-items:center;font-weight:700;color:#222;text-decoration:none}
+    .tcc-brand .dot{width:10px;height:10px;border-radius:50%;background:var(--rose);display:inline-block}
+    nav.tcc-menu a{text-decoration:none;color:#222;margin-left:16px;font-weight:600}
+    nav.tcc-menu a:hover{color:var(--gold)}
+
+    /* Sections services (scopées) */
+    section[id^="services-"]{background:#fff;color:#222;padding:64px 0}
+    section[id^="services-"] h2{font-size:2.1rem;text-align:center;color:var(--gold);margin:0 0 6px}
+    section[id^="services-"] .subtitle{text-align:center;opacity:.9;margin:0 auto 28px;max-width:760px;line-height:1.6}
+
+    .tcc-service{
+      display:grid;gap:26px;grid-template-columns:1.2fr 1fr;align-items:start;
+      padding:18px;border:1px solid #eee;border-radius:16px;background:#fff;box-shadow:0 8px 22px rgba(0,0,0,.06);
+      margin-bottom:28px
+    }
+    @media (max-width:960px){.tcc-service{grid-template-columns:1fr}}
+
+    /* Lecteur vidéo responsive */
+    .tcc-video{position:relative;padding-top:56.25%;border-radius:16px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.18);background:#000}
+    .tcc-video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+    .tcc-info h3{margin:0 0 8px;font-size:1.5rem;color:#222}
+    .tcc-info p{margin:0 0 12px;line-height:1.6}
+    .tcc-bullets{list-style:none;padding:0;margin:10px 0 12px;display:grid;gap:8px}
+    .tcc-bullets li{padding:10px 12px;border:1px solid #eee;border-radius:12px;background:var(--soft)}
+    .tcc-price{font-weight:800;font-size:1.1rem;margin-top:4px}
+    .tcc-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .btn{display:inline-block;text-decoration:none;font-weight:700;padding:12px 16px;border-radius:12px}
+    .btn-wa{background:#25D366;color:#fff}.btn-wa:hover{background:#1ebe57}
+    .btn-mail{background:#f1f1f1;color:#222}.btn-mail:hover{background:#e8e8e8}
+    .tcc-note{display:block;text-align:center;opacity:.7;font-size:.86rem;margin-top:8px}
+
+    footer.tcc-footer{background:#0e0e0f;color:#eaeaea;padding:40px 0;margin-top:40px}
+    footer.tcc-footer a{color:#fff;text-decoration:none}
+    footer .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .tcc-foot-title{color:var(--rose);font-weight:800;margin-bottom:10px}
+
+    .tcc-float-wa{position:fixed;right:16px;bottom:16px;z-index:60;background:#25D366;color:#fff;width:56px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:24px;text-decoration:none;box-shadow:0 10px 24px rgba(37,211,102,.4)}
+    .tcc-float-wa:hover{background:#1ebe57}
+  </style>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Tunisie Chirurgie Center" />
+  <meta property="og:description" content="Liposuccion, Implants mammaires, Greffe de cheveux, Hollywood Smile, Rhinoplastie. Devis gratuit." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/og-cover.jpg" />
+  <meta property="og:url" content="https://www.tunisiechirurgiecenter.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="tcc-nav">
+    <div class="wrap">
+      <a class="tcc-brand" href="#top"><span class="dot"></span><span>Tunisie Chirurgie Center</span></a>
+      <nav class="tcc-menu" aria-label="Navigation principale">
+        <a href="#services-implants">Implants</a>
+        <a href="#services-lipo">Liposuccion</a>
+        <a href="#services-greffe">Greffe</a>
+        <a href="#services-smile">Hollywood Smile</a>
+        <a href="#services-rhino">Rhinoplastie</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== HERO EXISTANT : COLLE TON CODE ICI ===================== -->
+  <!-- (Laisse exactement ta couverture actuelle; ne rien modifier d'autre) -->
+  <!-- ========================================================================= -->
+
+  <!-- ===================== SERVICES — IMPLANTS ===================== -->
+  <section id="services-implants">
+    <div class="wrap">
+      <h2>Implants mammaires</h2>
+      <p class="subtitle">Animation 3D pédagogique intégrée — l’utilisateur reste sur ta plateforme.</p>
+
+      <div class="tcc-service">
+        <div>
+          <div class="tcc-video">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/oIBSf_bz7bc?rel=0&modestbranding=1&iv_load_policy=3"
+              title="Implants mammaires — animation 3D"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <small class="tcc-note">*Animation explicative. Les résultats varient selon les patientes.*</small>
+        </div>
+        <div class="tcc-info">
+          <h3>Informations clés</h3>
+          <ul class="tcc-bullets">
+            <li><strong>Durée :</strong> 1h30–2h</li>
+            <li><strong>Anesthésie :</strong> Générale</li>
+            <li><strong>Séjour :</strong> 1 nuit</li>
+            <li><strong>Reprise :</strong> Quelques jours</li>
+          </ul>
+          <div class="tcc-price">À partir de <strong>2 200 €</strong></div>
+          <div class="tcc-cta">
+            <a class="btn btn-wa" href="https://wa.me/21628296239" target="_blank" rel="noopener">📲 Devis WhatsApp</a>
+            <a class="btn btn-mail" href="mailto:aboprof.bm2@gmail.com">✉️ Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES — LIPOSUCCION ===================== -->
+  <section id="services-lipo">
+    <div class="wrap">
+      <h2>Liposuccion (Vaser / classique)</h2>
+      <p class="subtitle">Affiner la silhouette — animation intégrée (aucune redirection externe).</p>
+
+      <div class="tcc-service">
+        <div>
+          <div class="tcc-video">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/rYJ1qkCWOJQ?rel=0&modestbranding=1&iv_load_policy=3"
+              title="Liposuccion — animation 3D"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <small class="tcc-note">*Zones & technique adaptées à chaque cas.*</small>
+        </div>
+        <div class="tcc-info">
+          <h3>Informations clés</h3>
+          <ul class="tcc-bullets">
+            <li><strong>Durée :</strong> 1–3 h selon zones</li>
+            <li><strong>Anesthésie :</strong> Générale / locale + sédation</li>
+            <li><strong>Séjour :</strong> Ambulatoire ou 1 nuit</li>
+            <li><strong>Reprise :</strong> 7–10 jours</li>
+          </ul>
+          <div class="tcc-price">À partir de <strong>1 990 €</strong></div>
+          <div class="tcc-cta">
+            <a class="btn btn-wa" href="https://wa.me/21628296239" target="_blank" rel="noopener">📲 Devis WhatsApp</a>
+            <a class="btn btn-mail" href="mailto:aboprof.bm2@gmail.com">✉️ Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES — GREFFE DE CHEVEUX ===================== -->
+  <section id="services-greffe">
+    <div class="wrap">
+      <h2>Greffe de cheveux (FUE / DHI)</h2>
+      <p class="subtitle">Restauration capillaire — principe FUE/DHI en animation.</p>
+
+      <div class="tcc-service">
+        <div>
+          <div class="tcc-video">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/CZtiz7ZYUhg?rel=0&modestbranding=1&iv_load_policy=3"
+              title="Greffe de cheveux (FUE) — animation"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <small class="tcc-note">*Ligne frontale & densité définies après diagnostic.*</small>
+        </div>
+        <div class="tcc-info">
+          <h3>Informations clés</h3>
+          <ul class="tcc-bullets">
+            <li><strong>Durée :</strong> 4–7 h</li>
+            <li><strong>Anesthésie :</strong> Locale</li>
+            <li><strong>Séjour :</strong> Ambulatoire</li>
+            <li><strong>Reprise :</strong> 2–4 jours</li>
+          </ul>
+          <div class="tcc-price">À partir de <strong>1 500 €</strong></div>
+          <div class="tcc-cta">
+            <a class="btn btn-wa" href="https://wa.me/21628296239" target="_blank" rel="noopener">📲 Devis WhatsApp</a>
+            <a class="btn btn-mail" href="mailto:aboprof.bm2@gmail.com">✉️ Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES — HOLLYWOOD SMILE ===================== -->
+  <section id="services-smile">
+    <div class="wrap">
+      <h2>Hollywood Smile (Facettes)</h2>
+      <p class="subtitle">Préparation et pose — animation neutre intégrée.</p>
+
+      <div class="tcc-service">
+        <div>
+          <div class="tcc-video">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/l3eYVoifbbQ?rel=0&modestbranding=1&iv_load_policy=3"
+              title="Facettes dentaires — animation"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <small class="tcc-note">*Bilan, teinte & morphologie personnalisés.*</small>
+        </div>
+        <div class="tcc-info">
+          <h3>Informations clés</h3>
+          <ul class="tcc-bullets">
+            <li><strong>Durée :</strong> 1–2 séances</li>
+            <li><strong>Anesthésie :</strong> Locale si besoin</li>
+            <li><strong>Séjour :</strong> Ambulatoire</li>
+            <li><strong>Reprise :</strong> Immédiate</li>
+          </ul>
+          <div class="tcc-price">À partir de <strong>1 800 €</strong></div>
+          <div class="tcc-cta">
+            <a class="btn btn-wa" href="https://wa.me/21628296239" target="_blank" rel="noopener">📲 Devis WhatsApp</a>
+            <a class="btn btn-mail" href="mailto:aboprof.bm2@gmail.com">✉️ Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES — RHINOPLASTIE ===================== -->
+  <section id="services-rhino">
+    <div class="wrap">
+      <h2>Rhinoplastie</h2>
+      <p class="subtitle">Correction de la forme du nez — animation pédagogique intégrée.</p>
+
+      <div class="tcc-service">
+        <div>
+          <div class="tcc-video">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/8vpUUyYn058?rel=0&modestbranding=1&iv_load_policy=3"
+              title="Rhinoplastie — animation"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <small class="tcc-note">*Fonction respiratoire & esthétique évaluées en consultation.*</small>
+        </div>
+        <div class="tcc-info">
+          <h3>Informations clés</h3>
+          <ul class="tcc-bullets">
+            <li><strong>Durée :</strong> 1h30–3 h</li>
+            <li><strong>Anesthésie :</strong> Générale</li>
+            <li><strong>Séjour :</strong> 1 nuit</li>
+            <li><strong>Reprise :</strong> 10–14 jours</li>
+          </ul>
+          <div class="tcc-price">À partir de <strong>2 200 €</strong></div>
+          <div class="tcc-cta">
+            <a class="btn btn-wa" href="https://wa.me/21628296239" target="_blank" rel="noopener">📲 Devis WhatsApp</a>
+            <a class="btn btn-mail" href="mailto:aboprof.bm2@gmail.com">✉️ Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT / FOOTER ===================== -->
+  <footer id="contact" class="tcc-footer">
+    <div class="wrap grid">
+      <div>
+        <div class="tcc-foot-title">Tunisie Chirurgie Center</div>
+        <p>Plateforme d’information et de coordination. Interventions esthétiques et dentaires avec accompagnement complet.</p>
+      </div>
+      <div>
+        <div class="tcc-foot-title">Contact</div>
+        <p>WhatsApp : <a href="https://wa.me/21628296239" target="_blank" rel="noopener">+216 28 296 239</a><br>
+           Email : <a href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a></p>
+      </div>
+      <div>
+        <div class="tcc-foot-title">Langues</div>
+        <p>FR • NL • EN • IT • DE • AR</p>
+      </div>
+    </div>
+    <div class="wrap" style="opacity:.7;margin-top:10px;font-size:.9rem;">
+      © <span id="y"></span> Tunisie Chirurgie Center — Tous droits réservés
+    </div>
+  </footer>
+
+  <!-- Bouton WhatsApp flottant -->
+  <a class="tcc-float-wa" href="https://wa.me/21628296239" target="_blank" rel="noopener" aria-label="WhatsApp">☎</a>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html> html>
+<html <!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tunisie Chirurgie Center — Esthétique & Médecine</title>
+  <meta name="description" content="Liposuccion, Implants mammaires, Greffe de cheveux, Hollywood Smile, Rhinoplastie. Devis gratuit. Patients Belgique/France/Italie/Allemagne." />
+  <link rel="canonical" href="https://www.tunisiechirurgiecenter.com/" />
+  <link rel="icon" href="assets/img/favicon.png" />
+
+  <!-- On conserve tes CSS si présents -->
+  <link rel="stylesheet" href="/EstheConnect/assets/css/style.css" />
+  <link rel="stylesheet" href="/EstheConnect/assets/site.css" />
+  <link rel="stylesheet" href="/EstheConnect/style.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/site.css" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    :root{--rose:#e6b0ba;--gold:#b8860b;--ink:#111;--soft:#fafafa}
+    body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+
+    header.tcc-nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eee}
+    header.tcc-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+    .tcc-brand{display:flex;gap:10px;align-items:center;font-weight:700;color:#222;text-decoration:none}
+    .tcc-brand .dot{width:10px;height:10px;border-radius:50%;background:var(--rose);display:inline-block}
+    nav.tcc-menu a{text-decoration:none;color:#222;margin-left:16px;font-weight:600}
+    nav.tcc-menu a:hover{color:var(--gold)}
+
+    /* Sections services (scopées) */
+    section[id^="services-"]{background:#fff;color:#222;padding:64px 0}
+    section[id^="services-"] h2{font-size:2.1rem;text-align:center;color:var(--gold);margin:0 0 6px}
+    section[id^="services-"] .subtitle{text-align:center;opacity:.9;margin:0 auto 28px;max-width:760px;line-height:1.6}
+
+    .tcc-service{
+      display:grid;gap:26px;grid-template-columns:1.2fr 1fr;align-items:start;
+      padding:18px;border:1px solid #eee;border-radius:16px;background:#fff;box-shadow:0 8px 22px rgba(0,0,0,.06);
+      margin-bottom:28px
+    }
+    @media (max-width:960px){.tcc-service{grid-template-columns:1fr}}
+
+    /* Lecteur vidéo responsive */
+    .tcc-video{position:relative;padding-top:56.25%;border-radius:16px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.18);background:#000}
+    .tcc-video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+    .tcc-info h3{margin:0 0 8px;font-size:1.5rem;color:#222}
+    .tcc-info p{margin:0 0 12px;line-height:1.6}
+    .tcc-bullets{list-style:none;padding:0;margin:10px 0 12px;display:grid;gap:8px}
+    .tcc-bullets li{padding:10px 12px;border:1px solid #eee;border-radius:12px;background:var(--soft)}
+    .tcc-price{font-weight:800;font-size:1.1rem;margin-top:4px}
+    .tcc-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .btn{display:inline-block;text-decoration:none;font-weight:700;padding:12px 16px;border-radius:12px}
+    .btn-wa{background:#25D366;color:#fff}.btn-wa:hover{background:#1ebe57}
+    .btn-mail{background:#f1f1f1;color:#222}.btn-mail:hover{background:#e8e8e8}
+    .tcc-note{display:block;text-align:center;opacity:.7;font-size:.86rem;margin-top:8px}
+
+    footer.tcc-footer{background:#0e0e0f;color:#eaeaea;padding:40px 0;margin-top:40px}
+    footer.tcc-footer a{color:#fff;text-decoration:none}
+    footer .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .tcc-foot-title{color:var(--rose);font-weight:800;margin-bottom:10px}
+
+    .tcc-float-wa{position:fixed;right:16px;bottom:16px;z-index:60;background:#25D366;color:#fff;width:56px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:24px;text-decoration:none;box-shadow:0 10px 24px rgba(37,211,102,.4)}
+    .tcc-float-wa:hover{background:#1ebe57}
+  </style>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Tunisie Chirurgie Center" />
+  <meta property="og:description" content="Liposuccion, Implants mammaires, Greffe de cheveux, Hollywood Smile, Rhinoplastie. Devis gratuit." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/og-cover.jpg" />
+  <meta property="og:url" content="https://www.tunisiechirurgiecenter.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="tcc-nav">
+    <div class="wrap">
+      <a class="tcc-brand" href="#top"><span class="dot"></span><span>Tunisie Chirurgie Center</span></a>
+      <nav class="tcc-menu" aria-label="Navigation principale">
+        <a href="#services-implants">Implants</a>
+        <a href="#services-lipo">Liposuccion</a>
+        <a href="#services-greffe">Greffe</a>
+        <a href="#services-smile">Hollywood Smile</a>
+        <a href="#services-rhino">Rhinoplastie</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== HERO EXISTANT : COLLE TON CODE ICI ===================== -->
+  <!-- (Laisse exactement ta couverture actuelle; ne rien modifier d'autre) -->
+  <!-- ========================================================================= -->
+
+  <!-- ===================== SERVICES — IMPLANTS ===================== -->
+  <section id="services-implants">
+    <div class="wrap">
+      <h2>Implants mammaires</h2>
+      <p class="subtitle">Animation 3D pédagogique intégrée — l’utilisateur reste sur ta plateforme.</p>
+
+      <div class="tcc-service">
+        <div>
+          <div class="tcc-video">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/oIBSf_bz7bc?rel=0&modestbranding=1&iv_load_policy=3"
+              title="Implants mammaires — animation 3D"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <small class="tcc-note">*Animation explicative. Les résultats varient selon les patientes.*</small>
+        </div>
+        <div class="tcc-info">
+          <h3>Informations clés</h3>
+          <ul class="tcc-bullets">
+            <li><strong>Durée :</strong> 1h30–2h</li>
+            <li><strong>Anesthésie :</strong> Générale</li>
+            <li><strong>Séjour :</strong> 1 nuit</li>
+            <li><strong>Reprise :</strong> Quelques jours</li>
+          </ul>
+          <div class="tcc-price">À partir de <strong>2 200 €</strong></div>
+          <div class="tcc-cta">
+            <a class="btn btn-wa" href="https://wa.me/21628296239" target="_blank" rel="noopener">📲 Devis WhatsApp</a>
+            <a class="btn btn-mail" href="mailto:aboprof.bm2@gmail.com">✉️ Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES — LIPOSUCCION ===================== -->
+  <section id="services-lipo">
+    <div class="wrap">
+      <h2>Liposuccion (Vaser / classique)</h2>
+      <p class="subtitle">Affiner la silhouette — animation intégrée (aucune redirection externe).</p>
+
+      <div class="tcc-service">
+        <div>
+          <div class="tcc-video">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/rYJ1qkCWOJQ?rel=0&modestbranding=1&iv_load_policy=3"
+              title="Liposuccion — animation 3D"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <small class="tcc-note">*Zones & technique adaptées à chaque cas.*</small>
+        </div>
+        <div class="tcc-info">
+          <h3>Informations clés</h3>
+          <ul class="tcc-bullets">
+            <li><strong>Durée :</strong> 1–3 h selon zones</li>
+            <li><strong>Anesthésie :</strong> Générale / locale + sédation</li>
+            <li><strong>Séjour :</strong> Ambulatoire ou 1 nuit</li>
+            <li><strong>Reprise :</strong> 7–10 jours</li>
+          </ul>
+          <div class="tcc-price">À partir de <strong>1 990 €</strong></div>
+          <div class="tcc-cta">
+            <a class="btn btn-wa" href="https://wa.me/21628296239" target="_blank" rel="noopener">📲 Devis WhatsApp</a>
+            <a class="btn btn-mail" href="mailto:aboprof.bm2@gmail.com">✉️ Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES — GREFFE DE CHEVEUX ===================== -->
+  <section id="services-greffe">
+    <div class="wrap">
+      <h2>Greffe de cheveux (FUE / DHI)</h2>
+      <p class="subtitle">Restauration capillaire — principe FUE/DHI en animation.</p>
+
+      <div class="tcc-service">
+        <div>
+          <div class="tcc-video">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/CZtiz7ZYUhg?rel=0&modestbranding=1&iv_load_policy=3"
+              title="Greffe de cheveux (FUE) — animation"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <small class="tcc-note">*Ligne frontale & densité définies après diagnostic.*</small>
+        </div>
+        <div class="tcc-info">
+          <h3>Informations clés</h3>
+          <ul class="tcc-bullets">
+            <li><strong>Durée :</strong> 4–7 h</li>
+            <li><strong>Anesthésie :</strong> Locale</li>
+            <li><strong>Séjour :</strong> Ambulatoire</li>
+            <li><strong>Reprise :</strong> 2–4 jours</li>
+          </ul>
+          <div class="tcc-price">À partir de <strong>1 500 €</strong></div>
+          <div class="tcc-cta">
+            <a class="btn btn-wa" href="https://wa.me/21628296239" target="_blank" rel="noopener">📲 Devis WhatsApp</a>
+            <a class="btn btn-mail" href="mailto:aboprof.bm2@gmail.com">✉️ Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES — HOLLYWOOD SMILE ===================== -->
+  <section id="services-smile">
+    <div class="wrap">
+      <h2>Hollywood Smile (Facettes)</h2>
+      <p class="subtitle">Préparation et pose — animation neutre intégrée.</p>
+
+      <div class="tcc-service">
+        <div>
+          <div class="tcc-video">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/l3eYVoifbbQ?rel=0&modestbranding=1&iv_load_policy=3"
+              title="Facettes dentaires — animation"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <small class="tcc-note">*Bilan, teinte & morphologie personnalisés.*</small>
+        </div>
+        <div class="tcc-info">
+          <h3>Informations clés</h3>
+          <ul class="tcc-bullets">
+            <li><strong>Durée :</strong> 1–2 séances</li>
+            <li><strong>Anesthésie :</strong> Locale si besoin</li>
+            <li><strong>Séjour :</strong> Ambulatoire</li>
+            <li><strong>Reprise :</strong> Immédiate</li>
+          </ul>
+          <div class="tcc-price">À partir de <strong>1 800 €</strong></div>
+          <div class="tcc-cta">
+            <a class="btn btn-wa" href="https://wa.me/21628296239" target="_blank" rel="noopener">📲 Devis WhatsApp</a>
+            <a class="btn btn-mail" href="mailto:aboprof.bm2@gmail.com">✉️ Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES — RHINOPLASTIE ===================== -->
+  <section id="services-rhino">
+    <div class="wrap">
+      <h2>Rhinoplastie</h2>
+      <p class="subtitle">Correction de la forme du nez — animation pédagogique intégrée.</p>
+
+      <div class="tcc-service">
+        <div>
+          <div class="tcc-video">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/8vpUUyYn058?rel=0&modestbranding=1&iv_load_policy=3"
+              title="Rhinoplastie — animation"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <small class="tcc-note">*Fonction respiratoire & esthétique évaluées en consultation.*</small>
+        </div>
+        <div class="tcc-info">
+          <h3>Informations clés</h3>
+          <ul class="tcc-bullets">
+            <li><strong>Durée :</strong> 1h30–3 h</li>
+            <li><strong>Anesthésie :</strong> Générale</li>
+            <li><strong>Séjour :</strong> 1 nuit</li>
+            <li><strong>Reprise :</strong> 10–14 jours</li>
+          </ul>
+          <div class="tcc-price">À partir de <strong>2 200 €</strong></div>
+          <div class="tcc-cta">
+            <a class="btn btn-wa" href="https://wa.me/21628296239" target="_blank" rel="noopener">📲 Devis WhatsApp</a>
+            <a class="btn btn-mail" href="mailto:aboprof.bm2@gmail.com">✉️ Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT / FOOTER ===================== -->
+  <footer id="contact" class="tcc-footer">
+    <div class="wrap grid">
+      <div>
+        <div class="tcc-foot-title">Tunisie Chirurgie Center</div>
+        <p>Plateforme d’information et de coordination. Interventions esthétiques et dentaires avec accompagnement complet.</p>
+      </div>
+      <div>
+        <div class="tcc-foot-title">Contact</div>
+        <p>WhatsApp : <a href="https://wa.me/21628296239" target="_blank" rel="noopener">+216 28 296 239</a><br>
+           Email : <a href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a></p>
+      </div>
+      <div>
+        <div class="tcc-foot-title">Langues</div>
+        <p>FR • NL • EN • IT • DE • AR</p>
+      </div>
+    </div>
+    <div class="wrap" style="opacity:.7;margin-top:10px;font-size:.9rem;">
+      © <span id="y"></span> Tunisie Chirurgie Center — Tous droits réservés
+    </div>
+  </footer>
+
+  <!-- Bouton WhatsApp flottant -->
+  <a class="tcc-float-wa" href="https://wa.me/21628296239" target="_blank" rel="noopener" aria-label="WhatsApp">☎</a>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tunisie Chirurgie Center — Esthétique & Médecine</title>
+  <meta name="description" content="Liposuccion, Implants mammaires, Greffe de cheveux, Hollywood Smile, Rhinoplastie. Devis gratuit. Patients Belgique/France/Italie/Allemagne." />
+  <link rel="canonical" href="https://www.tunisiechirurgiecenter.com/" />
+  <link rel="icon" href="assets/img/favicon.png" />
+
   <!-- On conserve tes éventuelles feuilles existantes -->
   <link rel="stylesheet" href="/EstheConnect/assets/css/style.css" />
   <link rel="stylesheet" href="/EstheConnect/assets/site.css" />
