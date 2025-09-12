@@ -1,38 +1,489 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>J-Plasma (peau) — Tunisie Chirurgie</title>
-<style>/* mêmes styles */ body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;color:#1b1b1f;background:#fff7fb}
-.wrap{max-width:1100px;margin:0 auto;padding:0 16px}header{background:#C2185B;color:#fff;padding:12px 0;border-bottom:3px solid #D4AF37}
-a{color:#C2185B;text-decoration:none}.breadcrumb{font-size:13px;margin:14px 0}h1{margin:8px 0 10px}
-.grid{display:grid;grid-template-columns:1.1fr 1fr;gap:18px}@media(max-width:900px){.grid{grid-template-columns:1fr}}
-.card{background:#fff;border:1px solid #eee;border-radius:14px;box-shadow:0 8px 18px rgba(0,0,0,.06);padding:14px}
-.video{background:#000;border-radius:14px;overflow:hidden;box-shadow:0 6px 16px rgba(0,0,0,.2)}.video video{width:100%;display:block}
-ul{margin:8px 0 0}.price{font-weight:900;color:#C2185B}.btn{display:inline-block;border-radius:10px;padding:10px 14px;font-weight:700}.wa{background:#25D366;color:#fff}.cta{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
-</style></head><body>
-<header><div class="wrap"><a href="../index.html" style="color:#fff">← Accueil</a></div></header>
-<main class="wrap">
-<nav class="breadcrumb"><a href="../index.html">Accueil</a> › <a href="../index.html#services">Services</a> › J-Plasma</nav>
-<h1>J-Plasma (re-tension cutanée)</h1>
-<div class="grid">
-  <div class="card">
-    <div class="video">
-      <video controls playsinline preload="metadata" controlslist="nodownload noplaybackrate" disablepictureinpicture oncontextmenu="return false"
-             poster="https://images.pexels.com/photos/7585313/pexels-photo-7585313.jpeg?auto=compress&cs=tinysrgb&w=1200">
-        <source src="https://cdn.pixabay.com/vimeo/133084691/Medicine-Health-440-1280x720.mp4" type="video/mp4">
-        <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
-        <track kind="subtitles" srclang="fr" label="Français" default
-          src="data:text/vtt;charset=utf-8,WEBVTT%0A%0A00:00.000%20--%3E%2000:06.000%0AJ-Plasma%20:%20%C3%A9nergie%20plasma%20froide%20pour%20retendre%20la%20peau.%0A%0A00:06.000%20--%3E%2000:14.000%0ASouvent%20associ%C3%A9%20%C3%A0%20une%20lipo%20douce%20(selon%20zones)." />
-      </video>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tunisie Chirurgie Center N°1</title>
+<style>
+  :root{
+    --primary:#0f766e; --accent:#14b8a6; --dark:#0b1320; --light:#f8fafc;
+  }
+  html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;background:#fff;color:#111}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1200px;margin:auto;padding:0 16px}
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:1px solid #e5e7eb}
+  nav{display:flex;align-items:center;gap:16px;justify-content:space-between;padding:10px 0}
+  .brand{font-weight:800;letter-spacing:.3px}
+  .nav-links{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-block;border:1px solid #0f766e;padding:10px 14px;border-radius:12px;color:#0f766e;font-weight:600;cursor:pointer;background:#fff;transition:.2s}
+  .btn:hover{background:#0f766e;color:#fff}
+  .btn.primary{background:var(--primary);color:#fff;border-color:var(--primary)}
+  .chip{padding:6px 10px;border-radius:999px;background:#eef8f7;color:#0f766e;font-weight:600;font-size:.9rem}
+  /* HERO - garde la couverture existante intacte */
+  #hero{min-height:62vh;display:grid;place-items:center;background-position:center;background-size:cover}
+  #hero .hero-inner{padding:48px 0;text-align:center;background:rgba(255,255,255,.55);border-radius:20px;backdrop-filter:blur(4px)}
+  #hero h1{margin:0 0 8px;font-size:clamp(28px,4vw,44px)}
+  #hero p{margin:0 0 16px;color:#374151}
+  section{padding:56px 0}
+  h2{margin:0 0 18px;font-size:clamp(22px,3vw,32px)}
+  .grid{display:grid;gap:18px}
+  @media(min-width:720px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+  .card{border:1px solid #e5e7eb;border-radius:18px;padding:16px;background:#fff;display:flex;flex-direction:column;gap:10px}
+  .card h3{margin:4px 0 0}
+  .card p{margin:0;color:#4b5563}
+  .card .actions{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap}
+  .tag{font-size:.8rem;background:#f1f5f9;padding:4px 8px;border-radius:999px;color:#334155}
+  /* Prix */
+  table{width:100%;border-collapse:collapse}
+  th,td{padding:12px;border-bottom:1px solid #e5e7eb;text-align:left}
+  th{background:#f8fafc}
+  /* Footer */
+  footer{padding:28px 0;color:#475569;border-top:1px solid #e5e7eb;background:#fafafa}
+  /* Modal video */
+  .modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:24px;z-index:80}
+  .modal.open{display:flex}
+  .modal-card{background:#0b1320;color:#fff;max-width:980px;width:100%;border-radius:16px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+  .modal-head{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:#0f172a}
+  .modal-body{padding:0;background:#000}
+  .modal-body video{width:100%;height:auto;display:block;background:#000}
+  .modal-foot{padding:14px;background:#0f172a}
+  .close{cursor:pointer;font-weight:800}
+  /* Langues */
+  .lang-switch{display:flex;gap:8px;flex-wrap:wrap}
+  .lang-switch button{border:1px solid #e5e7eb;background:#fff;padding:6px 10px;border-radius:10px;cursor:pointer}
+  .lang-switch button.active{border-color:#0f766e;color:#0f766e;font-weight:700}
+  /* Formulaire */
+  form{display:grid;gap:10px}
+  input,select,textarea{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:10px;font:inherit}
+  .row{display:grid;gap:10px}
+  @media(min-width:720px){.row{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="brand">Tunisie Chirurgie Center N°1</div>
+      <div class="nav-links">
+        <a href="#services" class="btn">Services</a>
+        <a href="#prix" class="btn">Prix</a>
+        <a href="#devis" class="btn">Devis</a>
+        <a href="#langues" class="btn">Langues</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO : garde votre couverture actuelle. 
+     Si vous avez déjà une image CSS/HTML existante, vous pouvez ignorer ce bloc ou juste laisser le fond vide. -->
+<section id="hero" style="">
+  <div class="container hero-inner">
+    <span class="chip" data-i18n="slogan">Clinique de chirurgie esthétique & soins premium</span>
+    <h1 data-i18n="heroTitle">Résultats naturels, sécurité maximale.</h1>
+    <p data-i18n="heroDesc">Equipe accréditée, tarifs clairs, accompagnement de A à Z.</p>
+    <a href="#services" class="btn primary" data-i18n="ctaServices">Découvrir les services</a>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <h2 data-i18n="servicesTitle">Services</h2>
+    <div class="grid cols-3">
+      <!-- Implants mammaires -->
+      <article class="card">
+        <div>
+          <div class="tag" data-i18n="chirurgieSeins">Seins</div>
+          <h3 data-i18n="implantsTitle">Implants mammaires</h3>
+          <p data-i18n="implantsTxt">Marquages et étapes clés avant la pose d’implants. Vidéo intégrée, sans logo ni pub.</p>
+        </div>
+        <div class="actions">
+          <button class="btn primary" onclick="openVideo('implants')" data-i18n="watchVideo">Voir la vidéo</button>
+          <a class="btn" href="#prix" data-i18n="seePrices">Voir les prix</a>
+        </div>
+      </article>
+
+      <!-- Liposuccion / silhouette -->
+      <article class="card">
+        <div>
+          <div class="tag" data-i18n="silhouette">Silhouette</div>
+          <h3 data-i18n="lipoTitle">Liposuccion</h3>
+          <p data-i18n="lipoTxt">Technique opératoire illustrée (ex. gynécomastie) pour montrer l’aspiration de graisse.</p>
+        </div>
+        <div class="actions">
+          <button class="btn primary" onclick="openVideo('lipo')" data-i18n="watchVideo">Voir la vidéo</button>
+          <a class="btn" href="#prix" data-i18n="seePrices">Voir les prix</a>
+        </div>
+      </article>
+
+      <!-- Rhinoplastie -->
+      <article class="card">
+        <div>
+          <div class="tag" data-i18n="visage">Visage</div>
+          <h3 data-i18n="rhinoTitle">Rhinoplastie</h3>
+          <p data-i18n="rhinoTxt">Explications détaillées en français. Lecteur prêt pour votre vidéo sans logo (format .mp4/.webm).</p>
+        </div>
+        <div class="actions">
+          <button class="btn primary" onclick="openVideo('rhino')" data-i18n="watchVideo">Voir la vidéo</button>
+          <a class="btn" href="#prix" data-i18n="seePrices">Voir les prix</a>
+        </div>
+      </article>
+
+      <!-- Greffe de cheveux -->
+      <article class="card">
+        <div>
+          <div class="tag" data-i18n="cheveux">Cheveux</div>
+          <h3 data-i18n="greffeTitle">Greffe de cheveux (FUE/DHI)</h3>
+          <p data-i18n="greffeTxt">Processus expliqué (zones donneuse/réceptrice). Lecteur prêt pour vidéo sans logo.</p>
+        </div>
+        <div class="actions">
+          <button class="btn primary" onclick="openVideo('greffe')" data-i18n="watchVideo">Voir la vidéo</button>
+          <a class="btn" href="#prix" data-i18n="seePrices">Voir les prix</a>
+        </div>
+      </article>
+
+      <!-- Hollywood Smile / Facettes -->
+      <article class="card">
+        <div>
+          <div class="tag" data-i18n="dentaire">Dentaire</div>
+          <h3 data-i18n="smileTitle">Facettes / Hollywood Smile</h3>
+          <p data-i18n="smileTxt">Préparation, empreinte, pose : explications FR. Lecteur prêt pour vidéo sans logo.</p>
+        </div>
+        <div class="actions">
+          <button class="btn primary" onclick="openVideo('facettes')" data-i18n="watchVideo">Voir la vidéo</button>
+          <a class="btn" href="#prix" data-i18n="seePrices">Voir les prix</a>
+        </div>
+      </article>
+
+      <!-- Lifting mammaire (exemple complémentaire) -->
+      <article class="card">
+        <div>
+          <div class="tag" data-i18n="seins2">Seins</div>
+          <h3 data-i18n="reductionTitle">Réduction / Lifting mammaire</h3>
+          <p data-i18n="reductionTxt">Illustration opératoire (réduction mammaire). Vidéo intégrée, sans redirection.</p>
+        </div>
+        <div class="actions">
+          <button class="btn primary" onclick="openVideo('reduction')" data-i18n="watchVideo">Voir la vidéo</button>
+          <a class="btn" href="#prix" data-i18n="seePrices">Voir les prix</a>
+        </div>
+      </article>
     </div>
   </div>
-  <aside class="card">
-    <h2 style="margin:0 0 8px">Résumé & prix</h2>
-    <ul>
-      <li><strong>Indications :</strong> relâchement léger à modéré (bras, abdomen, cou…)</li>
-      <li><strong>Durée :</strong> 1–2 h • <strong>Anesthésie :</strong> locale/sédation</li>
-    </ul>
-    <p class="price">À partir de 2 150 €</p>
-    <div class="cta"><a class="btn wa" href="https://wa.me/21628296239" target="_blank" rel="noopener">📲 Devis WhatsApp</a>
-      <a class="btn" href="mailto:aboprof.bm2@gmail.com" style="background:#f1f1f1;color:#222">✉️ Email</a></div>
-  </aside>
+</section>
+
+<section id="prix" aria-labelledby="prix-title">
+  <div class="container">
+    <h2 id="prix-title" data-i18n="pricesTitle">Prix indicatifs</h2>
+    <p style="margin-top:-6px;color:#475569" data-i18n="pricesNote">Tarifs tout compris (clinique, honoraires, accompagnement). Devis personnalisé gratuit.</p>
+    <div class="grid">
+      <div class="card">
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="colActe">Acte</th>
+              <th data-i18n="colPrix">Prix dès</th>
+              <th data-i18n="colSejour">Séjour</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td data-i18n="pImplants">Implants mammaires</td><td>2 200 €</td><td data-i18n="pSejour3">3 nuits</td></tr>
+            <tr><td data-i18n="pLipo">Liposuccion (2-3 zones)</td><td>1 750 €</td><td data-i18n="pSejour2">2 nuits</td></tr>
+            <tr><td data-i18n="pRhino">Rhinoplastie</td><td>2 000 €</td><td data-i18n="pSejour2">2 nuits</td></tr>
+            <tr><td data-i18n="pGreffe">Greffe de cheveux (FUE 3000+)</td><td>1 700 €</td><td data-i18n="pAmbu">Ambulatoire</td></tr>
+            <tr><td data-i18n="pFacettes">Facettes céramiques (par dent)</td><td>220 €</td><td data-i18n="pAmbu">Ambulatoire</td></tr>
+            <tr><td data-i18n="pMastopexie">Lifting mammaire / Réduction</td><td>2 100 €</td><td data-i18n="pSejour2">2 nuits</td></tr>
+          </tbody>
+        </table>
+        <p style="margin:.5rem 0 0;color:#64748b;font-size:.95rem" data-i18n="pricesLegal">* Prix à confirmer après étude médicale (photos/visio). TVA & clinique incluses.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="devis">
+  <div class="container">
+    <h2 data-i18n="quoteTitle">Devis rapide</h2>
+    <form id="quoteForm" onsubmit="return submitDevis(event)">
+      <div class="row">
+        <input type="text" name="nom" placeholder="Nom & Prénom" required />
+        <input type="tel" name="phone" placeholder="Téléphone / WhatsApp" required />
+      </div>
+      <div class="row">
+        <select name="acte" required>
+          <option value="" disabled selected>Choisir un acte…</option>
+          <option>Implants mammaires</option>
+          <option>Liposuccion</option>
+          <option>Rhinoplastie</option>
+          <option>Greffe de cheveux</option>
+          <option>Facettes dentaires</option>
+          <option>Lifting mammaire / Réduction</option>
+        </select>
+        <input type="email" name="email" placeholder="Email (optionnel)" />
+      </div>
+      <textarea name="message" rows="5" placeholder="Objectif, photos (décrivez), antécédents médicaux…"></textarea>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn primary" type="submit" data-i18n="sendQuote">Envoyer le devis</button>
+        <a class="btn" id="waBtn" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <small style="color:#64748b;display:block;margin-top:6px" data-i18n="privacy">En envoyant, vous acceptez d’être contacté(e) pour finaliser votre devis. Pas de publicité.</small>
+    </form>
+  </div>
+</section>
+
+<section id="langues">
+  <div class="container">
+    <h2 data-i18n="langTitle">Langues</h2>
+    <div class="lang-switch">
+      <button data-lang="fr" class="active">FR</button>
+      <button data-lang="en">EN</button>
+      <button data-lang="it">IT</button>
+      <button data-lang="de">DE</button>
+      <button data-lang="nl">NL</button>
+      <button data-lang="ar">العربية</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
+      <div>© <span id="year"></span> Tunisie Chirurgie Center N°1</div>
+      <div style="font-size:.9rem;color:#64748b">
+        <span data-i18n="licenses">Vidéos intégrées : Wikimedia Commons (licences libres).</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL VIDEO -->
+<div id="videoModal" class="modal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="videoTitle">
+    <div class="modal-head">
+      <div id="videoTitle">Lecture</div>
+      <div class="close" onclick="closeVideo()">✕</div>
+    </div>
+    <div class="modal-body">
+      <video id="player" controls playsinline controlslist="nodownload">
+        <!-- Sources injectées par JS -->
+        Votre navigateur ne supporte pas la vidéo HTML5.
+      </video>
+    </div>
+    <div class="modal-foot" id="videoCaption" style="font-size:.95rem;color:#cbd5e1"></div>
+  </div>
 </div>
-</main></body></html>
+
+<script>
+  // Année
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Sources vidéo (sans logo/pubs) + légendes FR
+  const VIDEOS = {
+    implants: {
+      title: "Implants mammaires – marquages pré-opératoires",
+      sources: [
+        // WebM transcodé (si dispo) + OGV original (fallback)
+        {src:"https://upload.wikimedia.org/wikipedia/commons/transcoded/9/95/Breast_Implant_Markings.ogv/Breast_Implant_Markings.ogv.480p.vp9.webm", type:"video/webm"},
+        {src:"https://upload.wikimedia.org/wikipedia/commons/9/95/Breast_Implant_Markings.ogv", type:"video/ogg"}
+      ],
+      caption: "Exemple de marquages avant pose d’implants (pas de logo, licence libre)."
+    },
+    lipo: {
+      title: "Liposuccion (illustration opératoire – gynécomastie)",
+      sources: [
+        {src:"https://upload.wikimedia.org/wikipedia/commons/9/96/Gynecomastia_Actual_Surgery-Innovative_Technique.ogv", type:"video/ogg"}
+      ],
+      caption: "Vidéo opératoire démontrant l’aspiration de graisse (pas de logo)."
+    },
+    reduction: {
+      title: "Réduction/Lifting mammaire (extrait opératoire)",
+      sources: [
+        {src:"https://upload.wikimedia.org/wikipedia/commons/d/dc/A-versatile-breast-reduction-technique-Conical-plicated-central-U-shaped-%28COPCUs%29-mammaplasty-1750-1164-3-7-S1.ogv", type:"video/ogg"}
+      ],
+      caption: "Technique opératoire de réduction mammaire (licence libre)."
+    },
+    rhino: {
+      title: "Rhinoplastie – lecteur prêt (ajoutez votre fichier sans logo)",
+      sources: [
+        // Placeholders vides : remplacez par un .mp4/.webm propre
+      ],
+      caption: "Ajoutez un .mp4/.webm sans logo/publicité pour lecture interne."
+    },
+    greffe: {
+      title: "Greffe de cheveux – lecteur prêt (ajoutez votre fichier)",
+      sources: [],
+      caption: "Ajoutez un .mp4/.webm libre (ex. animation explicative) pour lecture interne."
+    },
+    facettes: {
+      title: "Facettes dentaires – lecteur prêt (ajoutez votre fichier)",
+      sources: [],
+      caption: "Ajoutez un .mp4/.webm libre (explications en français)."
+    },
+    // Bonus contexte sein (examen)
+    mammography: {
+      title: "Technique de mammographie (NIH, domaine public)",
+      sources: [
+        {src:"https://upload.wikimedia.org/wikipedia/commons/5/5a/Mammography_Technique.webm", type:"video/webm"}
+      ],
+      caption: "Documentaire d’explication (sans logo, domaine public)."
+    }
+  };
+
+  const modal = document.getElementById('videoModal');
+  const player = document.getElementById('player');
+  const titleEl = document.getElementById('videoTitle');
+  const capEl = document.getElementById('videoCaption');
+
+  function openVideo(key){
+    const v = VIDEOS[key];
+    titleEl.textContent = v?.title || "Vidéo";
+    // reset sources
+    player.pause();
+    while(player.firstChild) player.removeChild(player.firstChild);
+    (v?.sources||[]).forEach(s=>{
+      const src = document.createElement('source');
+      src.src = s.src; src.type = s.type;
+      player.appendChild(src);
+    });
+    // Auto-play si sources
+    if((v?.sources||[]).length===0){
+      const p = document.createElement('p');
+      p.style.padding="16px";
+      p.style.color="#e5e7eb";
+      p.textContent = "Aucune source vidéo intégrée pour le moment. Ajoutez votre fichier sans logo.";
+      player.appendChild(p);
+    }
+    player.load();
+    player.play().catch(()=>{});
+    capEl.textContent = v?.caption || "";
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+  }
+  function closeVideo(){
+    player.pause();
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+  }
+  modal.addEventListener('click', (e)=>{ if(e.target===modal) closeVideo(); });
+
+  // Devis : mailto + WhatsApp
+  function submitDevis(e){
+    e.preventDefault();
+    const f = e.target;
+    const data = {
+      nom: f.nom.value.trim(),
+      phone: f.phone.value.trim(),
+      acte: f.acte.value,
+      email: f.email.value.trim(),
+      message: f.message.value.trim()
+    };
+    const sujet = encodeURIComponent("Demande de devis – " + (data.acte||"Acte"));
+    const corps = encodeURIComponent(
+`Nom: ${data.nom}
+Téléphone/WhatsApp: ${data.phone}
+Acte: ${data.acte}
+Email: ${data.email||"-"}
+Message:
+${data.message||"-"}`);
+    // Mailto (ouvre le client de messagerie)
+    window.location.href = `mailto:contact@votre-domaine.tn?subject=${sujet}&body=${corps}`;
+    // WhatsApp bouton prêt (remplacez par votre numéro au format international)
+    const waMsg = encodeURIComponent(`Bonjour, je souhaite un devis pour: ${data.acte}\nNom: ${data.nom}\nTel: ${data.phone}`);
+    const waLink = `https://wa.me/21600000000?text=${waMsg}`;
+    document.getElementById('waBtn').href = waLink;
+    document.getElementById('waBtn').textContent = "Envoyer via WhatsApp";
+    return false;
+  }
+
+  // I18N minimal (UI & titres)
+  const I18N = {
+    fr:{
+      slogan:"Clinique de chirurgie esthétique & soins premium",
+      heroTitle:"Résultats naturels, sécurité maximale.",
+      heroDesc:"Equipe accréditée, tarifs clairs, accompagnement de A à Z.",
+      ctaServices:"Découvrir les services",
+      servicesTitle:"Services",
+      chirurgieSeins:"Seins",
+      implantsTitle:"Implants mammaires",
+      implantsTxt:"Marquages et étapes clés avant la pose d’implants. Vidéo intégrée, sans logo ni pub.",
+      silhouette:"Silhouette",
+      lipoTitle:"Liposuccion",
+      lipoTxt:"Technique opératoire illustrée (ex. gynécomastie) pour montrer l’aspiration de graisse.",
+      visage:"Visage",
+      rhinoTitle:"Rhinoplastie",
+      rhinoTxt:"Explications détaillées en français. Lecteur prêt pour votre vidéo sans logo (format .mp4/.webm).",
+      cheveux:"Cheveux",
+      greffeTitle:"Greffe de cheveux (FUE/DHI)",
+      greffeTxt:"Processus expliqué (zones donneuse/réceptrice). Lecteur prêt pour vidéo sans logo.",
+      dentaire:"Dentaire",
+      smileTitle:"Facettes / Hollywood Smile",
+      smileTxt:"Préparation, empreinte, pose : explications FR. Lecteur prêt pour vidéo sans logo.",
+      seins2:"Seins",
+      reductionTitle:"Réduction / Lifting mammaire",
+      reductionTxt:"Illustration opératoire (réduction mammaire). Vidéo intégrée, sans redirection.",
+      watchVideo:"Voir la vidéo",
+      seePrices:"Voir les prix",
+      pricesTitle:"Prix indicatifs",
+      pricesNote:"Tarifs tout compris (clinique, honoraires, accompagnement). Devis personnalisé gratuit.",
+      colActe:"Acte", colPrix:"Prix dès", colSejour:"Séjour",
+      pImplants:"Implants mammaires", pLipo:"Liposuccion (2-3 zones)", pRhino:"Rhinoplastie", pGreffe:"Greffe de cheveux (FUE 3000+)", pFacettes:"Facettes céramiques (par dent)", pMastopexie:"Lifting mammaire / Réduction",
+      pSejour3:"3 nuits", pSejour2:"2 nuits", pAmbu:"Ambulatoire",
+      pricesLegal:"* Prix à confirmer après étude médicale (photos/visio). TVA & clinique incluses.",
+      quoteTitle:"Devis rapide",
+      sendQuote:"Envoyer le devis",
+      privacy:"En envoyant, vous acceptez d’être contacté(e) pour finaliser votre devis. Pas de publicité.",
+      langTitle:"Langues",
+      licenses:"Vidéos intégrées : Wikimedia Commons (licences libres)."
+    },
+    en:{ /* (traductions concises) */ 
+      slogan:"Aesthetic surgery & premium care",
+      heroTitle:"Natural results, maximum safety.",
+      heroDesc:"Accredited team, clear pricing, full support.",
+      ctaServices:"Browse services",
+      servicesTitle:"Services",
+      chirurgieSeins:"Breast", implantsTitle:"Breast implants",
+      implantsTxt:"Key markings before implant placement. No logos or ads.",
+      silhouette:"Body contouring", lipoTitle:"Liposuction",
+      lipoTxt:"Operative technique illustration (e.g., gynecomastia).",
+      visage:"Face", rhinoTitle:"Rhinoplasty",
+      rhinoTxt:"French explanation. Player ready for your no-logo video.",
+      cheveux:"Hair", greffeTitle:"Hair transplant (FUE/DHI)",
+      greffeTxt:"Process explained. Player ready for your no-logo video.",
+      dentaire:"Dental", smileTitle:"Veneers / Hollywood Smile",
+      smileTxt:"Preparation, impression, bonding. Player ready.",
+      seins2:"Breast", reductionTitle:"Breast lift / Reduction",
+      reductionTxt:"Operative illustration. No redirection.",
+      watchVideo:"Watch video", seePrices:"See prices",
+      pricesTitle:"Prices", pricesNote:"All-inclusive packages. Free quote.",
+      colActe:"Procedure", colPrix:"From", colSejour:"Stay",
+      pImplants:"Breast implants", pLipo:"Liposuction (2–3 areas)", pRhino:"Rhinoplasty",
+      pGreffe:"Hair transplant (3000+ grafts)", pFacettes:"Porcelain veneers (per tooth)", pMastopexie:"Breast lift / Reduction",
+      pSejour3:"3 nights", pSejour2:"2 nights", pAmbu:"Outpatient",
+      pricesLegal:"* Final price after medical review.",
+      quoteTitle:"Quick quote", sendQuote:"Send quote",
+      privacy:"By sending, you agree to be contacted to finalize your quote.",
+      langTitle:"Languages", licenses:"Videos: Wikimedia Commons (free licenses)."
+    },
+    it:{slogan:"Chirurgia estetica & cura premium", heroTitle:"Risultati naturali, massima sicurezza.", heroDesc:"Team accreditato, prezzi chiari, supporto completo.", ctaServices:"Scopri i servizi", servicesTitle:"Servizi", chirurgieSeins:"Seno", implantsTitle:"Protesi mammarie", implantsTxt:"Marcature pre-operatorie. Senza loghi.", silhouette:"Silhouette", lipoTitle:"Liposuzione", lipoTxt:"Illustrazione tecnica (ginecomastia).", visage:"Viso", rhinoTitle:"Rinoplastica", rhinoTxt:"Spiegazioni in FR. Lettore pronto.", cheveux:"Capelli", greffeTitle:"Trapianto di capelli (FUE/DHI)", greffeTxt:"Processo spiegato. Lettore pronto.", dentaire:"Dentale", smileTitle:"Faccette / Hollywood Smile", smileTxt:"Preparazione, impronta, posizionamento.", seins2:"Seno", reductionTitle:"Mastopessi / Riduzione", reductionTxt:"Illustrazione operatoria.", watchVideo:"Guarda il video", seePrices:"Vedi prezzi", pricesTitle:"Prezzi indicativi", pricesNote:"Pacchetti all-inclusive. Preventivo gratuito.", colActe:"Intervento", colPrix:"Da", colSejour:"Soggiorno", pImplants:"Protesi mammarie", pLipo:"Liposuzione (2–3 zone)", pRhino:"Rinoplastica", pGreffe:"Trapianto capelli (3000+ innesti)", pFacettes:"Faccette (per dente)", pMastopexie:"Mastopessi / Riduzione", pSejour3:"3 notti", pSejour2:"2 notti", pAmbu:"Ambulatoriale", pricesLegal:"* Prezzi confermati dopo revisione medica.", quoteTitle:"Preventivo rapido", sendQuote:"Invia", privacy:"Accetti di essere contattato per finalizzare.", langTitle:"Lingue", licenses:"Video: Wikimedia Commons (licenze libere)."},
+    de:{slogan:"Ästhetische Chirurgie & Premium-Betreuung", heroTitle:"Natürliche Ergebnisse, maximale Sicherheit.", heroDesc:"Akkreditiertes Team, klare Preise.", ctaServices:"Leistungen", servicesTitle:"Leistungen", chirurgieSeins:"Brust", implantsTitle:"Brustimplantate", implantsTxt:"Prä-OP-Markierungen. Keine Logos.", silhouette:"Körperformung", lipoTitle:"Liposuktion", lipoTxt:"Operative Technik (Gynäkomastie).", visage:"Gesicht", rhinoTitle:"Rhinoplastik", rhinoTxt:"DE/FR Erklärungen. Player bereit.", cheveux:"Haare", greffeTitle:"Haartransplantation", greffeTxt:"Ablauf erklärt.", dentaire:"Zahnästhetik", smileTitle:"Veneers / Hollywood Smile", smileTxt:"Vorbereitung & Einsetzen.", seins2:"Brust", reductionTitle:"Bruststraffung / Reduktion", reductionTxt:"Operative Darstellung.", watchVideo:"Video ansehen", seePrices:"Preise", pricesTitle:"Preisübersicht", pricesNote:"Pauschalen. Kostenloser Kostenvoranschlag.", colActe:"Eingriff", colPrix:"Ab", colSejour:"Aufenthalt", pImplants:"Brustimplantate", pLipo:"Liposuktion (2–3 Zonen)", pRhino:"Rhinoplastik", pGreffe:"Haartransplantation (3000+)", pFacettes:"Veneers (pro Zahn)", pMastopexie:"Bruststraffung / Reduktion", pSejour3:"3 Nächte", pSejour2:"2 Nächte", pAmbu:"Ambulant", pricesLegal:"* Endpreis nach medizinischer Prüfung.", quoteTitle:"Schnellangebot", sendQuote:"Senden", privacy:"Zustimmung zur Kontaktaufnahme.", langTitle:"Sprachen", licenses:"Videos: Wikimedia Commons (freie Lizenzen)."},
+    nl:{slogan:"Esthetische chirurgie & premium zorg", heroTitle:"Natuurlijke resultaten, maximale veiligheid.", heroDesc:"Geaccrediteerd team, duidelijke prijzen.", ctaServices:"Bekijk services", servicesTitle:"Services", chirurgieSeins:"Borst", implantsTitle:"Borstimplantaten", implantsTxt:"Pre-operatieve markeringen. Geen logo’s.", silhouette:"Silhouet", lipoTitle:"Liposuctie", lipoTxt:"Operatieve techniek (gynaecomastie).", visage:"Gezicht", rhinoTitle:"Rhinoplastiek", rhinoTxt:"Uitleg FR. Speler klaar.", cheveux:"Haar", greffeTitle:"Haartransplantatie", greffeTxt:"Proces uitgelegd.", dentaire:"Tandheelkunde", smileTitle:"Facings / Hollywood Smile", smileTxt:"Voorbereiding en plaatsing.", seins2:"Borst", reductionTitle:"Borstlift / Reductie", reductionTxt:"Operatieve illustratie.", watchVideo:"Video bekijken", seePrices:"Prijzen", pricesTitle:"Indicatieve prijzen", pricesNote:"All-inclusive. Gratis offerte.", colActe:"Ingreep", colPrix:"Vanaf", colSejour:"Verblijf", pImplants:"Borstimplantaten", pLipo:"Liposuctie (2–3 zones)", pRhino:"Rhinoplastiek", pGreffe:"Haartransplantatie (3000+)", pFacettes:"Facings (per tand)", pMastopexie:"Borstlift / Reductie", pSejour3:"3 nachten", pSejour2:"2 nachten", pAmbu:"Dagbehandeling", pricesLegal:"* Eindprijs na medisch dossier.", quoteTitle:"Snelle offerte", sendQuote:"Offerte verzenden", privacy:"Toestemming om te contacteren.", langTitle:"Talen", licenses:"Video’s: Wikimedia Commons (vrije licenties)."},
+    ar:{slogan:"جراحة تجميلية ورعاية مميزة", heroTitle:"نتائج طبيعية وأمان عالٍ.", heroDesc:"فريق معتمد وأسعار واضحة ومرافقة كاملة.", ctaServices:"الخدمات", servicesTitle:"الخدمات", chirurgieSeins:"الصدر", implantsTitle:"زرع الثدي", implantsTxt:"علامات ما قبل العملية دون شعارات.", silhouette:"نحت الجسم", lipoTitle:"شفط الدهون", lipoTxt:"شرح التقنية (مثال: تثدي الرجال).", visage:"الوجه", rhinoTitle:"تجميل الأنف", rhinoTxt:"شرح بالعربية/الفرنسية. المشغل جاهز للفيديو الخاص بكم.", cheveux:"الشعر", greffeTitle:"زراعة الشعر", greffeTxt:"شرح العملية. أضفوا فيديو بدون شعارات.", dentaire:"الأسنان", smileTitle:"فينير / هوليوود سمايل", smileTxt:"التحضير والتركيب.", seins2:"الصدر", reductionTitle:"شد/تصغير الثدي", reductionTxt:"عرض جراحي.", watchVideo:"مشاهدة الفيديو", seePrices:"الأسعار", pricesTitle:"الأسعار التقريبية", pricesNote:"باقات شاملة. عرض سعر مجاني.", colActe:"الإجراء", colPrix:"ابتداءً من", colSejour:"الإقامة", pImplants:"زرع الثدي", pLipo:"شفط الدهون (2–3 مناطق)", pRhino:"تجميل الأنف", pGreffe:"زراعة الشعر (+3000 شعرة)", pFacettes:"فينير سيراميك (للسن)", pMastopexie:"شد/تصغير الثدي", pSejour3:"3 ليالٍ", pSejour2:"ليلتان", pAmbu:"خارجية", pricesLegal:"* السعر النهائي بعد تقييم طبي.", quoteTitle:"طلب عرض سعر", sendQuote:"إرسال", privacy:"بإرسالكم، توافقون على التواصل لإتمام العرض.", langTitle:"اللغات", licenses:"فيديوهات: ويكيميديا كومنز (ترخيص حر)."}
+  };
+
+  function setLang(code){
+    const pack = I18N[code] || I18N.fr;
+    document.querySelectorAll("[data-i18n]").forEach(el=>{
+      const key = el.getAttribute("data-i18n");
+      if(pack[key]) el.textContent = pack[key];
+    });
+    document.querySelectorAll(".lang-switch button").forEach(b=>b.classList.remove("active"));
+    document.querySelector(`.lang-switch button[data-lang='${code}']`)?.classList.add("active");
+    document.documentElement.lang = code;
+    document.documentElement.dir = (code==='ar') ? 'rtl' : 'ltr';
+  }
+  document.querySelectorAll(".lang-switch button").forEach(btn=>{
+    btn.addEventListener("click", ()=> setLang(btn.dataset.lang));
+  });
+</script>
+</body>
+</html>
