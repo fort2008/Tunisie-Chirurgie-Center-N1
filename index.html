@@ -1,361 +1,207 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Tunisie Chirurgie Esthétique Center N°1 — EstheConnect</title>
-  <meta name="description" content="Clinique d'esthétique au Lac 2 (Tunis). Liposuccion, Liftings, BBL Soft, J‑Plasma, Hollywood Smile, Greffe capillaire. Devis gratuit. Patients Belgique/France/Italie/Allemagne." />
-  <link rel="canonical" href="https://fort2008.github.io/fort2008-Tunisie-Chirurgie-Center/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Tunisie Chirurgie Esthétique Center N°1 — Devis & Prix Tout Compris" />
-  <meta property="og:description" content="Chirurgie esthétique en Tunisie (Lac 2, Tunis). Liposuccion, Liftings, BBL Soft, J‑Plasma, Hollywood Smile, Greffe capillaire. Devis rapide WhatsApp." />
-  <meta property="og:image" content="https://images.pexels.com/photos/2324837/pexels-photo-2324837.jpeg?auto=compress&cs=tinysrgb&w=1600" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="description" content="Clinique Lac 2 — Liposuccion, Liftings, Rhinoplastie, Augmentation mammaire, Greffe capillaire, Facettes dentaires. Devis WhatsApp et accompagnement complet.">
+  <meta name="keywords" content="chirurgie esthétique Tunisie, liposuccion, lifting visage, rhinoplastie, augmentation mammaire, greffe capillaire, facettes dentaires">
+  <link rel="icon" href="/assets/img/favicon.png">
 
-  <link rel="alternate" hreflang="fr" href="#fr" />
-  <link rel="alternate" hreflang="fr-BE" href="#fr-be" />
-  <link rel="alternate" hreflang="fr-TN" href="#fr-tn" />
-  <link rel="alternate" hreflang="en" href="#en" />
-  <link rel="alternate" hreflang="it" href="#it" />
-  <link rel="alternate" hreflang="de" href="#de" />
-  <link rel="alternate" hreflang="nl" href="#nl" />
-  <link rel="alternate" hreflang="ar" href="#ar" />
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Ton style principal (garde ton fichier si tu en as un) -->
+  <!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
+
+  <!-- Styles des pages d'interventions (scopés, n'impactent pas ta home) -->
+  <link rel="stylesheet" href="/assets/css/styles-visage.css">
+  <link rel="stylesheet" href="/assets/css/styles-corps.css">
+  <link rel="stylesheet" href="/assets/css/styles-seins.css">
+  <link rel="stylesheet" href="/assets/css/styles-dc.css">
 
   <style>
-    :root { --rose:#E91E63; --rose-700:#C2185B; --gold:#D4AF37; --ink:#1b1b1f; --bg:#fff7fb; --muted:#6b7280; --card:#ffffff; }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;line-height:1.5}
-    a{color:var(--rose);text-decoration:none} a:hover{text-decoration:underline}
-    header.nav{position:sticky;top:0;z-index:50;background:linear-gradient(90deg,var(--rose),var(--rose-700));color:#fff;border-bottom:3px solid var(--gold);box-shadow:0 6px 18px rgba(0,0,0,.18)}
-    .wrap{max-width:1200px;margin-inline:auto;padding:0 18px}
-    .row{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:10px 0}
-    .brand{display:flex;gap:12px;align-items:center;font-weight:800;letter-spacing:.2px}
-    .brand .logo{width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,transparent 50%), linear-gradient(135deg,var(--gold),#fce7b2)}
-    .brand span{font-size:18px}
-    nav a{color:#fff;opacity:.95;font-weight:600;padding:10px 10px;border-radius:10px} nav a:hover{background:rgba(255,255,255,.12)}
-    .hero{position:relative;isolation:isolate;min-height:66vh;display:grid;place-items:center;overflow:hidden;border-bottom:4px solid var(--gold)}
-    .hero video,.hero .fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.02) saturate(1.05) brightness(.92)}
-    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.25), rgba(0,0,0,.05));z-index:0}
-    .hero .content{position:relative;z-index:1;color:#fff;text-align:center;padding:40px 18px;max-width:1000px}
-    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);padding:8px 12px;border:1px solid rgba(255,255,255,.3);border-radius:100px;font-weight:700;backdrop-filter:blur(6px)}
-    .title{font-size:clamp(28px,5vw,56px);margin:14px 0 6px;line-height:1.05}
-    .subtitle{font-size:clamp(15px,2.3vw,22px);opacity:.95}
-    .cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:16px}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;background:#fff;color:var(--ink);font-weight:800;border:2px solid var(--gold);box-shadow:0 10px 18px rgba(0,0,0,.15)}
-    .btn.whatsapp{background:linear-gradient(180deg,#fff,#fef7ff)}
-    .btn.secondary{background:transparent;color:#fff;border-color:#fff}
-    .btn:hover{transform:translateY(-1px)}
-    .tiny{font-size:12px;opacity:.8}
-    section{padding:48px 0}
-    h2.section-title{font-size:clamp(24px,3.5vw,34px);margin:0 0 10px;display:flex;align-items:center;gap:10px}
-    .eyebrow{color:var(--rose-700);font-weight:900;letter-spacing:.18em;text-transform:uppercase;font-size:12px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
-    .card{background:var(--card);border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.08);overflow:hidden;border:1px solid #f4e7fb}
-    .card img{width:100%;height:180px;object-fit:cover}
-    .card .p{padding:14px 14px 18px}
-    .chip{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid #f1d6f6;background:#fff7fb;font-weight:700;color:var(--rose-700);font-size:12px}
-    table.pricing{width:100%;border-collapse:collapse;overflow:hidden;border-radius:14px;background:#fff;box-shadow:0 8px 20px rgba(0,0,0,.06)}
-    table.pricing th,table.pricing td{padding:12px;border-bottom:1px solid #f2e8f6;text-align:left}
-    table.pricing th{background:linear-gradient(90deg,#fff, #fff7fb)}
-    table.pricing tr:hover td{background:#fffafc}
-    .price{font-weight:900;color:var(--rose-700)}
-    .lang-block{background:#fff;border:1px solid #f4e7fb;border-left:6px solid var(--gold);border-radius:12px;padding:14px;margin:10px 0}
-    .lang-block h3{margin:0 0 8px;font-size:18px;color:var(--rose-700)}
-    form.devis{background:#fff;border:1px solid #f4e7fb;border-radius:18px;padding:16px;box-shadow:0 8px 20px rgba(0,0,0,.06)}
-    form.devis .row{gap:12px;flex-wrap:wrap;justify-content:flex-start}
-    input,select,textarea{width:100%;padding:12px;border:1px solid #ead7f6;border-radius:12px;background:#fff}
-    label{font-weight:700;font-size:14px;color:#544}
-    .inline{display:flex;gap:12px;flex-wrap:wrap}
-    .two>*{flex:1 1 280px}
-    footer{background:#0e0e10;color:#ddd;border-top:3px solid var(--gold)}
-    footer .grid{ display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px }
-    .credits a{color:#ccc;text-decoration:underline}
-    #wa-float{position:fixed; right:18px; bottom:18px; width:60px; height:60px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 12px 28px rgba(0,0,0,.25); z-index:9999}
-    #wa-float svg{width:30px; height:30px; fill:#fff}
-    @media (max-width:420px){ #wa-float{ width:54px;height:54px; right:14px; bottom:14px } }
+    /* Mini styles de secours (tu peux les retirer si tu as déjà ton style.css) */
+    :root{--rose:#E91E63;--dore:#FFD700}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    header.fixed-top{background:#111}
+    header .navbar .nav-link{color:#fff}
+    header .navbar .nav-link:hover{color:var(--dore)}
+    .eyebrow{letter-spacing:.08em;text-transform:uppercase;color:#888;font-size:.8rem}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+    .section-title{font-weight:800}
+    .grid{display:grid;gap:18px}
+    @media(min-width:900px){.grid{grid-template-columns:1fr 1fr}}
+    .card{border:1px solid #eee;border-radius:12px;overflow:hidden;background:#fff}
+    .card .p{padding:16px}
+    footer{background:#111;color:#eee}
+    footer a{color:#eee;text-decoration:none}
+    .credits{opacity:.8}
+    /* Hero de secours (remplace ci-dessous par ton vrai hero pour garder ta couverture) */
+    #hero{position:relative;min-height:70vh;display:flex;align-items:center;background:#000 url('/assets/img/hero-chirurgie.jpg') center/cover no-repeat}
+    #hero::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.45)}
+    #hero .wrap{position:relative;z-index:2;color:#fff}
+    #hero .badge-top{display:inline-block;background:#fff;color:#111;border:2px solid var(--dore);padding:.4rem .9rem;border-radius:999px;font-weight:700}
+    #hero h1{font-weight:800;margin-top:12px}
+    #hero .cta{margin-top:18px}
+    #hero .btn-wa{display:inline-flex;gap:.5rem;align-items:center;background:var(--rose);border:2px solid var(--dore);color:#fff;border-radius:999px;padding:.6rem 1.1rem;text-decoration:none;font-weight:700}
+    #hero .btn-wa:hover{opacity:.92;color:#fff}
   </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MedicalClinic",
-    "name": "Tunisie Chirurgie Esthétique Center N°1 — EstheConnect",
-    "description": "Clinique d'esthétique au Lac 2 (Tunis). Liposuccion, Liftings, BBL Soft, J-Plasma, Hollywood Smile, Greffe capillaire.",
-    "url": "https://fort2008.github.io/fort2008-Tunisie-Chirurgie-Center/",
-    "logo": "https://fort2008.github.io/fort2008-Tunisie-Chirurgie-Center/logo.png",
-    "email": "mailto:aboprof.bm2@gmail.com",
-    "telephone": "+21628296239",
-    "address": {"@type": "PostalAddress","streetAddress": "Les Berges du Lac 2","addressLocality": "Tunis","addressCountry": "TN"},
-    "sameAs": ["https://wa.me/21628296239"],
-    "openingHours": "Mo-Sa 09:00-19:00",
-    "medicalSpecialty": ["PlasticSurgery","CosmeticSurgery","Dentistry","Dermatology"]
-  }
-  </script>
 </head>
-
 <body>
-  <header class="nav">
-    <div class="wrap row">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <span>Tunisie Chirurgie Esthétique Center N°1</span>
+
+  <!-- HEADER + NAVBAR -->
+  <header class="fixed-top">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid wrap">
+        <a class="navbar-brand text-white fw-bold text-decoration-none" href="/index.html">EstheConnect</a>
+        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navMain" class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+
+            <!-- MEGA-MENU Interventions -->
+            <li class="nav-item dropdown position-static">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                Interventions
+              </a>
+              <div class="dropdown-menu w-100 mt-0 border-0 shadow p-3" style="max-width:1200px">
+                <div class="container">
+                  <div class="row g-4">
+                    <!-- VISAGE -->
+                    <div class="col-12 col-md-4 col-lg-3">
+                      <h6 class="fw-bold">Visage</h6>
+                      <ul class="list-unstyled m-0">
+                        <li><a class="dropdown-item" href="/interventions/lifting-visage.html">Lifting visage</a></li>
+                        <li><a class="dropdown-item" href="/interventions/blepharoplastie.html">Blépharoplastie</a></li>
+                        <li><a class="dropdown-item" href="/interventions/rhinoplastie.html">Rhinoplastie</a></li>
+                        <li><a class="dropdown-item" href="/interventions/lipofilling-visage.html">Lipofilling visage</a></li>
+                        <li><a class="dropdown-item" href="/interventions/double-menton.html">Liposuccion double menton</a></li>
+                        <li><a class="dropdown-item" href="/interventions/bichectomie.html">Bichectomie</a></li>
+                        <li><a class="dropdown-item" href="/interventions/otoplastie.html">Otoplastie</a></li>
+                      </ul>
+                    </div>
+                    <!-- CORPS -->
+                    <div class="col-12 col-md-4 col-lg-3">
+                      <h6 class="fw-bold">Corps</h6>
+                      <ul class="list-unstyled m-0">
+                        <li><a class="dropdown-item" href="/interventions/liposuccion.html">Liposuccion</a></li>
+                        <li><a class="dropdown-item" href="/interventions/abdominoplastie.html">Abdominoplastie</a></li>
+                        <li><a class="dropdown-item" href="/interventions/mini-abdo.html">Mini abdominoplastie</a></li>
+                        <li><a class="dropdown-item" href="/interventions/lifting-bras.html">Lifting des bras</a></li>
+                        <li><a class="dropdown-item" href="/interventions/lifting-cuisses.html">Lifting des cuisses</a></li>
+                        <li><a class="dropdown-item" href="/interventions/lipofilling-fesses.html">Lipofilling fesses</a></li>
+                        <li><a class="dropdown-item" href="/interventions/implant-fessier.html">Implant fessier</a></li>
+                      </ul>
+                    </div>
+                    <!-- SEINS -->
+                    <div class="col-12 col-md-4 col-lg-3">
+                      <h6 class="fw-bold">Seins</h6>
+                      <ul class="list-unstyled m-0">
+                        <li><a class="dropdown-item" href="/interventions/augmentation-mammaire.html">Augmentation</a></li>
+                        <li><a class="dropdown-item" href="/interventions/lipofilling-mammaire.html">Lipofilling</a></li>
+                        <li><a class="dropdown-item" href="/interventions/lifting-mammaire.html">Mastopexie</a></li>
+                        <li><a class="dropdown-item" href="/interventions/reduction-mammaire.html">Réduction</a></li>
+                        <li><a class="dropdown-item" href="/interventions/asymetrie-mammaire.html">Asymétrie</a></li>
+                      </ul>
+                    </div>
+                    <!-- DENTS & CHEVEUX -->
+                    <div class="col-12 col-md-4 col-lg-3">
+                      <h6 class="fw-bold">Dents & Cheveux</h6>
+                      <ul class="list-unstyled m-0">
+                        <li><a class="dropdown-item" href="/interventions/facettes-dentaires.html">Facettes dentaires</a></li>
+                        <li><a class="dropdown-item" href="/interventions/orthodontie-invisible.html">Orthodontie invisible</a></li>
+                        <li><a class="dropdown-item" href="/interventions/greffe-fue.html">Greffe capillaire FUE</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- /MEGA-MENU -->
+
+            <!-- Liens d'ancrage vers sections -->
+            <li class="nav-item"><a class="nav-link" href="/index.html#services">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="/index.html#galerie">Galerie</a></li>
+            <li class="nav-item"><a class="nav-link" href="/index.html#prix">Prix</a></li>
+            <li class="nav-item"><a class="nav-link" href="/index.html#devis">Devis</a></li>
+            <li class="nav-item"><a class="nav-link" href="/index.html#contact">Contact</a></li>
+          </ul>
+        </div>
       </div>
-      <nav>
-        <a href="/index.html#services">Services</a>
-        <a href="/index.html#galerie">Galerie</a>
-        <a href="/index.html#prix">Prix</a>
-        <a href="/index.html#devis">Devis</a>
-        <a href="/index.html#contact">Contact</a>
-        <a href="/index.html#fr" title="Français">FR</a>
-        <a href="/index.html#en" title="English">EN</a>
-        <a href="/index.html#it" title="Italiano">IT</a>
-        <a href="/index.html#de" title="Deutsch">DE</a>
-        <a href="/index.html#nl" title="Nederlands">NL</a>
-        <a href="/index.html#ar" title="العربية">AR</a>
-      </nav>
-    </div>
+    </nav>
   </header>
 
-  <section class="hero" aria-label="Couverture">
-    <video autoplay muted loop playsinline poster="https://images.pexels.com/photos/2324837/pexels-photo-2324837.jpeg?auto=compress&cs=tinysrgb&h=1200">
-      <source src="https://cdn.pixabay.com/vimeo/133084691/Medicine-Health-440-1280x720.mp4" type="video/mp4" />
-      <source src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Digital-video-recording-in-trauma-surgery-using-commercially-available-equipment-1757-7241-21-27-S1.ogv" type="video/ogg" />
-      Votre navigateur ne supporte pas la vidéo HTML5.
-    </video>
-    <div class="content wrap">
-      <span class="badge">Esthétique haut de gamme • Clinique Lac 2</span>
-      <h1 class="title">Votre esthétique, notre expertise</h1>
-      <p class="subtitle">Liposuccion, Liftings, BBL Soft, J‑Plasma, Hollywood Smile, Greffe capillaire — encadrement médical complet.</p>
+  <!-- HERO (couverture) -->
+  <!-- ⚠️ Remplace ce bloc par TON code de couverture actuel pour ne rien changer visuellement -->
+  <section id="hero">
+    <div class="wrap">
+      <span class="badge-top">Clinique Lac 2</span>
+      <h1 class="display-5 fw-bold">Votre esthétique, notre expertise</h1>
+      <p class="lead">Liposuccion, Liftings, Rhinoplastie, Augmentation mammaire, Facettes dentaires, Greffe capillaire.</p>
       <div class="cta">
-        <a class="btn whatsapp" data-service="Devis général" href="https://wa.me/21628296239?text=Bonjour%20EstheConnect%20:%20je%20souhaite%20un%20devis%20%F0%9F%93%9D" target="_blank" rel="noopener">📲 Devis WhatsApp</a>
-        <a class="btn secondary" href="/index.html#devis">📄 Demande de devis</a>
+        <a class="btn-wa" href="https://wa.me/21628296239"><i class="bi bi-whatsapp"></i> Devis WhatsApp</a>
       </div>
-      <p class="tiny">Réponse rapide • Devis clair • Accompagnement voyage médical</p>
     </div>
   </section>
-  <!-- SERVICES -->  
-  <section id="services">
+
+  <!-- SERVICES -->
+  <section id="services" class="py-5">
     <div class="wrap">
-      <div class="eyebrow">Services</div>
-      <h2 class="section-title">Actes phares</h2>
+      <div class="eyebrow">Nos services</div>
+      <h2 class="section-title">Interventions populaires</h2>
       <div class="grid">
-        <article class="card">
-          <img alt="Bloc opératoire - intervention" src="https://images.pexels.com/photos/6291298/pexels-photo-6291298.jpeg?auto=compress&cs=tinysrgb&w=1200" />
-          <div class="p">
-            <span class="chip">Liposuccion</span>
-            <h3>Affiner la silhouette</h3>
-            <p>Technique d’aspiration des excès graisseux (abdomen, hanches, cuisses). Récupération rapide avec gaine.</p>
-          </div>
-        </article>
-        <article class="card">
-          <img alt="Consultation pré-opératoire esthétique" src="https://images.pexels.com/photos/10521230/pexels-photo-10521230.jpeg?auto=compress&cs=tinysrgb&w=1200" />
-          <div class="p">
-            <span class="chip">Liftings</span>
-            <h3>Visage rajeuni</h3>
-            <p>Mini‑lift, cervico‑facial, blépharoplastie : retendre, lisser, redéfinir les contours avec cicatrices discrètes.</p>
-          </div>
-        </article>
-        <article class="card">
-          <img alt="Soin corporel non invasif" src="https://images.pexels.com/photos/5042605/pexels-photo-5042605.jpeg?auto=compress&cs=tinysrgb&w=1200" />
-          <div class="p">
-            <span class="chip">BBL Soft</span>
-            <h3>Courbes naturelles</h3>
-            <p>Transfert de graisse qualifiée avec approche sécurisée pour un galbe harmonieux et naturel.</p>
-          </div>
-        </article>
-        <article class="card">
-          <img alt="Mesure pré‑opératoire J‑Plasma" src="https://images.pexels.com/photos/7585313/pexels-photo-7585313.jpeg?auto=compress&cs=tinysrgb&w=1200" />
-          <div class="p">
-            <span class="chip">J‑Plasma</span>
-            <h3>Retension cutanée</h3>
-            <p>Énergie plasma froide pour retendre la peau (bras, abdomen, cou) — souvent associée à une lipo douce.</p>
-          </div>
-        </article>
-        <article class="card">
-          <img alt="Examen dentaire moderne" src="https://images.pexels.com/photos/6528858/pexels-photo-6528858.jpeg?auto=compress&cs=tinysrgb&w=1200" />
-          <div class="p">
-            <span class="chip">Hollywood Smile</span>
-            <h3>Facettes & blanchiment</h3>
-            <p>Sourire lumineux : facettes, alignement, blanchiment guidé par design numérique du sourire.</p>
-          </div>
-        </article>
-        <article class="card">
-          <img alt="Cabinet moderne au Lac 2" src="https://images.pexels.com/photos/5619462/pexels-photo-5619462.jpeg?auto=compress&cs=tinysrgb&w=1200" />
-          <div class="p">
-            <span class="chip">Greffe capillaire</span>
-            <h3>Technique FUE/DHI</h3>
-            <p>Densité et ligne frontale naturelles avec plan personnalisé — hommes et femmes.</p>
-          </div>
-        </article>
+        <div class="card"><div class="p"><h3>Visage</h3><p>Rhinoplastie, blépharoplastie, lifting, bichectomie…</p><a href="/interventions/rhinoplastie.html">Découvrir</a></div></div>
+        <div class="card"><div class="p"><h3>Corps</h3><p>Liposuccion, abdominoplastie, lifting cuisses/bras…</p><a href="/interventions/liposuccion.html">Découvrir</a></div></div>
+        <div class="card"><div class="p"><h3>Seins</h3><p>Augmentation, réduction, mastopexie, lipofilling…</p><a href="/interventions/augmentation-mammaire.html">Découvrir</a></div></div>
       </div>
     </div>
   </section>
 
   <!-- GALERIE -->
-  <section id="galerie">
+  <section id="galerie" class="py-5 bg-light">
     <div class="wrap">
-      <div class="eyebrow">Galerie</div>
-      <h2 class="section-title">Avant / Après & Ambiances</h2>
+      <div class="eyebrow">Avant / Après</div>
+      <h2 class="section-title">Résultats patients</h2>
+      <p>Déposez vos paires d’images dans <code>/assets/avant-apres/</code> en respectant le nommage :
+        <code>rhinoplastie-1-avant.jpg</code>, <code>rhinoplastie-1-apres.jpg</code>, etc.</p>
       <div class="grid">
-        <figure class="card"><img alt="Salle d'opération moderne" src="https://images.pexels.com/photos/2324837/pexels-photo-2324837.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Bloc opératoire</strong><p>Environnement stérile, matériel de pointe.</p></div></figure>
-        <figure class="card"><img alt="Consultation esthétique" src="https://images.pexels.com/photos/5327654/pexels-photo-5327654.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Consultation</strong><p>Plan personnalisé selon vos objectifs.</p></div></figure>
-        <figure class="card"><img alt="Soins post-op" src="https://images.pexels.com/photos/6129236/pexels-photo-6129236.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Suivi</strong><p>Suivi post‑op attentif et structuré.</p></div></figure>
-        <figure class="card"><img alt="Sourire dentaire" src="https://images.pexels.com/photos/4269693/pexels-photo-4269693.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Dentaire</strong><p>Facettes & blanchiment (Hollywood Smile).</p></div></figure>
-        <figure class="card"><img alt="Greffe capillaire" src="https://images.pexels.com/photos/5327652/pexels-photo-5327652.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Capillaire</strong><p>Zones donneuses & repousse naturelle.</p></div></figure>
-        <figure class="card"><img alt="Espace accueil" src="https://images.pexels.com/photos/8459996/pexels-photo-8459996.jpeg?auto=compress&cs=tinysrgb&w=1200"><div class="p"><strong>Accueil</strong><p>Clinique lumineuse au Lac 2.</p></div></figure>
+        <div class="card"><div class="p"><strong>Rhinoplastie</strong><br><a href="/interventions/rhinoplastie.html">Voir la page</a></div></div>
+        <div class="card"><div class="p"><strong>Liposuccion</strong><br><a href="/interventions/liposuccion.html">Voir la page</a></div></div>
+        <div class="card"><div class="p"><strong>Augmentation mammaire</strong><br><a href="/interventions/augmentation-mammaire.html">Voir la page</a></div></div>
       </div>
     </div>
   </section>
 
-  <!-- PRICES -->
-  <section id="prix">
+  <!-- PRIX -->
+  <section id="prix" class="py-5">
     <div class="wrap">
-      <div class="eyebrow">Prix</div>
-      <h2 class="section-title">Formules & packs tout compris (vol en option)</h2>
+      <div class="eyebrow">Tarifs</div>
+      <h2 class="section-title">Prix indicatifs</h2>
       <div class="grid">
-        <div class="card">
-          <div class="p">
-            <h3>Chirurgie</h3>
-            <table class="pricing">
-              <thead><tr><th>Acte</th><th>À partir de</th><th>Inclut</th></tr></thead>
-              <tbody>
-                <tr><td>Liposuccion (zones ciblées)</td><td class="price">1 690€</td><td>Clinique, honoraires, gaine</td></tr>
-                <tr><td>Mini‑lift visage</td><td class="price">2 400€</td><td>Bloc + 1 nuit</td></tr>
-                <tr><td>BBL Soft (lipofilling)</td><td class="price">2 990€</td><td>Bloc + séjour clinique</td></tr>
-                <tr><td>J‑Plasma + lipo douce</td><td class="price">2 150€</td><td>Zones ciblées</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="card">
-          <div class="p">
-            <h3>Dentaire</h3>
-            <table class="pricing">
-              <thead><tr><th>Acte</th><th>À partir de</th><th>Inclut</th></tr></thead>
-              <tbody>
-                <tr><td>Facette céramique unitaire</td><td class="price">240€</td><td>Empreinte + pose</td></tr>
-                <tr><td>Blanchiment in‑office</td><td class="price">170€</td><td>1 séance</td></tr>
-                <tr><td>Implant dentaire</td><td class="price">530€</td><td>Implant + pilier</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="card">
-          <div class="p">
-            <h3>Capillaire</h3>
-            <table class="pricing">
-              <thead><tr><th>Acte</th><th>À partir de</th><th>Inclut</th></tr></thead>
-              <tbody>
-                <tr><td>Greffe FUE (jusqu’à 3000 greffons)</td><td class="price">1 490€</td><td>PRP + soins post-op</td></tr>
-                <tr><td>Greffe barbe (FUE)</td><td class="price">1 200€</td><td>Séance unique</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <p class="tiny">* Prix indicatifs non contractuels — devis personnalisé après photos & visio.</p>
-    </div>
-  </section>
-
-  <!-- SEO language microcopy / anchors -->
-  <section id="seo">
-    <div class="wrap">
-      <div class="eyebrow">SEO</div>
-      <h2 class="section-title">Ancrages multilingues</h2>
-
-      <div id="fr" class="lang-block">
-        <h3>FR — Chirurgie esthétique Tunisie (Lac 2, Tunis)</h3>
-        <p>Clinique d’esthétique au <strong>Lac 2, Tunis</strong> : <em>liposuccion Tunisie prix</em>, <em>lifting visage</em>, <em>BBL soft</em>, <em>J‑Plasma</em>, <em>Hollywood smile</em>, <em>greffe capillaire FUE/DHI</em>. Devis gratuit, accompagnement francophone.</p>
-      </div>
-
-      <div id="fr-be" class="lang-block">
-        <h3>FR‑BE — Depuis la Belgique</h3>
-        <p><strong>Chirurgie esthétique Tunisie depuis la Belgique</strong> : packs tout compris, prise en charge aéroport, clinique accréditée. Départ Bruxelles/Charleroi, suivi à distance.</p>
-      </div>
-
-      <div id="fr-tn" class="lang-block">
-        <h3>FR‑TN — Local (Tunisie)</h3>
-        <p>Consultation au <strong>Lac 2</strong>, médecins expérimentés, devis clair et délais rapides. Soins esthétiques et dentaires pour résidents Tunisie.</p>
-      </div>
-
-      <div id="en" class="lang-block">
-        <h3>EN — Cosmetic surgery in Tunisia</h3>
-        <p>Premium clinic in <strong>Lake 2, Tunis</strong>: liposuction, face-lift, <em>BBL</em>, <em>J‑Plasma</em>, <em>Hollywood Smile</em>, hair transplant (FUE/DHI). <strong>Free quote on WhatsApp</strong>.</p>
-      </div>
-
-      <div id="it" class="lang-block">
-        <h3>IT — Chirurgia estetica in Tunisia</h3>
-        <p>Clinica al <strong>Lago 2, Tunisi</strong>: liposuzione, lifting, <em>BBL</em>, <em>J‑Plasma</em>, <em>Hollywood Smile</em>, trapianto capelli. <strong>Preventivo gratuito</strong>.</p>
-      </div>
-
-      <div id="de" class="lang-block">
-        <h3>DE — Schönheitschirurgie in Tunesien</h3>
-        <p>Exklusive Klinik in <strong>See 2, Tunis</strong>: Fettabsaugung, Facelifting, <em>BBL</em>, <em>J‑Plasma</em>, <em>Hollywood Smile</em>, Haartransplantation. <strong>Kostenloses Angebot</strong>.</p>
-      </div>
-
-      <div id="nl" class="lang-block">
-        <h3>NL — Plastische chirurgie in Tunesië</h3>
-        <p>Moderne kliniek in <strong>Lac 2, Tunis</strong>: liposuctie, facelift, <em>BBL</em>, <em>J‑Plasma</em>, <em>Hollywood Smile</em>, haartransplantatie (FUE/DHI). <strong>Gratis offerte via WhatsApp</strong>.</p>
-      </div>
-
-      <div id="ar" dir="rtl" class="lang-block" style="text-align:right">
-        <h3>AR — الجراحة التجميلية في تونس</h3>
-        <p>عيادة حديثة في <strong>البحيرة 2، تونس</strong>: شفط الدهون، شد الوجه، <em>BBL</em>، <em>J‑Plasma</em>، <em>ابتسامة هوليوود</em>، زراعة الشعر (FUE/DHI). <strong>عرض مجاني عبر واتساب</strong>.</p>
+        <div class="card"><div class="p"><h3>Forfait Standard</h3><p>À partir de 2400€<br><span class="text-muted">Honoraires, clinique, transferts</span></p></div></div>
+        <div class="card"><div class="p"><h3>Premium</h3><p>Sur devis<br><span class="text-muted">Options selon dossier (vêtement compressif, nuits sup.)</span></p></div></div>
       </div>
     </div>
   </section>
 
   <!-- DEVIS -->
-  <section id="devis">
+  <section id="devis" class="py-5 bg-light">
     <div class="wrap">
       <div class="eyebrow">Devis</div>
-      <h2 class="section-title">Demande de devis rapide</h2>
-      <form class="devis" action="mailto:aboprof.bm2@gmail.com" method="post" enctype="text/plain">
-        <div class="row two">
-          <div>
-            <label>Nom & Prénom</label>
-            <input name="nom" placeholder="Votre nom" required />
-          </div>
-          <div>
-            <label>WhatsApp</label>
-            <input name="whatsapp" placeholder="+216 28 296 239" />
-          </div>
+      <h2 class="section-title">Demande de devis</h2>
+      <form name="contact" method="POST" data-netlify="true" class="mx-auto" style="max-width:720px">
+        <input type="hidden" name="form-name" value="contact">
+        <div class="row g-3">
+          <div class="col-md-6"><input class="form-control" name="name" placeholder="Nom et Prénom" required></div>
+          <div class="col-md-6"><input class="form-control" name="phone" placeholder="Téléphone WhatsApp" required></div>
+          <div class="col-12"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+          <div class="col-12"><textarea class="form-control" name="message" rows="4" placeholder="Intervention souhaitée + détails"></textarea></div>
+          <div class="col-12 text-center"><button class="btn btn-primary px-4" type="submit">Envoyer</button></div>
         </div>
-        <div class="row two">
-          <div>
-            <label>Service</label>
-            <select name="service">
-              <option>Liposuccion</option>
-              <option>Liftings</option>
-              <option>BBL Soft</option>
-              <option>J‑Plasma</option>
-              <option>Hollywood Smile</option>
-              <option>Greffe capillaire</option>
-            </select>
-          </div>
-          <div>
-            <label>Pays</label>
-            <select name="pays">
-              <option>Belgique</option>
-              <option>France</option>
-              <option>Tunisie</option>
-              <option>Italie</option>
-              <option>Allemagne</option>
-              <option>Autre</option>
-            </select>
-          </div>
-        </div>
-        <div class="row">
-          <div style="flex:1">
-            <label>Votre message</label>
-            <textarea name="message" rows="4" placeholder="Dites-nous vos objectifs (zones, photos, délais)"></textarea>
-          </div>
-        </div>
-        <div class="row">
-          <button type="submit" class="btn whatsapp">Envoyer le devis par e‑mail</button>
-          <a class="btn secondary" data-service="Devis général" href="https://wa.me/21628296239?text=Bonjour%2C%20je%20souhaite%20un%20devis%20:%20" target="_blank" rel="noopener">Ou via WhatsApp</a>
-        </div>
-        <p class="tiny">Astuce : sur GitHub Pages, les formulaires e‑mail (mailto:) ouvrent votre messagerie. Pour des envois directs, basculez sur Netlify et activez les <em>Netlify Forms</em>.</p>
+        <p class="tiny">Astuce : sur GitHub Pages, les formulaires e-mail (mailto:) ouvrent votre messagerie. Pour des envois directs, basculez sur Netlify et activez les <em>Netlify Forms</em>.</p>
       </form>
     </div>
   </section>
@@ -386,6 +232,7 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="wrap" style="padding:26px 0">
       <div class="grid">
@@ -405,6 +252,7 @@
     </div>
   </footer>
 
+  <!-- Smooth scroll (ancre) -->
   <script>
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
@@ -414,6 +262,10 @@
     });
   </script>
 
+  <!-- WhatsApp helper si tu l'as déjà -->
   <script src="/assets/wa.js" defer></script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
