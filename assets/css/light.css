@@ -1,0 +1,82 @@
+/* ===== Thème clair global ===== */
+:root{
+  --bg:#ffffff;
+  --ink:#0b1a26;          /* titres bleu nuit */
+  --text:#333333;         /* texte principal */
+  --muted:#6b7280;        /* texte secondaire */
+  --line:#eceff5;         /* bordures */
+  --card:#ffffff;         /* fond des cartes */
+  --shadow:0 2px 14px rgba(16,24,40,.06);
+  --brand:#e92c6c;        /* accent rose chic */
+  --brand-ink:#ffffff;
+  --cta:#0ea5e9;          /* bleu bouton alt si besoin */
+}
+
+/* Base */
+html,body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+
+/* Header / Nav */
+header, .navbar, .nav, .topbar{background:#fff;border-bottom:2px solid var(--line)}
+.brand, .navbar-brand{color:var(--ink)!important;font-weight:800;letter-spacing:.2px}
+.menu a, .nav a, .navbar .nav-link{color:#374151!important;opacity:.95}
+.menu a:hover, .nav a:hover, .navbar .nav-link:hover{opacity:1}
+
+/* Hero (image/vidéo) */
+.hero, .hero-i{
+  position:relative;border-bottom:2px solid var(--line);
+  background-color:#f8fafc;
+}
+.hero:before{
+  content:"";position:absolute;inset:0;z-index:0;
+  background:linear-gradient(to bottom, rgba(255,255,255,.55), rgba(255,255,255,.85));
+}
+.hero .content, .hero-i .wrap{position:relative;z-index:1}
+h1, h2, h3{color:var(--ink);font-weight:800}
+.badge, .badge-cat{
+  display:inline-block;background:var(--brand);color:var(--brand-ink);
+  padding:.35rem .7rem;border-radius:999px;font-size:.8rem;border:0
+}
+
+/* Sections */
+section{padding:56px 0;border-bottom:2px solid var(--line)}
+.eyebrow{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.section-title{font-size:28px;margin:0 0 18px}
+
+/* Cartes */
+.card, .card-ghost{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  box-shadow:var(--shadow);padding:18px
+}
+.card .p{padding:0}
+
+/* Listes d’interventions */
+.list a{display:block;padding:12px 14px;border-top:1px dashed #e5e7eb}
+.list a:first-child{border-top:0}
+.list b{display:block;margin-bottom:4px;color:var(--ink)}
+
+/* Boutons */
+.btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:10px;font-weight:700;padding:.8rem 1rem;border:0;cursor:pointer}
+.btn-main, .btn.btn-main{background:var(--brand);color:#fff}
+.btn-main:hover{filter:brightness(.96)}
+.btn-alt, .btn.secondary, .btn-outline{background:#fff;border:1px solid #d1d5db;color:#333}
+.btn-alt:hover, .btn.secondary:hover, .btn-outline:hover{background:#f8fafc}
+
+/* Formulaires */
+input,textarea,select{
+  width:100%;background:#fff;border:1px solid #d1d5db;color:#111827;
+  padding:12px;border-radius:10px
+}
+
+/* Galerie images */
+img{max-width:100%;height:auto;border-radius:12px}
+.gal img{height:220px;object-fit:cover}
+
+/* Footer */
+footer{background:#fff;border-top:2px solid var(--line);color:#555}
+
+/* Table responsive (si jamais) */
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{border-top:1px solid var(--line);padding:12px}
+.table thead th{border-bottom:2px solid var(--line);color:var(--ink)}
