@@ -2,57 +2,60 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Tunisie Chirurgie Esthétique Center N°1 — Clinique Lac 2</title>
-<meta name="description" content="Liposuccion, rhinoplastie, liftings, BBL Soft, J-Plasma, Hollywood Smile, greffe capillaire. Encadrement médical complet, devis rapide WhatsApp." />
+<meta name="description" content="Chirurgie esthétique haut de gamme à Tunis (Lac 2) : Rhinoplastie, Liposuccion, Augmentation mammaire, Greffe capillaire FUE, Facettes dentaires. Devis personnalisé." />
 <link rel="icon" href="/favicon.svg">
 <style>
 :root{
-  --bg:#0b1220; --card:#0f1629; --line:#1f2b44; --text:#e8f0ff;
-  --muted:#a6b2ce; --brand:#11a2f7; --ok:#14c772;
+  --ink:#0e1726; --bg:#f7f9fc; --card:#ffffff;
+  --muted:#657091; --line:#e6eaf2; --brand:#0ea5e9; --cta:#22c55e;
 }
-*{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;}
-a{color:inherit;text-decoration:none}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+a{text-decoration:none;color:inherit}
 .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
-header{position:sticky;top:0;z-index:50;background:#0d1426cc;backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:50;background:#ffffffd9;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;gap:18px;height:64px}
-.brand{font-weight:800;letter-spacing:.3px;font-size:17px;white-space:nowrap}
-.nav-space{flex:1} .nav a{opacity:.9} .nav a:hover{opacity:1}
-.btn{display:inline-flex;align-items:center;gap:.55rem;background:var(--brand);color:#04131a;padding:.72rem 1rem;border-radius:10px;font-weight:700}
-.btn.secondary{background:#1f2a48;color:#d7e1ff}
-.btn.ok{background:var(--ok);color:#042616}
-.hero{position:relative;min-height:72vh;display:grid;place-items:center;border-bottom:1px solid var(--line)}
-.hero .mask{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(8,16,32,.35), rgba(8,16,32,.85)), linear-gradient(to top, rgba(8,16,32,.15), rgba(8,16,32,.0))}
-.hero h1{font-size:clamp(34px,5.6vw,64px);line-height:1.08;margin:.2em 0}
-.subtitle{max-width:900px;color:#b9c4e3;font-size:18px}
-.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-.badge{display:inline-block;background:#fff;color:#04131a;padding:.35rem .7rem;border-radius:999px;font-size:12px;margin-bottom:12px}
+.brand{font-weight:800;letter-spacing:.2px;white-space:nowrap}
+.nav-space{flex:1}
+.nav a{color:#374151}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.8rem 1rem;border-radius:12px;font-weight:700;box-shadow:0 8px 24px rgba(2,6,23,.06)}
+.btn.primary{background:var(--cta);color:#062e12}
+.btn.ghost{background:#fff;border:1px solid var(--line)}
+.badge{display:inline-block;padding:.45rem .8rem;border-radius:999px;background:#eef2ff;color:#3730a3;border:1px solid #c7d2fe;font-size:12px}
+.subtitle{color:var(--muted)}
+.section{padding:56px 0}
+h1{font-size:clamp(28px,5.5vw,56px);margin:.2em 0}
+h2{font-size:clamp(22px,3.2vw,28px);margin:0 0 14px}
+.small{color:#6b7280;font-size:14px}
 
-.slide{position:absolute;inset:0;opacity:0;transition:opacity .8s ease; background-position:center;background-size:cover}
+/* HERO */
+.hero{position:relative;min-height:82vh;display:grid;place-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .9s}
 .slide.active{opacity:1}
+.hero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,13,31,.4),rgba(247,249,252,.85))}
+.hero .content{position:relative;z-index:1;text-align:left}
 
-.section{padding:56px 0;border-bottom:1px solid var(--line)}
-.section h2{font-size:28px;margin:0 0 18px}
+/* GRID */
 .grid{display:grid;gap:18px}
-.grid.cards{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.cards{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.card .p{padding:18px}
+.card img{width:100%;height:220px;object-fit:cover;display:block}
+.card .p{padding:14px 16px}
 
-/* Avant/Après (slider) */
-.ba{position:relative;max-width:940px;margin:0 auto;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
-.ba img{display:block;width:100%;height:auto;user-select:none}
-.ba .after{position:absolute;inset:0;clip-path:inset(0 0 0 50%)}
-.ba .handle{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;box-shadow:0 0 0 1px #0003}
-.ba .knob{position:absolute;left:50%;top:50%;translate:-50% -50%;width:46px;height:46px;border-radius:50%;background:#fff;color:#04131a;display:grid;place-items:center;font-weight:800;box-shadow:0 8px 24px #0006}
+/* AVANT/APRES (deux images juxtaposées) */
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.duo figure{margin:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.duo img{width:100%;height:auto;display:block}
 
-/* Galerie */
+/* GALERIE */
 .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-.gallery a{display:block;aspect-ratio:1/1;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
-.gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.gallery a{display:block;aspect-ratio:1/1;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
 .gallery a:hover img{transform:scale(1.06)}
 
-footer{padding:28px 0;color:#9db0d8}
-.small{color:#93a1c7;font-size:13px}
+footer{padding:28px 0;border-top:1px solid var(--line);color:#66728f}
 </style>
 </head>
 <body>
@@ -61,28 +64,28 @@ footer{padding:28px 0;color:#9db0d8}
   <div class="wrap nav">
     <div class="brand">Tunisie Chirurgie Esthétique Center N°1</div>
     <nav class="nav-space"></nav>
-    <a class="btn secondary" href="/index.html#interventions">Interventions</a>
-    <a class="btn secondary" href="/index.html#galerie">Galerie</a>
-    <a class="btn" href="#devis">Devis</a>
+    <a class="btn ghost" href="#interventions">Interventions</a>
+    <a class="btn ghost" href="#galerie">Galerie</a>
+    <a class="btn primary" href="#devis">Devis</a>
   </div>
 </header>
 
-<!-- HERO (diaporama) -->
+<!-- HERO diaporama (photos cliniques / chirurgie) -->
 <section class="hero" aria-label="Couverture">
-  <div class="slide active" style="background-image:url('/assets/hero/slide-1.jpg')"></div>
-  <div class="slide" style="background-image:url('/assets/hero/slide-2.jpg')"></div>
-  <div class="slide" style="background-image:url('/assets/hero/slide-3.jpg')"></div>
-  <div class="mask"></div>
+  <!-- 4 visuels cliniques HD -->
+  <div class="slide active" style="background-image:url('https://images.pexels.com/photos/8460153/pexels-photo-8460153.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/7089337/pexels-photo-7089337.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/8460099/pexels-photo-8460099.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/4458558/pexels-photo-4458558.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
+  <div class="veil"></div>
 
-  <div class="wrap" style="position:relative;z-index:1;text-align:left">
-    <span class="badge">Esthétique haut de gamme • Clinique Lac 2</span>
+  <div class="wrap content">
+    <span class="badge">Clinique Lac 2 • Esthétique haut de gamme</span>
     <h1>Votre esthétique, notre expertise</h1>
-    <p class="subtitle">
-      Liposuccion, Liftings, BBL Soft, J-Plasma, Hollywood Smile, Greffe capillaire — encadrement médical complet.
-    </p>
-    <div class="cta">
-      <a class="btn ok" href="https://wa.me/21628296239?text=Bonjour%20:%20je%20souhaite%20un%20devis%20%F0%9F%93%9D" target="_blank" rel="noopener">📲 Devis WhatsApp</a>
-      <a class="btn secondary" href="#devis">📄 Demande de devis</a>
+    <p class="subtitle">Rhinoplastie, Liposuccion, Augmentation mammaire, Blépharoplastie, Greffe capillaire FUE, Facettes dentaires — devis personnalisé, prise en charge complète.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px">
+      <a class="btn primary" href="https://wa.me/21628296239?text=Bonjour%20:%20je%20souhaite%20un%20devis%20personnalis%C3%A9" target="_blank" rel="noopener">📲 Devis WhatsApp</a>
+      <a class="btn ghost" href="#devis">📄 Demande de devis</a>
     </div>
   </div>
 </section>
@@ -90,62 +93,51 @@ footer{padding:28px 0;color:#9db0d8}
 <!-- INTERVENTIONS -->
 <section id="interventions" class="section">
   <div class="wrap">
-    <h2>Interventions populaires</h2>
+    <h2>Interventions principales</h2>
     <div class="grid cards">
       <article class="card">
-        <img src="/assets/galerie/liposuccion-1.jpg" alt="Liposuccion Tunisie" loading="lazy">
-        <div class="p">
-          <h3>Liposuccion</h3>
-          <p class="small">Ventre, hanches, flancs, cuisses, bras…</p>
-          <p><a class="btn secondary" href="/interventions/liposuccion.html">Voir la page</a></p>
-        </div>
+        <img src="https://images.pexels.com/photos/3738387/pexels-photo-3738387.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+        <div class="p"><h3>Rhinoplastie</h3><p class="small">Harmonisation du nez, profil & pointe</p><p><a class="btn ghost" href="/interventions/rhinoplastie.html">Voir la page</a></p></div>
       </article>
-
       <article class="card">
-        <img src="/assets/avant-apres/rhinoplastie-1-apres.jpg" alt="Rhinoplastie Tunisie" loading="lazy">
-        <div class="p">
-          <h3>Rhinoplastie</h3>
-          <p class="small">Harmonisation du profil, pointe, bosse nasale.</p>
-          <p><a class="btn secondary" href="/interventions/rhinoplastie.html">Voir la page</a></p>
-        </div>
+        <img src="https://images.pexels.com/photos/7084400/pexels-photo-7084400.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+        <div class="p"><h3>Liposuccion</h3><p class="small">Ventre, hanches, flancs, cuisses</p><p><a class="btn ghost" href="/interventions/liposuccion.html">Voir la page</a></p></div>
       </article>
-
       <article class="card">
-        <img src="/assets/avant-apres/blepharoplastie-1-apres.jpg" alt="Blépharoplastie Tunisie" loading="lazy">
-        <div class="p">
-          <h3>Blépharoplastie</h3>
-          <p class="small">Paupières supérieures/inferieures, regard reposé.</p>
-          <p><a class="btn secondary" href="/interventions/blepharoplastie.html">Voir la page</a></p>
-        </div>
+        <img src="https://images.pexels.com/photos/7089324/pexels-photo-7089324.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+        <div class="p"><h3>Augmentation mammaire</h3><p class="small">Implants anatomiques ou ronds</p><p><a class="btn ghost" href="/interventions/augmentation-mammaire.html">Voir la page</a></p></div>
       </article>
-
       <article class="card">
-        <img src="/assets/galerie/liposuccion-3.jpg" alt="Greffe capillaire Tunisie" loading="lazy">
-        <div class="p">
-          <h3>Greffe capillaire FUE</h3>
-          <p class="small">Densification naturelle, tracé personnalisé.</p>
-          <p><a class="btn secondary" href="/interventions/greffe-fue.html">Voir la page</a></p>
-        </div>
+        <img src="https://images.pexels.com/photos/5998518/pexels-photo-5998518.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+        <div class="p"><h3>Blépharoplastie</h3><p class="small">Paupières supérieures et inférieures</p><p><a class="btn ghost" href="/interventions/blepharoplastie.html">Voir la page</a></p></div>
+      </article>
+      <article class="card">
+        <img src="https://images.pexels.com/photos/8460035/pexels-photo-8460035.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+        <div class="p"><h3>Greffe capillaire FUE</h3><p class="small">Redensification naturelle</p><p><a class="btn ghost" href="/interventions/greffe-fue.html">Voir la page</a></p></div>
+      </article>
+      <article class="card">
+        <img src="https://images.pexels.com/photos/6812568/pexels-photo-6812568.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+        <div class="p"><h3>Facettes dentaires</h3><p class="small">Hollywood Smile</p><p><a class="btn ghost" href="/interventions/facettes-dentaires.html">Voir la page</a></p></div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- AVANT / APRÈS -->
+<!-- AVANT / APRÈS (affichés directement) -->
 <section class="section" id="avant-apres">
   <div class="wrap">
     <h2>Avant / Après</h2>
-
-    <div class="ba" style="margin-bottom:18px">
-      <img src="/assets/avant-apres/rhinoplastie-1-avant.jpg" alt="Rhinoplastie avant">
-      <img class="after" src="/assets/avant-apres/rhinoplastie-1-apres.jpg" alt="Rhinoplastie après">
-      <div class="handle"></div><div class="knob">⇆</div>
-    </div>
-
-    <div class="ba">
-      <img src="/assets/avant-apres/blepharoplastie-1-avant.jpg" alt="Blépharoplastie avant">
-      <img class="after" src="/assets/avant-apres/blepharoplastie-1-apres.jpg" alt="Blépharoplastie après">
-      <div class="handle"></div><div class="knob">⇆</div>
+    <div class="duo" style="margin-top:12px">
+      <figure>
+        <img src="https://images.pexels.com/photos/6740509/pexels-photo-6740509.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Rhinoplastie avant">
+        <img src="https://images.pexels.com/photos/6740507/pexels-photo-6740507.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Rhinoplastie après">
+        <figcaption class="small" style="padding:10px">Rhinoplastie — résultats indicatifs, prix sur devis</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.pexels.com/photos/6234588/pexels-photo-6234588.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Blépharoplastie avant">
+        <img src="https://images.pexels.com/photos/6234591/pexels-photo-6234591.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Blépharoplastie après">
+        <figcaption class="small" style="padding:10px">Blépharoplastie — résultats indicatifs, prix sur devis</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -155,66 +147,58 @@ footer{padding:28px 0;color:#9db0d8}
   <div class="wrap">
     <h2>Galerie</h2>
     <div class="gallery">
-      <a href="/assets/galerie/liposuccion-1.jpg"><img src="/assets/galerie/liposuccion-1.jpg" alt=""></a>
-      <a href="/assets/galerie/liposuccion-2.jpg"><img src="/assets/galerie/liposuccion-2.jpg" alt=""></a>
-      <a href="/assets/galerie/liposuccion-3.jpg"><img src="/assets/galerie/liposuccion-3.jpg" alt=""></a>
-      <a href="/assets/galerie/liposuccion-4.jpg"><img src="/assets/galerie/liposuccion-4.jpg" alt=""></a>
-      <a href="/assets/galerie/liposuccion-5.jpg"><img src="/assets/galerie/liposuccion-5.jpg" alt=""></a>
-      <a href="/assets/galerie/liposuccion-6.jpg"><img src="/assets/galerie/liposuccion-6.jpg" alt=""></a>
+      <a href="#"><img src="https://images.pexels.com/photos/8460153/pexels-photo-8460153.jpeg?auto=compress&cs=tinysrgb&w=1200" alt=""></a>
+      <a href="#"><img src="https://images.pexels.com/photos/7089337/pexels-photo-7089337.jpeg?auto=compress&cs=tinysrgb&w=1200" alt=""></a>
+      <a href="#"><img src="https://images.pexels.com/photos/8460099/pexels-photo-8460099.jpeg?auto=compress&cs=tinysrgb&w=1200" alt=""></a>
+      <a href="#"><img src="https://images.pexels.com/photos/4458558/pexels-photo-4458558.jpeg?auto=compress&cs=tinysrgb&w=1200" alt=""></a>
+      <a href="#"><img src="https://images.pexels.com/photos/3738387/pexels-photo-3738387.jpeg?auto=compress&cs=tinysrgb&w=1200" alt=""></a>
+      <a href="#"><img src="https://images.pexels.com/photos/7084400/pexels-photo-7084400.jpeg?auto=compress&cs=tinysrgb&w=1200" alt=""></a>
     </div>
   </div>
 </section>
 
-<!-- DEVIS -->
+<!-- SERVICES INCLUS -->
+<section class="section" id="services-inclus">
+  <div class="wrap">
+    <h2>Services inclus</h2>
+    <div class="grid cards">
+      <article class="card"><div class="p"><h3>Transferts</h3><p class="small">Aéroport ⇄ clinique/hôtel</p></div></article>
+      <article class="card"><div class="p"><h3>Hébergement</h3><p class="small">Hôtel 4* / 5* partenaire</p></div></article>
+      <article class="card"><div class="p"><h3>Assistance</h3><p class="small">Interprète & suivi médical</p></div></article>
+      <article class="card"><div class="p"><h3>Devis sur mesure</h3><p class="small">Sans prix affichés — étude personnalisée</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- DEVIS / CONTACT -->
 <section class="section" id="devis">
   <div class="wrap">
-    <h2>Demande de devis</h2>
+    <h2>Devis & contact</h2>
     <div class="grid cards" style="grid-template-columns:1fr 1fr">
-      <div class="card"><div class="p">
-        <p><strong>WhatsApp</strong></p>
-        <p class="small">Réponse rapide (photos bienvenues).</p>
-        <p><a class="btn ok" href="https://wa.me/21628296239?text=Bonjour%20:%20je%20souhaite%20un%20devis%20%F0%9F%93%9D" target="_blank" rel="noopener">📲 Ouvrir WhatsApp</a></p>
-      </div></div>
-      <div class="card"><div class="p">
-        <p><strong>Email</strong></p>
-        <p class="small">Prix selon dossier (pas d’affichage public de tarifs).</p>
-        <p><a class="btn secondary" href="mailto:aboprof.bm2@gmail.com?subject=Devis%20site">✉️ Envoyer un e-mail</a></p>
-      </div></div>
+      <article class="card"><div class="p">
+        <h3>WhatsApp</h3><p class="small">Réponse rapide — joignez des photos</p>
+        <p><a class="btn primary" href="https://wa.me/21628296239?text=Bonjour%20:%20je%20souhaite%20un%20devis%20personnalis%C3%A9" target="_blank">📲 Ouvrir WhatsApp</a></p>
+      </div></article>
+      <article class="card"><div class="p">
+        <h3>Email</h3><p class="small">Prix selon dossier (pas d’affichage public)</p>
+        <p><a class="btn ghost" href="mailto:aboprof.bm2@gmail.com?subject=Devis%20site">✉️ Envoyer un e-mail</a></p>
+      </div></article>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">
-    <div class="small">© 2025 — Tunisie Chirurgie Esthétique Center N°1 — Clinique Lac 2. Tous droits réservés.</div>
+  <div class="wrap small">
+    © 2025 — Tunisie Chirurgie Esthétique Center N°1 — Clinique Lac 2. Tous droits réservés.
   </div>
 </footer>
 
 <script>
-/* Hero: slideshow simple */
+/* HERO slideshow */
 (function(){
-  const slides=[...document.querySelectorAll('.slide')];
-  let i=0;
-  setInterval(()=>{ slides[i].classList.remove('active'); i=(i+1)%slides.length; slides[i].classList.add('active'); }, 4200);
+  const slides=[...document.querySelectorAll('.slide')]; let i=0;
+  setInterval(()=>{ slides[i].classList.remove('active'); i=(i+1)%slides.length; slides[i].classList.add('active'); }, 4500);
 })();
-
-/* Avant/Après sliders (drag left/right) */
-document.querySelectorAll('.ba').forEach(el=>{
-  const after=el.querySelector('.after'), handle=el.querySelector('.handle'), knob=el.querySelector('.knob');
-  const setX = x => {
-    const r=el.getBoundingClientRect();
-    const t=Math.max(0,Math.min(1,(x-r.left)/r.width));
-    after.style.clipPath=`inset(0 0 0 ${t*100}%)`;
-    handle.style.left = knob.style.left = (t*100)+'%';
-  };
-  const move = e => setX((e.touches?e.touches[0].clientX:e.clientX));
-  const start = e => { move(e); window.addEventListener('mousemove',move); window.addEventListener('touchmove',move); };
-  const end = ()=>{ window.removeEventListener('mousemove',move); window.removeEventListener('touchmove',move); };
-  knob.addEventListener('mousedown',start); knob.addEventListener('touchstart',start,{passive:true});
-  window.addEventListener('mouseup',end); window.addEventListener('touchend',end);
-  // init milieu
-  setX(el.getBoundingClientRect().left+el.offsetWidth/2);
-});
 </script>
 </body>
 </html>
