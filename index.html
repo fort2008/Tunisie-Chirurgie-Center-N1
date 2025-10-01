@@ -1,163 +1,204 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Tunisie Chirurgie Esthétique Center N°1 — Clinique Lac 2</title>
-<meta name="description" content="Centre de chirurgie esthétique à Tunis (Clinique Lac 2). Rhinoplastie, liposuccion, augmentation mammaire, blépharoplastie, greffe capillaire, facettes dentaires. Devis personnalisé rapide."/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="Chirurgie esthétique haut de gamme à Tunis (Lac 2) : Rhinoplastie, Liposuccion, Augmentation mammaire, Greffe capillaire FUE, Facettes dentaires. Devis personnalisé." />
+<link rel="icon" href="/favicon.svg">
 <style>
 :root{
-  --bg:#0b1220; --panel:#0e172a; --card:#101d34; --ink:#eaf2ff; --muted:#9fb4df;
-  --brand:#eab308; /* gold */
-  --line:#1c2a47; --ok:#22c55e;
+  --ink:#0e1726; --bg:#f7f9fc; --card:#ffffff;
+  --muted:#657091; --line:#e6eaf2; --brand:#0ea5e9; --cta:#22c55e;
 }
-*{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Manrope,system-ui,Segoe UI,Roboto,Arial,sans-serif}
-img{display:block;max-width:100%}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
-header{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.8);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{display:flex;gap:22px;align-items:center;height:68px}
-.brand{font-weight:800;letter-spacing:.2px}
-.nav a{opacity:.9} .nav a:hover{opacity:1}
-.cta .btn{display:inline-flex;align-items:center;gap:.55rem;padding:.85rem 1.05rem;border-radius:14px;font-weight:800}
-.btn.primary{background:var(--brand);color:#2a1e04}
-.btn.ghost{border:1px solid var(--line);background:transparent}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:50;background:#ffffffd9;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:18px;height:64px}
+.brand{font-weight:800;letter-spacing:.2px;white-space:nowrap}
+.nav-space{flex:1}
+.nav a{color:#374151}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.8rem 1rem;border-radius:12px;font-weight:700;box-shadow:0 8px 24px rgba(2,6,23,.06)}
+.btn.primary{background:var(--cta);color:#062e12}
+.btn.ghost{background:#fff;border:1px solid var(--line)}
+.badge{display:inline-block;padding:.45rem .8rem;border-radius:999px;background:#eef2ff;color:#3730a3;border:1px solid #c7d2fe;font-size:12px}
+.subtitle{color:var(--muted)}
+.section{padding:56px 0}
+h1{font-size:clamp(28px,5.5vw,56px);margin:.2em 0}
+h2{font-size:clamp(22px,3.2vw,28px);margin:0 0 14px}
+.small{color:#6b7280;font-size:14px}
+
 /* HERO */
-.hero{position:relative;min-height:80vh;border-bottom:1px solid var(--line);overflow:hidden}
-.slider{position:absolute;inset:0}
-.slider .slide{list-style:none;position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 900ms ease}
-.slider .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,18,32,.00) 30%,rgba(11,18,32,.85) 90%)}
-.slider .slide.is-active{opacity:1}
-.hero .inner{position:relative;z-index:2;display:grid;align-content:end;min-height:80vh}
-.badge{display:inline-block;background:#0f1b33;color:#c7d6fb;border:1px solid var(--line);padding:.35rem .7rem;border-radius:999px;font-size:12px;margin-bottom:10px}
-h1{font-size:clamp(34px,5.2vw,60px);line-height:1.05;margin:0 0 10px}
-.sub{max-width:860px;color:var(--muted);margin:6px 0 16px}
-.cta{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0 38px}
-/* SECTIONS */
-section{padding:64px 0;border-bottom:1px solid var(--line)}
-.eyebrow{color:#8fb0ff;text-transform:uppercase;letter-spacing:.18em;font-weight:800;font-size:12px;margin-bottom:8px}
-.h2{font-size:28px;margin:.2rem 0 1.2rem}
+.hero{position:relative;min-height:82vh;display:grid;place-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .9s}
+.slide.active{opacity:1}
+.hero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,13,31,.4),rgba(247,249,252,.85))}
+.hero .content{position:relative;z-index:1;text-align:left}
+
+/* GRID */
 .grid{display:grid;gap:18px}
-.cards-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.card{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease, box-shadow .25s ease}
-.card:hover{transform:translateY(-3px);box-shadow:0 18px 50px rgba(0,0,0,.25)}
-.card img{height:200px;object-fit:cover}
-.p{padding:16px}
-.pill{display:inline-block;background:#0d203f;color:#a8c3ff;border:1px solid var(--line);font-size:12px;padding:.33rem .6rem;border-radius:999px}
-/* AA */
-.aa{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
-figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-figcaption{padding:10px 12px;color:#b5c6ea;border-top:1px solid var(--line);font-size:12px;background:#0d1831}
-/* CONTACT */
-.form{display:grid;gap:12px;grid-template-columns:1fr 1fr}
-.form input,.form textarea{width:100%;padding:14px;border-radius:12px;background:#0b162d;border:1px solid #21324f;color:#eaf2ff}
-.form textarea{min-height:120px;grid-column:1/-1}
-@media (max-width:760px){.form{grid-template-columns:1fr}}
-.footer{color:#9ab1db}
+.cards{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.card img{width:100%;height:220px;object-fit:cover;display:block}
+.card .p{padding:14px 16px}
+
+/* AVANT/APRES (deux images juxtaposées) */
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.duo figure{margin:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.duo img{width:100%;height:auto;display:block}
+
+/* GALERIE */
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.gallery a{display:block;aspect-ratio:1/1;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+.gallery a:hover img{transform:scale(1.06)}
+
+footer{padding:28px 0;border-top:1px solid var(--line);color:#66728f}
 </style>
 </head>
 <body>
+
 <header>
   <div class="wrap nav">
     <div class="brand">Tunisie Chirurgie Esthétique Center N°1</div>
-    <div style="margin-left:auto;display:flex;gap:18px">
-      <a href="#interventions">Interventions</a>
-      <a href="#devis">Devis</a>
-      <a href="#contact">Contact</a>
-    </div>
+    <nav class="nav-space"></nav>
+    <a class="btn ghost" href="#interventions">Interventions</a>
+    <a class="btn ghost" href="#galerie">Galerie</a>
+    <a class="btn primary" href="#devis">Devis</a>
   </div>
 </header>
 
+<!-- HERO diaporama (photos cliniques / chirurgie) -->
 <section class="hero" aria-label="Couverture">
-  <ul class="slider">
-      <li class='slide is-active' style="background-image:url('/assets/hero/clinique-01.png')"></li>
-      <li class='slide' style="background-image:url('/assets/hero/consultation.jpg')"></li>
-      <li class='slide' style="background-image:url('/assets/hero/couloir.png')"></li>
-      <li class='slide' style="background-image:url('/assets/hero/salle-op.png')"></li>
-  </ul>
-  <div class="wrap inner">
-    <span class="badge">Clinique Lac 2 • Équipe certifiée</span>
+  <!-- 4 visuels cliniques HD -->
+  <div class="slide" style="background-image:url('https://image.pexels.com/photo/-2324837/pexels-photo-2324837.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/7089337/pexels-photo-7089337.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/8460099/pexels-photo-8460099.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
+  <div class="slide" style="background-image:url('https://images.pexels.com/photos/4458558/pexels-photo-4458558.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
+  <div class="veil"></div>
+
+  <div class="wrap content">
+    <span class="badge">Clinique Lac 2 • Esthétique haut de gamme</span>
     <h1>Votre esthétique, notre expertise</h1>
-    <p class="sub">Rhinoplastie, Liposuccion, Augmentation mammaire (camouflée), Blépharoplastie, Greffe capillaire FUE, Facettes dentaires — <strong>prix selon devis</strong>.</p>
-    <div class="cta">
-      <a class="btn primary" href="https://wa.me/21628296239?text=Bonjour%20je%20souhaite%20un%20devis" target="_blank" rel="noopener">📲 Devis WhatsApp</a>
+    <p class="subtitle">Rhinoplastie, Liposuccion, Augmentation mammaire, Blépharoplastie, Greffe capillaire FUE, Facettes dentaires — devis personnalisé, prise en charge complète.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px">
+      <a class="btn primary" href="https://wa.me/21628296239?text=Bonjour%20:%20je%20souhaite%20un%20devis%20personnalis%C3%A9" target="_blank" rel="noopener">📲 Devis WhatsApp</a>
       <a class="btn ghost" href="#devis">📄 Demande de devis</a>
     </div>
   </div>
 </section>
 
-<section id="interventions">
+<!-- INTERVENTIONS -->
+<section id="interventions" class="section">
   <div class="wrap">
-    <div class="eyebrow">Nos services</div>
-    <h2 class="h2">Interventions populaires</h2>
-    <div class="grid cards-3">
+    <h2>Interventions principales</h2>
+    <div class="grid cards">
       <article class="card">
-        <img src="/assets/interventions/rhinoplastie/cover-1.jpg" alt="Rhinoplastie">
-        <div class="p"><span class="pill">Visage</span><h3>Rhinoplastie</h3><p><a href="/interventions/rhinoplastie.html">Voir la page →</a></p></div>
+        <img src="https://images.pexels.com/photos/3738387/pexels-photo-3738387.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+        <div class="p"><h3>Rhinoplastie</h3><p class="small">Harmonisation du nez, profil & pointe</p><p><a class="btn ghost" href="/interventions/rhinoplastie.html">Voir la page</a></p></div>
       </article>
       <article class="card">
-        <img src="/assets/interventions/liposuccion/cover-1.jpg" alt="Liposuccion">
-        <div class="p"><span class="pill">Corps</span><h3>Liposuccion</h3><p><a href="/interventions/liposuccion.html">Voir la page →</a></p></div>
+        <img src="https://images.pexels.com/photos/7084400/pexels-photo-7084400.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+        <div class="p"><h3>Liposuccion</h3><p class="small">Ventre, hanches, flancs, cuisses</p><p><a class="btn ghost" href="/interventions/liposuccion.html">Voir la page</a></p></div>
       </article>
       <article class="card">
-        <img src="/assets/interventions/augmentation-mammaire/cover-1.jpg" alt="Augmentation mammaire">
-        <div class="p"><span class="pill">Seins</span><h3>Augmentation mammaire</h3><p><a href="/interventions/augmentation-mammaire.html">Voir la page →</a></p></div>
+        <img src="https://images.pexels.com/photos/7089324/pexels-photo-7089324.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+        <div class="p"><h3>Augmentation mammaire</h3><p class="small">Implants anatomiques ou ronds</p><p><a class="btn ghost" href="/interventions/augmentation-mammaire.html">Voir la page</a></p></div>
       </article>
       <article class="card">
-        <img src="" alt="Blépharoplastie">
-        <div class="p"><span class="pill">Visage</span><h3>Blépharoplastie</h3><p><a href="/interventions/blepharoplastie.html">Voir la page →</a></p></div>
+        <img src="https://images.pexels.com/photos/5998518/pexels-photo-5998518.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+        <div class="p"><h3>Blépharoplastie</h3><p class="small">Paupières supérieures et inférieures</p><p><a class="btn ghost" href="/interventions/blepharoplastie.html">Voir la page</a></p></div>
       </article>
       <article class="card">
-        <img src="" alt="Greffe capillaire FUE">
-        <div class="p"><span class="pill">Cheveux</span><h3>Greffe capillaire FUE</h3><p><a href="/interventions/greffe-fue.html">Voir la page →</a></p></div>
+        <img src="https://images.pexels.com/photos/8460035/pexels-photo-8460035.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+        <div class="p"><h3>Greffe capillaire FUE</h3><p class="small">Redensification naturelle</p><p><a class="btn ghost" href="/interventions/greffe-fue.html">Voir la page</a></p></div>
       </article>
       <article class="card">
-        <img src="/assets/interventions/facettes-dentaires/cover-1.png" alt="Facettes dentaires">
-        <div class="p"><span class="pill">Dents</span><h3>Facettes dentaires</h3><p><a href="/interventions/facettes-dentaires.html">Voir la page →</a></p></div>
+        <img src="https://images.pexels.com/photos/6812568/pexels-photo-6812568.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+        <div class="p"><h3>Facettes dentaires</h3><p class="small">Hollywood Smile</p><p><a class="btn ghost" href="/interventions/facettes-dentaires.html">Voir la page</a></p></div>
       </article>
     </div>
   </div>
 </section>
 
-<section id="devis">
+<!-- AVANT / APRÈS (affichés directement) -->
+<section class="section" id="avant-apres">
   <div class="wrap">
-    <div class="eyebrow">Devis</div>
-    <h2 class="h2">Prix selon devis personnalisés</h2>
-    <p class="sub">Pas de prix affichés. Le devis inclut au besoin : honoraires, bloc, clinique, vêtement compressif, transferts, interprète.</p>
-    <div class="cta">
-      <a class="btn primary" href="https://wa.me/21628296239?text=Devis%20personnalis%C3%A9" target="_blank" rel="noopener">💬 Devis WhatsApp</a>
-      <a class="btn ghost" href="mailto:aboprof.bm2@gmail.com">✉️ E-mail</a>
+    <h2>Avant / Après</h2>
+    <div class="duo" style="margin-top:12px">
+      <figure>
+        <img src="https://images.pexels.com/photos/6740509/pexels-photo-6740509.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Rhinoplastie avant">
+        <img src="https://images.pexels.com/photos/6740507/pexels-photo-6740507.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Rhinoplastie après">
+        <figcaption class="small" style="padding:10px">Rhinoplastie — résultats indicatifs, prix sur devis</figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.pexels.com/photos/6234588/pexels-photo-6234588.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Blépharoplastie avant">
+        <img src="https://images.pexels.com/photos/6234591/pexels-photo-6234591.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Blépharoplastie après">
+        <figcaption class="small" style="padding:10px">Blépharoplastie — résultats indicatifs, prix sur devis</figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-<section id="contact">
+<!-- GALERIE -->
+<section class="section" id="galerie">
   <div class="wrap">
-    <div class="eyebrow">Contact & accès</div>
-    <h2 class="h2">Écrivez-nous</h2>
-    <form class="form" action="mailto:aboprof.bm2@gmail.com" method="post" enctype="text/plain">
-      <input name="Nom" placeholder="Nom et prénom" required>
-      <input name="WhatsApp" placeholder="WhatsApp (+216…)" required>
-      <textarea name="Message" placeholder="Votre projet (intervention, période, photos)…" required></textarea>
-      <button class="btn primary" type="submit">Envoyer</button>
-    </form>
-    <p class="footer" style="margin-top:14px">Les Berges du Lac 2, Tunis — Tunisie</p>
+    <h2>Galerie</h2>
+    <div class="gallery">
+      <a href="#"><img src="https://images.pexels.com/photos/8460153/pexels-photo-8460153.jpeg?auto=compress&cs=tinysrgb&w=1200" alt=""></a>
+      <a href="#"><img src="https://images.pexels.com/photos/7089337/pexels-photo-7089337.jpeg?auto=compress&cs=tinysrgb&w=1200" alt=""></a>
+      <a href="#"><img src="https://images.pexels.com/photos/8460099/pexels-photo-8460099.jpeg?auto=compress&cs=tinysrgb&w=1200" alt=""></a>
+      <a href="#"><img src="https://images.pexels.com/photos/4458558/pexels-photo-4458558.jpeg?auto=compress&cs=tinysrgb&w=1200" alt=""></a>
+      <a href="#"><img src="https://images.pexels.com/photos/3738387/pexels-photo-3738387.jpeg?auto=compress&cs=tinysrgb&w=1200" alt=""></a>
+      <a href="#"><img src="https://images.pexels.com/photos/7084400/pexels-photo-7084400.jpeg?auto=compress&cs=tinysrgb&w=1200" alt=""></a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES INCLUS -->
+<section class="section" id="services-inclus">
+  <div class="wrap">
+    <h2>Services inclus</h2>
+    <div class="grid cards">
+      <article class="card"><div class="p"><h3>Transferts</h3><p class="small">Aéroport ⇄ clinique/hôtel</p></div></article>
+      <article class="card"><div class="p"><h3>Hébergement</h3><p class="small">Hôtel 4* / 5* partenaire</p></div></article>
+      <article class="card"><div class="p"><h3>Assistance</h3><p class="small">Interprète & suivi médical</p></div></article>
+      <article class="card"><div class="p"><h3>Devis sur mesure</h3><p class="small">Sans prix affichés — étude personnalisée</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- DEVIS / CONTACT -->
+<section class="section" id="devis">
+  <div class="wrap">
+    <h2>Devis & contact</h2>
+    <div class="grid cards" style="grid-template-columns:1fr 1fr">
+      <article class="card"><div class="p">
+        <h3>WhatsApp</h3><p class="small">Réponse rapide — joignez des photos</p>
+        <p><a class="btn primary" href="https://wa.me/21628296239?text=Bonjour%20:%20je%20souhaite%20un%20devis%20personnalis%C3%A9" target="_blank">📲 Ouvrir WhatsApp</a></p>
+      </div></article>
+      <article class="card"><div class="p">
+        <h3>Email</h3><p class="small">Prix selon dossier (pas d’affichage public)</p>
+        <p><a class="btn ghost" href="mailto:aboprof.bm2@gmail.com?subject=Devis%20site">✉️ Envoyer un e-mail</a></p>
+      </div></article>
+    </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap" style="padding:28px 0;display:flex;gap:16px;justify-content:space-between;flex-wrap:wrap;border-top:1px solid var(--line)">
-    <div><strong>Tunisie Chirurgie Esthétique Center N°1 — Clinique Lac 2</strong><br/>© 2025 — Tous droits réservés.</div>
-    <div class="footer">Navigation : <a href="#interventions">Interventions</a> · <a href="#devis">Devis</a> · <a href="#contact">Contact</a></div>
+  <div class="wrap small">
+    © 2025 — Tunisie Chirurgie Esthétique Center N°1 — Clinique Lac 2. Tous droits réservés.
   </div>
 </footer>
 
 <script>
-  // Slider simple
+/* HERO slideshow */
+(function(){
   const slides=[...document.querySelectorAll('.slide')]; let i=0;
-  setInterval(()=>{slides[i].classList.remove('is-active'); i=(i+1)%slides.length; slides[i].classList.add('is-active')}, 5200);
+  setInterval(()=>{ slides[i].classList.remove('active'); i=(i+1)%slides.length; slides[i].classList.add('active'); }, 4500);
+})();
 </script>
 </body>
 </html>
