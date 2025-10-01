@@ -2,218 +2,221 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tunisie Chirurgie Esthétique Center N°1</title>
-  <meta name="description" content="Chirurgie esthétique en Tunisie (Clinique Lac 2) : liposuccion, liftings, rhinoplastie, augmentation mammaire, greffe capillaire. Devis rapide WhatsApp."/>
-  <link rel="icon" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tunisie Chirurgie Center | Clinique d’esthétique – Officiel</title>
+  <meta name="description" content="Tunisie Chirurgie Center – Chirurgie esthétique, soins dentaires, greffe et bien‑être. Devis rapide, accompagnement complet, prix transparents." />
+  <meta name="theme-color" content="#0f0b10" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Tunisie Chirurgie Center" />
+  <meta property="og:description" content="Plateforme premium – chirurgie esthétique & soins en Tunisie. Devis rapide, accompagnement VIP." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1587691592099-2448347d9e20?q=80&w=1600&auto=format&fit=crop" />
+  <meta property="og:url" content="https://tunisiechirurgiecenter.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts (libres) : Cinzel pour les titres dorés + Montserrat pour le texte -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --bg:#0b1220; --text:#f6f7fb; --muted:#9fb0c9; --brand:#26d07c;
-      --line:rgba(255,255,255,.14); --card:#111a2a; --card2:#0f1727;
+      /* Palette rose chic & doré */
+      --bg-deep:#0f0b10;          /* noir profond légèrement violacé */
+      --rose:#f3c2d7;             /* rose poudré chic */
+      --rose-2:#eaa3c2;           /* rose accent */
+      --text:#f5f3f7;             /* texte clair */
+      --muted:#b8b0c0;            /* texte secondaire */
+      --gold-1:#c79a3e;
+      --gold-2:#f1dfa6;
+      --gold-3:#8a6a22;
+      --card:#18131c;
+      --border:#2b2331;
+
+      --container:1180px;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:1200px;margin:auto;padding:0 22px}
+
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg-deep);color:var(--text);font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+
+    /* Doré luxueux */
+    .gold{background:linear-gradient(100deg,var(--gold-2),var(--gold-1) 45%,var(--gold-3));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .gold-stroke{color:var(--gold-2);text-shadow:0 1px 0 #846b2a,0 2px 14px rgba(241,223,166,.25)}
+    .btn-gold{display:inline-block;padding:.9rem 1.2rem;border-radius:999px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(241,223,166,.16),rgba(199,154,62,.08));color:var(--text);text-decoration:none;font-weight:600;backdrop-filter:blur(6px)}
+    .btn-gold:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(0,0,0,.35)}
+
+    /* Barre supérieure contact */
+    .topbar{display:flex;gap:20px;justify-content:flex-end;align-items:center;padding:.5rem 1rem;border-bottom:1px solid var(--border);background:#0b0810}
+    .topbar a{color:var(--muted);text-decoration:none}
+    .topbar a:hover{color:var(--text)}
 
     /* Header */
-    header{position:sticky;top:0;z-index:80;background:rgba(8,14,28,.55);
-      backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--line)}
-    .nav{display:flex;align-items:center;gap:22px;height:64px}
-    .brand{font-weight:800;letter-spacing:.2px;font-size:16px;white-space:nowrap}
-    .nav-space{flex:1}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--brand);
-      color:#042b18;padding:.8rem 1rem;border-radius:10px;font-weight:700}
-    .btn.secondary{background:#1f2a48;color:#dfe7ff}
-    .btn:hover{opacity:.95}
+    header{position:sticky;top:0;z-index:40;background:#0f0b10d9;backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+    .nav{max-width:var(--container);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 16px}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand-logo{width:42px;height:42px;border-radius:50%;background:radial-gradient(80% 80% at 30% 25%,var(--gold-2),var(--gold-1) 55%,var(--gold-3));box-shadow:inset 0 1px 8px rgba(0,0,0,.45),0 0 0 2px #0002}
+    .brand-title{font-family:Cinzel,serif;font-weight:700;letter-spacing:.06em}
+    .brand-title .small{font-weight:600;font-size:.72rem;letter-spacing:.28em;color:var(--muted);display:block;margin-top:-2px}
 
-    /* HERO SLIDER */
-    .hero{position:relative;min-height:78svh;border-bottom:1px solid var(--line)}
-    .slides{position:absolute;inset:0;overflow:hidden}
-    .slides figure{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .9s ease}
-    .slides img{width:100%;height:100%;object-fit:cover;object-position:center}
-    .slides figure.active{opacity:1}
-    .shade{position:absolute;inset:0;background:
-      linear-gradient(to bottom, rgba(4,16,32,.55), rgba(4,16,32,.72) 45%, rgba(4,16,32,.9))}
-    .hero .content{position:relative;z-index:2;padding-top:min(17vh,160px)}
-    .badge{display:inline-block;background:#ffffff; color:#004;
-      padding:.35rem .7rem;border-radius:999px;font-size:12px;margin-bottom:14px}
-    h1{font-size: clamp(30px, 5vw, 56px); line-height:1.06; margin:.1rem 0 .8rem}
-    .subtitle{max-width:860px;color:#a9bed9;font-size:18px}
-    .cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+    .menu{display:flex;gap:22px}
+    .menu a{color:var(--text);text-decoration:none;opacity:.88}
+    .menu a:hover{opacity:1}
+
+    /* Hero */
+    .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+    .hero-inner{max-width:var(--container);margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:80px 16px}
+    .hero .tag{font-size:.85rem;letter-spacing:.4em;color:var(--muted);text-transform:uppercase}
+    .hero h1{font-family:Cinzel,serif;font-size:clamp(38px,6vw,64px);line-height:1.02;margin:.4rem 0 1rem}
+    .lead{color:#e9e5ee;opacity:.9;font-size:1.05rem}
+    .hero-media{position:relative;border-radius:var(--radius);overflow:hidden;background:#000}
+    .hero-media::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 80% at 10% 10%,transparent,rgba(0,0,0,.35));}
+    .hero-media img, .hero-media video{display:block;width:100%;height:560px;object-fit:cover}
 
     /* Sections */
-    section{padding:56px 0;border-top:1px solid var(--line)}
-    h2{font-size:clamp(22px,3.2vw,32px);margin:0 0 18px}
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
-    .card{grid-column:span 12;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-    @media(min-width:720px){.card{grid-column:span 6}}
-    @media(min-width:1040px){.card{grid-column:span 3}}
-    .card img{width:100%;height:164px;object-fit:cover}
-    .card .p{padding:14px}
-    .muted{color:var(--muted);font-size:14px}
+    section{max-width:var(--container);margin:0 auto;padding:70px 16px;border-bottom:1px solid var(--border)}
+    h2{font-family:Cinzel,serif;font-size:clamp(28px,4vw,42px);margin:0 0 22px}
+    p{margin:0 0 14px}
 
-    footer{background:var(--card2);border-top:1px solid var(--line)}
-    footer .grid{align-items:center}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+    .card img{width:100%;height:210px;object-fit:cover}
+    .card .body{padding:16px}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;border:1px solid var(--border);background:#120d15;color:var(--rose)}
+
+    /* Qui sommes-nous (style inspiré, pas de copie) */
+    .qs-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+    .qs-dots{display:inline-flex;gap:8px}
+    .qs-dots span{width:7px;height:7px;border-radius:50%;background:linear-gradient(180deg,var(--gold-2),var(--gold-1));box-shadow:0 2px 6px rgba(241,223,166,.6)}
+
+    /* Footer */
+    footer{padding:40px 16px;color:var(--muted);text-align:center}
+    .social a{color:var(--muted);margin:0 8px;text-decoration:none}
+
+    @media (max-width:980px){
+      .hero-inner{grid-template-columns:1fr;}
+      .cards{grid-template-columns:1fr;}
+    }
   </style>
 </head>
 <body>
+  <!-- Topbar contact -->
+  <div class="topbar">
+    <a href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a>
+    <span>•</span>
+    <a href="https://wa.me/21628296239" target="_blank" rel="noopener">WhatsApp: +216 28 296 239</a>
+  </div>
 
-  <!-- Header -->
+  <!-- Header & Nav -->
   <header>
-    <div class="wrap nav">
-      <a class="brand" href="/index.html">Tunisie Chirurgie Esthétique Center N°1</a>
-      <div class="nav-space"></div>
-      <a class="muted" href="#interventions">Interventions</a>
-      <a class="muted" href="#galerie">Galerie</a>
-      <a class="btn" href="https://wa.me/21628296239?text=Bonjour%2C%20je%20souhaite%20un%20devis." target="_blank" rel="noopener">Devis WhatsApp</a>
-    </div>
+    <nav class="nav">
+      <div class="brand">
+        <div class="brand-logo" aria-hidden="true"></div>
+        <div class="brand-title">
+          <span class="small">TUNISIE</span>
+          <span class="gold" style="font-size:1.1rem;letter-spacing:.18em">CHIRURGIE CENTER</span>
+        </div>
+      </div>
+      <div class="menu" role="navigation">
+        <a href="#accueil">Accueil</a>
+        <a href="#clinique">La clinique</a>
+        <a href="#prestations">Prestations</a>
+        <a href="#chirurgien">Le chirurgien</a>
+        <a href="#temoignages">Témoignages</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
   </header>
 
-  <!-- HERO with Slider -->
-  <section class="hero" aria-label="Couverture">
-    <div class="slides" id="heroSlides">
-      <!-- Les figures sont générées automatiquement par JS à partir de assets/hero/*.jpg -->
-      <!-- Fallback (2 images par défaut) -->
-      <figure class="active"><img loading="eager" src="/assets/hero/cover-1.jpg" alt="Résultats de chirurgie de la silhouette"></figure>
-      <figure><img loading="lazy" src="/assets/hero/cover-2.jpg" alt="Bloc opératoire clinique esthétique Tunisie"></figure>
-    </div>
-    <div class="shade" aria-hidden="true"></div>
-    <div class="wrap content">
-      <span class="badge">Esthétique haut de gamme • Clinique Lac 2</span>
-      <h1>Votre esthétique, notre expertise</h1>
-      <p class="subtitle">
-        Liposuccion, Liftings, Rhinoplastie, Augmentation mammaire, Facettes dentaires, Greffe capillaire — encadrement médical complet.
-      </p>
-      <div class="cta">
-        <a class="btn" href="https://wa.me/21628296239?text=Bonjour%2C%20je%20souhaite%20un%20devis." target="_blank" rel="noopener">📲 Devis WhatsApp</a>
-        <a class="btn secondary" href="#devis">📄 Demande de devis</a>
+  <!-- Hero -->
+  <section id="accueil" class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="tag">EXCELLENCE • ACCOMPAGNEMENT • TRANSPARENCE</div>
+        <h1><span class="gold">Élégance</span> & bien‑être, en toute confiance.</h1>
+        <p class="lead">Plateforme premium d’accompagnement pour la chirurgie esthétique, la dentisterie et la greffe. Devis en 24 h, équipes certifiées, séjour organisé de A à Z.</p>
+        <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn-gold" href="#prestations">Voir les prestations</a>
+          <a class="btn-gold" href="https://wa.me/21628296239" target="_blank" rel="noopener">Devis WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <!-- Remplacez par votre video hero.mp4 si souhaité -->
+        <!-- <video src="assets/video/hero.mp4" autoplay muted loop playsinline></video> -->
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1400&auto=format&fit=crop" alt="Visuel esthétique premium"/>
       </div>
     </div>
   </section>
 
-  <!-- Interventions -->
-  <section id="interventions">
-    <div class="wrap">
-      <h2>Interventions populaires</h2>
-      <div class="grid">
-        <article class="card">
-          <img src="/assets/interventions/rhinoplastie.jpg" alt="Rhinoplastie">
-          <div class="p">
-            <h3>Rhinoplastie</h3>
-            <p class="muted">Harmonisation du nez, profil & pointe.</p>
-            <p><a class="btn secondary" href="/interventions/rhinoplastie.html">Voir la page</a></p>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="/assets/interventions/liposuccion.jpg" alt="Liposuccion">
-          <div class="p">
-            <h3>Liposuccion</h3>
-            <p class="muted">Ventre, hanches, flancs, cuisses, bras…</p>
-            <p><a class="btn secondary" href="/interventions/liposuccion.html">Voir la page</a></p>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="/assets/interventions/augmentation-mammaire.jpg" alt="Augmentation mammaire">
-          <div class="p">
-            <h3>Augmentation mammaire</h3>
-            <p class="muted">Implants anatomiques ou ronds.</p>
-            <p><a class="btn secondary" href="/interventions/augmentation-mammaire.html">Voir la page</a></p>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="/assets/interventions/blepharoplastie.jpg" alt="Blépharoplastie">
-          <div class="p">
-            <h3>Blépharoplastie</h3>
-            <p class="muted">Paupières supérieures et inférieures.</p>
-            <p><a class="btn secondary" href="/interventions/blepharoplastie.html">Voir la page</a></p>
-          </div>
-        </article>
-      </div>
+  <!-- Prestations clés -->
+  <section id="prestations">
+    <h2 class="gold-stroke">Prestations phares</h2>
+    <div class="cards">
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1604881987971-43b1c3c022c7?q=80&w=1200&auto=format&fit=crop" alt="Chirurgie silhouette"/>
+        <div class="body">
+          <div class="pill">Silhouette</div>
+          <h3>Liposuccion HD & BBL Soft</h3>
+          <p>Techniques modernes avec récupération optimisée. Suivi infirmier et garments inclus.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" alt="Chirurgie visage"/>
+        <div class="body">
+          <div class="pill">Visage</div>
+          <h3>Rhinoplastie & Blépharoplastie</h3>
+          <p>Résultats naturels, planning sur‑mesure, options endoscopiques selon indication.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1606811971618-448511a5214a?q=80&w=1200&auto=format&fit=crop" alt="Dentaire"/>
+        <div class="body">
+          <div class="pill">Dentaire</div>
+          <h3>Facettes & Implants</h3>
+          <p>Laboratoires certifiés, imagerie 3D, devis clair avant déplacement.</p>
+        </div>
+      </article>
     </div>
   </section>
 
-  <!-- Galerie (mini) -->
-  <section id="galerie">
-    <div class="wrap">
-      <h2>Avant / Après (extraits)</h2>
-      <div class="grid">
-        <article class="card">
-          <img src="/assets/avant-apres/rhino-1-avant.jpg" alt="Rhinoplastie avant">
-          <div class="p"><span class="muted">Rhinoplastie • Avant</span></div>
-        </article>
-        <article class="card">
-          <img src="/assets/avant-apres/rhino-1-apres.jpg" alt="Rhinoplastie après">
-          <div class="p"><span class="muted">Rhinoplastie • Après</span></div>
-        </article>
-        <article class="card">
-          <img src="/assets/avant-apres/blepharo-1-avant.jpg" alt="Blépharoplastie avant">
-          <div class="p"><span class="muted">Blépharoplastie • Avant</span></div>
-        </article>
-        <article class="card">
-          <img src="/assets/avant-apres/blepharo-1-apres.jpg" alt="Blépharoplastie après">
-          <div class="p"><span class="muted">Blépharoplastie • Après</span></div>
-        </article>
-      </div>
+  <!-- Qui sommes-nous (inspiré du layout vu) -->
+  <section id="clinique">
+    <div class="qs-head">
+      <h2>Qui sommes‑nous ?</h2>
+      <div class="qs-dots" aria-hidden="true"><span></span><span></span><span></span></div>
     </div>
+    <p>Nous sommes une équipe d’accompagnement médical basée entre la Tunisie et l’Europe. Notre mission : orchestrer un parcours serein et transparent – de l’évaluation initiale au suivi post‑opératoire – en partenariat avec des chirurgiens et cliniques accrédités.</p>
+    <p>Vous bénéficiez d’un <strong>conseiller dédié</strong>, d’estimations rapides et d’un planning optimisé (vol, transfert, hôtel, soins). Les décisions médicales restent du ressort du praticien, après étude de votre dossier.</p>
   </section>
 
-  <!-- Devis -->
-  <section id="devis">
-    <div class="wrap">
-      <h2>Demande de devis</h2>
-      <p class="muted">Prix **selon devis** (dossier, technique, séjour). Réponse rapide par WhatsApp ou e-mail.</p>
-      <div class="cta">
-        <a class="btn" href="https://wa.me/21628296239?text=Bonjour%2C%20merci%20de%20m%27envoyer%20un%20devis." target="_blank" rel="noopener">📲 Devis WhatsApp</a>
-        <a class="btn secondary" href="mailto:aboprof.bm2@gmail.com?subject=Devis%20chirurgie%20Tunisie&body=Bonjour%2C%20je%20souhaite%20un%20devis.%0AIntervention%20:%0ADate%20souhait%C3%A9e%20:%0APhotos%20:%20(jointes)%0A">✉️ Par e-mail</a>
-      </div>
-    </div>
+  <!-- Le chirurgien -->
+  <section id="chirurgien">
+    <h2 class="gold-stroke">Le chirurgien référent</h2>
+    <p>Présentation courte du chirurgien partenaire (titres, sociétés savantes, spécialités). Ajoutez ici photo, diplômes et philosophie : naturel, sécurité et communication.</p>
+  </section>
+
+  <!-- Témoignages -->
+  <section id="temoignages">
+    <h2 class="gold-stroke">Témoignages</h2>
+    <p>Insérez 3–4 témoignages vérifiés (texte court + initiales). Possible d’intégrer des vidéos verticales (Reels/TikTok) hébergées localement ou YouTube.</p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2 class="gold-stroke">Contact & Devis</h2>
+    <p>WhatsApp direct : <a class="btn-gold" href="https://wa.me/21628296239" target="_blank" rel="noopener">+216 28 296 239</a></p>
+    <p>E‑mail : <a class="btn-gold" href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a></p>
+    <p style="opacity:.8">Formulaire rapide (EmailJS/Netlify Forms) pourra être ajouté ici.</p>
   </section>
 
   <footer>
-    <div class="wrap" style="padding:26px 0">
-      <div class="grid" style="grid-template-columns:repeat(12,1fr);gap:18px">
-        <div style="grid-column:span 12;@media(min-width:980px){grid-column:span 4}">
-          <strong>Tunisie Chirurgie Esthétique Center N°1 — Clinique Lac 2</strong><br/>
-          © 2025 — Tous droits réservés.
-        </div>
-        <div style="grid-column:span 12">
-          <span class="muted">WhatsApp : <a href="https://wa.me/21628296239" target="_blank" rel="noopener">+216 28 296 239</a> • E-mail : <a href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a></span>
-        </div>
-      </div>
+    <div class="social">
+      <a href="#">Instagram</a>•<a href="#">Facebook</a>•<a href="#">TikTok</a>
     </div>
+    <div style="margin-top:8px">© <span id="y"></span> Tunisie Chirurgie Center – Tous droits réservés.</div>
   </footer>
 
   <script>
-    /* Slider auto pour toutes les images /assets/hero/cover-*.jpg */
-    (function(){
-      const container = document.getElementById('heroSlides');
-      const figs = Array.from(container.querySelectorAll('figure'));
-      // Si d'autres images existent (cover-3,4,5...), on tente de les ajouter dynamiquement :
-      const tryAdd = (i)=>{
-        const img = new Image();
-        img.src = `/assets/hero/cover-${i}.jpg`;
-        img.onload = ()=>{
-          const f=document.createElement('figure');
-          const im=document.createElement('img');
-          im.src = img.src; im.alt = 'Couverture clinique';
-          im.loading = 'lazy';
-          f.appendChild(im);
-          container.appendChild(f);
-          figs.push(f);
-        }
-      };
-      for(let i=3;i<=10;i++) tryAdd(i);
-
-      let idx=0; const play=()=>{ 
-        figs.forEach((f,i)=>f.classList.toggle('active', i===idx));
-        idx = (idx+1)%figs.length;
-      };
-      setInterval(play, 4200);
-    })();
+    document.getElementById('y').textContent=new Date().getFullYear();
   </script>
 </body>
 </html>
