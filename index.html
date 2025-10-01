@@ -4,219 +4,159 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tunisie Chirurgie Center | Clinique d’esthétique – Officiel</title>
-  <meta name="description" content="Tunisie Chirurgie Center – Chirurgie esthétique, soins dentaires, greffe et bien‑être. Devis rapide, accompagnement complet, prix transparents." />
-  <meta name="theme-color" content="#0f0b10" />
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Tunisie Chirurgie Center" />
-  <meta property="og:description" content="Plateforme premium – chirurgie esthétique & soins en Tunisie. Devis rapide, accompagnement VIP." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1587691592099-2448347d9e20?q=80&w=1600&auto=format&fit=crop" />
-  <meta property="og:url" content="https://tunisiechirurgiecenter.com/" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Fonts (libres) : Cinzel pour les titres dorés + Montserrat pour le texte -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-
   <style>
-    :root{
-      /* Palette rose chic & doré */
-      --bg-deep:#0f0b10;          /* noir profond légèrement violacé */
-      --rose:#f3c2d7;             /* rose poudré chic */
-      --rose-2:#eaa3c2;           /* rose accent */
-      --text:#f5f3f7;             /* texte clair */
-      --muted:#b8b0c0;            /* texte secondaire */
-      --gold-1:#c79a3e;
-      --gold-2:#f1dfa6;
-      --gold-3:#8a6a22;
-      --card:#18131c;
-      --border:#2b2331;
+    body{margin:0;font-family:Montserrat;background:#0f0b10;color:#fff}
+    header{background:#0f0b10;padding:10px 20px;position:sticky;top:0;z-index:1000}
+    .nav{display:flex;justify-content:space-between;align-items:center}
+    .brand{font-family:Cinzel;font-weight:700;color:#f1dfa6}
+    .menu{display:flex;gap:20px;position:relative}
+    .menu a{color:#fff;text-decoration:none;padding:8px 4px;display:block}
+    .has-mega{position:relative}
+    .mega{display:none;position:absolute;top:100%;left:0;background:#18131c;padding:20px;grid-template-columns:repeat(4,1fr);gap:20px;min-width:700px;z-index:999}
+    .has-mega:hover .mega{display:grid}
+    .mega h4{color:#f1dfa6;margin:0 0 10px;font-family:Cinzel}
+    .mega ul{list-style:none;padding:0;margin:0}
+    .mega li{margin:5px 0}
 
-      --container:1180px;
-      --radius:18px;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
+    .interv-detail{background:#18131c;margin:40px auto;max-width:1000px;border-radius:12px;overflow:hidden}
+    .interv-detail header{display:flex;justify-content:space-between;align-items:center;background:#141017;padding:15px;color:#f1dfa6;font-family:Cinzel}
+    .interv-detail .content{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:20px}
+    .interv-detail img{width:100%;border-radius:10px}
+    .facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .facts div{background:#120d15;padding:10px;border-radius:8px;border:1px solid #2b2331}
+
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;padding:20px}
+    .contact-grid img{width:100%;border-radius:12px}
+
+    @media(max-width:900px){
+      .interv-detail .content{grid-template-columns:1fr}
+      .mega{grid-template-columns:1fr 1fr;min-width:auto;position:static}
+      .contact-grid{grid-template-columns:1fr}
     }
-
-    *,*::before,*::after{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg-deep);color:var(--text);font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-
-    /* Doré luxueux */
-    .gold{background:linear-gradient(100deg,var(--gold-2),var(--gold-1) 45%,var(--gold-3));-webkit-background-clip:text;background-clip:text;color:transparent}
-    .gold-stroke{color:var(--gold-2);text-shadow:0 1px 0 #846b2a,0 2px 14px rgba(241,223,166,.25)}
-    .btn-gold{display:inline-block;padding:.9rem 1.2rem;border-radius:999px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(241,223,166,.16),rgba(199,154,62,.08));color:var(--text);text-decoration:none;font-weight:600;backdrop-filter:blur(6px)}
-    .btn-gold:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(0,0,0,.35)}
-
-    /* Barre supérieure contact */
-    .topbar{display:flex;gap:20px;justify-content:flex-end;align-items:center;padding:.5rem 1rem;border-bottom:1px solid var(--border);background:#0b0810}
-    .topbar a{color:var(--muted);text-decoration:none}
-    .topbar a:hover{color:var(--text)}
-
-    /* Header */
-    header{position:sticky;top:0;z-index:40;background:#0f0b10d9;backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
-    .nav{max-width:var(--container);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 16px}
-    .brand{display:flex;align-items:center;gap:10px}
-    .brand-logo{width:42px;height:42px;border-radius:50%;background:radial-gradient(80% 80% at 30% 25%,var(--gold-2),var(--gold-1) 55%,var(--gold-3));box-shadow:inset 0 1px 8px rgba(0,0,0,.45),0 0 0 2px #0002}
-    .brand-title{font-family:Cinzel,serif;font-weight:700;letter-spacing:.06em}
-    .brand-title .small{font-weight:600;font-size:.72rem;letter-spacing:.28em;color:var(--muted);display:block;margin-top:-2px}
-
-    .menu{display:flex;gap:22px}
-    .menu a{color:var(--text);text-decoration:none;opacity:.88}
-    .menu a:hover{opacity:1}
-
-    /* Hero */
-    .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
-    .hero-inner{max-width:var(--container);margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:80px 16px}
-    .hero .tag{font-size:.85rem;letter-spacing:.4em;color:var(--muted);text-transform:uppercase}
-    .hero h1{font-family:Cinzel,serif;font-size:clamp(38px,6vw,64px);line-height:1.02;margin:.4rem 0 1rem}
-    .lead{color:#e9e5ee;opacity:.9;font-size:1.05rem}
-    .hero-media{position:relative;border-radius:var(--radius);overflow:hidden;background:#000}
-    .hero-media::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 80% at 10% 10%,transparent,rgba(0,0,0,.35));}
-    .hero-media img, .hero-media video{display:block;width:100%;height:560px;object-fit:cover}
-
-    /* Sections */
-    section{max-width:var(--container);margin:0 auto;padding:70px 16px;border-bottom:1px solid var(--border)}
-    h2{font-family:Cinzel,serif;font-size:clamp(28px,4vw,42px);margin:0 0 22px}
-    p{margin:0 0 14px}
-
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-    .card img{width:100%;height:210px;object-fit:cover}
-    .card .body{padding:16px}
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;border:1px solid var(--border);background:#120d15;color:var(--rose)}
-
-    /* Qui sommes-nous (style inspiré, pas de copie) */
-    .qs-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
-    .qs-dots{display:inline-flex;gap:8px}
-    .qs-dots span{width:7px;height:7px;border-radius:50%;background:linear-gradient(180deg,var(--gold-2),var(--gold-1));box-shadow:0 2px 6px rgba(241,223,166,.6)}
-
-    /* Footer */
-    footer{padding:40px 16px;color:var(--muted);text-align:center}
-    .social a{color:var(--muted);margin:0 8px;text-decoration:none}
-
-    @media (max-width:980px){
-      .hero-inner{grid-template-columns:1fr;}
-      .cards{grid-template-columns:1fr;}
-    }
+  
+    /* HERO cover */
+    .hero{background:#0f0b10;border-bottom:1px solid #2b2331}
+    .hero-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:64px 20px}
+    .tag{font-size:.85rem;letter-spacing:.35em;color:#cfc8d8;text-transform:uppercase;opacity:.8}
+    .hero h1{font-family:Cinzel,serif;font-size:clamp(38px,5.5vw,68px);line-height:1.05;margin:.4rem 0 1rem}
+    .gold{background:linear-gradient(100deg,#f1dfa6,#c79a3e 55%,#8a6a22);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{color:#e7e2ee;opacity:.9;font-size:1.05rem}
+    .btns{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:.9rem 1.2rem;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,rgba(241,223,166,.18),rgba(199,154,62,.08));color:#fff;text-decoration:none;font-weight:600}
+    .hero-media{position:relative;border-radius:18px;overflow:hidden;background:#000}
+    .hero-media img{display:block;width:100%;height:520px;object-fit:cover}
+    @media(max-width:980px){.hero-inner{grid-template-columns:1fr}.hero-media img{height:360px}}
   </style>
 </head>
 <body>
-  <!-- Topbar contact -->
-  <div class="topbar">
-    <a href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a>
-    <span>•</span>
-    <a href="https://wa.me/21628296239" target="_blank" rel="noopener">WhatsApp: +216 28 296 239</a>
+<header>
+  <nav class="nav">
+    <div class="brand">TUNISIE CHIRURGIE CENTER</div>
+    <div class="menu">
+      <a href="#accueil">Accueil</a>
+      <div class="has-mega">
+        <a href="#interventions">Interventions ▾</a>
+        <div class="mega">
+          <div>
+            <h4>Seins</h4>
+            <ul>
+              <li><a href="#seins-augmentation">Augmentation mammaire</a></li>
+              <li><a href="#seins-lift">Lifting mammaire</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Corps</h4>
+            <ul>
+              <li><a href="#corps-lipo">Liposuccion</a></li>
+              <li><a href="#corps-abdo">Abdominoplastie</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Visage</h4>
+            <ul>
+              <li><a href="#visage-rhino">Rhinoplastie</a></li>
+              <li><a href="#visage-blepharo">Blépharoplastie</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Obésité</h4>
+            <ul>
+              <li><a href="#obesite-sleeve">Sleeve</a></li>
+              <li><a href="#obesite-bypass">Bypass</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <a href="#clinique">La clinique</a>
+      <a href="#chirurgien">Le chirurgien</a>
+      <a href="#temoignages">Témoignages</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="accueil">
+  <div class="hero-inner">
+    <div>
+      <div class="tag">EXCELLENCE • ACCOMPAGNEMENT • TRANSPARENCE</div>
+      <h1><span class="gold">Élégance</span> & bien‑être, en toute confiance.</h1>
+      <p class="lead">Plateforme premium d’accompagnement pour la chirurgie esthétique, la dentisterie et la greffe. Devis en 24 h, équipes certifiées, séjour organisé de A à Z.</p>
+      <div class="btns">
+        <a class="btn" href="#interventions">Voir les interventions</a>
+        <a class="btn" href="https://wa.me/21628296239" target="_blank" rel="noopener">Devis WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <!-- Remplacez ce fichier par votre image fournie (bannière bloc opératoire) -->
+      <img src="assets/img/hero-surgery.jpg" alt="Équipe au bloc – chirurgie esthétique"/>
+    </div>
   </div>
+</section>
 
-  <!-- Header & Nav -->
-  <header>
-    <nav class="nav">
-      <div class="brand">
-        <div class="brand-logo" aria-hidden="true"></div>
-        <div class="brand-title">
-          <span class="small">TUNISIE</span>
-          <span class="gold" style="font-size:1.1rem;letter-spacing:.18em">CHIRURGIE CENTER</span>
-        </div>
-      </div>
-      <div class="menu" role="navigation">
-        <a href="#accueil">Accueil</a>
-        <a href="#clinique">La clinique</a>
-        <a href="#prestations">Prestations</a>
-        <a href="#chirurgien">Le chirurgien</a>
-        <a href="#temoignages">Témoignages</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Hero -->
-  <section id="accueil" class="hero">
-    <div class="hero-inner">
-      <div>
-        <div class="tag">EXCELLENCE • ACCOMPAGNEMENT • TRANSPARENCE</div>
-        <h1><span class="gold">Élégance</span> & bien‑être, en toute confiance.</h1>
-        <p class="lead">Plateforme premium d’accompagnement pour la chirurgie esthétique, la dentisterie et la greffe. Devis en 24 h, équipes certifiées, séjour organisé de A à Z.</p>
-        <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
-          <a class="btn-gold" href="#prestations">Voir les prestations</a>
-          <a class="btn-gold" href="https://wa.me/21628296239" target="_blank" rel="noopener">Devis WhatsApp</a>
-        </div>
-      </div>
-      <div class="hero-media">
-        <!-- Remplacez par votre video hero.mp4 si souhaité -->
-        <!-- <video src="assets/video/hero.mp4" autoplay muted loop playsinline></video> -->
-        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1400&auto=format&fit=crop" alt="Visuel esthétique premium"/>
+<section id="seins-augmentation" class="interv-detail">
+  <header><h3>Augmentation mammaire</h3><a href="#contact">Devis</a></header>
+  <div class="content">
+    <div>
+      <p>Prothèses modernes, cicatrices discrètes, récupération rapide.</p>
+      <div class="facts">
+        <div><b>Durée :</b> 60–90 min</div>
+        <div><b>Séjour :</b> 2 nuits</div>
+        <div><b>Reprise :</b> 10 jours</div>
+        <div><b>Suivi :</b> 3 mois</div>
       </div>
     </div>
-  </section>
+    <img src="https://images.unsplash.com/photo-1530521954074-e64f6810b32d?q=80&w=1600" alt="Augmentation" />
+  </div>
+</section>
 
-  <!-- Prestations clés -->
-  <section id="prestations">
-    <h2 class="gold-stroke">Prestations phares</h2>
-    <div class="cards">
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1604881987971-43b1c3c022c7?q=80&w=1200&auto=format&fit=crop" alt="Chirurgie silhouette"/>
-        <div class="body">
-          <div class="pill">Silhouette</div>
-          <h3>Liposuccion HD & BBL Soft</h3>
-          <p>Techniques modernes avec récupération optimisée. Suivi infirmier et garments inclus.</p>
-        </div>
-      </article>
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" alt="Chirurgie visage"/>
-        <div class="body">
-          <div class="pill">Visage</div>
-          <h3>Rhinoplastie & Blépharoplastie</h3>
-          <p>Résultats naturels, planning sur‑mesure, options endoscopiques selon indication.</p>
-        </div>
-      </article>
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1606811971618-448511a5214a?q=80&w=1200&auto=format&fit=crop" alt="Dentaire"/>
-        <div class="body">
-          <div class="pill">Dentaire</div>
-          <h3>Facettes & Implants</h3>
-          <p>Laboratoires certifiés, imagerie 3D, devis clair avant déplacement.</p>
-        </div>
-      </article>
+<section id="corps-lipo" class="interv-detail">
+  <header><h3>Liposuccion</h3><a href="#contact">Devis</a></header>
+  <div class="content">
+    <div>
+      <p>Lipo douce, zones ciblées avec option BBL Soft.</p>
+      <div class="facts">
+        <div><b>Durée :</b> 2–3 h</div>
+        <div><b>Séjour :</b> 2 nuits</div>
+        <div><b>Reprise :</b> 14 jours</div>
+        <div><b>Compression :</b> 4 sem.</div>
+      </div>
     </div>
-  </section>
+    <img src="https://images.unsplash.com/photo-1546484959-f9a53db89c39?q=80&w=1600" alt="Liposuccion" />
+  </div>
+</section>
 
-  <!-- Qui sommes-nous (inspiré du layout vu) -->
-  <section id="clinique">
-    <div class="qs-head">
-      <h2>Qui sommes‑nous ?</h2>
-      <div class="qs-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-grid">
+    <div>
+      <p>Contactez notre conseillère médicale pour un devis personnalisé.</p>
+      <p>WhatsApp : <a href="https://wa.me/21628296239">+216 28 296 239</a></p>
+      <p>Email : <a href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a></p>
     </div>
-    <p>Nous sommes une équipe d’accompagnement médical basée entre la Tunisie et l’Europe. Notre mission : orchestrer un parcours serein et transparent – de l’évaluation initiale au suivi post‑opératoire – en partenariat avec des chirurgiens et cliniques accrédités.</p>
-    <p>Vous bénéficiez d’un <strong>conseiller dédié</strong>, d’estimations rapides et d’un planning optimisé (vol, transfert, hôtel, soins). Les décisions médicales restent du ressort du praticien, après étude de votre dossier.</p>
-  </section>
+    <img src="https://images.unsplash.com/photo-1581090700227-4c4c86489b0f?q=80&w=1000" alt="Femme téléphone" />
+  </div>
+</section>
 
-  <!-- Le chirurgien -->
-  <section id="chirurgien">
-    <h2 class="gold-stroke">Le chirurgien référent</h2>
-    <p>Présentation courte du chirurgien partenaire (titres, sociétés savantes, spécialités). Ajoutez ici photo, diplômes et philosophie : naturel, sécurité et communication.</p>
-  </section>
-
-  <!-- Témoignages -->
-  <section id="temoignages">
-    <h2 class="gold-stroke">Témoignages</h2>
-    <p>Insérez 3–4 témoignages vérifiés (texte court + initiales). Possible d’intégrer des vidéos verticales (Reels/TikTok) hébergées localement ou YouTube.</p>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <h2 class="gold-stroke">Contact & Devis</h2>
-    <p>WhatsApp direct : <a class="btn-gold" href="https://wa.me/21628296239" target="_blank" rel="noopener">+216 28 296 239</a></p>
-    <p>E‑mail : <a class="btn-gold" href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a></p>
-    <p style="opacity:.8">Formulaire rapide (EmailJS/Netlify Forms) pourra être ajouté ici.</p>
-  </section>
-
-  <footer>
-    <div class="social">
-      <a href="#">Instagram</a>•<a href="#">Facebook</a>•<a href="#">TikTok</a>
-    </div>
-    <div style="margin-top:8px">© <span id="y"></span> Tunisie Chirurgie Center – Tous droits réservés.</div>
-  </footer>
-
-  <script>
-    document.getElementById('y').textContent=new Date().getFullYear();
-  </script>
 </body>
 </html>
