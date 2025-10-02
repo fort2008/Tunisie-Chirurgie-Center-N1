@@ -31,8 +31,33 @@
     .brand{display:flex;align-items:center;gap:10px}
     .brand img{height:48px;filter:drop-shadow(0 0 4px #000)}
     .brand span{font-family:Cinzel;font-weight:700;color:var(--gold2);font-size:18px;letter-spacing:.06em}
-    .menu{display:flex;gap:22px}
+    .menu{display:flex;gap:22px;align-items:center}
     .menu a{color:var(--text-inv)}
+
+    /* Globe langues */
+    .lang-menu { position: relative; display: inline-block; }
+    .globe { font-size: 20px; cursor: pointer; }
+    .lang-list {
+      display: none;
+      position: absolute;
+      right: 0;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      list-style: none;
+      margin: 6px 0 0;
+      padding: 0;
+      min-width: 140px;
+      box-shadow: 0 4px 8px rgba(0,0,0,.1);
+      z-index: 50;
+    }
+    .lang-menu.open .lang-list { display: block; }
+    .lang-list li {
+      padding: 8px 12px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .lang-list li:hover { background: #f1dfa6; }
 
     .hero{border-bottom:1px solid var(--section-sep);background:radial-gradient(1200px 500px at -150px 0px,#201b25 0%,transparent 60%);color:var(--text-inv)}
     .hero-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;padding:70px 16px}
@@ -45,35 +70,7 @@
     section{max-width:1180px;margin:auto;padding:56px 16px;border-bottom:1px solid var(--section-sep)}
     h2{font-family:Cinzel,serif;font-size:clamp(28px,4vw,42px);margin:0 0 18px;color:#1e1528}
 
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .card{background:var(--card);border:1px solid var(--br);border-radius:18px;overflow:hidden;color:var(--text-inv)}
-    .card img{width:100%;height:210px;object-fit:cover}
-    .card .body{padding:16px}
-
-    .interv{background:#ffffff;border:1px solid var(--section-sep);border-radius:18px;overflow:hidden;margin:26px 0}
-    .interv header{display:flex;justify-content:space-between;align-items:center;background:#fff1;border-bottom:1px solid var(--section-sep);padding:14px 16px;font-family:Cinzel}
-    .interv .content{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:18px}
-    .interv img{width:100%;height:340px;object-fit:cover;border-radius:12px}
-    .facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px}
-    .facts div{background:#f3ecf6;padding:10px;border-radius:12px;border:1px dashed #d9cfe2}
-
-    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
-    .contact-grid img{width:100%;height:360px;object-fit:cover;border-radius:16px}
-    .clinic-info{text-align:left;padding:10px 0;color:#51465b}
-
-    .clinic-media{position:relative;height:360px;border-radius:16px;overflow:hidden;background:#000}
-    .clinic-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s}
-    .clinic-media img.active{opacity:1}
-
     footer{text-align:center;color:#7a6f83;padding:30px}
-
-    @media(max-width:980px){
-      .hero-inner{grid-template-columns:1fr}
-      .hero-media{height:360px}
-      .interv .content{grid-template-columns:1fr}
-      .cards{grid-template-columns:1fr}
-      .contact-grid{grid-template-columns:1fr}
-    }
   </style>
 </head>
 <body>
@@ -88,6 +85,20 @@
         <a href="#interventions">Interventions</a>
         <a href="#clinique">La clinique</a>
         <a href="#temoignages">Témoignages</a>
+
+        <!-- Globe pour langues -->
+        <div class="lang-menu">
+          <span class="globe">🌐</span>
+          <ul class="lang-list">
+            <li onclick="translatePage('fr')">🇫🇷 Français</li>
+            <li onclick="translatePage('en')">🇬🇧 English</li>
+            <li onclick="translatePage('nl')">🇳🇱 Nederlands</li>
+            <li onclick="translatePage('ar')">🇸🇦 العربية</li>
+            <li onclick="translatePage('de')">🇩🇪 Deutsch</li>
+            <li onclick="translatePage('tr')">🇹🇷 Türkçe</li>
+          </ul>
+        </div>
+
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -97,8 +108,8 @@
   <section class="hero" id="accueil">
     <div class="hero-inner">
       <div>
-        <h1><span class="gold">Élégance</span><br>& bien‑être,<br>en toute confiance.</h1>
-        <p class="lead">Plateforme premium pour la chirurgie esthétique,<br>soins dentaires, greffe & chirurgie intime. Devis en 24 h, équipes certifiées.</p>
+        <h1><span class="gold">Élégance</span><br>& bien-être,<br>en toute confiance.</h1>
+        <p class="lead">Plateforme premium pour la chirurgie esthétique,<br>soins dentaires, greffe & chirurgie intime. Devis en 24 h, équipes certifiées.</p>
         <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
           <a class="btn" href="#interventions">Voir les interventions</a>
           <a class="btn" href="https://wa.me/21628296239" target="_blank" rel="noopener">Devis WhatsApp</a>
@@ -114,5 +125,39 @@
     </div>
   </section>
 
+  <footer>
+    © <span id="y"></span> Tunisie Chirurgie Center — Tous droits réservés.
+  </footer>
+
+  <!-- Google Translate -->
+  <div id="google_translate_element" style="display:none;"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'fr',
+        includedLanguages: 'fr,en,nl,ar,de,tr'
+      }, 'google_translate_element');
+    }
+
+    function translatePage(lang) {
+      var select = document.querySelector("select.goog-te-combo");
+      if (select) {
+        select.value = lang;
+        select.dispatchEvent(new Event("change"));
+      }
+    }
+
+    document.addEventListener('click', function(e){
+      const menu = document.querySelector('.lang-menu');
+      if(menu.contains(e.target)){
+        menu.classList.toggle('open');
+      } else {
+        menu.classList.remove('open');
+      }
+    });
+
+    document.getElementById('y').textContent=new Date().getFullYear();
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
