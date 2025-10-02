@@ -4,43 +4,52 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tunisie Chirurgie Center — Accueil</title>
-<meta name="description" content="Plateforme premium en chirurgie esthétique (Lac 2–Tunis) : visage, corps, seins, obésité, dentaire, greffe de cheveux, chirurgie intime. Devis en 24h, équipes certifiées.">
-<meta name="theme-color" content="#15121a">
+<meta name="description" content="Chirurgie esthétique au Lac 2 (Tunis) : visage, corps, seins, obésité, dentaire, greffe de cheveux, chirurgie intime. Devis en 24h, équipes certifiées.">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{ --page:#faf5f7; --ink:#1a1423; --muted:#6e6476; --sep:#e8e0ea;
-       --gold1:#f1dfa6; --gold2:#c79a3e; --gold3:#8a6a22; }
-*{box-sizing:border-box} body{margin:0;background:var(--page);color:var(--ink);font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+:root{
+  --page:#faf5f7; --ink:#1a1423; --muted:#6e6476; --sep:#e8e0ea;
+  --gold1:#f1dfa6; --gold2:#c79a3e; --gold3:#8a6a22;
+  --panel:#ffffff; --panelText:#1a1423;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Arial}
 a{text-decoration:none;color:inherit}
 .gold{background:linear-gradient(98deg,var(--gold1),var(--gold2) 55%,var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent}
-.btn{display:inline-block;padding:.9rem 1.1rem;border-radius:999px;border:1px solid #0001;background:linear-gradient(180deg,#c79a3e12,#f1dfa620);font-weight:600;color:#000}
+.btn{display:inline-block;padding:.85rem 1.1rem;border-radius:999px;border:1px solid #00000018;background:linear-gradient(180deg,#c79a3e12,#f1dfa620);font-weight:600;color:#000}
+
 header{position:sticky;top:0;z-index:70;background:#1a1620dd;color:#fff;border-bottom:1px solid #2b2431;backdrop-filter:blur(8px)}
 .nav{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
-.brand{display:flex;align-items:center;gap:10px} .brand svg{width:40px;height:40px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand svg{width:36px;height:36px}
 .brand span{font-family:Cinzel,serif;letter-spacing:.06em;color:var(--gold2);font-weight:700}
-.menu{display:flex;gap:22px;align-items:center} .menu a,.menu button{color:#fff;background:transparent;border:0;font:inherit;cursor:pointer}
+.menu{display:flex;gap:22px;align-items:center}
+.menu a,.menu button{color:#fff;background:transparent;border:0;font:inherit;cursor:pointer}
+
 .burger{display:none;background:transparent;border:1px solid #ffffff22;color:#fff;border-radius:10px;padding:8px 10px;font-size:22px}
+
 .drop{position:relative}
-.drop .panel{position:absolute;left:50%;transform:translateX(-50%);top:120%;background:#fff;color:#1a1423;border:1px solid var(--sep);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.12);display:none;min-width:920px;padding:14px;z-index:80}
+.drop .panel{position:absolute;left:50%;transform:translateX(-50%);top:120%;
+  background:var(--panel);color:var(--panelText);border:1px solid var(--sep);
+  border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.12);display:none;min-width:920px;padding:16px;z-index:80}
 .drop.open .panel{display:block}
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.panel h4{margin:4px 0 6px;font-family:Cinzel} .panel a{display:block;padding:9px 10px;border-radius:10px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.panel h4{margin:4px 0 6px;font-family:Cinzel}
+.panel a{display:block;padding:9px 10px;border-radius:10px;color:#1a1423}
 .panel a:hover{background:#f6efe1}
 
-/* Mobile drawer */
 .mpanel{display:none} .mpanel.open{display:block}
 .mpanel{position:fixed;inset:0;z-index:90}
 .mpanel .back{position:absolute;inset:0;background:rgb(0 0 0 / .45)}
 .drawer{position:absolute;right:0;top:0;height:100%;width:min(86%,360px);background:#17131c;color:#fff;padding:18px;overflow:auto}
-.drawer a{display:block; padding:10px 4px; color:#fff}       /* <= liens empilés */
+.drawer a{display:block;padding:10px 4px;color:#fff}
 .drawer h4{font-family:Cinzel;color:#f1dfa6;margin:12px 0 6px}
 
-/* Hero */
 .hero{border-bottom:1px solid var(--sep);background:radial-gradient(1200px 500px at -150px 0px,#201b25 0%,transparent 60%);color:#fff}
-.hero-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;padding:60px 16px}
-.hero h1{font-family:Cinzel,serif;font-size:clamp(30px,5vw,54px);margin:0 0 10px}
-.lead{background:#ffffffc2;color:#1a1423;display:inline-block;padding:8px 12px;border-radius:12px;font-weight:600}
-.hero-media{position:relative;height:420px;border-radius:18px;overflow:hidden;background:#000}
+.hero-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;padding:50px 16px}
+.hero h1{font-family:Cinzel,serif;font-size:clamp(28px,4.2vw,42px);line-height:1.08;margin:0 0 12px} /* ← plus petit */
+.lead{background:#ffffffc8;color:#1a1423;display:inline-block;padding:8px 12px;border-radius:12px;font-weight:600}
+.hero-media{position:relative;height:400px;border-radius:18px;overflow:hidden;background:#000}
 .hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease}
 .hero-media img.active{opacity:1}
 
@@ -50,7 +59,7 @@ footer{color:#7a6f83;text-align:center;padding:28px}
 @media(max-width:980px){
   .menu{display:none}.burger{display:block}
   .hero-inner{grid-template-columns:1fr}
-  .hero-media{height:340px}
+  .hero-media{height:320px}
 }
 </style>
 </head>
@@ -58,7 +67,6 @@ footer{color:#7a6f83;text-align:center;padding:28px}
 <header>
   <div class="nav">
     <div class="brand">
-      <!-- petit pictogramme doré -->
       <svg viewBox="0 0 64 64" aria-hidden="true">
         <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0%" stop-color="#f1dfa6"/><stop offset="60%" stop-color="#c79a3e"/><stop offset="100%" stop-color="#8a6a22"/></linearGradient></defs>
         <circle cx="32" cy="32" r="30" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="2"/>
@@ -72,19 +80,21 @@ footer{color:#7a6f83;text-align:center;padding:28px}
         <button type="button">Interventions ▾</button>
         <div class="panel"><div class="grid-4" id="deskGrid"></div></div>
       </div>
+      <a href="#clinique">La clinique</a>
       <a href="#contact">Contact</a>
     </nav>
     <button class="burger" id="burger">☰</button>
   </div>
 </header>
 
-<!-- Tiroir mobile -->
+<!-- Drawer mobile -->
 <div class="mpanel" id="mpanel">
   <div class="back"></div>
   <div class="drawer">
     <a href="#accueil" class="m-link">Accueil</a>
     <h4>Interventions</h4>
     <div id="mCats"></div>
+    <a href="#clinique" class="m-link">La clinique</a>
     <a href="#contact" class="m-link" style="margin-top:10px">Contact</a>
   </div>
 </div>
@@ -101,27 +111,39 @@ footer{color:#7a6f83;text-align:center;padding:28px}
       </div>
     </div>
     <div class="hero-media" id="hero">
-      <!-- diaporama soft (pas de visuel choquant) -->
-      <img class="active" src="https://lh3.googleusercontent.com/p/AF1QipMqHFishAAkCoir3ndgVC-u1pl9n5GJXST7tzGl=s680-w680-h510-rw" alt="Bloc opératoire 1">
-      <img src="https://lh3.googleusercontent.com/p/AF1QipP_P5w2zgLpK5QhkCv8zCM7J-q5gmsqXKbHesRt=s680-w680-h510-rw" alt="Bloc opératoire 2">
-      <img src="https://lh3.googleusercontent.com/p/AF1QipMJz-LLob1lN2LlxAZ4blF-TnLVUEG0Rc3ZlK-e=s680-w680-h510-rw" alt="Bloc opératoire 3">
+      <img class="active" src="https://lh3.googleusercontent.com/p/AF1QipMqHFishAAkCoir3ndgVC-u1pl9n5GJXST7tzGl=s680-w680-h510-rw" alt="Bloc 1">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipP_P5w2zgLpK5QhkCv8zCM7J-q5gmsqXKbHesRt=s680-w680-h510-rw" alt="Bloc 2">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipMJz-LLob1lN2LlxAZ4blF-TnLVUEG0Rc3ZlK-e=s680-w680-h510-rw" alt="Bloc 3">
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- Clinique -->
+<section id="clinique">
+  <h2 class="gold" style="font-family:Cinzel;margin:0 0 10px">Notre Clinique (Lac 2 – Tunis)</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center">
+    <div>
+      <p style="color:var(--muted)">Blocs opératoires certifiés, suites confort, équipe infirmière 24/7.</p>
+      <p><strong>Adresse :</strong> Lac 2 – Tunis (Tunisie)</p>
+    </div>
+    <div style="position:relative;height:320px;border-radius:16px;overflow:hidden;background:#000">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4noTFLz71MtueVNUIeg-scN1rHhdVvqxmlk8sMjDvqEOQcMARPcDI0cAUitIVB0nFZjwW1TnWpVnfCFkfIn-QsEplrcOAibTJmBYMuRjv99G-ApMA8b8u-Pm0GSKpTOdaSrfau2JZw=s680-w680-h510-rw" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" alt="Clinique">
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
 <section id="contact">
   <h2 class="gold" style="font-family:Cinzel;margin:0 0 10px">Contact</h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center">
     <div>
       <p style="color:var(--muted)">Notre équipe vous répond 7j/7.</p>
-      <p><strong>Adresse :</strong> Lac 2 – Tunis (Tunisie)</p>
       <p><strong>WhatsApp :</strong> <a href="https://wa.me/21628296239" target="_blank" rel="noopener">+216 28 296 239</a></p>
     </div>
     <img
       src="https://media.istockphoto.com/id/1275072681/fr/photo/jeune-r%C3%A9ceptionniste-femelle-parlant-au-t%C3%A9l%C3%A9phone-dans-la-clinique-tout-en-sasseyant-et.jpg?b=1&s=612x612&w=0&k=20&c=DOG7hMzKaQyFVk7nr1HuLpOUu5eoAXDIIEN-eXbeEIE="
       alt="Agent hospitalier au téléphone"
-      style="width:100%;height:360px;object-fit:cover;border-radius:16px"
+      style="width:100%;height:320px;object-fit:cover;border-radius:16px"
       onerror="this.onerror=null;this.src='assets/img/contact-reception.jpg'">
   </div>
 </section>
@@ -129,55 +151,40 @@ footer{color:#7a6f83;text-align:center;padding:28px}
 <footer>© <span id="y"></span> Tunisie Chirurgie Center</footer>
 
 <script>
-/* ----- Données du menu (ordre manuel) ----- */
-const ORDER = ["Seins","Corps","Visage","Obésité","Greffe de cheveux","Dents","Chirurgie intime"]; // Intime en dernier
-const INTERV = {
-  "Seins":[
-    ["Augmentation mammaire","intervention.html?slug=augmentation-mammaire"],
-    ["Lifting mammaire","intervention.html?slug=lifting-mammaire"],
-    ["Réduction mammaire","intervention.html?slug=reduction-mammaire"],
-    ["Asymétrie mammaire","intervention.html?slug=asymetrie-mammaire"]
-  ],
-  "Corps":[
-    ["Liposuccion","intervention.html?slug=liposuccion"],
-    ["Abdominoplastie","intervention.html?slug=abdominoplastie"],
-    ["Mini abdominoplastie","intervention.html?slug=mini-abdo"],
-    ["Lifting bras","intervention.html?slug=lifting-bras"],
-    ["Lifting cuisses","intervention.html?slug=lifting-cuisses"],
-    ["Double menton","intervention.html?slug=double-menton"],
-    ["Implant fessier","intervention.html?slug=implant-fessier"],
-    ["Bichectomie","intervention.html?slug=bichectomie"]
-  ],
-  "Visage":[
-    ["Rhinoplastie","intervention.html?slug=rhinoplastie"],
-    ["Blépharoplastie","intervention.html?slug=blepharoplastie"],
-    ["Lifting visage","intervention.html?slug=lifting-visage"],
-    ["Otoplastie","intervention.html?slug=otoplastie"]
-  ],
-  "Obésité":[
-    ["Bypass","intervention.html?slug=bypass"],
-    ["Sleeve","intervention.html?slug=sleeve"],
-    ["Ballon gastrique","intervention.html?slug=ballon-gastrique"]
-  ],
-  "Greffe de cheveux":[
-    ["Greffe FUE","intervention.html?slug=greffe-fue"],
-    ["Greffe DHI","intervention.html?slug=greffe-dhi"]
-  ],
-  "Dents":[
-    ["Facettes dentaires","intervention.html?slug=facettes-dentaires"],
-    ["Orthodontie invisible","intervention.html?slug=orthodontie-invisible"],
-    ["Implants & facettes","intervention.html?slug=implants-facettes"]
-  ],
-  "Chirurgie intime":[
-    ["Nymphoplastie","intervention.html?slug=nymphoplastie"],
-    ["Vaginoplastie","intervention.html?slug=vaginoplastie"],
-    ["Hyménoplastie","intervention.html?slug=hymenoplastie"],
-    ["Pénoplastie","intervention.html?slug=penoplastie"]
-  ]
+const ORDER=["Seins","Corps","Visage","Obésité","Greffe de cheveux","Dents","Chirurgie intime"]; // intime en dernier
+const INTERV={
+  "Seins":[["Augmentation mammaire","intervention.html?slug=augmentation-mammaire"],
+           ["Lifting mammaire","intervention.html?slug=lifting-mammaire"],
+           ["Réduction mammaire","intervention.html?slug=reduction-mammaire"],
+           ["Asymétrie mammaire","intervention.html?slug=asymetrie-mammaire"]],
+  "Corps":[["Liposuccion","intervention.html?slug=liposuccion"],
+           ["Abdominoplastie","intervention.html?slug=abdominoplastie"],
+           ["Mini abdominoplastie","intervention.html?slug=mini-abdo"],
+           ["Lifting bras","intervention.html?slug=lifting-bras"],
+           ["Lifting cuisses","intervention.html?slug=lifting-cuisses"],
+           ["Double menton","intervention.html?slug=double-menton"],
+           ["Implant fessier","intervention.html?slug=implant-fessier"],
+           ["Bichectomie","intervention.html?slug=bichectomie"]],
+  "Visage":[["Rhinoplastie","intervention.html?slug=rhinoplastie"],
+            ["Blépharoplastie","intervention.html?slug=blepharoplastie"],
+            ["Lifting visage","intervention.html?slug=lifting-visage"],
+            ["Otoplastie","intervention.html?slug=otoplastie"]],
+  "Obésité":[["Bypass","intervention.html?slug=bypass"],
+             ["Sleeve","intervention.html?slug=sleeve"],
+             ["Ballon gastrique","intervention.html?slug=ballon-gastrique"]],
+  "Greffe de cheveux":[["Greffe FUE","intervention.html?slug=greffe-fue"],
+                       ["Greffe DHI","intervention.html?slug=greffe-dhi"]],
+  "Dents":[["Facettes dentaires","intervention.html?slug=facettes-dentaires"],
+           ["Orthodontie invisible","intervention.html?slug=orthodontie-invisible"],
+           ["Implants & facettes","intervention.html?slug=implants-facettes"]],
+  "Chirurgie intime":[["Nymphoplastie","intervention.html?slug=nymphoplastie"],
+                      ["Vaginoplastie","intervention.html?slug=vaginoplastie"],
+                      ["Hyménoplastie","intervention.html?slug=hymenoplastie"],
+                      ["Pénoplastie","intervention.html?slug=penoplastie"]]
 };
 
-/* ----- Construction du mega-menu (desktop) ----- */
-const grid = document.getElementById('deskGrid');
+// Desktop mega menu
+const grid=document.getElementById('deskGrid');
 ORDER.forEach(cat=>{
   const col=document.createElement('div');
   const h4=document.createElement('h4'); h4.textContent=cat; col.appendChild(h4);
@@ -187,7 +194,7 @@ ORDER.forEach(cat=>{
   grid.appendChild(col);
 });
 
-/* ----- Tiroir mobile : liens empilés ----- */
+// Mobile drawer
 const mCats=document.getElementById('mCats');
 ORDER.forEach(cat=>{
   const h=document.createElement('h4'); h.textContent=cat; mCats.appendChild(h);
@@ -196,31 +203,29 @@ ORDER.forEach(cat=>{
   });
 });
 
-/* ----- Interactions menu ----- */
+// Open/close menus
 const drop=document.getElementById('dropInterv');
 drop.querySelector('button').addEventListener('click',(e)=>{e.stopPropagation();drop.classList.toggle('open');});
 drop.addEventListener('mouseenter',()=>drop.classList.add('open'));
 drop.addEventListener('mouseleave',()=>drop.classList.remove('open'));
 document.addEventListener('click',()=>drop.classList.remove('open'));
 
-/* Burger mobile */
 const mpanel=document.getElementById('mpanel'), burger=document.getElementById('burger');
 burger.addEventListener('click',()=>mpanel.classList.add('open'));
 mpanel.querySelector('.back').addEventListener('click',()=>mpanel.classList.remove('open'));
 mpanel.querySelectorAll('.m-link').forEach(a=>a.addEventListener('click',()=>mpanel.classList.remove('open')));
 
-/* ----- Diaporama hero ----- */
+// Hero slider
 const imgs=[...document.querySelectorAll('#hero img')]; let i=0;
-setInterval(()=>{ imgs[i].classList.remove('active'); i=(i+1)%imgs.length; imgs[i].classList.add('active'); },5000);
+setInterval(()=>{imgs[i].classList.remove('active'); i=(i+1)%imgs.length; imgs[i].classList.add('active');},5000);
 
-/* CTA Interventions */
-document.getElementById('ctaInterv').addEventListener('click',(e)=>{
-  e.preventDefault();
+// CTA Interventions
+document.getElementById('ctaInterv').addEventListener('click',(e)=>{e.preventDefault();
   if (matchMedia('(min-width:981px)').matches){ drop.classList.add('open'); }
   else { mpanel.classList.add('open'); }
 });
 
-/* Footer année */
+// Footer year
 document.getElementById('y').textContent=new Date().getFullYear();
 </script>
 </body>
