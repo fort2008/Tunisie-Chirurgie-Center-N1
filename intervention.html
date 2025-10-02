@@ -1,152 +1,463 @@
-
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Intervention — Tunisie Chirurgie Center</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--page:#faf5f7;--ink:#1a1423;--sep:#e8e0ea;--gold:#c79a3e}
-*{box-sizing:border-box} body{margin:0;background:var(--page);color:var(--ink);font-family:Montserrat}
-header{padding:16px;border-bottom:1px solid var(--sep);background:#fff}
-main{max-width:1100px;margin:24px auto;padding:0 16px}
-h1{font-family:Cinzel;margin:.2rem 0}
-.badge{display:inline-block;font-size:.86rem;border:1px solid #00000018;border-radius:999px;padding:.35rem .7rem;background:#fff}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:18px}
-.card{background:#fff;border:1px solid var(--sep);border-radius:14px;overflow:hidden}
-.card img{width:100%;height:260px;object-fit:cover;display:block}
-.card .t{padding:8px 10px;font-weight:600}
-.note{color:#5f5767;margin-top:8px}
-a.btn{display:inline-block;margin-top:16px;padding:.7rem 1rem;border-radius:999px;border:1px solid #00000018;background:#fff;color:#000}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Intervention | Tunisie Chirurgie Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Fiches claires des interventions : description, déroulement, durée, séjour, reprise et demande de devis." />
+  <style>
+    :root{
+      --bg:#f7f4f6; --panel:#ffffff; --ink:#1a1523; --muted:#6f6176;
+      --gold1:#f1dfa6; --gold2:#c79a3e; --gold3:#8a6a22;
+      --line:#eadfee;
+      --chip:#eee6f2;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1100px;margin:auto;padding:16px}
+    .gold{background:linear-gradient(100deg,var(--gold1),var(--gold2) 55%,var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .btn{display:inline-block;padding:.85rem 1.1rem;border-radius:999px;border:1px solid #00000014;background:linear-gradient(180deg,#c79a3e12,#f1dfa620);font-weight:600}
+    header.site{position:sticky;top:0;z-index:10;background:#211b26;color:#f6f3f8;border-bottom:1px solid #2c2433}
+    .nav{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand img{height:40px}
+    .brand span{font-family:Cinzel;letter-spacing:.06em;color:var(--gold2);font-weight:700}
+    .menu{display:flex;gap:20px;align-items:center}
+    .menu a{color:#f6f3f8;opacity:.9}
+    .lang{display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:#2a2330}
+    .lang svg{width:18px;height:18px}
+    /* fiche */
+    .hero{padding:18px 16px 6px;border-bottom:1px solid var(--line);background:#fff}
+    h1{font-family:Cinzel;margin:0 0 8px;font-size:clamp(22px,4vw,34px);color:#241a2b}
+    .meta{color:var(--muted)}
+    .box{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin:16px 0}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:18px}
+    .grid img{width:100%;height:380px;object-fit:cover;border-radius:12px}
+    .facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px}
+    .facts div{background:#f3ecf6;border:1px dashed #e0d7ea;padding:10px;border-radius:12px}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    /* index */
+    .cats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .cat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px}
+    .cat h3{font-family:Cinzel;margin:6px 0 10px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chips a{background:var(--chip);border:1px solid var(--line);padding:8px 12px;border-radius:999px}
+    footer{color:#857992;text-align:center;padding:28px}
+    @media(max-width:900px){
+      .grid{grid-template-columns:1fr}
+      .grid img{height:280px}
+      .cats{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 <body>
-<header>
-  <div style="max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center">
-    <div style="display:flex;align-items:center;gap:10px">
-      <a href="index.html" class="badge">← Accueil</a>
-      <span class="badge">Tunisie Chirurgie Center</span>
-    </div>
-    <a href="index.html#contact" class="badge">Devis WhatsApp</a>
-  </div>
-</header>
-
-<main>
-  <h1 id="title">Intervention</h1>
-  <div id="desc" class="note"></div>
-  <div class="grid" id="gallery"></div>
-  <a href="index.html#interventions" class="btn">← Retour aux interventions</a>
-</main>
-
-<script>
-/* Récupère le slug */
-const params=new URLSearchParams(location.search);
-const slug=params.get('slug')||'';
-
-/* Cartouche textes + fichiers (à compléter si besoin) */
-const DATA={
-  "blepharoplastie":{
-    title:"Blépharoplastie",
-    desc:"Correction des paupières supérieures/inférieures pour un regard reposé.",
-    pairs:[
-      ["assets/avant-apres/blepharoplastie-1-avant.jpg","assets/avant-apres/blepharoplastie-1-apres.jpg"],
-      ["assets/avant-apres/blepharoplastie-2-avant.jpg","assets/avant-apres/blepharoplastie-2-apres.jpg"],
-      ["assets/avant-apres/blepharoplastie-3-avant.jpg","assets/avant-apres/blepharoplastie-3-apres.jpg"]
-    ]
-  },
-  "rhinoplastie":{
-    title:"Rhinoplastie",
-    desc:"Affinement et correction du nez, profil harmonieux.",
-    pairs:[
-      ["assets/avant-apres/rhinoplastie-1-avant.jpg","assets/avant-apres/rhinoplastie-1-apres.jpg"],
-      ["assets/avant-apres/rhinoplastie-2-avant.jpg","assets/avant-apres/rhinoplastie-2-apres.jpg"],
-      ["assets/avant-apres/rhinoplastie-3-avant.jpg","assets/avant-apres/rhinoplastie-3-apres.jpg"],
-      ["assets/avant-apres/rhino 5.jpg","assets/avant-apres/rhinoplastie-3-apres.jpg"]
-    ]
-  },
-  "lifting-visage":{
-    title:"Lifting visage",
-    desc:"Raffermissement de l’ovale et des tissus du visage.",
-    pairs:[
-      ["assets/avant-apres/lifting-visage-1-avant.jpg","assets/avant-apres/lifting-visage-1-apres.jpg"]
-    ]
-  },
-  "lipofilling-visage":{
-    title:"Lipofilling visage",
-    desc:"Réinjection de graisse autologue pour restaurer les volumes.",
-    pairs:[
-      ["assets/avant-apres/lipofilling-visage-1-avant.jpg","assets/avant-apres/lipofilling-visage-1-apres.jpg"],
-      ["assets/avant-apres/lipofilling-visage-2-avant.jpg","assets/avant-apres/lipofilling-visage-2-apres.jpg"],
-      ["assets/avant-apres/lipofilling-visage-3-avant.jpg","assets/avant-apres/lipofilling-visage-3-apres.jpg"]
-    ]
-  },
-  "abdominoplastie":{
-    title:"Abdominoplastie",
-    desc:"Plastie abdominale pour retendre la paroi et retirer l’excédent cutané.",
-    pairs:[
-      ["assets/avant-apres/avant-aprés1.jpg","assets/avant-apres/Avant_apres2.jpg"]
-    ]
-  },
-
-  /* exemples pour les autres slugs — à compléter selon tes fichiers */
-  "augmentation-mammaire":{title:"Augmentation mammaire",desc:"Augmentation par prothèses.",pairs:[]},
-  "lifting-mammaire":{title:"Lifting mammaire",desc:"Remise en tension et repositionnement.",pairs:[]},
-  "reduction-mammaire":{title:"Réduction mammaire",desc:"Réduction du volume et remodelage.",pairs:[]},
-  "asymetrie-mammaire":{title:"Asymétrie mammaire",desc:"Correction des asymétries.",pairs:[]},
-
-  "liposuccion":{title:"Liposuccion",desc:"Aspirer les surcharges localisées.",pairs:[]},
-  "mini-abdo":{title:"Mini abdominoplastie",desc:"Version réduite sur excès modéré.",pairs:[]},
-  "lifting-bras":{title:"Lifting des bras",desc:"Traitement relâchement bras.",pairs:[]},
-  "lifting-cuisses":{title:"Lifting des cuisses",desc:"Traitement relâchement cuisses.",pairs:[]},
-  "double-menton":{title:"Double menton",desc:"Lipo sous-mentonnière / traitement localisé.",pairs:[]},
-  "implant-fessier":{title:"Implant fessier",desc:"Augmentation par prothèse.",pairs:[]},
-  "bichectomie":{title:"Bichectomie",desc:"Affinement des joues.",pairs:[]},
-
-  "bypass":{title:"Bypass gastrique",desc:"Chirurgie bariatrique.",pairs:[]},
-  "sleeve":{title:"Sleeve gastrectomie",desc:"Réduction gastrique.",pairs:[]},
-  "ballon-gastrique":{title:"Ballon gastrique",desc:"Méthode endoscopique.",pairs:[]},
-
-  "greffe-fue":{title:"Greffe FUE",desc:"Extraction folliculaire unitaire.",pairs:[]},
-  "greffe-dhi":{title:"Greffe DHI",desc:"Implantation directe.",pairs:[]},
-
-  "facettes-dentaires":{title:"Facettes dentaires",desc:"Esthétique du sourire.",pairs:[]},
-  "orthodontie-invisible":{title:"Orthodontie invisible",desc:"Aligneurs transparents.",pairs:[]},
-  "implants-facettes":{title:"Implants & facettes",desc:"Réhabilitation complète.",pairs:[]},
-
-  "nymphoplastie":{title:"Nymphoplastie",desc:"Réduction petites lèvres.",pairs:[]},
-  "vaginoplastie":{title:"Vaginoplastie",desc:"Resserrement du vagin.",pairs:[]},
-  "hymenoplastie":{title:"Hyménoplastie",desc:"Réparation de l’hymen.",pairs:[]},
-  "penoplastie":{title:"Pénoplastie",desc:"Élargissement / allongement.",pairs:[]}
-};
-
-const item=DATA[slug];
-const titleEl=document.getElementById('title');
-const descEl=document.getElementById('desc');
-const gal=document.getElementById('gallery');
-
-if(!item){
-  titleEl.textContent="Intervention introuvable";
-  descEl.textContent="Le lien ne correspond à aucune intervention configurée.";
-} else {
-  titleEl.textContent=item.title;
-  descEl.textContent=item.desc||"";
-  if(item.pairs && item.pairs.length){
-    item.pairs.forEach(([before,after],idx)=>{
-      gal.innerHTML+=`
-      <div class="card">
-        <img src="${before}" alt="Avant ${item.title} - ${idx+1}">
-        <div class="t">Avant</div>
+  <header class="site">
+    <div class="nav">
+      <div class="brand">
+        <img src="assets/logo/logo.png" alt="TCC">
+        <span>TUNISIE CHIRURGIE CENTER</span>
       </div>
-      <div class="card">
-        <img src="${after}" alt="Après ${item.title} - ${idx+1}">
-        <div class="t">Après</div>
-      </div>`;
-    });
-  } else {
-    gal.innerHTML = `<p class="note">Galerie avant/après en cours d’intégration pour cette intervention.</p>`;
-  }
-}
-</script>
+      <nav class="menu">
+        <a href="/">Accueil</a>
+        <a href="/#interventions">Interventions</a>
+        <a href="/#clinique">Nos cliniques</a>
+        <a href="/#hotels">Hôtels</a>
+        <a href="/#contact">Contact</a>
+        <!-- Globe langues (le sélecteur réel dépend de ton script Google Translate sur l'index) -->
+        <a class="lang" href="/#lang">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 100 20 10 10 0 000-20Zm0 0s4 3 4 10-4 10-4 10M12 2S8 5 8 12s4 10 4 10M2 12h20" stroke="#f1dfa6" stroke-width="1.4"/></svg>
+          <span>Langues</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="app" class="wrap">
+    <!-- contenu injecté par JS -->
+  </main>
+
+  <footer>© Tunisie Chirurgie Center</footer>
+
+  <script>
+    // ====== Données interventions (titres, images, description, facts) ======
+    const DATA = {
+      /* ---------- SEINS ---------- */
+      "lipofilling-mammaire": {
+        cat:"Seins",
+        title:"Lipofilling mammaire",
+        img:"https://media.istockphoto.com/id/627443532/fr/photo/le-m%C3%A9decin-dessine-sous-la-poitrine.jpg?b=1&s=612x612&w=0&k=20&c=OnoP5_jPN45Bwi5A9vN9PXXB7DjiR5kJKyUl3CaPFCo=",
+        desc:"Prélèvement de graisse (ventre, hanches, cuisses) puis réinjection dans la poitrine. Alternative 100% autologue aux implants, pour un gain modéré de volume et un galbe naturel.",
+        facts:{Durée:"2–3 h",Séjour:"1–2 nuits",Reprise:"7–10 jours",Prix:"Sur devis"}
+      },
+      "augmentation-mammaire": {
+        cat:"Seins",
+        title:"Augmentation mammaire par implants",
+        img:"https://media.istockphoto.com/id/627443742/fr/photo/le-m%C3%A9decin-dessine-sous-la-poitrine.jpg?b=1&s=612x612&w=0&k=20&c=1eAzejO4qI_HS4gLnf14_3Wyn5w8VJfmV1wyIEm2Gac=",
+        desc:"Pose de prothèses (silicone/serum) pour augmenter le volume et harmoniser la silhouette. Choix du plan, voie et forme selon morphologie.",
+        facts:{Durée:"1h30–2 h",Séjour:"1 nuit",Reprise:"~7 jours",Prix:"Sur devis"}
+      },
+      "lifting-mammaire": {
+        cat:"Seins",
+        title:"Lifting mammaire (mastopexie)",
+        img:"https://media.istockphoto.com/id/1151669535/fr/photo/vue-recadr%C3%A9e-du-chirurgien-plastique-dans-des-gants-en-latex-v%C3%A9rifiant-le-sein-f%C3%A9minin-dans.jpg?b=1&s=612x612&w=0&k=20&c=ci-ZAqHBvm4AdHuGOsrU0GvdjQJbDP5NzgAkewkAOVs=",
+        desc:"Correction des seins tombants : remise en tension cutanée et repositionnement de l'aréole/mamelon. Peut être combiné à un implant ou un lipofilling.",
+        facts:{Durée:"2–3 h",Séjour:"1–2 nuits",Reprise:"~10 jours",Prix:"Sur devis"}
+      },
+      "reduction-mammaire": {
+        cat:"Seins",
+        title:"Réduction mammaire",
+        img:"https://images.pexels.com/photos/4421495/pexels-photo-4421495.jpeg",
+        desc:"Diminution du volume par retrait des excès glandulaire/adipeux/cutanés pour alléger la poitrine, améliorer le confort et la posture.",
+        facts:{Durée:"2–3 h",Séjour:"2 nuits",Reprise:"10–14 jours",Prix:"Sur devis"}
+      },
+      "asymetrie-mammaire": {
+        cat:"Seins",
+        title:"Correction d’asymétrie mammaire",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3mjDVykQ_G9R-4acH_2hIY_mkYbFGYT5aLA&s",
+        desc:"Harmonisation des deux seins par gestes combinés (réduction d’un côté, augmentation ou lifting de l’autre) pour rétablir la symétrie.",
+        facts:{Durée:"2–3 h",Séjour:"1–2 nuits",Reprise:"~10 jours",Prix:"Sur devis"}
+      },
+
+      /* ---------- CORPS / SILHOUETTE ---------- */
+      "liposuccion":{
+        cat:"Corps",
+        title:"Liposuccion",
+        img:"https://images.pexels.com/photos/7772693/pexels-photo-7772693.jpeg",
+        desc:"Aspiration sélective des surcharges graisseuses résistantes (ventre, hanches, cuisses, bras…). Améliore nettement les contours.",
+        facts:{Durée:"1–3 h",Séjour:"Ambulatoire/1 nuit",Reprise:"5–10 jours",Prix:"Sur devis"}
+      },
+      "lipofilling-fesses":{
+        cat:"Corps",
+        title:"Lipofilling / Liposculpture des fesses (BBL soft)",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjRTdIqU53XFjFQ8uEQMUqYeocl1AbtC61dg&s",
+        desc:"Graisse prélevée par lipo, purifiée puis transférée aux fesses pour améliorer projection et galbe, avec un résultat naturel.",
+        facts:{Durée:"2–3 h",Séjour:"1–2 nuits",Reprise:"~10 jours",Prix:"Sur devis"}
+      },
+      "abdominoplastie":{
+        cat:"Corps",
+        title:"Abdominoplastie",
+        img:"https://lh3.googleusercontent.com/p/AF1QipP_P5w2zgLpK5QhkCv8zCM7J-q5gmsqXKbHesRt=s680-w680-h510-rw",
+        desc:"Remise à plat de l’abdomen : retrait d’excès cutané et graisseux, retension des muscles (diastasis si besoin).",
+        facts:{Durée:"2–3 h",Séjour:"2 nuits",Reprise:"10–14 jours",Prix:"Sur devis"}
+      },
+      "mini-abdominoplastie":{
+        cat:"Corps",
+        title:"Mini-abdominoplastie",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUHCrz98LyIQCCBsm0ww-ufm2T9JdWNoANjQ&s",
+        desc:"Version plus limitée, centrée sous l’ombilic, pour excès cutané modéré sans large décollement.",
+        facts:{Durée:"1h30–2 h",Séjour:"1 nuit",Reprise:"~7 jours",Prix:"Sur devis"}
+      },
+      "lifting-bras":{
+        cat:"Corps",
+        title:"Lifting des bras",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNh0HFN8On8GBHl1wAQW4aAQfIYktuE9z57w&s",
+        desc:"Retire l’excès de peau de la face interne du bras après amaigrissement ou relâchement cutané.",
+        facts:{Durée:"1h30–2 h",Séjour:"1 nuit",Reprise:"7–10 jours",Prix:"Sur devis"}
+      },
+      "lifting-cuisses":{
+        cat:"Corps",
+        title:"Lifting des cuisses",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVlxyS2OWQQWQkqwkG_q8tcp0VHTgP5f0D_g&s",
+        desc:"Retend la peau de la face interne de cuisse, parfois associé à une lipo pour affiner davantage.",
+        facts:{Durée:"2–3 h",Séjour:"1–2 nuits",Reprise:"~10 jours",Prix:"Sur devis"}
+      },
+      "augmentation-fesses":{
+        cat:"Corps",
+        title:"Augmentation des fesses (implants)",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY3g5ap1fVwi5AQ20wLmC1iSu7O8ydaHpX4g&s",
+        desc:"Pose d’implants fessiers pour un gain de projection quand la graisse autologue est insuffisante.",
+        facts:{Durée:"2–3 h",Séjour:"2 nuits",Reprise:"~14 jours",Prix:"Sur devis"}
+      },
+
+      /* ---------- VISAGE ---------- */
+      "lifting-visage":{
+        cat:"Visage",
+        title:"Lifting du visage",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREW_35prSGIhEUhO7GItMh3A74Z_eEYRUJIg&s",
+        desc:"Redrape les tissus du tiers moyen/ovale/cou pour un rajeunissement naturel (conservation des traits).",
+        facts:{Durée:"2–4 h",Séjour:"1–2 nuits",Reprise:"10–14 jours",Prix:"Sur devis"}
+      },
+      "blepharoplastie":{
+        cat:"Visage",
+        title:"Blépharoplastie (paupières)",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKKEIt5jjb5YUCENWrgYaC3RBgiAF54Monhg&s",
+        gallery:[
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5oXO86b03OEejIQs_YKimrcb-qbTSs100-w&s"
+        ],
+        desc:"Retire l’excès cutané et/ou les poches graisseuses des paupières supérieures et/ou inférieures.",
+        facts:{Durée:"1–2 h",Séjour:"Ambulatoire",Reprise:"5–7 jours",Prix:"Sur devis"}
+      },
+      "rhinoplastie":{
+        cat:"Visage",
+        title:"Rhinoplastie",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoXtMMTg7yXZjH74QdJLL7bvk-yffGvOBqHA&s",
+        gallery:[
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAE9IidNX2N5myWy8zV3-X2kGeHWMzKE4CNQ&s"
+        ],
+        desc:"Remodelage du nez (bosse, pointe, largeur…) en respectant l’harmonie du visage et la respiration.",
+        facts:{Durée:"1h30–2h30",Séjour:"1 nuit",Reprise:"7–10 jours",Prix:"Sur devis"}
+      },
+      "lipofilling-visage":{
+        cat:"Visage",
+        title:"Lipofilling visage",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhG4EaIQadK4Hww5DaA7qebZFgp4DOdnJXWw&s",
+        gallery:[
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZCQOesabtw7u3Ox7W9CovR7R705QKp8Uc2A&s"
+        ],
+        desc:"Restaure les volumes perdus (pommettes, sillons, tempes) par transfert de graisse propre, longévité supérieure aux fillers.",
+        facts:{Durée:"1–2 h",Séjour:"Ambulatoire",Reprise:"3–7 jours",Prix:"Sur devis"}
+      },
+      "double-menton":{
+        cat:"Visage",
+        title:"Liposuccion du double menton",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfLm5HPS2JauLZaWPZKpR3uRDfLY2FCjRFMA&s",
+        gallery:[
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGSdsoc-hn0H6sV1JTw7SH52wq_HP3aFIOkg&s"
+        ],
+        desc:"Aspiration ciblée sous-mentonnière pour redessiner l’angle cervico-mentonnier. Souvent associée à radiofréquence/tension cutanée.",
+        facts:{Durée:"45–90 min",Séjour:"Ambulatoire",Reprise:"3–5 jours",Prix:"Sur devis"}
+      },
+      "bichectomie":{
+        cat:"Visage",
+        title:"Bichectomie (joues)",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjRUewS4Ct2Bm2G9kA4bRgM5TeoCFCKRychw&s",
+        gallery:[
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO4mIt7mVi9ipvyKHMb5sxns4219PHlP0KHA&s"
+        ],
+        desc:"Amincissement de l’ovale par retrait des boules de Bichat (visage plus affûté).",
+        facts:{Durée:"40–60 min",Séjour:"Ambulatoire",Reprise:"3–5 jours",Prix:"Sur devis"}
+      },
+      "otoplastie":{
+        cat:"Visage",
+        title:"Otoplastie (oreilles décollées)",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXQcH72ypnEvT-T1QRnrXrkSLAEshq295jTg&s",
+        gallery:[
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1oLakMm39P5i6WbybwXQpk1xp8_cOhTl3Ew&s"
+        ],
+        desc:"Recolle/remodelle les pavillons en créant des plis naturels, cicatrices discrètes dans le sillon rétro-auriculaire.",
+        facts:{Durée:"60–90 min",Séjour:"Ambulatoire",Reprise:"3–5 jours",Prix:"Sur devis"}
+      },
+
+      /* ---------- OBÉSITÉ ---------- */
+      "sleeve-gastrectomie":{
+        cat:"Obésité",
+        title:"Sleeve gastrectomie",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTg6jPryUcBgcphmGYIG7bZaKRYHLoYoxdvw&s",
+        gallery:[
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLypZmvV9jAVb8pqe0sCVijs1BTFp_rKPkdg&s",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5pyr1lxMXqQks6CMEyoNQ2P0j4TFPYmNAyQ&s"
+        ],
+        desc:"Chirurgie bariatrique de réduction gastrique en manchon, diminue l’appétit et l’apport alimentaire.",
+        facts:{Durée:"1–2 h",Séjour:"2–3 nuits",Reprise:"10–14 jours",Prix:"Sur devis"}
+      },
+      "ballon-gastrique":{
+        cat:"Obésité",
+        title:"Ballon gastrique",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsS2TwDb1S5YoSrQuIkFocFS6z9zO9kTwl8w&s",
+        gallery:[
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhHJ5fJv3Ik4h-QBaCqOkqM02AYU1a55_Zlg&s",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-CS35SAL_IztmZRtqD_uNy67h9ZYTOQuP0A&s"
+        ],
+        desc:"Dispositif endoscopique temporaire qui occupe du volume dans l’estomac pour réduire les portions et accompagner la perte de poids.",
+        facts:{Durée:"20–30 min",Séjour:"Ambulatoire",Reprise:"48–72 h",Prix:"Sur devis"}
+      },
+
+      /* ---------- GREFFE DE CHEVEUX ---------- */
+      "greffe-fue":{
+        cat:"Greffe de cheveux",
+        title:"Greffe FUE",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqOfc129jgf9LdCXAOI-CidlLQYTPinGAR2A&s",
+        gallery:[
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKmAvxeoWlbV6eTE0U-X283X8jtrnR_utNkQ&s",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKok9Hz4dliMZxwHU3CJpMAEazXReA_FiDbA&s"
+        ],
+        desc:"Extraction d’unités folliculaires une à une, implantation dans les zones clairsemées pour un rendu naturel.",
+        facts:{Durée:"1 jour",Séjour:"Ambulatoire",Reprise:"3–5 jours",Prix:"Sur devis"}
+      },
+
+      /* ---------- DENTS ---------- */
+      "facettes-dentaires":{
+        cat:"Dents",
+        title:"Facettes dentaires",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpSMhDjSeakmPj3qD6Vmy4BLTz9mtGuaLPDw&s",
+        gallery:[
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9mlU_O9dJjBOI6TOou56CIX5PYR9VT6YmDg&s",
+          "https://www.medespoir-esthetique-turquie.com/blog/web/app/uploads/2024/05/charte-couleurs-facette-dentaire.webp"
+        ],
+        desc:"Pellicules en céramique/composite collées sur la face visible des dents pour corriger forme, teinte et alignement.",
+        facts:{Durée:"2–3 séances",Séjour:"Ambulatoire",Reprise:"Immédiate",Prix:"Sur devis"}
+      },
+      "orthodontie-invisible":{
+        cat:"Dents",
+        title:"Orthodontie invisible",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIwhKcuTDnBionUILo9W5EPlq4m3GCrtXn4g&s",
+        gallery:[
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3AHQlb0waJ6hJ6TOj_ODjZ65Iaev1WtgXlQ&s",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5MYAc0UtGHuiQRHrcmvGr5N_xb96hdMPoqg&s"
+        ],
+        desc:"Aligneurs transparents amovibles pour corriger l’alignement en toute discrétion.",
+        facts:{Durée:"6–18 mois",Séjour:"—",Reprise:"Immédiate",Prix:"Sur devis"}
+      },
+
+      /* ---------- CHIRURGIE INTIME ---------- */
+      "nymphoplastie":{
+        cat:"Chirurgie intime",
+        title:"Nymphoplastie (petites lèvres)",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnEmBXRJYSKg5zRXHKttYLKSZRUSCfelu2Tg&s",
+        gallery:[
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyLzG01vUgR6lzP5X-NNdf13e1FXpKRbZ-SA&s",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPpgPy4bb2FEothffOGhpl1KqVhaGJ8pPNFw&s"
+        ],
+        desc:"Réduction/regularisation des petites lèvres gênantes (confort, esthétique, sport).",
+        facts:{Durée:"45–75 min",Séjour:"Ambulatoire",Reprise:"5–7 jours",Prix:"Sur devis"}
+      },
+      "vaginoplastie":{
+        cat:"Chirurgie intime",
+        title:"Vaginoplastie",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtPHIg1wfTC6E_kTWZNO5AGWO49OFF86s0Wg&s",
+        gallery:[
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyzqTslJRBK6Eq41Ii51K6fFE1W4UzgNWfzA&s"
+        ],
+        desc:"Resserrement du canal vaginal (muscles et muqueuse) pour restaurer tonus et sensations.",
+        facts:{Durée:"1–2 h",Séjour:"Ambulatoire/1 nuit",Reprise:"7–10 jours",Prix:"Sur devis"}
+      },
+      "lipostructure-grandes-levres":{
+        cat:"Chirurgie intime",
+        title:"Lipostructure des grandes lèvres",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsqW6viXH-_UkNcn_ffoGKEViJC8mxJDNEcQ&s",
+        gallery:[
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4eK3fnwgGue5PcpGE09rxFwNci6rUgTpztA&s"
+        ],
+        desc:"Comblement par graisse autologue pour redonner galbe et jeunesse aux grandes lèvres.",
+        facts:{Durée:"45–90 min",Séjour:"Ambulatoire",Reprise:"3–5 jours",Prix:"Sur devis"}
+      },
+      "hymenoplastie":{
+        cat:"Chirurgie intime",
+        title:"Hyménoplastie",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRurbn5XATwU60cX3exzIdeWwJqy9Jj8BL1mw&s",
+        gallery:[
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb9twKk7XX6Fg3Jcl5H5_ykzDGZsLcUIoB6w&s"
+        ],
+        desc:"Reconstruction de l’hymen par suture fine, geste court et discret.",
+        facts:{Durée:"30–45 min",Séjour:"Ambulatoire",Reprise:"2–3 jours",Prix:"Sur devis"}
+      },
+      "penoplastie":{
+        cat:"Chirurgie intime",
+        title:"Pénoplastie",
+        img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSUivJTDbJDtwPOXjKeCDm1iJX_iaIwC3bpQ&s",
+        gallery:[
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzrylGVEsff0S9N5fEOfq6ETa5ufy3ll7mQg&s",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGdRKqICMdMzhMjMmhuMrBFElIF0y4JtjXng&s"
+        ],
+        desc:"Augmentation d’épaisseur par lipofilling ou produits spécifiques ; allongement selon indication.",
+        facts:{Durée:"1–2 h",Séjour:"Ambulatoire/1 nuit",Reprise:"5–7 jours",Prix:"Sur devis"}
+      }
+    };
+
+    // Index (catégories → liste de slugs dans l’ordre alpha)
+    function buildIndex(){
+      const byCat = {};
+      Object.entries(DATA).forEach(([slug, item])=>{
+        byCat[item.cat] ??= [];
+        byCat[item.cat].push({slug, title:item.title});
+      });
+      Object.values(byCat).forEach(list=>list.sort((a,b)=>a.title.localeCompare(b.title)));
+
+      const wrap = document.createElement('div');
+      wrap.innerHTML = `
+        <section class="hero box">
+          <div class="wrap-in">
+            <h1><span class="gold">Interventions</span></h1>
+            <p class="meta">Choisissez une intervention pour voir la fiche détaillée (description, durée, séjour, reprise, devis).</p>
+          </div>
+        </section>
+      `;
+      const cats = document.createElement('section');
+      cats.className = 'cats';
+      for(const [cat, list] of Object.entries(byCat)){
+        const c = document.createElement('div');
+        c.className = 'cat';
+        c.innerHTML = `<h3 class="gold">${cat}</h3><div class="chips"></div>`;
+        const chips = c.querySelector('.chips');
+        list.forEach(it=>{
+          const a = document.createElement('a');
+          a.href = `?slug=${encodeURIComponent(it.slug)}`;
+          a.textContent = it.title;
+          chips.appendChild(a);
+        });
+        cats.appendChild(c);
+      }
+      const app = document.getElementById('app');
+      app.innerHTML = '';
+      app.appendChild(wrap);
+      app.appendChild(cats);
+    }
+
+    // Fiche
+    function buildFiche(slug){
+      const item = DATA[slug];
+      if(!item){ buildIndex(); return; }
+      const app = document.getElementById('app');
+      app.innerHTML = `
+        <section class="hero box">
+          <h1>${item.title}</h1>
+          <div class="meta">Catégorie : ${item.cat}</div>
+        </section>
+        <section class="box">
+          <div class="grid">
+            <div>
+              <img id="mainImg" src="${item.img}" alt="${item.title}">
+            </div>
+            <div>
+              <p>${item.desc}</p>
+              <div class="facts">
+                ${Object.entries(item.facts).map(([k,v])=>`<div><b>${k}</b> : ${v}</div>`).join('')}
+              </div>
+              <div class="actions">
+                <a class="btn" href="/#contact">Demander un devis</a>
+                <a class="btn" href="/#avant-apres">Voir Avant / Après</a>
+                <a class="btn" href="?">Toutes les interventions</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+
+      // Mini galerie si dispo
+      if(Array.isArray(item.gallery) && item.gallery.length){
+        const gal = document.createElement('section');
+        gal.className = 'box';
+        gal.innerHTML = `<div style="padding:14px"><h3 style="margin:0 0 10px;font-family:Cinzel">Autres vues</h3><div class="chips" id="thumbs"></div></div>`;
+        app.appendChild(gal);
+        const thumbs = gal.querySelector('#thumbs');
+        item.gallery.forEach(src=>{
+          const t = document.createElement('img');
+          t.src = src;
+          t.alt = "Aperçu";
+          Object.assign(t.style,{width:'120px',height:'90px',objectFit:'cover',borderRadius:'10px',border:'1px solid var(--line)',cursor:'pointer'});
+          t.addEventListener('click', ()=> {
+            const main = document.getElementById('mainImg');
+            main.src = src;
+          });
+          thumbs.appendChild(t);
+        });
+      }
+
+      // Fallback images si un lien externe casse
+      document.querySelectorAll('img').forEach(img=>{
+        img.addEventListener('error', function(){
+          this.onerror = null;
+          this.src = 'assets/img/placeholder.jpg';
+        });
+      });
+    }
+
+    // Router simple
+    const params = new URLSearchParams(location.search);
+    const slug = (params.get('slug')||'').trim();
+    if(slug){ buildFiche(slug); } else { buildIndex(); }
+  </script>
 </body>
 </html>
