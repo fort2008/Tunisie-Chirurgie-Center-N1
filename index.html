@@ -19,39 +19,43 @@ a{text-decoration:none;color:inherit}
 .gold{background:linear-gradient(98deg,var(--gold1),var(--gold2) 55%,var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent}
 .btn{display:inline-block;padding:.85rem 1.1rem;border-radius:999px;border:1px solid #00000018;background:linear-gradient(180deg,#c79a3e12,#f1dfa620);font-weight:600;color:#000}
 
-header{position:sticky;top:0;z-index:80;background:#1a1620dd;color:#fff;border-bottom:1px solid #2b2431;backdrop-filter:blur(8px)}
+/* Header */
+header{position:sticky;top:0;z-index:90;background:#1a1620dd;color:#fff;border-bottom:1px solid #2b2431;backdrop-filter:blur(8px)}
 .nav{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
 .brand{display:flex;align-items:center;gap:10px}
-.brand svg{width:36px;height:36px}
+.brand img{height:38px}
 .brand span{font-family:Cinzel,serif;letter-spacing:.06em;color:var(--gold2);font-weight:700}
 .menu{display:flex;gap:22px;align-items:center}
 .menu a,.menu button{color:#fff;background:transparent;border:0;font:inherit;cursor:pointer}
-.lang{position:relative}
-.lang .panel{position:absolute;right:0;top:120%;background:#fff;color:#000;border:1px solid var(--sep);border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.12);display:none;min-width:210px;overflow:hidden}
-.lang.open .panel{display:block}
-.lang .panel a{display:block;padding:10px 12px}
-.lang .panel a:hover{background:#f3f3f3}
-#google_translate_element{position:fixed;bottom:12px;right:12px;z-index:75;background:#fff;border:1px solid var(--sep);border-radius:8px;padding:6px 8px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
-
 .burger{display:none;background:transparent;border:1px solid #ffffff22;color:#fff;border-radius:10px;padding:8px 10px;font-size:22px}
 
+/* Mega menu Interventions */
 .drop{position:relative}
 .drop .panel{position:absolute;left:50%;transform:translateX(-50%);top:120%;
   background:var(--panel);color:var(--panelText);border:1px solid var(--sep);
-  border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.12);display:none;min-width:920px;padding:16px;z-index:78}
+  border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.12);display:none;min-width:920px;padding:16px;z-index:88}
 .drop.open .panel{display:block}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .panel h4{margin:4px 0 6px;font-family:Cinzel}
 .panel a{display:block;padding:9px 10px;border-radius:10px;color:#1a1423}
 .panel a:hover{background:#f6efe1}
 
+/* Mobile drawer */
 .mpanel{display:none} .mpanel.open{display:block}
-.mpanel{position:fixed;inset:0;z-index:90}
+.mpanel{position:fixed;inset:0;z-index:95}
 .mpanel .back{position:absolute;inset:0;background:rgb(0 0 0 / .45)}
 .drawer{position:absolute;right:0;top:0;height:100%;width:min(86%,360px);background:#17131c;color:#fff;padding:18px;overflow:auto}
 .drawer a{display:block;padding:10px 4px;color:#fff}
 .drawer h4{font-family:Cinzel;color:#f1dfa6;margin:12px 0 6px}
 
+/* Lang globe */
+.lang{position:relative}
+.lang .panel{position:absolute;right:0;top:120%;background:#fff;color:#000;border:1px solid var(--sep);border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.12);display:none;min-width:210px;overflow:hidden;z-index:89}
+.lang.open .panel{display:block}
+.lang .panel a{display:block;padding:10px 12px}
+.lang .panel a:hover{background:#f3f3f3}
+
+/* Hero */
 .hero{border-bottom:1px solid var(--sep);background:radial-gradient(1200px 500px at -150px 0px,#201b25 0%,transparent 60%);color:#fff}
 .hero-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;padding:50px 16px}
 .hero h1{font-family:Cinzel,serif;font-size:clamp(28px,4.2vw,42px);line-height:1.08;margin:0 0 12px}
@@ -60,24 +64,30 @@ header{position:sticky;top:0;z-index:80;background:#1a1620dd;color:#fff;border-b
 .hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease}
 .hero-media img.active{opacity:1}
 
+/* Sections */
 section{max-width:1180px;margin:auto;padding:40px 16px;border-bottom:1px solid var(--sep)}
 footer{color:#7a6f83;text-align:center;padding:28px}
 
-/* CLINIQUES slider */
-.clinic-wrap{position:relative;height:360px;border-radius:16px;overflow:hidden;background:#000}
-.clinic-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease}
-.clinic-wrap img.active{opacity:1}
-.arrow{position:absolute;top:50%;transform:translateY(-50%);background:#fff;border:0;width:36px;height:36px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.25);cursor:pointer}
-.arrow:focus{outline:none}
-.prev{left:10px} .next{right:10px}
-.watermark{position:absolute;left:10px;top:10px;z-index:5;opacity:.9}
-.watermark svg{width:40px;height:40px;filter:drop-shadow(0 6px 12px rgba(0,0,0,.25))}
+/* Carousels (cliniques & hôtels) */
+.carousel{position:relative;border-radius:18px;overflow:hidden;background:#000}
+.carousel .slide{position:absolute;inset:0;opacity:0;transition:opacity .6s}
+.carousel .slide.active{opacity:1}
+.carousel img{width:100%;height:420px;object-fit:cover}
+.carousel .nav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 10px;pointer-events:none}
+.carousel .btn{pointer-events:auto;width:42px;height:42px;border-radius:50%;border:none;background:#00000080;color:#fff;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(2px)}
+.carousel .dots{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);display:flex;gap:6px}
+.carousel .dots span{width:8px;height:8px;border-radius:50%;background:#ffffff70}
+.carousel .dots span.active{background:#fff}
+
+/* Logo vert en coin pour cliniques */
+.corner-logo{position:absolute;left:10px;top:10px;z-index:3;width:44px;height:44px;border-radius:50%;background:#0b5d3d;display:grid;place-items:center;box-shadow:0 4px 12px #0005}
+.corner-logo img{width:28px;height:28px;object-fit:contain;filter:drop-shadow(0 1px 2px #0005)}
 
 @media(max-width:980px){
   .menu{display:none}.burger{display:block}
   .hero-inner{grid-template-columns:1fr}
   .hero-media{height:320px}
-  .clinic-wrap{height:300px}
+  .carousel img{height:300px}
 }
 </style>
 </head>
@@ -85,15 +95,9 @@ footer{color:#7a6f83;text-align:center;padding:28px}
 <header>
   <div class="nav">
     <div class="brand">
-      <!-- logo or -->
-      <svg viewBox="0 0 64 64" aria-hidden="true">
-        <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0%" stop-color="#f1dfa6"/><stop offset="60%" stop-color="#c79a3e"/><stop offset="100%" stop-color="#8a6a22"/></linearGradient></defs>
-        <circle cx="32" cy="32" r="30" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="2"/>
-        <path d="M32 10c5 0 9 4 9 9s-4 9-9 9-9-4-9-9 4-9 9-9zm0 11v23m-10-8c4 4 16 4 20 0m-18 8c3 3 13 3 16 0" fill="none" stroke="url(#g)" stroke-width="2.5" stroke-linecap="round"/>
-      </svg>
+      <img src="assets/logo/logo.png" alt="Tunisie Chirurgie Center">
       <span>TUNISIE CHIRURGIE CENTER</span>
     </div>
-
     <nav class="menu">
       <a href="#accueil">Accueil</a>
 
@@ -103,9 +107,10 @@ footer{color:#7a6f83;text-align:center;padding:28px}
       </div>
 
       <a href="#cliniques">Nos cliniques</a>
+      <a href="#hotels">Hôtels</a>
       <a href="#contact">Contact</a>
 
-      <!-- Lang globe -->
+      <!-- Globe langues -->
       <div class="lang" id="lang">
         <button type="button" title="Langues">🌐</button>
         <div class="panel">
@@ -118,7 +123,6 @@ footer{color:#7a6f83;text-align:center;padding:28px}
         </div>
       </div>
     </nav>
-
     <button class="burger" id="burger">☰</button>
   </div>
 </header>
@@ -131,6 +135,7 @@ footer{color:#7a6f83;text-align:center;padding:28px}
     <h4>Interventions</h4>
     <div id="mCats"></div>
     <a href="#cliniques" class="m-link">Nos cliniques</a>
+    <a href="#hotels" class="m-link">Hôtels</a>
     <a href="#contact" class="m-link" style="margin-top:10px">Contact</a>
     <h4 style="margin-top:14px">Langues</h4>
     <div>
@@ -144,8 +149,8 @@ footer{color:#7a6f83;text-align:center;padding:28px}
   </div>
 </div>
 
-<!-- container Google Translate (masqué jusqu'au chargement) -->
-<div id="google_translate_element" style="display:none"></div>
+<!-- Container Google Translate (widget natif, peut rester discret) -->
+<div id="google_translate_element" style="position:fixed;bottom:12px;right:12px;z-index:75;background:#fff;border:1px solid #e8e0ea;border-radius:8px;padding:6px 8px;box-shadow:0 6px 18px rgba(0,0,0,.12)"></div>
 
 <!-- HERO -->
 <section class="hero" id="accueil">
@@ -166,30 +171,52 @@ footer{color:#7a6f83;text-align:center;padding:28px}
   </div>
 </section>
 
-<!-- CLINIQUES -->
+<!-- NOS CLINIQUES -->
 <section id="cliniques">
   <h2 class="gold" style="font-family:Cinzel;margin:0 0 10px">Nos cliniques (Lac 2 – Tunis)</h2>
-  <div class="clinic-wrap" id="clinic">
-    <!-- watermark logo vert -->
-    <div class="watermark" aria-hidden="true">
-      <svg viewBox="0 0 64 64">
-        <defs><linearGradient id="vg" x1="0" x2="1">
-          <stop offset="0%" stop-color="#a6f2c3"/><stop offset="60%" stop-color="#23a56e"/><stop offset="100%" stop-color="#0c7e56"/>
-        </linearGradient></defs>
-        <circle cx="32" cy="32" r="30" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2"/>
-        <path d="M32 10c5 0 9 4 9 9s-4 9-9 9-9-4-9-9 4-9 9-9zm0 11v23m-10-8c4 4 16 4 20 0m-18 8c3 3 13 3 16 0" fill="none" stroke="url(#vg)" stroke-width="2.5" stroke-linecap="round"/>
-      </svg>
+  <div class="carousel" id="clinicCarousel" data-auto="6000">
+    <div class="corner-logo"><img src="assets/logo/logo-green.png" alt="Logo"></div>
+
+    <div class="slide active"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqnHQKsB46hG-nC3NHUVlQZBHkQwTsnrz2DYg97LQSjzqM0nYFVTjtb3jizli_K1qLK2G4QgImraoAIsyyAevcRnwpvnb4gKeljYfi2wabRA-xd9RRovgK27tcRjNR5b9s4f84=s680-w680-h510-rw" alt=""></div>
+    <div class="slide"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrCZOAUhQEE1I5bnY8A75gnP3bWffo7tpvW2tVi1g6-o1VWmjiEMZPqP4Qg6bw9xm3PygiDqPdlDRI32zn_1echeWUs_b2XQ1q3mA14JJSb2WU1zH8JZWMa7_0cxNqoernuewlA=s680-w680-h510-rw" alt=""></div>
+    <div class="slide"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nq8QeIj2ZNBPqzQRpvCIKhjQklLOER6Kq-QKIMvrAvUi01YeWyJ8mkyEooN6FqXs-k3QRf2c5IxIbyU8N6QkCLDVQUIHZZ-lm-jhi-gVSmkN7FwX7gLqGXSYd2eSAz1BkJkKp0PXQ=s680-w680-h510-rw" alt=""></div>
+    <div class="slide"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nr2Ei0-eJ0PNkMrmV7AgdWEGVFfGT18WiUbuS5QvEhoW_ULPFg5iO1VmD2IBQjJ8xND43nA5qDUbcy9-P3VrRVULUmGZk1kgc54QyQ2kqi47PO5eO9Qekd_mF7oL24B_fl_SbZU=s680-w680-h510-rw" alt=""></div>
+    <div class="slide"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrtUWiSBaFkgtmR7axfErhhNuxT96idW6eNJVOt5zI-qj_JHZtzvCh206oyiMBl7_DamNAFyTeimJe6Thj0j8C5-jN2bJe72ae9nEDwcHGLCpnPxJsnROg-2M2KfVXCCFSz8ejveg=s680-w680-h510-rw" alt=""></div>
+
+    <div class="nav">
+      <button class="btn prev" aria-label="Précédent">❮</button>
+      <button class="btn next" aria-label="Suivant">❯</button>
     </div>
+    <div class="dots"></div>
+  </div>
+</section>
 
-    <!-- images slider -->
-    <img class="active" src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqnHQKsB46hG-nC3NHUVlQZBHkQwTsnrz2DYg97LQSjzqM0nYFVTjtb3jizli_K1qLK2G4QgImraoAIsyyAevcRnwpvnb4gKeljYfi2wabRA-xd9RRovgK27tcRjNR5b9s4f84=s680-w680-h510-rw" alt="Clinique 1">
-    <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrCZOAUhQEE1I5bnY8A75gnP3bWffo7tpvW2tVi1g6-o1VWmjiEMZPqP4Qg6bw9xm3PygiDqPdlDRI32zn_1echeWUs_b2XQ1q3mA14JJSb2WU1zH8JZWMa7_0cxNqoernuewlA=s680-w680-h510-rw" alt="Clinique 2">
-    <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nq8QeIj2ZNBPqzQRpvCIKhjQklLOER6Kq-QKIMvrAvUi01YeWyJ8mkyEooN6FqXs-k3QRf2c5IxIbyU8N6QkCLDVQUIHZZ-lm-jhi-gVSmkN7FwX7gLqGXSYd2eSAz1BkJkKp0PXQ=s680-w680-h510-rw" alt="Clinique 3">
-    <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nr2Ei0-eJ0PNkMrmV7AgdWEGVFfGT18WiUbuS5QvEhoW_ULPFg5iO1VmD2IBQjJ8xND43nA5qDUbcy9-P3VrRVULUmGZk1kgc54QyQ2kqi47PO5eO9Qekd_mF7oL24B_fl_SbZU=s680-w680-h510-rw" alt="Clinique 4">
-    <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrtUWiSBaFkgtmR7axfErhhNuxT96idW6eNJVOt5zI-qj_JHZtzvCh206oyiMBl7_DamNAFyTeimJe6Thj0j8C5-jN2bJe72ae9nEDwcHGLCpnPxJsnROg-2M2KfVXCCFSz8ejveg=s680-w680-h510-rw" alt="Clinique 5">
+<!-- HÔTELS -->
+<section id="hotels">
+  <h2 class="gold" style="font-family:Cinzel;margin:0 0 10px">Hôtels partenaires</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start">
+    <div class="panel" style="background:#fff;border:1px solid var(--sep);border-radius:18px;padding:16px">
+      <p>Nous collaborons avec des <b>hôtels haut de gamme</b> à Gammarth/Carthage. Votre séjour est organisé de A à Z : transferts <b>aéroport ⇄ hôtel ⇄ clinique</b>, accompagnement 24/7.</p>
+      <ul style="margin:8px 0 0 18px;color:#6f6176">
+        <li>Chambres spacieuses & room-service</li>
+        <li>Vue mer / piscines, espaces bien-être</li>
+        <li>Petits-déjeuners, conciergerie médicale</li>
+      </ul>
+    </div>
+    <div class="carousel" id="hotelCarousel" data-auto="6000">
+      <div class="slide active"><img src="https://www.elmouradi.com/cr27.fwk/images/hotels/Hotel-586-20141125-031002.jpg" alt=""></div>
+      <div class="slide"><img src="https://static.promovacances.com/photos/vacances-tunisie/tunis/piscine-exterieure-el-mouradi-gammarth_486340_panohd.jpg" alt=""></div>
+      <div class="slide"><img src="https://x.cdrst.com/foto/hotel-sf/12666e5e/granderesp/foto-hotel-126663b4.jpg" alt=""></div>
+      <div class="slide"><img src="https://image.resabooking.com/images/hotel/el_mouradi_gammarth_6.jpg" alt=""></div>
+      <div class="slide"><img src="https://cxfile.advences.com/sunshinevacances/photosi/GCHAMBRE5.jpg" alt=""></div>
+      <div class="slide"><img src="https://www.magiclub.com/magiclub/visuals/tunisie_carthage_hotel_el_mouradi_gammarth_hotel.jpg" alt=""></div>
 
-    <button class="arrow prev" aria-label="Précédent" id="cPrev">◀</button>
-    <button class="arrow next" aria-label="Suivant" id="cNext">▶</button>
+      <div class="nav">
+        <button class="btn prev" aria-label="Précédent">❮</button>
+        <button class="btn next" aria-label="Suivant">❯</button>
+      </div>
+      <div class="dots"></div>
+    </div>
   </div>
 </section>
 
@@ -211,36 +238,49 @@ footer{color:#7a6f83;text-align:center;padding:28px}
 
 <footer>© <span id="y"></span> Tunisie Chirurgie Center</footer>
 
+<!-- Google Translate (widget natif) -->
+<script>
+  function googleTranslateElementInit(){
+    new google.translate.TranslateElement({
+      pageLanguage: 'fr',
+      includedLanguages: 'fr,en,nl,ar,de,tr',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 <script>
 /* -------- data interventions (desktop + mobile) -------- */
 const ORDER=["Seins","Corps","Visage","Obésité","Greffe de cheveux","Dents","Chirurgie intime"];
 const INTERV={
   "Seins":[["Augmentation mammaire","intervention.html?slug=augmentation-mammaire"],
+           ["Lipofilling mammaire","intervention.html?slug=lipofilling-mammaire"],
            ["Lifting mammaire","intervention.html?slug=lifting-mammaire"],
            ["Réduction mammaire","intervention.html?slug=reduction-mammaire"],
            ["Asymétrie mammaire","intervention.html?slug=asymetrie-mammaire"]],
   "Corps":[["Liposuccion","intervention.html?slug=liposuccion"],
+           ["Lipofilling des fesses","intervention.html?slug=lipofilling-fesses"],
            ["Abdominoplastie","intervention.html?slug=abdominoplastie"],
-           ["Mini abdominoplastie","intervention.html?slug=mini-abdo"],
+           ["Mini abdominoplastie","intervention.html?slug=mini-abdominoplastie"],
            ["Lifting bras","intervention.html?slug=lifting-bras"],
            ["Lifting cuisses","intervention.html?slug=lifting-cuisses"],
+           ["Augmentation des fesses","intervention.html?slug=augmentation-fesses"],
            ["Double menton","intervention.html?slug=double-menton"],
-           ["Implant fessier","intervention.html?slug=implant-fessier"],
            ["Bichectomie","intervention.html?slug=bichectomie"]],
-  "Visage":[["Rhinoplastie","intervention.html?slug=rhinoplastie"],
+  "Visage":[["Lifting du visage","intervention.html?slug=lifting-visage"],
             ["Blépharoplastie","intervention.html?slug=blepharoplastie"],
-            ["Lifting visage","intervention.html?slug=lifting-visage"],
+            ["Rhinoplastie","intervention.html?slug=rhinoplastie"],
+            ["Lipofilling visage","intervention.html?slug=lipofilling-visage"],
             ["Otoplastie","intervention.html?slug=otoplastie"]],
-  "Obésité":[["Bypass","intervention.html?slug=bypass"],
-             ["Sleeve","intervention.html?slug=sleeve"],
+  "Obésité":[["Sleeve gastrectomie","intervention.html?slug=sleeve-gastrectomie"],
              ["Ballon gastrique","intervention.html?slug=ballon-gastrique"]],
-  "Greffe de cheveux":[["Greffe FUE","intervention.html?slug=greffe-fue"],
-                       ["Greffe DHI","intervention.html?slug=greffe-dhi"]],
+  "Greffe de cheveux":[["Greffe FUE","intervention.html?slug=greffe-fue"]],
   "Dents":[["Facettes dentaires","intervention.html?slug=facettes-dentaires"],
-           ["Orthodontie invisible","intervention.html?slug=orthodontie-invisible"],
-           ["Implants & facettes","intervention.html?slug=implants-facettes"]],
+           ["Orthodontie invisible","intervention.html?slug=orthodontie-invisible"]],
   "Chirurgie intime":[["Nymphoplastie","intervention.html?slug=nymphoplastie"],
                       ["Vaginoplastie","intervention.html?slug=vaginoplastie"],
+                      ["Lipostructure grandes lèvres","intervention.html?slug=lipostructure-grandes-levres"],
                       ["Hyménoplastie","intervention.html?slug=hymenoplastie"],
                       ["Pénoplastie","intervention.html?slug=penoplastie"]]
 };
@@ -258,12 +298,14 @@ ORDER.forEach(cat=>{
 
 /* ---- mobile drawer ---- */
 const mCats=document.getElementById('mCats');
-ORDER.forEach(cat=>{
-  const h=document.createElement('h4'); h.textContent=cat; mCats.appendChild(h);
-  INTERV[cat].forEach(([label,href])=>{
-    const a=document.createElement('a'); a.textContent=label; a.href=href; mCats.appendChild(a);
+if(mCats){
+  ORDER.forEach(cat=>{
+    const h=document.createElement('h4'); h.textContent=cat; mCats.appendChild(h);
+    INTERV[cat].forEach(([label,href])=>{
+      const a=document.createElement('a'); a.textContent=label; a.href=href; mCats.appendChild(a);
+    });
   });
-});
+}
 
 /* ---- open/close menus ---- */
 const drop=document.getElementById('dropInterv');
@@ -280,37 +322,74 @@ mpanel.querySelectorAll('.m-link').forEach(a=>a.addEventListener('click',()=>mpa
 /* ---- hero slider ---- */
 const heroImgs=[...document.querySelectorAll('#hero img')]; let hi=0;
 setInterval(()=>{heroImgs[hi].classList.remove('active'); hi=(hi+1)%heroImgs.length; heroImgs[hi].classList.add('active');},5000);
+
+/* ---- Carousels (cliniques & hôtels) ---- */
+function initCarousel(root){
+  const slides = Array.from(root.querySelectorAll('.slide'));
+  const dotsBox = root.querySelector('.dots');
+  let i = 0, autoMs = +root.dataset.auto || 0, timer = null;
+
+  slides.forEach((_,idx)=>{
+    const d = document.createElement('span');
+    if(idx===0) d.classList.add('active');
+    d.addEventListener('click', ()=>go(idx));
+    dotsBox.appendChild(d);
+  });
+  const dots = Array.from(dotsBox.children);
+
+  function go(n){
+    slides[i].classList.remove('active'); dots[i].classList.remove('active');
+    i = (n+slides.length)%slides.length;
+    slides[i].classList.add('active'); dots[i].classList.add('active');
+  }
+  root.querySelector('.prev')?.addEventListener('click', ()=>go(i-1));
+  root.querySelector('.next')?.addEventListener('click', ()=>go(i+1));
+
+  function start(){ if(autoMs>0){ timer = setInterval(()=>go(i+1), autoMs); } }
+  function stop(){ if(timer){ clearInterval(timer); timer=null; } }
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+  start();
+
+  root.querySelectorAll('img').forEach(img=>{
+    img.addEventListener('error', function(){
+      this.onerror=null;
+      this.src='assets/img/placeholder.jpg';
+    });
+  });
+}
+document.querySelectorAll('.carousel').forEach(initCarousel);
+
+/* ---- Globe langues (Google Translate) ---- */
+const lang=document.getElementById('lang');
+lang.querySelector('button').addEventListener('click',(e)=>{e.stopPropagation();lang.classList.toggle('open');});
+document.addEventListener('click',()=>lang.classList.remove('open'));
+
+// sélection programmatique de la langue via .goog-te-combo
+function setLang(code){
+  const trySet=()=>{
+    const sel=document.querySelector('.goog-te-combo');
+    if(!sel){ setTimeout(trySet,300); return; }
+    sel.value=code;
+    sel.dispatchEvent(new Event('change'));
+  };
+  trySet();
+  // cookies de persistance
+  document.cookie=`googtrans=/fr/${code};path=/`;
+  document.cookie=`googtrans=/fr/${code};domain=.${location.hostname};path=/`;
+}
+lang.querySelectorAll('a[data-lang]').forEach(a=>a.addEventListener('click',e=>{
+  e.preventDefault(); setLang(a.dataset.lang);
+}));
+document.querySelectorAll('.m-lang').forEach(a=>a.addEventListener('click',e=>{
+  e.preventDefault(); setLang(a.dataset.lang); mpanel.classList.remove('open');
+}));
+
+/* ---- CTA Interventions ---- */
 document.getElementById('ctaInterv').addEventListener('click',(e)=>{e.preventDefault();
   if (matchMedia('(min-width:981px)').matches){ drop.classList.add('open'); }
   else { mpanel.classList.add('open'); }
 });
-
-/* ---- CLINIC slider (flèches + auto) ---- */
-const cImgs=[...document.querySelectorAll('#clinic img')]; let ci=0; let timer;
-function showClinic(n){ cImgs[ci].classList.remove('active'); ci=(n+cImgs.length)%cImgs.length; cImgs[ci].classList.add('active'); }
-function autoClinic(){ timer=setInterval(()=>showClinic(ci+1),4500); }
-document.getElementById('cPrev').onclick=()=>{clearInterval(timer); showClinic(ci-1); autoClinic();};
-document.getElementById('cNext').onclick=()=>{clearInterval(timer); showClinic(ci+1); autoClinic();};
-autoClinic();
-
-/* ---- Lang globe (Google Translate) ---- */
-const lang=document.getElementById('lang');
-lang.querySelector('button').addEventListener('click',(e)=>{e.stopPropagation();lang.classList.toggle('open');});
-document.addEventListener('click',()=>lang.classList.remove('open'));
-function loadGT(){ if(window.__gtLoaded) return; window.__gtLoaded=true;
-  const s=document.createElement('script'); s.src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'; document.head.appendChild(s);
-}
-window.googleTranslateElementInit=function(){
-  document.getElementById('google_translate_element').style.display='block';
-  new google.translate.TranslateElement({pageLanguage:'fr', includedLanguages:'fr,en,nl,ar,de,tr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-};
-function setLang(code){
-  loadGT();
-  const trySet=()=>{const sel=document.querySelector('.goog-te-combo'); if(!sel){return setTimeout(trySet,300);} sel.value=code; sel.dispatchEvent(new Event('change'));};
-  trySet();
-}
-lang.querySelectorAll('a[data-lang]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault(); setLang(a.dataset.lang);})); 
-document.querySelectorAll('.m-lang').forEach(a=>a.addEventListener('click',e=>{e.preventDefault(); setLang(a.dataset.lang); mpanel.classList.remove('open');}));
 
 /* ---- Footer year ---- */
 document.getElementById('y').textContent=new Date().getFullYear();
