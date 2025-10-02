@@ -4,54 +4,66 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tunisie Chirurgie Center | Chirurgie esthétique & soins – Officiel</title>
-  <meta name="description" content="Interventions de chirurgie esthétique, visage, corps, seins, obésité, greffe de cheveux et soins dentaires. Devis rapide, séjour organisé, équipes certifiées." />
-  <meta name="theme-color" content="#0f0b10" />
+  <meta name="description" content="Interventions de chirurgie esthétique, visage, corps, seins, obésité, greffe de cheveux, soins dentaires et chirurgie intime. Devis rapide, séjour organisé, équipes certifiées." />
+  <meta name="theme-color" content="#15121a" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#0f0b10;--text:#f5f3f7;--muted:#b8b0c0;--card:#18131c;--br:#2b2331;--gold1:#f1dfa6;--gold2:#c79a3e;--gold3:#8a6a22}
+    :root{
+      --bg:#15121a;--text:#f5f3f7;--muted:#c9c4cf;--card:#1c1822;--br:#2d2634;--panel:#201b26;
+      --gold1:#f1dfa6;--gold2:#c79a3e;--gold3:#8a6a22
+    }
     *{box-sizing:border-box}
     body{margin:0;background:var(--bg);color:var(--text);font-family:Montserrat}
     a{color:inherit}
     .gold{background:linear-gradient(100deg,var(--gold1),var(--gold2) 55%,var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent}
-    .btn{display:inline-block;padding:.9rem 1.2rem;border-radius:999px;border:1px solid #ffffff1a;background:linear-gradient(180deg,#f1dfa629,#c79a3e17);text-decoration:none;font-weight:600;color:#fff}
-    header{background:#0f0b10d9;position:sticky;top:0;z-index:40;border-bottom:1px solid var(--br)}
+    .btn{display:inline-block;padding:.9rem 1.2rem;border-radius:999px;border:1px solid #ffffff26;background:linear-gradient(180deg,#f1dfa629,#c79a3e14);text-decoration:none;font-weight:600;color:#fff}
+
+    header{background:#17131cde;position:sticky;top:0;z-index:40;border-bottom:1px solid var(--br);backdrop-filter:blur(8px)}
     .nav{max-width:1180px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:14px 16px}
-    .brand{display:flex;align-items:center;gap:8px}
+    .brand{display:flex;align-items:center;gap:10px}
     .brand img{height:48px}
-    .brand span{font-family:Cinzel;font-weight:700;color:var(--gold1);font-size:18px}
+    .brand span{font-family:Cinzel;font-weight:700;color:var(--gold1);font-size:18px;letter-spacing:.06em}
     .menu{display:flex;gap:22px}
 
-    .hero{border-bottom:1px solid var(--br)}
+    /* HERO */
+    .hero{border-bottom:1px solid var(--br);background:radial-gradient(1200px 500px at -150px 0px,#201b25 0%,transparent 60%)}
     .hero-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;padding:70px 16px}
-    .hero-media{text-align:right}
-    .hero-media img{width:100%;max-width:520px;height:auto;object-fit:cover;border-radius:18px}
+    .hero-media{position:relative;height:480px;border-radius:18px;overflow:hidden;background:#000}
+    .hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s}
+    .hero-media img.active{opacity:1}
 
-    section{max-width:1180px;margin:auto;padding:64px 16px;border-bottom:1px solid var(--br)}
+    /* sections */
+    section{max-width:1180px;margin:auto;padding:56px 16px;border-bottom:1px solid var(--br)}
     h2{font-family:Cinzel,serif;font-size:clamp(28px,4vw,42px);margin:0 0 18px}
 
+    /* cards */
     .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .card{background:var(--card);border:1px solid var(--br);border-radius:18px;overflow:hidden}
     .card img{width:100%;height:210px;object-fit:cover}
     .card .body{padding:16px}
 
+    /* details */
     .interv{background:var(--card);border:1px solid var(--br);border-radius:18px;overflow:hidden;margin:26px 0}
-    .interv header{display:flex;justify-content:space-between;align-items:center;background:#141017;padding:14px 16px;font-family:Cinzel}
+    .interv header{display:flex;justify-content:space-between;align-items:center;background:var(--panel);padding:14px 16px;font-family:Cinzel}
     .interv .content{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:18px}
     .interv img{width:100%;height:340px;object-fit:cover;border-radius:12px}
     .facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px}
-    .facts div{background:#120d15;padding:10px;border-radius:12px;border:1px dashed var(--br)}
+    .facts div{background:#231e28;padding:10px;border-radius:12px;border:1px dashed var(--br)}
 
+    /* contact */
     .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
     .contact-grid img{width:100%;height:360px;object-fit:cover;border-radius:16px}
+
+    .clinic-info{text-align:left;padding:10px 0;color:var(--muted)}
 
     footer{text-align:center;color:var(--muted);padding:30px}
 
     @media(max-width:980px){
       .hero-inner{grid-template-columns:1fr}
+      .hero-media{height:360px}
       .interv .content{grid-template-columns:1fr}
       .cards{grid-template-columns:1fr}
       .contact-grid{grid-template-columns:1fr}
-      .hero-media img{height:auto;max-width:100%}
     }
   </style>
 </head>
@@ -72,135 +84,59 @@
     </div>
   </header>
 
+  <!-- HERO avec diaporama -->
   <section class="hero" id="accueil">
     <div class="hero-inner">
       <div>
-        <h1><span class="gold">Élégance</span><br>& bien‑être,<br>en toute confiance.</h1>
-        <p class="lead">Plateforme premium pour la chirurgie esthétique,<br>soins dentaires & greffe. Devis en 24 h, équipes certifiées.</p>
+        <h1><span class="gold">Élégance</span><br>& bien-être,<br>en toute confiance.</h1>
+        <p class="lead">Plateforme premium pour la chirurgie esthétique,<br>soins dentaires, greffe & chirurgie intime. Devis en 24 h, équipes certifiées.</p>
         <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
           <a class="btn" href="#interventions">Voir les interventions</a>
           <a class="btn" href="https://wa.me/21628296239" target="_blank">Devis WhatsApp</a>
         </div>
       </div>
-      <div class="hero-media">
-        <img src="https://lh3.googleusercontent.com/p/AF1QipMqHFishAAkCoir3ndgVC-u1pl9n5GJXST7tzGl=s680-w680-h510-rw" onerror="this.onerror=null;this.src='assets/hero/cover.jpg'" alt="Couverture bloc opératoire" />
+      <div class="hero-media" id="slider">
+        <img class="active" src="https://lh3.googleusercontent.com/p/AF1QipMqHFishAAkCoir3ndgVC-u1pl9n5GJXST7tzGl=s680-w680-h510-rw" onerror="this.onerror=null;this.src='assets/hero/cover.jpg'" alt="Bloc opératoire 1"/>
+        <img src="https://media.istockphoto.com/id/1464518512/fr/photo/abdominoplastie-en-salle-dop%C3%A9ration.jpg?b=1&s=612x612&w=0&k=20&c=K2l059s1_2idR4ZXaZRDS_cB6J9PPSiDDbNiCUay1LU=" alt="Bloc opératoire 2"/>
       </div>
     </div>
   </section>
 
+  <!-- Aperçu interventions -->
   <section id="interventions">
-    <h2 class="gold">Interventions – explications claires</h2>
+    <h2 class="gold">Interventions</h2>
     <div class="cards">
-      <div class="card">
-        <img src="https://media.istockphoto.com/id/627443532/fr/photo/le-m%C3%A9decin-dessine-sous-la-poitrine.jpg?b=1&s=612x612&w=0&k=20&c=OnoP5_jPN45Bwi5A9vN9PXXB7DjiR5kJKyUl3CaPFCo=" alt="Seins">
-        <div class="body"><h3>Chirurgie mammaire</h3><p>Augmentation, lifting et réduction pour une poitrine harmonieuse.</p><p><a class="btn" href="#seins-augmentation">Voir les détails</a></p></div>
-      </div>
-      <div class="card">
-        <img src="https://media.istockphoto.com/id/1410711014/fr/photo/traitement-en-centre-esth%C3%A9tique-pour-la-cellulite.jpg?b=1&s=612x612&w=0&k=20&c=qqZvvviWl8TfTzkdEyfUWW1pJSqx1XPvSk_Vd9hRFgE=" alt="Silhouette">
-        <div class="body"><h3>Silhouette (lipo/abdo)</h3><p>Affinement des contours & ventre plat selon indication.</p><p><a class="btn" href="#corps-lipo">Voir les détails</a></p></div>
-      </div>
-      <div class="card">
-        <img src="https://media.istockphoto.com/id/537281166/fr/photo/belle-jeune-femme-avec-des-perforations-rides-sur-son-visage-avant.jpg?b=1&s=612x612&w=0&k=20&c=50E4xMVwELW01LthpstS65I2K7rXe53h_6kN_oU-esE=" alt="Visage">
-        <div class="body"><h3>Visage (rhino/bleph)</h3><p>Résultats naturels, respect de l’anatomie.</p><p><a class="btn" href="#visage-rhino">Voir les détails</a></p></div>
-      </div>
-      <div class="card">
-        <img src="https://media.istockphoto.com/id/1272422473/fr/photo/les-dentistes-effectueront-une-op%C3%A9ration-le-placement-dimplant-une-vraie-op%C3%A9ra-tion.jpg?b=1&s=612x612&w=0&k=20&c=unjsOEZGNxq1BeQ8nqYT9Wbu6Il1tqIqNKx6fmkIcEg=" alt="Dentisterie">
-        <div class="body"><h3>Dentisterie</h3><p>Facettes, implants et aligneurs.</p><p><a class="btn" href="#dents-implants">Voir les détails</a></p></div>
-      </div>
-      <div class="card">
-        <img src="https://media.istockphoto.com/id/1174097160/photo/doctor-cosmetologist-conducts-procedure-for-a-man-with-a-double-chin-injection-of.jpg" alt="Double menton">
-        <div class="body"><h3>Médecine esthétique</h3><p>Injections et soins anti‑âge.</p><p><a class="btn" href="#medecine-double-menton">Voir les détails</a></p></div>
-      </div>
-      <div class="card">
-        <img src="https://lh3.googleusercontent.com/p/AF1QipMqHFishAAkCoir3ndgVC-u1pl9n5GJXST7tzGl=s680-w680-h510-rw" alt="Bloc">
-        <div class="body"><h3>Parcours patient</h3><p>Avant/pendant/après : accompagnement complet.</p><p><a class="btn" href="#clinique">Notre organisation</a></p></div>
+      <div class="card"><img src="https://media.istockphoto.com/id/627443532/fr/photo/le-m%C3%A9decin-dessine-sous-la-poitrine.jpg?b=1&s=612x612&w=0&k=20&c=OnoP5_jPN45Bwi5A9vN9PXXB7DjiR5kJKyUl3CaPFCo=" alt="Seins"><div class="body"><h3>Chirurgie mammaire</h3><p>Augmentation, lifting & réduction.</p><p><a class="btn" href="#seins">Détails</a></p></div></div>
+      <div class="card"><img src="https://media.istockphoto.com/id/1410711014/fr/photo/traitement-en-centre-esth%C3%A9tique-pour-la-cellulite.jpg?b=1&s=612x612&w=0&k=20&c=qqZvvviWl8TfTzkdEyfUWW1pJSqx1XPvSk_Vd9hRFgE=" alt="Silhouette"><div class="body"><h3>Silhouette</h3><p>Lipo, abdo, BBL, lift bras/cuisses.</p><p><a class="btn" href="#silhouette">Détails</a></p></div></div>
+      <div class="card"><img src="https://media.istockphoto.com/id/537281166/fr/photo/belle-jeune-femme-avec-des-perforations-rides-sur-son-visage-avant.jpg?b=1&s=612x612&w=0&k=20&c=50E4xMVwELW01LthpstS65I2K7rXe53h_6kN_oU-esE=" alt="Visage"><div class="body"><h3>Visage</h3><p>Rhino, Blépharo, Lifting.</p><p><a class="btn" href="#visage">Détails</a></p></div></div>
+      <div class="card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPosKe6EFHBzywzxh2DggBXYz9IYdXGadilg&s" alt="Obésité"><div class="body"><h3>Obésité</h3><p>Sleeve & bypass.</p><p><a class="btn" href="#obesite">Détails</a></p></div></div>
+      <div class="card"><img src="https://media.istockphoto.com/id/1174127297/fr/photo/la-belle-fille-caucasienne-tire-sa-main-outre-dun-menton-double-menton-gras-un-probl%C3%A8me-avec.jpg?b=1&s=612x612&w=0&k=20&c=1Dffq7lDsB3L77CiiKjY7ijTomDaxYjrqp1f8iQp7zQ=" alt="Médecine esthétique"><div class="body"><h3>Médecine esthétique</h3><p>Double menton & anti-âge.</p><p><a class="btn" href="#medecine">Détails</a></p></div></div>
+      <div class="card"><img src="https://cg5.fr/wp-content/uploads/2020/04/chirurgie-intime-femme-bordeaux-1030x687.jpg" alt="Chirurgie intime"><div class="body"><h3>Chirurgie intime</h3><p>Nymphoplastie, vaginoplastie, pénoplastie…</p><p><a class="btn" href="#intime">Détails</a></p></div></div>
+    </div>
+  </section>
+
+  <!-- Section Chirurgie intime -->
+  <section class="interv" id="intime">
+    <header><h3>Chirurgie intime — Femme & Homme</h3><a class="btn" href="#contact">Demander un devis</a></header>
+    <div class="content">
+      <img src="https://lebodyliftfrancais.com/wp-content/uploads/2021/09/chirurgie-intime-nymphoplastie-petites-levres-lipofilling-grandes-levres-the-body-lift-francais-dr-harold-chatel-docteur-taliah-schmitt-le-bodylift-francais-chirurgien-esthetique-paris-16.jpg" alt="Chirurgie intime"/>
+      <div>
+        <p><strong>Pour la femme</strong> : Nymphoplastie (réduction petites lèvres), vaginoplastie (resserrement), lipostructure grandes lèvres, hyménoplastie.</p>
+        <p><strong>Pour l’homme</strong> : Pénoplastie d’élargissement ou d’allongement, selon indication.</p>
+        <div class="facts"><div><b>Durée</b> : 45–120 min</div><div><b>Séjour</b> : ambulatoire ou 1 nuit</div><div><b>Reprise</b> : 5–10 jours</div><div><b>Prix</b> : sur devis</div></div>
       </div>
     </div>
   </section>
 
-  <!-- Détails d'interventions -->
-  <section class="interv" id="seins-augmentation">
-    <header><h3>Seins — Augmentation / Lifting / Réduction</h3><a class="btn" href="#contact">Demander un devis</a></header>
-    <div class="content">
-      <img src="https://media.istockphoto.com/id/627443532/fr/photo/le-m%C3%A9decin-dessine-sous-la-poitrine.jpg?b=1&s=612x612&w=0&k=20&c=OnoP5_jPN45Bwi5A9vN9PXXB7DjiR5kJKyUl3CaPFCo=" alt="Chirurgie mammaire"/>
+  <!-- Section Clinique -->
+  <section id="clinique">
+    <h2 class="gold">Notre Clinique</h2>
+    <div class="contact-grid">
       <div>
-        <p><strong>C’est quoi ?</strong> Correction du volume et de la ptôse par implants, lipofilling ou redrapage cutané. Choix du plan (dual‑plane/rétro‑glandulaire) selon morphologie.</p>
-        <p><strong>Déroulement</strong> : consultation, bilan, intervention sous AG, sortie avec soutien‑gorge de contention et suivi.</p>
-        <div class="facts">
-          <div><b>Durée</b> : 60–180 min</div>
-          <div><b>Séjour</b> : 2–3 nuits</div>
-          <div><b>Reprise</b> : 7–14 jours</div>
-          <div><b>Prix</b> : sur devis</div>
-        </div>
+        <p>Située au <strong>Lac 2 – Tunis</strong>, notre clinique moderne offre un cadre haut de gamme avec équipements de dernière génération.</p>
+        <p class="clinic-info">Adresse : Lac 2, Tunis – Tunisie</p>
       </div>
-    </div>
-  </section>
-
-  <section class="interv" id="corps-lipo">
-    <header><h3>Silhouette — Liposuccion & Abdominoplastie</h3><a class="btn" href="#contact">Demander un devis</a></header>
-    <div class="content">
-      <img src="https://media.istockphoto.com/id/1410711014/fr/photo/traitement-en-centre-esth%C3%A9tique-pour-la-cellulite.jpg?b=1&s=612x612&w=0&k=20&c=qqZvvviWl8TfTzkdEyfUWW1pJSqx1XPvSk_Vd9hRFgE=" alt="Silhouette"/>
-      <div>
-        <p><strong>C’est quoi ?</strong> Retrait ciblé de graisse par canules fines (lipo) et/ou retrait du tablier cutané avec remise en tension (abdominoplastie).</p>
-        <p><strong>Déroulement</strong> : marquage des zones, infiltration tumescente, aspiration contrôlée. Pour l’abdo : suture des muscles si diastasis, mise en place d’une gaine.</p>
-        <div class="facts">
-          <div><b>Durée</b> : 1.5–4 h</div>
-          <div><b>Séjour</b> : 1–3 nuits</div>
-          <div><b>Reprise</b> : 10–21 jours</div>
-          <div><b>Prix</b> : sur devis</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="interv" id="visage-rhino">
-    <header><h3>Visage — Rhinoplastie & Blépharoplastie</h3><a class="btn" href="#contact">Demander un devis</a></header>
-    <div class="content">
-      <img src="https://media.istockphoto.com/id/537281166/fr/photo/belle-jeune-femme-avec-des-perforations-rides-sur-son-visage-avant.jpg?b=1&s=612x612&w=0&k=20&c=50E4xMVwELW01LthpstS65I2K7rXe53h_6kN_oU-esE=" alt="Visage"/>
-      <div>
-        <p><strong>C’est quoi ?</strong> Rhinoplastie : correction esthétique/fonctionnelle du nez. Blépharoplastie : retrait des excès cutanés/adipeux des paupières pour ouvrir le regard.</p>
-        <p><strong>Déroulement</strong> : analyse 3D, incisions précises, attelle/strips temporaires pour le nez, suites adaptées pour les paupières.</p>
-        <div class="facts">
-          <div><b>Durée</b> : 45–150 min</div>
-          <div><b>Séjour</b> : ambulatoire à 1–2 nuits</div>
-          <div><b>Reprise</b> : 5–10 jours</div>
-          <div><b>Prix</b> : sur devis</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="interv" id="dents-implants">
-    <header><h3>Dentisterie — Implants & Facettes</h3><a class="btn" href="#contact">Demander un devis</a></header>
-    <div class="content">
-      <img src="https://media.istockphoto.com/id/1272422473/fr/photo/les-dentistes-effectueront-une-op%C3%A9ration-le-placement-dimplant-une-vraie-op%C3%A9ra-tion.jpg?b=1&s=612x612&w=0&k=20&c=unjsOEZGNxq1BeQ8nqYT9Wbu6Il1tqIqNKx6fmkIcEg=" alt="Implants dentaires"/>
-      <div>
-        <p><strong>C’est quoi ?</strong> Remplacement durable d’une dent par racine titane + couronne. Facettes : correction de la teinte/forme du sourire.</p>
-        <p><strong>Déroulement</strong> : planification 3D CBCT, pose guidée, temporisation puis prothèse définitive. Pour facettes : pré‑visualisation, temporaires, collage.</p>
-        <div class="facts">
-          <div><b>Durée</b> : 1–2 h (implant) / 2 séances (facettes)</div>
-          <div><b>Séjour</b> : 4–6 jours</div>
-          <div><b>Reprise</b> : immédiate à 48 h</div>
-          <div><b>Prix</b> : sur devis</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="interv" id="medecine-double-menton">
-    <header><h3>Médecine esthétique — Double menton & Anti‑âge</h3><a class="btn" href="#contact">Demander un devis</a></header>
-    <div class="content">
-      <img src="https://media.istockphoto.com/id/1174097160/photo/doctor-cosmetologist-conducts-procedure-for-a-man-with-a-double-chin-injection-of.jpg" alt="Double menton"/>
-      <div>
-        <p><strong>C’est quoi ?</strong> Injections (acide désoxycholique), acide hyaluronique, toxine botulique, skin‑boosters et PRP selon indication.</p>
-        <p><strong>Déroulement</strong> : consultation, plan personnalisé, séance de 15–45 min, sans hospitalisation.</p>
-        <div class="facts">
-          <div><b>Durée</b> : 15–45 min</div>
-          <div><b>Séjour</b> : ambulatoire</div>
-          <div><b>Reprise</b> : immédiate</div>
-          <div><b>Prix</b> : sur devis</div>
-        </div>
-      </div>
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4noTFLz71MtueVNUIeg-scN1rHhdVvqxmlk8sMjDvqEOQcMARPcDI0cAUitIVB0nFZjwW1TnWpVnfCFkfIn-QsEplrcOAibTJmBYMuRjv99G-ApMA8b8u-Pm0GSKpTOdaSrfau2JZw=s680-w680-h510-rw" alt="Clinique Lac 2 Tunis"/>
     </div>
   </section>
 
@@ -209,9 +145,9 @@
     <h2 class="gold">Contact & Devis</h2>
     <div class="contact-grid">
       <div>
-        <p>Parlez avec notre conseillère médicale : prise en charge, devis en 24 h, check‑list personnalisée.</p>
-        <p>WhatsApp : <a class="btn" href="https://wa.me/21628296239">+216 28 296 239</a></p>
-        <p>E‑mail : <a class="btn" href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a></p>
+        <p>Parlez avec notre conseillère médicale : prise en charge, devis en 24 h, check-list personnalisée.</p>
+        <p>WhatsApp : <a class="btn" href="https://wa.me/21628296239">+216 28 296 239</a></p>
+        <p>E-mail : <a class="btn" href="mailto:aboprof.bm2@gmail.com">aboprof.bm2@gmail.com</a></p>
       </div>
       <img src="https://media.istockphoto.com/id/1275072681/fr/photo/jeune-r%C3%A9ceptionniste-femelle-parlant-au-t%C3%A9l%C3%A9phone-dans-la-clinique-tout-en-sasseyant-et.jpg?b=1&s=612x612&w=0&k=20&c=DOG7hMzKaQyFVk7nr1HuLpOUu5eoAXDIIEN-eXbeEIE=" alt="Conseillère au téléphone"/>
     </div>
@@ -220,9 +156,11 @@
   <footer>
     © <span id="y"></span> Tunisie Chirurgie Center — Tous droits réservés.
   </footer>
+
   <script>
-    // Afficher l'année courante
     document.getElementById('y').textContent=new Date().getFullYear();
+    const slides=[...document.querySelectorAll('#slider img')];
+    let i=0; setInterval(()=>{slides[i].classList.remove('active'); i=(i+1)%slides.length; slides[i].classList.add('active');},5000);
   </script>
 </body>
 </html>
