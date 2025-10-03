@@ -11,7 +11,6 @@
   --page:#faf5f7; --ink:#1a1423; --muted:#6e6476; --sep:#e8e0ea;
   --gold1:#f1dfa6; --gold2:#c79a3e; --gold3:#8a6a22;
   --panel:#ffffff; --panelText:#1a1423;
-  --green1:#a6f2c3; --green2:#23a56e; --green3:#0c7e56;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--page);color:var(--ink);font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Arial}
@@ -24,7 +23,7 @@ header{position:sticky;top:0;z-index:90;background:#1a1620dd;color:#fff;border-b
 .nav{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
 .brand{display:flex;align-items:center;gap:10px}
 .brand img{height:38px}
-.brand span{font-family:Cinzel,serif;letter-spacing:.06em;color:var(--gold2);font-weight:700}
+.brand span{font-family:Cinzel,serif;letter-spacing:.06em;color:#c79a3e;font-weight:700}
 .menu{display:flex;gap:22px;align-items:center}
 .menu a,.menu button{color:#fff;background:transparent;border:0;font:inherit;cursor:pointer}
 .burger{display:none;background:transparent;border:1px solid #ffffff22;color:#fff;border-radius:10px;padding:8px 10px;font-size:22px}
@@ -48,9 +47,13 @@ header{position:sticky;top:0;z-index:90;background:#1a1620dd;color:#fff;border-b
 .drawer a{display:block;padding:10px 4px;color:#fff}
 .drawer h4{font-family:Cinzel;color:#f1dfa6;margin:12px 0 6px}
 
-/* Lang globe */
+/* Globe langues (discret) */
 .lang{position:relative}
-.lang .panel{position:absolute;right:0;top:120%;background:#fff;color:#000;border:1px solid var(--sep);border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.12);display:none;min-width:210px;overflow:hidden;z-index:89}
+.lang>button{width:40px;height:40px;border:1px solid #ffffff33;border-radius:50%;
+  display:grid;place-items:center;font-size:18px;line-height:1;opacity:.85}
+.lang>button:hover{opacity:1}
+.lang .panel{position:absolute;right:0;top:120%;background:#fff;color:#000;border:1px solid var(--sep);
+  border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.12);display:none;min-width:210px;overflow:hidden;z-index:89}
 .lang.open .panel{display:block}
 .lang .panel a{display:block;padding:10px 12px}
 .lang .panel a:hover{background:#f3f3f3}
@@ -83,6 +86,11 @@ footer{color:#7a6f83;text-align:center;padding:28px}
 .corner-logo{position:absolute;left:10px;top:10px;z-index:3;width:44px;height:44px;border-radius:50%;background:#0b5d3d;display:grid;place-items:center;box-shadow:0 4px 12px #0005}
 .corner-logo img{width:28px;height:28px;object-fit:contain;filter:drop-shadow(0 1px 2px #0005)}
 
+/* Masquer complètement le widget Google visible */
+#google_translate_element{position:fixed;right:-9999px;bottom:-9999px;width:1px;height:1px;overflow:hidden}
+.goog-te-banner-frame,.goog-tooltip{display:none !important}
+body{top:0 !important}
+
 @media(max-width:980px){
   .menu{display:none}.burger{display:block}
   .hero-inner{grid-template-columns:1fr}
@@ -95,7 +103,8 @@ footer{color:#7a6f83;text-align:center;padding:28px}
 <header>
   <div class="nav">
     <div class="brand">
-      <img src="assets/logo/logo.png" alt="Tunisie Chirurgie Center">
+      <img src="assets/logo/logo.png" alt="Tunisie Chirurgie Center"
+           onerror="this.src='assets/logo/logo-green.png';this.onerror=null;">
       <span>TUNISIE CHIRURGIE CENTER</span>
     </div>
     <nav class="menu">
@@ -107,13 +116,16 @@ footer{color:#7a6f83;text-align:center;padding:28px}
       </div>
 
       <a href="#cliniques">Nos cliniques</a>
-      <a href="#hotels" class="hotels-link">Hôtels</a>
+
+      <!-- IMPORTANT: bouton Hotels sans ancre ; ouverture via JS seulement -->
+      <a href="#" id="openHotelsBtn" role="button" aria-controls="hotels" aria-expanded="false">Hôtels</a>
+
       <a href="#contact">Contact</a>
 
-      <!-- Globe langues -->
+      <!-- Globe langues (discret) -->
       <div class="lang" id="lang">
-        <button type="button" title="Langues">🌐</button>
-        <div class="panel">
+        <button type="button" title="Langues" aria-haspopup="true" aria-expanded="false">🌐</button>
+        <div class="panel" role="menu" aria-label="Choisir la langue">
           <a href="#" data-lang="fr">🇫🇷 Français</a>
           <a href="#" data-lang="en">🇬🇧 English</a>
           <a href="#" data-lang="nl">🇳🇱 Nederlands</a>
@@ -123,7 +135,7 @@ footer{color:#7a6f83;text-align:center;padding:28px}
         </div>
       </div>
     </nav>
-    <button class="burger" id="burger">☰</button>
+    <button class="burger" id="burger" aria-label="Menu">☰</button>
   </div>
 </header>
 
@@ -135,7 +147,8 @@ footer{color:#7a6f83;text-align:center;padding:28px}
     <h4>Interventions</h4>
     <div id="mCats"></div>
     <a href="#cliniques" class="m-link">Nos cliniques</a>
-    <a href="#hotels" class="m-link hotels-link">Hôtels</a>
+    <!-- Bouton Hotels mobile -->
+    <a href="#" id="openHotelsBtnM" class="m-link" role="button" aria-controls="hotels" aria-expanded="false">Hôtels</a>
     <a href="#contact" class="m-link" style="margin-top:10px">Contact</a>
     <h4 style="margin-top:14px">Langues</h4>
     <div>
@@ -149,8 +162,8 @@ footer{color:#7a6f83;text-align:center;padding:28px}
   </div>
 </div>
 
-<!-- Container Google Translate (widget natif, peut rester discret) -->
-<div id="google_translate_element" style="position:fixed;bottom:12px;right:12px;z-index:75;background:#fff;border:1px solid #e8e0ea;border-radius:8px;padding:6px 8px;box-shadow:0 6px 18px rgba(0,0,0,.12)"></div>
+<!-- Widget Google Translate caché -->
+<div id="google_translate_element" aria-hidden="true"></div>
 
 <!-- HERO -->
 <section class="hero" id="accueil">
@@ -175,14 +188,15 @@ footer{color:#7a6f83;text-align:center;padding:28px}
 <section id="cliniques">
   <h2 class="gold" style="font-family:Cinzel;margin:0 0 10px">Nos cliniques (Lac 2 – Tunis)</h2>
   <div class="carousel" id="clinicCarousel" data-auto="6000">
-    <div class="corner-logo"><img src="assets/logo/logo-green.png" alt="Logo"></div>
-
+    <div class="corner-logo">
+      <img src="assets/logo/logo-green.png" alt="Logo"
+           onerror="this.src='assets/logo/logo.png';this.onerror=null;">
+    </div>
     <div class="slide active"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqnHQKsB46hG-nC3NHUVlQZBHkQwTsnrz2DYg97LQSjzqM0nYFVTjtb3jizli_K1qLK2G4QgImraoAIsyyAevcRnwpvnb4gKeljYfi2wabRA-xd9RRovgK27tcRjNR5b9s4f84=s680-w680-h510-rw" alt=""></div>
     <div class="slide"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrCZOAUhQEE1I5bnY8A75gnP3bWffo7tpvW2tVi1g6-o1VWmjiEMZPqP4Qg6bw9xm3PygiDqPdlDRI32zn_1echeWUs_b2XQ1q3mA14JJSb2WU1zH8JZWMa7_0cxNqoernuewlA=s680-w680-h510-rw" alt=""></div>
     <div class="slide"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nq8QeIj2ZNBPqzQRpvCIKhjQklLOER6Kq-QKIMvrAvUi01YeWyJ8mkyEooN6FqXs-k3QRf2c5IxIbyU8N6QkCLDVQUIHZZ-lm-jhi-gVSmkN7FwX7gLqGXSYd2eSAz1BkJkKp0PXQ=s680-w680-h510-rw" alt=""></div>
     <div class="slide"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nr2Ei0-eJ0PNkMrmV7AgdWEGVFfGT18WiUbuS5QvEhoW_ULPFg5iO1VmD2IBQjJ8xND43nA5qDUbcy9-P3VrRVULUmGZk1kgc54QyQ2kqi47PO5eO9Qekd_mF7oL24B_fl_SbZU=s680-w680-h510-rw" alt=""></div>
     <div class="slide"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrtUWiSBaFkgtmR7axfErhhNuxT96idW6eNJVOt5zI-qj_JHZtzvCh206oyiMBl7_DamNAFyTeimJe6Thj0j8C5-jN2bJe72ae9nEDwcHGLCpnPxJsnROg-2M2KfVXCCFSz8ejveg=s680-w680-h510-rw" alt=""></div>
-
     <div class="nav">
       <button class="btn prev" aria-label="Précédent">❮</button>
       <button class="btn next" aria-label="Suivant">❯</button>
@@ -191,7 +205,7 @@ footer{color:#7a6f83;text-align:center;padding:28px}
   </div>
 </section>
 
-<!-- HÔTELS (caché par défaut, s'affiche uniquement au clic) -->
+<!-- HÔTELS (toujours caché jusqu'au clic) -->
 <section id="hotels" style="display:none">
   <h2 class="gold" style="font-family:Cinzel;margin:0 0 10px">Hôtels partenaires</h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start">
@@ -204,13 +218,12 @@ footer{color:#7a6f83;text-align:center;padding:28px}
       </ul>
     </div>
     <div class="carousel" id="hotelCarousel" data-auto="6000">
-      <!-- 13 photos – EXACTEMENT tes liens -->
+      <!-- EXACTEMENT tes liens -->
       <div class="slide active"><img src="https://static.promovacances.com/photos/vacances-tunisie/tunis/piscine-exterieure-el-mouradi-gammarth_486340_panohd.jpg" alt="Hôtel 1"></div>
       <div class="slide"><img src="https://x.cdrst.com/foto/hotel-sf/12666e5e/granderesp/foto-hotel-126663b4.jpg" alt="Hôtel 2"></div>
       <div class="slide"><img src="https://image.resabooking.com/images/hotel/el_mouradi_gammarth_6.jpg" alt="Hôtel 3"></div>
       <div class="slide"><img src="https://cxfile.advences.com/sunshinevacances/photosi/GCHAMBRE5.jpg" alt="Hôtel 4"></div>
       <div class="slide"><img src="https://www.magiclub.com/magiclub/visuals/tunisie_carthage_hotel_el_mouradi_gammarth_hotel.jpg" alt="Hôtel 5"></div>
-
       <div class="slide"><img src="https://z.cdrst.com/foto/hotel-sf/12376e33/granderesp/foto-hotel-12376389.jpg" alt="Hôtel 6"></div>
       <div class="slide"><img src="https://www.corail-suites.com/img/slide_31.jpg" alt="Hôtel 7"></div>
       <div class="slide"><img src="https://q-xx.bstatic.com/xdata/images/hotel/max500/20821054.jpg?k=24668ca2f0305ecfda6419a083c920b96d0f58da5fc6fa8786a197146d96e13a&o=" alt="Hôtel 8"></div>
@@ -219,7 +232,6 @@ footer{color:#7a6f83;text-align:center;padding:28px}
       <div class="slide"><img src="https://image.resabooking.com/images/hotel/Le_Corail_Suite_Hotel_11.jpg" alt="Hôtel 11"></div>
       <div class="slide"><img src="https://images.trvl-media.com/lodging/7000000/6510000/6505800/6505743/36faa188.jpg?impolicy=fcrop&w=1200&h=800&quality=medium" alt="Hôtel 12"></div>
       <div class="slide"><img src="https://www.corail-suites.com/img/patio.jpg" alt="Hôtel 13"></div>
-
       <div class="nav">
         <button class="btn prev" aria-label="Précédent">❮</button>
         <button class="btn next" aria-label="Suivant">❯</button>
@@ -247,7 +259,7 @@ footer{color:#7a6f83;text-align:center;padding:28px}
 
 <footer>© <span id="y"></span> Tunisie Chirurgie Center</footer>
 
-<!-- Google Translate (widget natif) -->
+<!-- Google Translate (natif, caché) -->
 <script>
   function googleTranslateElementInit(){
     new google.translate.TranslateElement({
@@ -332,9 +344,9 @@ mpanel.querySelectorAll('.m-link').forEach(a=>a.addEventListener('click',()=>mpa
 const heroImgs=[...document.querySelectorAll('#hero img')]; let hi=0;
 setInterval(()=>{heroImgs[hi].classList.remove('active'); hi=(hi+1)%heroImgs.length; heroImgs[hi].classList.add('active');},5000);
 
-/* ---- Carousels (cliniques) ---- */
+/* ---- Carrousel générique ---- */
 function initCarousel(root){
-  if(root.dataset.inited==="1") return;
+  if(!root || root.dataset.inited==="1") return;
   root.dataset.inited="1";
   const slides = Array.from(root.querySelectorAll('.slide'));
   const dotsBox = root.querySelector('.dots');
@@ -369,33 +381,27 @@ function initCarousel(root){
     });
   });
 }
-// init uniquement cliniques au chargement
 initCarousel(document.getElementById('clinicCarousel'));
 
-/* ---- Hotels : révélation uniquement au clic + init du carrousel ---- */
+/* ---- Hôtels : affichage uniquement au clic ---- */
 const hotelsSection = document.getElementById('hotels');
 const hotelCarousel = document.getElementById('hotelCarousel');
+
 function openHotels(){
   if(hotelsSection.style.display==='none'){ hotelsSection.style.display='block'; }
-  if(hotelCarousel && hotelCarousel.dataset.inited!=="1"){ initCarousel(hotelCarousel); }
+  initCarousel(hotelCarousel);
   hotelsSection.scrollIntoView({behavior:'smooth', block:'start'});
 }
-// Desktop + mobile
-document.querySelectorAll('.hotels-link, a[href="#hotels"]').forEach(el=>{
-  el.addEventListener('click', (e)=>{
-    // seulement si c'est un lien ancres vers #hotels
-    if(el.getAttribute('href')==='#hotels'){ e.preventDefault(); }
-    // refermer drawer si ouvert
-    mpanel.classList.remove('open');
-    openHotels();
-  });
-});
-// Si la page est chargée directement avec #hotels
-if(location.hash==='#hotels'){ openHotels(); }
+document.getElementById('openHotelsBtn').addEventListener('click', (e)=>{ e.preventDefault(); openHotels(); });
+document.getElementById('openHotelsBtnM').addEventListener('click', (e)=>{ e.preventDefault(); mpanel.classList.remove('open'); openHotels(); });
 
-/* ---- Globe langues (Google Translate) ---- */
+/* ---- Langues (globe) ---- */
 const lang=document.getElementById('lang');
-lang.querySelector('button').addEventListener('click',(e)=>{e.stopPropagation();lang.classList.toggle('open');});
+lang.querySelector('button').addEventListener('click',(e)=>{
+  e.stopPropagation();
+  lang.classList.toggle('open');
+  lang.querySelector('button').setAttribute('aria-expanded', lang.classList.contains('open'));
+});
 document.addEventListener('click',()=>lang.classList.remove('open'));
 
 // sélection programmatique de la langue via .goog-te-combo
@@ -412,14 +418,13 @@ function setLang(code){
   document.cookie=`googtrans=/fr/${code};domain=.${location.hostname};path=/`;
 }
 lang.querySelectorAll('a[data-lang]').forEach(a=>a.addEventListener('click',e=>{
-  e.preventDefault(); setLang(a.dataset.lang);
+  e.preventDefault(); setLang(a.dataset.lang); lang.classList.remove('open');
 }));
 document.querySelectorAll('.m-lang').forEach(a=>a.addEventListener('click',e=>{
   e.preventDefault(); setLang(a.dataset.lang); mpanel.classList.remove('open');
 }));
 
 /* ---- CTA Interventions ---- */
-const drop=document.getElementById('dropInterv');
 document.getElementById('ctaInterv').addEventListener('click',(e)=>{e.preventDefault();
   if (matchMedia('(min-width:981px)').matches){ drop.classList.add('open'); }
   else { mpanel.classList.add('open'); }
