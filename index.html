@@ -6,28 +6,122 @@
 <title>Tunisie Chirurgie Center — Accueil</title>
 <meta name="description" content="Chirurgie esthétique au Lac 2 (Tunis) : visage, corps, seins, obésité, dentaire, greffe de cheveux, chirurgie intime. Devis en 24h, équipes certifiées.">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<style>
+:root{
+  --page:#faf5f7; --ink:#1a1423; --muted:#6e6476; --sep:#e8e0ea;
+  --gold1:#f1dfa6; --gold2:#c79a3e; --gold3:#8a6a22;
+  --panel:#ffffff; --panelText:#1a1423;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+a{text-decoration:none;color:inherit}
+.gold{background:linear-gradient(98deg,var(--gold1),var(--gold2) 55%,var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-block;padding:.85rem 1.1rem;border-radius:999px;border:1px solid #00000018;background:linear-gradient(180deg,#c79a3e12,#f1dfa620);font-weight:600;color:#000}
+
+/* Header */
+header{position:sticky;top:0;z-index:90;background:#1a1620dd;color:#fff;border-bottom:1px solid #2b2431;backdrop-filter:blur(8px)}
+.nav{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{height:42px;object-fit:contain}
+.brand span{font-family:Cinzel,serif;letter-spacing:.06em;color:var(--gold2);font-weight:700}
+.menu{display:flex;gap:22px;align-items:center}
+.menu a,.menu button{color:#fff;background:transparent;border:0;font:inherit;cursor:pointer}
+.burger{display:none;background:transparent;border:1px solid #ffffff22;color:#fff;border-radius:10px;padding:8px 10px;font-size:22px}
+
+/* Mega menu Interventions */
+.drop{position:relative}
+.drop .panel{position:absolute;left:50%;transform:translateX(-50%);top:120%;
+  background:var(--panel);color:var(--panelText);border:1px solid var(--sep);
+  border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.12);display:none;min-width:920px;padding:16px;z-index:88}
+.drop.open .panel{display:block}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.panel h4{margin:4px 0 6px;font-family:Cinzel}
+.panel a{display:block;padding:9px 10px;border-radius:10px;color:#1a1423}
+.panel a:hover{background:#f6efe1}
+
+/* Mobile drawer */
+.mpanel{display:none} .mpanel.open{display:block}
+.mpanel{position:fixed;inset:0;z-index:95}
+.mpanel .back{position:absolute;inset:0;background:rgb(0 0 0 / .45)}
+.drawer{position:absolute;right:0;top:0;height:100%;width:min(86%,360px);background:#17131c;color:#fff;padding:18px;overflow:auto}
+.drawer a{display:block;padding:10px 4px;color:#fff}
+.drawer h4{font-family:Cinzel;color:#f1dfa6;margin:12px 0 6px}
+
+/* Lang globe */
+.lang{position:relative}
+.lang .panel{position:absolute;right:0;top:120%;background:#fff;color:#000;border:1px solid var(--sep);border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.12);display:none;min-width:220px;overflow:hidden;z-index:89}
+.lang.open .panel{display:block}
+.lang .panel a{display:block;padding:10px 12px}
+.lang .panel a:hover{background:#f3f3f3}
+
+/* Hero */
+.hero{border-bottom:1px solid var(--sep);background:radial-gradient(1200px 500px at -150px 0px,#201b25 0%,transparent 60%);color:#fff}
+.hero-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;padding:50px 16px}
+.hero h1{font-family:Cinzel,serif;font-size:clamp(28px,4.2vw,42px);line-height:1.08;margin:0 0 12px}
+.lead{background:#ffffffc8;color:#1a1423;display:inline-block;padding:8px 12px;border-radius:12px;font-weight:600}
+.hero-media{position:relative;height:400px;border-radius:18px;overflow:hidden;background:#000}
+.hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease}
+.hero-media img.active{opacity:1}
+
+/* Sections */
+section{max-width:1180px;margin:auto;padding:40px 16px;border-bottom:1px solid var(--sep)}
+footer{color:#7a6f83;text-align:center;padding:28px}
+
+/* Carousel */
+.carousel{position:relative;border-radius:18px;overflow:hidden;background:#000;height:420px}
+.carousel .slide{position:absolute;inset:0;opacity:0;transition:opacity .6s}
+.carousel .slide.active{opacity:1}
+.carousel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.carousel .nav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 10px;pointer-events:none}
+.carousel .btn{pointer-events:auto;width:42px;height:42px;border-radius:50%;border:none;background:#00000080;color:#fff;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(2px)}
+.carousel .dots{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);display:flex;gap:6px}
+.carousel .dots span{width:8px;height:8px;border-radius:50%;background:#ffffff70}
+.carousel .dots span.active{background:#fff}
+
+/* Filigrane (tampon) — style */
+.watermark{position:absolute;right:10px;bottom:10px;width:72px;height:72px;opacity:.78;pointer-events:none}
+.watermark img{width:100%;height:100%;object-fit:contain;display:block}
+
+/* Grille Hôtels responsive */
+.hotels-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+
+@media(max-width:980px){
+  .menu{display:none}.burger{display:block}
+  .hero-inner{grid-template-columns:1fr}
+  .hero-media{height:320px}
+  .carousel{height:300px}
+  .hotels-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
-
 <header>
   <div class="nav">
     <div class="brand">
-      <img src="assets/logo/logo.png" alt="Tunisie Chirurgie Center">
+      <!-- Logo principal -->
+      <img
+        src="https://dynamic.design.com/asset/logo/94df530f-3f85-454a-94b6-a83d69710700/logo-search-grid-1x?logoTemplateVersion=1&v=638878464389530000&text=tunisiechirurgiecenter.com&layout=auto&colorpalette=orange"
+        alt="Tunisie Chirurgie Center"
+        onerror="this.onerror=null;this.src='assets/logo/logo.png'">
       <span>TUNISIE CHIRURGIE CENTER</span>
     </div>
     <nav class="menu">
       <a href="#accueil">Accueil</a>
+
+      <!-- Interventions (méga-menu) -->
       <div class="drop" id="dropInterv">
         <button type="button">Interventions ▾</button>
         <div class="panel"><div class="grid-4" id="deskGrid"></div></div>
       </div>
+
       <a href="#cliniques">Nos cliniques</a>
       <a href="#hotels" id="openHotelsBtn">Hôtels</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact" id="openContactBtn">Contact</a>
+
+      <!-- Globe langues -->
       <div class="lang" id="lang">
-        <button type="button" title="Langues">🌐</button>
-        <div class="panel">
+        <button type="button" title="Langues" aria-label="Langues">🌐</button>
+        <div class="panel" aria-hidden="true">
           <a href="#" data-lang="fr">🇫🇷 Français</a>
           <a href="#" data-lang="en">🇬🇧 English</a>
           <a href="#" data-lang="nl">🇳🇱 Nederlands</a>
@@ -41,6 +135,31 @@
   </div>
 </header>
 
+<!-- Drawer mobile -->
+<div class="mpanel" id="mpanel">
+  <div class="back"></div>
+  <div class="drawer">
+    <a href="#accueil" class="m-link">Accueil</a>
+    <h4>Interventions</h4>
+    <div id="mCats"></div>
+    <a href="#cliniques" class="m-link">Nos cliniques</a>
+    <a href="#hotels" id="openHotelsBtnM" class="m-link">Hôtels</a>
+    <a href="#contact" id="openContactBtnM" class="m-link" style="margin-top:10px">Contact</a>
+    <h4 style="margin-top:14px">Langues</h4>
+    <div>
+      <a href="#" class="m-lang" data-lang="fr">🇫🇷 Français</a>
+      <a href="#" class="m-lang" data-lang="en">🇬🇧 English</a>
+      <a href="#" class="m-lang" data-lang="nl">🇳🇱 Nederlands</a>
+      <a href="#" class="m-lang" data-lang="ar">🇹🇳 العربية</a>
+      <a href="#" class="m-lang" data-lang="de">🇩🇪 Deutsch</a>
+      <a href="#" class="m-lang" data-lang="tr">🇹🇷 Türkçe</a>
+    </div>
+  </div>
+</div>
+
+<!-- Google Translate (hors-écran) -->
+<div id="google_translate_element" style="position:absolute;left:-9999px;top:auto;"></div>
+
 <!-- HERO -->
 <section class="hero" id="accueil">
   <div class="hero-inner">
@@ -49,7 +168,7 @@
       <p class="lead">Plateforme premium pour la chirurgie esthétique, soins dentaires, greffe & chirurgie intime. Devis en 24 h, équipes certifiées.</p>
       <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
         <a class="btn" href="#" id="ctaInterv">Voir les interventions</a>
-        <a class="btn" href="https://wa.me/21628296239" target="_blank" rel="noopener">Devis WhatsApp</a>
+        <a class="btn" href="#" id="ctaDevis">Demander un devis</a>
       </div>
     </div>
     <div class="hero-media" id="hero">
@@ -60,37 +179,342 @@
   </div>
 </section>
 
-<!-- DEMANDE DEVIS -->
-<section id="contact" style="background:#faf5f7;padding:40px 16px">
-  <h2 class="gold" style="font-family:Cinzel;margin:0 0 16px">Demandez un devis</h2>
-  <p>Prenez contact dès maintenant avec nos équipes, nous nous engageons à vous répondre dans un délai de 48h.</p>
-  <p>Pour demander un devis, merci de remplir le formulaire ci-dessous. Après avoir choisi l’intervention, notre équipe vous mettra en relation avec le service spécialisé pour traiter votre demande.</p>
-  
-  <form style="max-width:480px;display:grid;gap:12px;margin-top:20px">
-    <input type="text" placeholder="Nom et Prénom" required>
-    <input type="tel" placeholder="Votre numéro de téléphone" required>
-    <input type="email" placeholder="Email" required>
-    <select required>
-      <option value="">Veuillez sélectionner</option>
-      <option>Augmentation mammaire</option>
-      <option>Liposuccion</option>
-      <option>Abdominoplastie</option>
-      <option>Lifting visage</option>
-      <option>Rhinoplastie</option>
-      <option>Greffe de cheveux</option>
-      <option>Chirurgie intime</option>
-    </select>
-    <button type="submit" class="btn">JE VEUX UN DEVIS</button>
-  </form>
-
-  <p style="margin-top:20px">Email direct : 
-    <a href="mailto:contact@tunisiechirurgiecenter.com">contact@tunisiechirurgiecenter.com</a>
-  </p>
+<!-- CLINIQUES -->
+<section id="cliniques">
+  <h2 class="gold" style="font-family:Cinzel;margin:0 0 10px">Nos cliniques (Lac 2 – Tunis)</h2>
+  <div class="carousel" id="clinicCarousel" data-auto="6000">
+    <div class="slide active"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqnHQKsB46hG-nC3NHUVlQZBHkQwTsnrz2DYg97LQSjzqM0nYFVTjtb3jizli_K1qLK2G4QgImraoAIsyyAevcRnwpvnb4gKeljYfi2wabRA-xd9RRovgK27tcRjNR5b9s4f84=s680-w680-h510-rw" alt=""></div>
+    <div class="slide"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrCZOAUhQEE1I5bnY8A75gnP3bWffo7tpvW2tVi1g6-o1VWmjiEMZPqP4Qg6bw9xm3PygiDqPdlDRI32zn_1echeWUs_b2XQ1q3mA14JJSb2WU1zH8JZWMa7_0cxNqoernuewlA=s680-w680-h510-rw" alt=""></div>
+    <div class="slide"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nq8QeIj2ZNBPqzQRpvCIKhjQklLOER6Kq-QKIMvrAvUi01YeWyJ8mkyEooN6FqXs-k3QRf2c5IxIbyU8N6QkCLDVQUIHZZ-lm-jhi-gVSmkN7FwX7gLqGXSYd2eSAz1BkJkKp0PXQ=s680-w680-h510-rw" alt=""></div>
+    <div class="slide"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nr2Ei0-eJ0PNkMrmV7AgdWEGVFfGT18WiUbuS5QvEhoW_ULPFg5iO1VmD2IBQjJ8xND43nA5qDUbcy9-P3VrRVULUmGZk1kgc54QyQ2kqi47PO5eO9Qekd_mF7oL24B_fl_SbZU=s680-w680-h510-rw" alt=""></div>
+    <div class="slide"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrtUWiSBaFkgtmR7axfErhhNuxT96idW6eNJVOt5zI-qj_JHZtzvCh206oyiMBl7_DamNAFyTeimJe6Thj0j8C5-jN2bJe72ae9nEDwcHGLCpnPxJsnROg-2M2KfVXCCFSz8ejveg=s680-w680-h510-rw" alt=""></div>
+    <div class="nav">
+      <button class="btn prev" aria-label="Précédent">❮</button>
+      <button class="btn next" aria-label="Suivant">❯</button>
+    </div>
+    <div class="dots"></div>
+  </div>
 </section>
+
+<!-- HÔTELS (caché par défaut, s'affiche au clic) -->
+<section id="hotels" style="display:none">
+  <h2 class="gold" style="font-family:Cinzel;margin:0 0 10px">Hôtels partenaires</h2>
+  <div class="hotels-grid">
+    <div class="panel" style="background:#fff;border:1px solid var(--sep);border-radius:18px;padding:16px">
+      <p>Nous collaborons avec des <b>hôtels haut de gamme</b> à Gammarth/Carthage. Votre séjour est organisé de A à Z : transferts <b>aéroport ⇄ hôtel ⇄ clinique</b>, accompagnement 24/7.</p>
+      <ul style="margin:8px 0 0 18px;color:#6f6176">
+        <li>Chambres spacieuses & room-service</li>
+        <li>Vue mer / piscines, espaces bien-être</li>
+        <li>Petits-déjeuners, conciergerie médicale</li>
+      </ul>
+    </div>
+    <div class="carousel" id="hotelCarousel" data-auto="6000">
+      <!-- Série hôtels 1 -->
+      <div class="slide active"><img loading="eager" src="https://static.promovacances.com/photos/vacances-tunisie/tunis/piscine-exterieure-el-mouradi-gammarth_486340_panohd.jpg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://x.cdrst.com/foto/hotel-sf/12666e5e/granderesp/foto-hotel-126663b4.jpg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://image.resabooking.com/images/hotel/el_mouradi_gammarth_6.jpg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://cxfile.advences.com/sunshinevacances/photosi/GCHAMBRE5.jpg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://www.magiclub.com/magiclub/visuals/tunisie_carthage_hotel_el_mouradi_gammarth_hotel.jpg" alt=""></div>
+      <!-- Série hôtels 2 -->
+      <div class="slide"><img loading="eager" src="https://z.cdrst.com/foto/hotel-sf/12376e33/granderesp/foto-hotel-12376389.jpg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://www.corail-suites.com/img/slide_31.jpg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://q-xx.bstatic.com/xdata/images/hotel/max500/20821054.jpg?k=24668ca2f0305ecfda6419a083c920b96d0f58da5fc6fa8786a197146d96e13a&o=" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/23313676.jpg?k=2df6d0eed606dfc39a89889a1917db7eb6c141709e2ed5a0636551f713e856a8&o=&hp=1" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_267,q_40,w_400/partner-images/cd/03/232b0b0ae2bb0fdfa43a1d46bc3554bbe1060174e926bcba844002effb0f.jpeg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://image.resabooking.com/images/hotel/Le_Corail_Suite_Hotel_11.jpg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://images.trvl-media.com/lodging/7000000/6510000/6505800/6505743/36faa188.jpg?impolicy=fcrop&w=1200&h=800&quality=medium" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://www.corail-suites.com/img/patio.jpg" alt=""></div>
+      <div class="nav">
+        <button class="btn prev" aria-label="Précédent">❮</button>
+        <button class="btn next" aria-label="Suivant">❯</button>
+      </div>
+      <div class="dots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMANDEZ UN DEVIS -->
+<section id="devis" style="max-width:1180px;margin:40px auto;padding:0 16px;border-top:1px solid var(--sep)">
+  <h2 class="gold" style="font-family:Cinzel;margin:24px 0 16px">Demandez un devis</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start">
+    <!-- Texte -->
+    <div class="panel" style="background:#fff;border:1px solid var(--sep);border-radius:18px;padding:18px">
+      <p>Prenez contact dès maintenant avec nos équipes, nous nous engageons à vous répondre dans un délai de <b>48 h</b>.</p>
+      <p>Pour demander un devis, merci de remplir le formulaire ci-contre et, si possible, joindre des <b>photos des zones à traiter</b> avec un bref descriptif.</p>
+      <p>Email direct : <a href="mailto:contact@tunisiechirurgiecenter.com">contact@tunisiechirurgiecenter.com</a></p>
+    </div>
+
+    <!-- Formulaire -->
+    <form id="devisForm" class="panel" style="background:#fff;border:1px solid var(--sep);border-radius:18px;padding:18px">
+      <label>Nom et prénom</label>
+      <input type="text" name="name" required
+             style="width:100%;margin:6px 0 12px;padding:10px;border:1px solid #ccc;border-radius:8px">
+
+      <label>Téléphone</label>
+      <input type="text" name="phone" required
+             style="width:100%;margin:6px 0 12px;padding:10px;border:1px solid #ccc;border-radius:8px">
+
+      <label>Email</label>
+      <input type="email" name="email" required
+             style="width:100%;margin:6px 0 12px;padding:10px;border:1px solid #ccc;border-radius:8px">
+
+      <label>Intervention(s) souhaitée(s)</label>
+      <select id="devisIntervention" name="intervention"
+              style="width:100%;margin:6px 0 16px;padding:10px;border:1px solid #ccc;border-radius:8px">
+        <option value="">Veuillez sélectionner</option>
+        <!-- SEINS -->
+        <option>Augmentation mammaire</option>
+        <option>Lipofilling mammaire</option>
+        <option>Lifting mammaire</option>
+        <option>Réduction mammaire</option>
+        <option>Asymétrie mammaire</option>
+        <!-- CORPS -->
+        <option>Liposuccion</option>
+        <option>Lipofilling des fesses</option>
+        <option>Abdominoplastie</option>
+        <option>Mini abdominoplastie</option>
+        <option>Lifting bras</option>
+        <option>Lifting cuisses</option>
+        <option>Augmentation des fesses</option>
+        <option>Double menton</option>
+        <option>Bichectomie</option>
+        <!-- VISAGE -->
+        <option>Lifting du visage</option>
+        <option>Blépharoplastie</option>
+        <option>Rhinoplastie</option>
+        <option>Lipofilling visage</option>
+        <option>Otoplastie</option>
+        <!-- OBESITE -->
+        <option>Sleeve gastrectomie</option>
+        <option>Ballon gastrique</option>
+        <!-- CHEVEUX -->
+        <option>Greffe FUE</option>
+        <!-- DENTS -->
+        <option>Facettes dentaires</option>
+        <option>Orthodontie invisible</option>
+        <!-- INTIME -->
+        <option>Nymphoplastie</option>
+        <option>Vaginoplastie</option>
+        <option>Lipostructure grandes lèvres</option>
+        <option>Hyménoplastie</option>
+        <option>Pénoplastie</option>
+        <option>Je ne sais pas, je veux l’avis du chirurgien</option>
+      </select>
+
+      <button type="submit" class="btn" style="width:100%;background:var(--gold2);color:#fff">
+        JE VEUX UN DEVIS
+      </button>
+
+      <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn" href="https://wa.me/21628296239" target="_blank" rel="noopener">Devis WhatsApp</a>
+        <a class="btn" href="mailto:contact@tunisiechirurgiecenter.com">Envoyer par e-mail</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- CONTACT (ancre pour le menu, renvoie vers devis) -->
+<section id="contact" style="padding:0;margin:0;border:0"></section>
 
 <footer>© <span id="y"></span> Tunisie Chirurgie Center</footer>
 
+<!-- Google Translate -->
 <script>
+  function googleTranslateElementInit(){
+    new google.translate.TranslateElement({
+      pageLanguage: 'fr',
+      includedLanguages: 'fr,en,nl,ar,de,tr',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+/* ---- DATA Interventions ---- */
+const ORDER=["Seins","Corps","Visage","Obésité","Greffe de cheveux","Dents","Chirurgie intime"];
+const INTERV={
+  "Seins":[["Augmentation mammaire","intervention.html?slug=augmentation-mammaire"],
+           ["Lipofilling mammaire","intervention.html?slug=lipofilling-mammaire"],
+           ["Lifting mammaire","intervention.html?slug=lifting-mammaire"],
+           ["Réduction mammaire","intervention.html?slug=reduction-mammaire"],
+           ["Asymétrie mammaire","intervention.html?slug=asymetrie-mammaire"]],
+  "Corps":[["Liposuccion","intervention.html?slug=liposuccion"],
+           ["Lipofilling des fesses","intervention.html?slug=lipofilling-fesses"],
+           ["Abdominoplastie","intervention.html?slug=abdominoplastie"],
+           ["Mini abdominoplastie","intervention.html?slug=mini-abdominoplastie"],
+           ["Lifting bras","intervention.html?slug=lifting-bras"],
+           ["Lifting cuisses","intervention.html?slug=lifting-cuisses"],
+           ["Augmentation des fesses","intervention.html?slug=augmentation-fesses"],
+           ["Double menton","intervention.html?slug=double-menton"],
+           ["Bichectomie","intervention.html?slug=bichectomie"]],
+  "Visage":[["Lifting du visage","intervention.html?slug=lifting-visage"],
+            ["Blépharoplastie","intervention.html?slug=blepharoplastie"],
+            ["Rhinoplastie","intervention.html?slug=rhinoplastie"],
+            ["Lipofilling visage","intervention.html?slug=lipofilling-visage"],
+            ["Otoplastie","intervention.html?slug=otoplastie"]],
+  "Obésité":[["Sleeve gastrectomie","intervention.html?slug=sleeve-gastrectomie"],
+             ["Ballon gastrique","intervention.html?slug=ballon-gastrique"]],
+  "Greffe de cheveux":[["Greffe FUE","intervention.html?slug=greffe-fue"]],
+  "Dents":[["Facettes dentaires","intervention.html?slug=facettes-dentaires"],
+           ["Orthodontie invisible","intervention.html?slug=orthodontie-invisible"]],
+  "Chirurgie intime":[["Nymphoplastie","intervention.html?slug=nymphoplastie"],
+                      ["Vaginoplastie","intervention.html?slug=vaginoplastie"],
+                      ["Lipostructure grandes lèvres","intervention.html?slug=lipostructure-grandes-levres"],
+                      ["Hyménoplastie","intervention.html?slug=hymenoplastie"],
+                      ["Pénoplastie","intervention.html?slug=penoplastie"]]
+};
+
+/* ---- Build mega menu (desktop) ---- */
+const grid=document.getElementById('deskGrid');
+ORDER.forEach(cat=>{
+  const col=document.createElement('div');
+  const h4=document.createElement('h4'); h4.textContent=cat; col.appendChild(h4);
+  INTERV[cat].forEach(([label,href])=>{
+    const a=document.createElement('a'); a.textContent=label; a.href=href; col.appendChild(a);
+  });
+  grid.appendChild(col);
+});
+
+/* ---- Drawer mobile list ---- */
+const mCats=document.getElementById('mCats');
+if(mCats){
+  ORDER.forEach(cat=>{
+    const h=document.createElement('h4'); h.textContent=cat; mCats.appendChild(h);
+    INTERV[cat].forEach(([label,href])=>{
+      const a=document.createElement('a'); a.textContent=label; a.href=href; mCats.appendChild(a);
+    });
+  });
+}
+
+/* ---- Open/close menus ---- */
+const drop=document.getElementById('dropInterv');
+drop.querySelector('button').addEventListener('click',(e)=>{e.stopPropagation();drop.classList.toggle('open');});
+drop.addEventListener('mouseenter',()=>drop.classList.add('open'));
+drop.addEventListener('mouseleave',()=>drop.classList.remove('open'));
+document.addEventListener('click',()=>drop.classList.remove('open'));
+
+const mpanel=document.getElementById('mpanel'), burger=document.getElementById('burger');
+burger.addEventListener('click',()=>mpanel.classList.add('open'));
+mpanel.querySelector('.back').addEventListener('click',()=>mpanel.classList.remove('open'));
+mpanel.querySelectorAll('.m-link').forEach(a=>a.addEventListener('click',()=>mpanel.classList.remove('open')));
+
+/* ---- Hero slider ---- */
+const heroImgs=[...document.querySelectorAll('#hero img')]; let hi=0;
+setInterval(()=>{heroImgs[hi].classList.remove('active'); hi=(hi+1)%heroImgs.length; heroImgs[hi].classList.add('active');},5000);
+
+/* ---- Carousels ---- */
+function initCarousel(root){
+  const slides = Array.from(root.querySelectorAll('.slide'));
+  const dotsBox = root.querySelector('.dots') || root.appendChild(Object.assign(document.createElement('div'),{className:'dots'}));
+  let i = 0, autoMs = +root.dataset.auto || 0, timer = null;
+  if(!slides.length) return;
+  dotsBox.innerHTML='';
+  slides.forEach((_,idx)=>{ const d=document.createElement('span'); if(idx===0) d.classList.add('active'); d.addEventListener('click',()=>go(idx)); dotsBox.appendChild(d); });
+  const dots = Array.from(dotsBox.children);
+  function go(n){ slides[i].classList.remove('active'); dots[i].classList.remove('active'); i=(n+slides.length)%slides.length; slides[i].classList.add('active'); dots[i].classList.add('active'); }
+  root.querySelector('.prev')?.addEventListener('click',()=>go(i-1));
+  root.querySelector('.next')?.addEventListener('click',()=>go(i+1));
+  function start(){ if(autoMs>0){ timer=setInterval(()=>go(i+1), autoMs); } }
+  function stop(){ if(timer){ clearInterval(timer); timer=null; } }
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+  start();
+  root.querySelectorAll('img').forEach(img=>img.addEventListener('error',function(){ this.onerror=null; this.src='assets/img/placeholder.jpg'; }));
+}
+document.querySelectorAll('#clinicCarousel').forEach(initCarousel);
+
+/* ---- HÔTELS : affichage au clic + init ---- */
+const hotelsSection=document.getElementById('hotels');
+const hotelCarousel=document.getElementById('hotelCarousel');
+function openHotels(){
+  hotelsSection.style.display='block';
+  if(!hotelCarousel.dataset.inited){ initCarousel(hotelCarousel); hotelCarousel.dataset.inited='1'; }
+  hotelsSection.scrollIntoView({behavior:'smooth', block:'start'});
+}
+document.getElementById('openHotelsBtn').addEventListener('click',(e)=>{ e.preventDefault(); openHotels(); });
+document.getElementById('openHotelsBtnM').addEventListener('click',(e)=>{ e.preventDefault(); mpanel.classList.remove('open'); openHotels(); });
+if(location.hash==='#hotels'){ openHotels(); }
+window.addEventListener('hashchange',()=>{ if(location.hash==='#hotels') openHotels(); });
+
+/* ---- Contact → Devis ---- */
+function openDevis(prefill){
+  const section = document.getElementById('devis');
+  const select  = document.getElementById('devisIntervention');
+  if (prefill){
+    const txt = prefill.toLowerCase();
+    let best = null;
+    [...select.options].forEach(opt=>{
+      const t = opt.textContent.toLowerCase();
+      const score = t.includes(txt) ? t.length : 1e9;
+      if(best===null || score < best.score) best = {el: opt, score};
+    });
+    if(best && best.el) select.value = best.el.textContent;
+  }
+  section.scrollIntoView({behavior:'smooth', block:'start'});
+}
+document.getElementById('openContactBtn').addEventListener('click',(e)=>{ e.preventDefault(); openDevis(); });
+document.getElementById('openContactBtnM').addEventListener('click',(e)=>{ e.preventDefault(); mpanel.classList.remove('open'); openDevis(); });
+document.getElementById('ctaDevis').addEventListener('click',(e)=>{ e.preventDefault(); openDevis(); });
+
+/* ---- Interventions → Devis (pré-sélection) ---- */
+function hookInterventionLinks(){
+  const links = [
+    ...document.querySelectorAll('#deskGrid a'),
+    ...document.querySelectorAll('#mCats a')
+  ];
+  links.forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      if (e.button === 0){
+        e.preventDefault();
+        const panel = document.getElementById('mpanel');
+        if(panel) panel.classList.remove('open');
+        openDevis(a.textContent.trim());
+      }
+    }, {passive:false});
+  });
+}
+hookInterventionLinks();
+
+/* ---- Langues (globe + Google) ---- */
+const lang = document.getElementById('lang');
+lang.querySelector('button').addEventListener('click',(e)=>{e.stopPropagation(); const p=lang.querySelector('.panel'); p.style.display=(p.style.display==='block')?'none':'block';});
+document.addEventListener('click',()=>{ const p=lang.querySelector('.panel'); if(p) p.style.display='none'; });
+function setLang(code){
+  const trySet=()=>{ const sel=document.querySelector('.goog-te-combo'); if(!sel){ setTimeout(trySet,300); return; } sel.value=code; sel.dispatchEvent(new Event('change')); };
+  trySet(); document.cookie=`googtrans=/fr/${code};path=/`; document.cookie=`googtrans=/fr/${code};domain=.${location.hostname};path=/`;
+}
+lang.querySelectorAll('a[data-lang]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault(); setLang(a.dataset.lang);} ));
+document.querySelectorAll('.m-lang').forEach(a=>a.addEventListener('click',e=>{e.preventDefault(); setLang(a.dataset.lang); mpanel.classList.remove('open');}));
+
+/* ---- Tampon logo sur toutes les images (ajout JS) ---- */
+const LOGO_URL = "https://dynamic.design.com/asset/logo/94df530f-3f85-454a-94b6-a83d69710700/logo-search-grid-1x?logoTemplateVersion=1&v=638878464389530000&text=tunisiechirurgiecenter.com&layout=auto&colorpalette=orange";
+function addWatermark(container){
+  const wm=document.createElement('div');
+  wm.className='watermark';
+  const img=document.createElement('img');
+  img.src=LOGO_URL;
+  img.alt='Logo';
+  img.onerror=()=>{ img.src='assets/logo/logo.png'; };
+  wm.appendChild(img);
+  container.appendChild(wm);
+}
+document.querySelectorAll('.carousel .slide, .hero-media').forEach(addWatermark);
+
+/* ---- Hero CTA Interventions (ouvre le mega menu ou menu mobile) ---- */
+document.getElementById('ctaInterv').addEventListener('click',(e)=>{e.preventDefault();
+  if (matchMedia('(min-width:981px)').matches){ drop.classList.add('open'); }
+  else { mpanel.classList.add('open'); }
+});
+
+/* ---- Form submit (démo) ---- */
+document.getElementById('devisForm')?.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  alert("Merci ! Votre demande de devis a bien été envoyée.\nNous revenons vers vous sous 48 h.");
+  e.target.reset();
+});
+
+/* ---- Footer year ---- */
 document.getElementById('y').textContent=new Date().getFullYear();
 </script>
 </body>
