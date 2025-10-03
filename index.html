@@ -67,11 +67,11 @@ header{position:sticky;top:0;z-index:90;background:#1a1620dd;color:#fff;border-b
 section{max-width:1180px;margin:auto;padding:40px 16px;border-bottom:1px solid var(--sep)}
 footer{color:#7a6f83;text-align:center;padding:28px}
 
-/* Carousel */
-.carousel{position:relative;border-radius:18px;overflow:hidden;background:#000}
+/* Carousel (FIX: height explicit) */
+.carousel{position:relative;border-radius:18px;overflow:hidden;background:#000;height:420px}
 .carousel .slide{position:absolute;inset:0;opacity:0;transition:opacity .6s}
 .carousel .slide.active{opacity:1}
-.carousel img{width:100%;height:420px;object-fit:cover}
+.carousel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .carousel .nav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 10px;pointer-events:none}
 .carousel .btn{pointer-events:auto;width:42px;height:42px;border-radius:50%;border:none;background:#00000080;color:#fff;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(2px)}
 .carousel .dots{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);display:flex;gap:6px}
@@ -82,11 +82,15 @@ footer{color:#7a6f83;text-align:center;padding:28px}
 .corner-logo{position:absolute;left:10px;top:10px;z-index:3;width:44px;height:44px;border-radius:50%;background:#0b5d3d;display:grid;place-items:center;box-shadow:0 4px 12px #0005}
 .corner-logo img{width:28px;height:28px;object-fit:contain;filter:drop-shadow(0 1px 2px #0005)}
 
+/* Hotels grid responsive */
+.hotels-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+
 @media(max-width:980px){
   .menu{display:none}.burger{display:block}
   .hero-inner{grid-template-columns:1fr}
   .hero-media{height:320px}
-  .carousel img{height:300px}
+  .carousel{height:300px}
+  .hotels-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -99,18 +103,13 @@ footer{color:#7a6f83;text-align:center;padding:28px}
     </div>
     <nav class="menu">
       <a href="#accueil">Accueil</a>
-
       <div class="drop" id="dropInterv">
         <button type="button">Interventions ▾</button>
         <div class="panel"><div class="grid-4" id="deskGrid"></div></div>
       </div>
-
       <a href="#cliniques">Nos cliniques</a>
-      <!-- IMPORTANT: lien sur #hotels + JS au clic -->
       <a href="#hotels" id="openHotelsBtn">Hôtels</a>
       <a href="#contact">Contact</a>
-
-      <!-- Globe langues -->
       <div class="lang" id="lang">
         <button type="button" title="Langues" aria-label="Langues">🌐</button>
         <div class="panel" aria-hidden="true">
@@ -149,7 +148,7 @@ footer{color:#7a6f83;text-align:center;padding:28px}
   </div>
 </div>
 
-<!-- Google Translate (rendu hors-écran) -->
+<!-- Google Translate (hors-écran) -->
 <div id="google_translate_element" style="position:absolute;left:-9999px;top:auto;"></div>
 
 <!-- HERO -->
@@ -171,20 +170,18 @@ footer{color:#7a6f83;text-align:center;padding:28px}
   </div>
 </section>
 
-<!-- NOS CLINIQUES -->
+<!-- CLINIQUES -->
 <section id="cliniques">
   <h2 class="gold" style="font-family:Cinzel;margin:0 0 10px">Nos cliniques (Lac 2 – Tunis)</h2>
   <div class="carousel" id="clinicCarousel" data-auto="6000">
     <div class="corner-logo">
       <img src="assets/logo/logo-green.png" alt="Logo" onerror="this.outerHTML='<svg viewBox=&quot;0 0 64 64&quot; width=&quot;28&quot; height=&quot;28&quot; fill=&quot;#f1dfa6&quot;><circle cx=&quot;32&quot; cy=&quot;32&quot; r=&quot;28&quot; fill=&quot;none&quot; stroke=&quot;#f1dfa6&quot; stroke-width=&quot;3&quot;/><path d=&quot;M32 14v36M20 26h24&quot; stroke=&quot;#f1dfa6&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot;/></svg>';">
     </div>
-
     <div class="slide active"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqnHQKsB46hG-nC3NHUVlQZBHkQwTsnrz2DYg97LQSjzqM0nYFVTjtb3jizli_K1qLK2G4QgImraoAIsyyAevcRnwpvnb4gKeljYfi2wabRA-xd9RRovgK27tcRjNR5b9s4f84=s680-w680-h510-rw" alt=""></div>
     <div class="slide"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrCZOAUhQEE1I5bnY8A75gnP3bWffo7tpvW2tVi1g6-o1VWmjiEMZPqP4Qg6bw9xm3PygiDqPdlDRI32zn_1echeWUs_b2XQ1q3mA14JJSb2WU1zH8JZWMa7_0cxNqoernuewlA=s680-w680-h510-rw" alt=""></div>
     <div class="slide"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nq8QeIj2ZNBPqzQRpvCIKhjQklLOER6Kq-QKIMvrAvUi01YeWyJ8mkyEooN6FqXs-k3QRf2c5IxIbyU8N6QkCLDVQUIHZZ-lm-jhi-gVSmkN7FwX7gLqGXSYd2eSAz1BkJkKp0PXQ=s680-w680-h510-rw" alt=""></div>
     <div class="slide"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nr2Ei0-eJ0PNkMrmV7AgdWEGVFfGT18WiUbuS5QvEhoW_ULPFg5iO1VmD2IBQjJ8xND43nA5qDUbcy9-P3VrRVULUmGZk1kgc54QyQ2kqi47PO5eO9Qekd_mF7oL24B_fl_SbZU=s680-w680-h510-rw" alt=""></div>
     <div class="slide"><img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrtUWiSBaFkgtmR7axfErhhNuxT96idW6eNJVOt5zI-qj_JHZtzvCh206oyiMBl7_DamNAFyTeimJe6Thj0j8C5-jN2bJe72ae9nEDwcHGLCpnPxJsnROg-2M2KfVXCCFSz8ejveg=s680-w680-h510-rw" alt=""></div>
-
     <div class="nav">
       <button class="btn prev" aria-label="Précédent">❮</button>
       <button class="btn next" aria-label="Suivant">❯</button>
@@ -193,10 +190,10 @@ footer{color:#7a6f83;text-align:center;padding:28px}
   </div>
 </section>
 
-<!-- HÔTELS (caché par défaut, affiché au clic) -->
+<!-- HÔTELS (caché par défaut) -->
 <section id="hotels" style="display:none">
   <h2 class="gold" style="font-family:Cinzel;margin:0 0 10px">Hôtels partenaires</h2>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start">
+  <div class="hotels-grid">
     <div class="panel" style="background:#fff;border:1px solid var(--sep);border-radius:18px;padding:16px">
       <p>Nous collaborons avec des <b>hôtels haut de gamme</b> à Gammarth/Carthage. Votre séjour est organisé de A à Z : transferts <b>aéroport ⇄ hôtel ⇄ clinique</b>, accompagnement 24/7.</p>
       <ul style="margin:8px 0 0 18px;color:#6f6176">
@@ -205,15 +202,12 @@ footer{color:#7a6f83;text-align:center;padding:28px}
         <li>Petits-déjeuners, conciergerie médicale</li>
       </ul>
     </div>
-
     <div class="carousel" id="hotelCarousel" data-auto="6000">
-      <!-- Série 1 -->
       <div class="slide active"><img loading="eager" src="https://static.promovacances.com/photos/vacances-tunisie/tunis/piscine-exterieure-el-mouradi-gammarth_486340_panohd.jpg" alt=""></div>
       <div class="slide"><img loading="eager" src="https://x.cdrst.com/foto/hotel-sf/12666e5e/granderesp/foto-hotel-126663b4.jpg" alt=""></div>
       <div class="slide"><img loading="eager" src="https://image.resabooking.com/images/hotel/el_mouradi_gammarth_6.jpg" alt=""></div>
       <div class="slide"><img loading="eager" src="https://cxfile.advences.com/sunshinevacances/photosi/GCHAMBRE5.jpg" alt=""></div>
       <div class="slide"><img loading="eager" src="https://www.magiclub.com/magiclub/visuals/tunisie_carthage_hotel_el_mouradi_gammarth_hotel.jpg" alt=""></div>
-      <!-- Série 2 -->
       <div class="slide"><img loading="eager" src="https://z.cdrst.com/foto/hotel-sf/12376e33/granderesp/foto-hotel-12376389.jpg" alt=""></div>
       <div class="slide"><img loading="eager" src="https://www.corail-suites.com/img/slide_31.jpg" alt=""></div>
       <div class="slide"><img loading="eager" src="https://q-xx.bstatic.com/xdata/images/hotel/max500/20821054.jpg?k=24668ca2f0305ecfda6419a083c920b96d0f58da5fc6fa8786a197146d96e13a&o=" alt=""></div>
@@ -222,7 +216,6 @@ footer{color:#7a6f83;text-align:center;padding:28px}
       <div class="slide"><img loading="eager" src="https://image.resabooking.com/images/hotel/Le_Corail_Suite_Hotel_11.jpg" alt=""></div>
       <div class="slide"><img loading="eager" src="https://images.trvl-media.com/lodging/7000000/6510000/6505800/6505743/36faa188.jpg?impolicy=fcrop&w=1200&h=800&quality=medium" alt=""></div>
       <div class="slide"><img loading="eager" src="https://www.corail-suites.com/img/patio.jpg" alt=""></div>
-
       <div class="nav">
         <button class="btn prev" aria-label="Précédent">❮</button>
         <button class="btn next" aria-label="Suivant">❯</button>
@@ -238,7 +231,6 @@ footer{color:#7a6f83;text-align:center;padding:28px}
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center">
     <div>
       <p style="color:var(--muted)">Notre équipe vous répond 7j/7.</p>
-      <!-- Numéro masqué, on ne laisse que le bouton -->
       <p><a class="btn" href="https://wa.me/21628296239" target="_blank" rel="noopener">Devis WhatsApp</a></p>
     </div>
     <img
@@ -265,39 +257,17 @@ footer{color:#7a6f83;text-align:center;padding:28px}
 <script>
 /* -------- data interventions -------- */
 const ORDER=["Seins","Corps","Visage","Obésité","Greffe de cheveux","Dents","Chirurgie intime"];
-const INTERV={
-  "Seins":[["Augmentation mammaire","intervention.html?slug=augmentation-mammaire"],
-           ["Lipofilling mammaire","intervention.html?slug=lipofilling-mammaire"],
-           ["Lifting mammaire","intervention.html?slug=lifting-mammaire"],
-           ["Réduction mammaire","intervention.html?slug=reduction-mammaire"],
-           ["Asymétrie mammaire","intervention.html?slug=asymetrie-mammaire"]],
-  "Corps":[["Liposuccion","intervention.html?slug=liposuccion"],
-           ["Lipofilling des fesses","intervention.html?slug=lipofilling-fesses"],
-           ["Abdominoplastie","intervention.html?slug=abdominoplastie"],
-           ["Mini abdominoplastie","intervention.html?slug=mini-abdominoplastie"],
-           ["Lifting bras","intervention.html?slug=lifting-bras"],
-           ["Lifting cuisses","intervention.html?slug=lifting-cuisses"],
-           ["Augmentation des fesses","intervention.html?slug=augmentation-fesses"],
-           ["Double menton","intervention.html?slug=double-menton"],
-           ["Bichectomie","intervention.html?slug=bichectomie"]],
-  "Visage":[["Lifting du visage","intervention.html?slug=lifting-visage"],
-            ["Blépharoplastie","intervention.html?slug=blepharoplastie"],
-            ["Rhinoplastie","intervention.html?slug=rhinoplastie"],
-            ["Lipofilling visage","intervention.html?slug=lipofilling-visage"],
-            ["Otoplastie","intervention.html?slug=otoplastie"]],
-  "Obésité":[["Sleeve gastrectomie","intervention.html?slug=sleeve-gastrectomie"],
-             ["Ballon gastrique","intervention.html?slug=ballon-gastrique"]],
-  "Greffe de cheveux":[["Greffe FUE","intervention.html?slug=greffe-fue"]],
-  "Dents":[["Facettes dentaires","intervention.html?slug=facettes-dentaires"],
-           ["Orthodontie invisible","intervention.html?slug=orthodontie-invisible"]],
-  "Chirurgie intime":[["Nymphoplastie","intervention.html?slug=nymphoplastie"],
-                      ["Vaginoplastie","intervention.html?slug=vaginoplastie"],
-                      ["Lipostructure grandes lèvres","intervention.html?slug=lipostructure-grandes-levres"],
-                      ["Hyménoplastie","intervention.html?slug=hymenoplastie"],
-                      ["Pénoplastie","intervention.html?slug=penoplastie"]]
+const INTERV={/* … (inchangé) … */ 
+"Seins":[["Augmentation mammaire","intervention.html?slug=augmentation-mammaire"],["Lipofilling mammaire","intervention.html?slug=lipofilling-mammaire"],["Lifting mammaire","intervention.html?slug=lifting-mammaire"],["Réduction mammaire","intervention.html?slug=reduction-mammaire"],["Asymétrie mammaire","intervention.html?slug=asymetrie-mammaire"]],
+"Corps":[["Liposuccion","intervention.html?slug=liposuccion"],["Lipofilling des fesses","intervention.html?slug=lipofilling-fesses"],["Abdominoplastie","intervention.html?slug=abdominoplastie"],["Mini abdominoplastie","intervention.html?slug=mini-abdominoplastie"],["Lifting bras","intervention.html?slug=lifting-bras"],["Lifting cuisses","intervention.html?slug=lifting-cuisses"],["Augmentation des fesses","intervention.html?slug=augmentation-fesses"],["Double menton","intervention.html?slug=double-menton"],["Bichectomie","intervention.html?slug=bichectomie"]],
+"Visage":[["Lifting du visage","intervention.html?slug=lifting-visage"],["Blépharoplastie","intervention.html?slug=blepharoplastie"],["Rhinoplastie","intervention.html?slug=rhinoplastie"],["Lipofilling visage","intervention.html?slug=lipofilling-visage"],["Otoplastie","intervention.html?slug=otoplastie"]],
+"Obésité":[["Sleeve gastrectomie","intervention.html?slug=sleeve-gastrectomie"],["Ballon gastrique","intervention.html?slug=ballon-gastrique"]],
+"Greffe de cheveux":[["Greffe FUE","intervention.html?slug=greffe-fue"]],
+"Dents":[["Facettes dentaires","intervention.html?slug=facettes-dentaires"],["Orthodontie invisible","intervention.html?slug=orthodontie-invisible"]],
+"Chirurgie intime":[["Nymphoplastie","intervention.html?slug=nymphoplastie"],["Vaginoplastie","intervention.html?slug=vaginoplastie"],["Lipostructure grandes lèvres","intervention.html?slug=lipostructure-grandes-levres"],["Hyménoplastie","intervention.html?slug=hymenoplastie"],["Pénoplastie","intervention.html?slug=penoplastie"]]
 };
 
-/* ---- build mega menu ---- */
+/* ---- build menus ---- */
 const grid=document.getElementById('deskGrid');
 ORDER.forEach(cat=>{
   const col=document.createElement('div');
@@ -307,17 +277,9 @@ ORDER.forEach(cat=>{
   });
   grid.appendChild(col);
 });
-
-/* ---- mobile drawer ---- */
 const mCats=document.getElementById('mCats');
-if(mCats){
-  ORDER.forEach(cat=>{
-    const h=document.createElement('h4'); h.textContent=cat; mCats.appendChild(h);
-    INTERV[cat].forEach(([label,href])=>{
-      const a=document.createElement('a'); a.textContent=label; a.href=href; mCats.appendChild(a);
-    });
-  });
-}
+if(mCats){ ORDER.forEach(cat=>{ const h=document.createElement('h4'); h.textContent=cat; mCats.appendChild(h);
+  INTERV[cat].forEach(([label,href])=>{ const a=document.createElement('a'); a.textContent=label; a.href=href; mCats.appendChild(a);});});}
 
 /* ---- open/close menus ---- */
 const drop=document.getElementById('dropInterv');
@@ -340,45 +302,25 @@ function initCarousel(root){
   const slides = Array.from(root.querySelectorAll('.slide'));
   const dotsBox = root.querySelector('.dots');
   let i = 0, autoMs = +root.dataset.auto || 0, timer = null;
-
   if(!slides.length) return;
-
   dotsBox.innerHTML='';
-  slides.forEach((_,idx)=>{
-    const d = document.createElement('span');
-    if(idx===0) d.classList.add('active');
-    d.addEventListener('click', ()=>go(idx));
-    dotsBox.appendChild(d);
-  });
+  slides.forEach((_,idx)=>{ const d=document.createElement('span'); if(idx===0) d.classList.add('active'); d.addEventListener('click',()=>go(idx)); dotsBox.appendChild(d); });
   const dots = Array.from(dotsBox.children);
-
-  function go(n){
-    slides[i].classList.remove('active'); dots[i].classList.remove('active');
-    i = (n+slides.length)%slides.length;
-    slides[i].classList.add('active'); dots[i].classList.add('active');
-  }
-  root.querySelector('.prev')?.addEventListener('click', ()=>go(i-1));
-  root.querySelector('.next')?.addEventListener('click', ()=>go(i+1));
-
-  function start(){ if(autoMs>0){ timer = setInterval(()=>go(i+1), autoMs); } }
+  function go(n){ slides[i].classList.remove('active'); dots[i].classList.remove('active'); i=(n+slides.length)%slides.length; slides[i].classList.add('active'); dots[i].classList.add('active'); }
+  root.querySelector('.prev')?.addEventListener('click',()=>go(i-1));
+  root.querySelector('.next')?.addEventListener('click',()=>go(i+1));
+  function start(){ if(autoMs>0){ timer=setInterval(()=>go(i+1),autoMs); } }
   function stop(){ if(timer){ clearInterval(timer); timer=null; } }
   root.addEventListener('mouseenter', stop);
   root.addEventListener('mouseleave', start);
   start();
-
-  root.querySelectorAll('img').forEach(img=>{
-    img.addEventListener('error', function(){
-      this.onerror=null;
-      this.src='assets/img/placeholder.jpg';
-    });
-  });
+  root.querySelectorAll('img').forEach(img=>{ img.addEventListener('error', function(){ this.onerror=null; this.src='assets/img/placeholder.jpg'; });});
 }
 document.querySelectorAll('#clinicCarousel').forEach(initCarousel);
 
-/* ---- HÔTELS : affichage seulement au clic ---- */
+/* ---- HÔTELS : affichage au clic + au chargement si #hotels ---- */
 const hotelsSection = document.getElementById('hotels');
 const hotelCarousel = document.getElementById('hotelCarousel');
-
 function openHotels(){
   hotelsSection.style.display='block';
   if(!hotelCarousel.dataset.inited){ initCarousel(hotelCarousel); hotelCarousel.dataset.inited='1'; }
@@ -386,39 +328,22 @@ function openHotels(){
 }
 document.getElementById('openHotelsBtn').addEventListener('click',(e)=>{ e.preventDefault(); openHotels(); });
 document.getElementById('openHotelsBtnM').addEventListener('click',(e)=>{ e.preventDefault(); mpanel.classList.remove('open'); openHotels(); });
+if(location.hash==='#hotels'){ openHotels(); }
+window.addEventListener('hashchange',()=>{ if(location.hash==='#hotels') openHotels(); });
 
 /* ---- Langues ---- */
 const lang = document.getElementById('lang');
-lang.querySelector('button').addEventListener('click',(e)=>{
-  e.stopPropagation();
-  const p = lang.querySelector('.panel');
-  p.style.display = (p.style.display==='block') ? 'none' : 'block';
-});
+lang.querySelector('button').addEventListener('click',(e)=>{e.stopPropagation(); const p=lang.querySelector('.panel'); p.style.display=(p.style.display==='block')?'none':'block';});
 document.addEventListener('click',()=>{ const p=lang.querySelector('.panel'); if(p) p.style.display='none'; });
-
 function setLang(code){
-  const trySet=()=>{
-    const sel=document.querySelector('.goog-te-combo');
-    if(!sel){ setTimeout(trySet,300); return; }
-    sel.value=code;
-    sel.dispatchEvent(new Event('change'));
-  };
-  trySet();
-  document.cookie=`googtrans=/fr/${code};path=/`;
-  document.cookie=`googtrans=/fr/${code};domain=.${location.hostname};path=/`;
+  const trySet=()=>{ const sel=document.querySelector('.goog-te-combo'); if(!sel){ setTimeout(trySet,300); return; } sel.value=code; sel.dispatchEvent(new Event('change')); };
+  trySet(); document.cookie=`googtrans=/fr/${code};path=/`; document.cookie=`googtrans=/fr/${code};domain=.${location.hostname};path=/`;
 }
-lang.querySelectorAll('a[data-lang]').forEach(a=>a.addEventListener('click',e=>{
-  e.preventDefault(); setLang(a.dataset.lang);
-}));
-document.querySelectorAll('.m-lang').forEach(a=>a.addEventListener('click',e=>{
-  e.preventDefault(); setLang(a.dataset.lang); mpanel.classList.remove('open');
-}));
+lang.querySelectorAll('a[data-lang]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault(); setLang(a.dataset.lang);} ));
+document.querySelectorAll('.m-lang').forEach(a=>a.addEventListener('click',e=>{e.preventDefault(); setLang(a.dataset.lang); mpanel.classList.remove('open');}));
 
 /* ---- CTA Interventions ---- */
-document.getElementById('ctaInterv').addEventListener('click',(e)=>{e.preventDefault();
-  if (matchMedia('(min-width:981px)').matches){ drop.classList.add('open'); }
-  else { mpanel.classList.add('open'); }
-});
+document.getElementById('ctaInterv').addEventListener('click',(e)=>{e.preventDefault(); if (matchMedia('(min-width:981px)').matches){ drop.classList.add('open'); } else { mpanel.classList.add('open'); }});
 
 /* ---- Footer year ---- */
 document.getElementById('y').textContent=new Date().getFullYear();
