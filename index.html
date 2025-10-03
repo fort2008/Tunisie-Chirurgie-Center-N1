@@ -67,7 +67,7 @@ header{position:sticky;top:0;z-index:90;background:#1a1620dd;color:#fff;border-b
 section{max-width:1180px;margin:auto;padding:40px 16px;border-bottom:1px solid var(--sep)}
 footer{color:#7a6f83;text-align:center;padding:28px}
 
-/* Carousel générique */
+/* Carousel */
 .carousel{position:relative;border-radius:18px;overflow:hidden;background:#000}
 .carousel .slide{position:absolute;inset:0;opacity:0;transition:opacity .6s}
 .carousel .slide.active{opacity:1}
@@ -106,7 +106,8 @@ footer{color:#7a6f83;text-align:center;padding:28px}
       </div>
 
       <a href="#cliniques">Nos cliniques</a>
-      <a href="#" id="openHotelsBtn">Hôtels</a>
+      <!-- IMPORTANT: lien sur #hotels + JS au clic -->
+      <a href="#hotels" id="openHotelsBtn">Hôtels</a>
       <a href="#contact">Contact</a>
 
       <!-- Globe langues -->
@@ -134,7 +135,7 @@ footer{color:#7a6f83;text-align:center;padding:28px}
     <h4>Interventions</h4>
     <div id="mCats"></div>
     <a href="#cliniques" class="m-link">Nos cliniques</a>
-    <a href="#" id="openHotelsBtnM" class="m-link">Hôtels</a>
+    <a href="#hotels" id="openHotelsBtnM" class="m-link">Hôtels</a>
     <a href="#contact" class="m-link" style="margin-top:10px">Contact</a>
     <h4 style="margin-top:14px">Langues</h4>
     <div>
@@ -148,7 +149,7 @@ footer{color:#7a6f83;text-align:center;padding:28px}
   </div>
 </div>
 
-<!-- Widget Google Translate rendu mais caché hors-écran (nécessaire au moteur) -->
+<!-- Google Translate (rendu hors-écran) -->
 <div id="google_translate_element" style="position:absolute;left:-9999px;top:auto;"></div>
 
 <!-- HERO -->
@@ -192,7 +193,7 @@ footer{color:#7a6f83;text-align:center;padding:28px}
   </div>
 </section>
 
-<!-- HÔTELS : caché par défaut, s'affiche seulement au clic -->
+<!-- HÔTELS (caché par défaut, affiché au clic) -->
 <section id="hotels" style="display:none">
   <h2 class="gold" style="font-family:Cinzel;margin:0 0 10px">Hôtels partenaires</h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start">
@@ -206,21 +207,21 @@ footer{color:#7a6f83;text-align:center;padding:28px}
     </div>
 
     <div class="carousel" id="hotelCarousel" data-auto="6000">
-      <!-- Série 1 (El Mouradi / Gammarth) -->
-      <div class="slide active"><img src="https://static.promovacances.com/photos/vacances-tunisie/tunis/piscine-exterieure-el-mouradi-gammarth_486340_panohd.jpg" alt=""></div>
-      <div class="slide"><img src="https://x.cdrst.com/foto/hotel-sf/12666e5e/granderesp/foto-hotel-126663b4.jpg" alt=""></div>
-      <div class="slide"><img src="https://image.resabooking.com/images/hotel/el_mouradi_gammarth_6.jpg" alt=""></div>
-      <div class="slide"><img src="https://cxfile.advences.com/sunshinevacances/photosi/GCHAMBRE5.jpg" alt=""></div>
-      <div class="slide"><img src="https://www.magiclub.com/magiclub/visuals/tunisie_carthage_hotel_el_mouradi_gammarth_hotel.jpg" alt=""></div>
-      <!-- Série 2 (Le Corail Suites / autres) -->
-      <div class="slide"><img src="https://z.cdrst.com/foto/hotel-sf/12376e33/granderesp/foto-hotel-12376389.jpg" alt=""></div>
-      <div class="slide"><img src="https://www.corail-suites.com/img/slide_31.jpg" alt=""></div>
-      <div class="slide"><img src="https://q-xx.bstatic.com/xdata/images/hotel/max500/20821054.jpg?k=24668ca2f0305ecfda6419a083c920b96d0f58da5fc6fa8786a197146d96e13a&o=" alt=""></div>
-      <div class="slide"><img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/23313676.jpg?k=2df6d0eed606dfc39a89889a1917db7eb6c141709e2ed5a0636551f713e856a8&o=&hp=1" alt=""></div>
-      <div class="slide"><img src="https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_267,q_40,w_400/partner-images/cd/03/232b0b0ae2bb0fdfa43a1d46bc3554bbe1060174e926bcba844002effb0f.jpeg" alt=""></div>
-      <div class="slide"><img src="https://image.resabooking.com/images/hotel/Le_Corail_Suite_Hotel_11.jpg" alt=""></div>
-      <div class="slide"><img src="https://images.trvl-media.com/lodging/7000000/6510000/6505800/6505743/36faa188.jpg?impolicy=fcrop&w=1200&h=800&quality=medium" alt=""></div>
-      <div class="slide"><img src="https://www.corail-suites.com/img/patio.jpg" alt=""></div>
+      <!-- Série 1 -->
+      <div class="slide active"><img loading="eager" src="https://static.promovacances.com/photos/vacances-tunisie/tunis/piscine-exterieure-el-mouradi-gammarth_486340_panohd.jpg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://x.cdrst.com/foto/hotel-sf/12666e5e/granderesp/foto-hotel-126663b4.jpg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://image.resabooking.com/images/hotel/el_mouradi_gammarth_6.jpg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://cxfile.advences.com/sunshinevacances/photosi/GCHAMBRE5.jpg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://www.magiclub.com/magiclub/visuals/tunisie_carthage_hotel_el_mouradi_gammarth_hotel.jpg" alt=""></div>
+      <!-- Série 2 -->
+      <div class="slide"><img loading="eager" src="https://z.cdrst.com/foto/hotel-sf/12376e33/granderesp/foto-hotel-12376389.jpg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://www.corail-suites.com/img/slide_31.jpg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://q-xx.bstatic.com/xdata/images/hotel/max500/20821054.jpg?k=24668ca2f0305ecfda6419a083c920b96d0f58da5fc6fa8786a197146d96e13a&o=" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/23313676.jpg?k=2df6d0eed606dfc39a89889a1917db7eb6c141709e2ed5a0636551f713e856a8&o=&hp=1" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_267,q_40,w_400/partner-images/cd/03/232b0b0ae2bb0fdfa43a1d46bc3554bbe1060174e926bcba844002effb0f.jpeg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://image.resabooking.com/images/hotel/Le_Corail_Suite_Hotel_11.jpg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://images.trvl-media.com/lodging/7000000/6510000/6505800/6505743/36faa188.jpg?impolicy=fcrop&w=1200&h=800&quality=medium" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://www.corail-suites.com/img/patio.jpg" alt=""></div>
 
       <div class="nav">
         <button class="btn prev" aria-label="Précédent">❮</button>
@@ -237,7 +238,8 @@ footer{color:#7a6f83;text-align:center;padding:28px}
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center">
     <div>
       <p style="color:var(--muted)">Notre équipe vous répond 7j/7.</p>
-      <p><strong>WhatsApp :</strong> <a href="https://wa.me/21628296239" target="_blank" rel="noopener">+216 28 296 239</a></p>
+      <!-- Numéro masqué, on ne laisse que le bouton -->
+      <p><a class="btn" href="https://wa.me/21628296239" target="_blank" rel="noopener">Devis WhatsApp</a></p>
     </div>
     <img
       src="https://media.istockphoto.com/id/1275072681/fr/photo/jeune-r%C3%A9ceptionniste-femelle-parlant-au-t%C3%A9l%C3%A9phone-dans-la-clinique-tout-en-sasseyant-et.jpg?b=1&s=612x612&w=0&k=20&c=DOG7hMzKaQyFVk7nr1HuLpOUu5eoAXDIIEN-eXbeEIE="
@@ -249,7 +251,6 @@ footer{color:#7a6f83;text-align:center;padding:28px}
 
 <footer>© <span id="y"></span> Tunisie Chirurgie Center</footer>
 
-<!-- Google Translate -->
 <script>
   function googleTranslateElementInit(){
     new google.translate.TranslateElement({
@@ -262,7 +263,7 @@ footer{color:#7a6f83;text-align:center;padding:28px}
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <script>
-/* -------- data interventions (desktop + mobile) -------- */
+/* -------- data interventions -------- */
 const ORDER=["Seins","Corps","Visage","Obésité","Greffe de cheveux","Dents","Chirurgie intime"];
 const INTERV={
   "Seins":[["Augmentation mammaire","intervention.html?slug=augmentation-mammaire"],
@@ -334,12 +335,15 @@ mpanel.querySelectorAll('.m-link').forEach(a=>a.addEventListener('click',()=>mpa
 const heroImgs=[...document.querySelectorAll('#hero img')]; let hi=0;
 setInterval(()=>{heroImgs[hi].classList.remove('active'); hi=(hi+1)%heroImgs.length; heroImgs[hi].classList.add('active');},5000);
 
-/* ---- Carousels (cliniques & hôtels) ---- */
+/* ---- Carousel ---- */
 function initCarousel(root){
   const slides = Array.from(root.querySelectorAll('.slide'));
   const dotsBox = root.querySelector('.dots');
   let i = 0, autoMs = +root.dataset.auto || 0, timer = null;
 
+  if(!slides.length) return;
+
+  dotsBox.innerHTML='';
   slides.forEach((_,idx)=>{
     const d = document.createElement('span');
     if(idx===0) d.classList.add('active');
@@ -371,19 +375,19 @@ function initCarousel(root){
 }
 document.querySelectorAll('#clinicCarousel').forEach(initCarousel);
 
-/* ---- Hôtels • affichage uniquement au clic ---- */
+/* ---- HÔTELS : affichage seulement au clic ---- */
 const hotelsSection = document.getElementById('hotels');
 const hotelCarousel = document.getElementById('hotelCarousel');
 
 function openHotels(){
-  if(hotelsSection.style.display==='none'){ hotelsSection.style.display='block'; }
+  hotelsSection.style.display='block';
   if(!hotelCarousel.dataset.inited){ initCarousel(hotelCarousel); hotelCarousel.dataset.inited='1'; }
   hotelsSection.scrollIntoView({behavior:'smooth', block:'start'});
 }
 document.getElementById('openHotelsBtn').addEventListener('click',(e)=>{ e.preventDefault(); openHotels(); });
 document.getElementById('openHotelsBtnM').addEventListener('click',(e)=>{ e.preventDefault(); mpanel.classList.remove('open'); openHotels(); });
 
-/* ---- Langues (globe) ---- */
+/* ---- Langues ---- */
 const lang = document.getElementById('lang');
 lang.querySelector('button').addEventListener('click',(e)=>{
   e.stopPropagation();
