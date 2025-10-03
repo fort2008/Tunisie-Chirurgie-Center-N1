@@ -240,7 +240,8 @@ footer{color:#7a6f83;text-align:center;padding:28px}
     <!-- Texte -->
     <div class="panel" style="background:#fff;border:1px solid var(--sep);border-radius:18px;padding:18px">
       <p>Prenez contact dès maintenant avec nos équipes, nous nous engageons à vous répondre dans un délai de <b>48 h</b>.</p>
-      <p>Pour demander un devis, merci de remplir le formulaire ci-contre et, si possible, joindre des <b>photos des zones à traiter</b> avec un bref descriptif.</p>
+      <!-- PHRASE MODIFIÉE ICI -->
+      <p>Pour demander un devis, merci de remplir le formulaire ci-contre. Après avoir choisi l’intervention, notre équipe vous mettra en relation avec le service spécialisé pour traiter votre demande.</p>
       <p>Email direct : <a href="mailto:contact@tunisiechirurgiecenter.com">contact@tunisiechirurgiecenter.com</a></p>
     </div>
 
@@ -482,7 +483,9 @@ lang.querySelector('button').addEventListener('click',(e)=>{e.stopPropagation();
 document.addEventListener('click',()=>{ const p=lang.querySelector('.panel'); if(p) p.style.display='none'; });
 function setLang(code){
   const trySet=()=>{ const sel=document.querySelector('.goog-te-combo'); if(!sel){ setTimeout(trySet,300); return; } sel.value=code; sel.dispatchEvent(new Event('change')); };
-  trySet(); document.cookie=`googtrans=/fr/${code};path=/`; document.cookie=`googtrans=/fr/${code};domain=.${location.hostname};path=/`;
+  trySet();
+  document.cookie=`googtrans=/fr/${code};path=/`;
+  document.cookie=`googtrans=/fr/${code};domain=.${location.hostname};path=/`;
 }
 lang.querySelectorAll('a[data-lang]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault(); setLang(a.dataset.lang);} ));
 document.querySelectorAll('.m-lang').forEach(a=>a.addEventListener('click',e=>{e.preventDefault(); setLang(a.dataset.lang); mpanel.classList.remove('open');}));
@@ -501,7 +504,7 @@ function addWatermark(container){
 }
 document.querySelectorAll('.carousel .slide, .hero-media').forEach(addWatermark);
 
-/* ---- Hero CTA Interventions (ouvre le mega menu ou menu mobile) ---- */
+/* ---- Hero CTA Interventions ---- */
 document.getElementById('ctaInterv').addEventListener('click',(e)=>{e.preventDefault();
   if (matchMedia('(min-width:981px)').matches){ drop.classList.add('open'); }
   else { mpanel.classList.add('open'); }
