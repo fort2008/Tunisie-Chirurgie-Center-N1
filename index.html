@@ -63,19 +63,25 @@ header{position:sticky;top:0;z-index:90;background:#1a1620dd;color:#fff;border-b
 .hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease}
 .hero-media img.active{opacity:1}
 
-/* VIP “badge” sur la gauche du hero */
-.vip-top{
-  position:absolute; left:16px; top:-24px; z-index:2;
+/* VIP badge positions */
+.vip-hero{
+  width:min(360px,70%); max-width:420px;
   background:#fff; border:1px solid var(--sep); border-radius:14px;
-  padding:10px 14px; box-shadow:0 10px 24px rgba(0,0,0,.08)
+  padding:12px 16px; margin:-6px 0 12px;
+  box-shadow:0 8px 18px rgba(0,0,0,.06);
 }
-.vip-top img{height:54px}
+.vip-hotels{
+  width:240px; aspect-ratio:1/1; object-fit:cover;
+  display:block; margin:10px auto 0;
+  border-radius:6px; box-shadow:0 8px 18px rgba(0,0,0,.08);
+  border:1px solid var(--sep); background:#fff;
+}
 
 /* Sections */
 section{max-width:1180px;margin:auto;padding:40px 16px;border-bottom:1px solid var(--sep)}
 footer{color:#7a6f83;text-align:center;padding:28px}
 
-/* Carousel générique */
+/* Carousel */
 .carousel{position:relative;border-radius:18px;overflow:hidden;background:#000;height:420px}
 .carousel .slide{position:absolute;inset:0;opacity:0;transition:opacity .6s}
 .carousel .slide.active{opacity:1}
@@ -86,25 +92,27 @@ footer{color:#7a6f83;text-align:center;padding:28px}
 .carousel .dots span{width:8px;height:8px;border-radius:50%;background:#ffffff70}
 .carousel .dots span.active{background:#fff}
 
-/* Grille 2 colonnes */
-.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+/* Watermark (tampon) */
+.watermark{position:absolute;right:10px;bottom:10px;width:72px;height:72px;opacity:.78;pointer-events:none}
+.watermark img{width:100%;height:100%;object-fit:contain;display:block}
 
-/* Responsive */
+/* Grilles */
+.hotels-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+
 @media(max-width:980px){
   .menu{display:none}.burger{display:block}
   .hero-inner{grid-template-columns:1fr}
   .hero-media{height:320px}
   .carousel{height:300px}
-  .two{grid-template-columns:1fr}
+  .hotels-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
-
 <header>
   <div class="nav">
     <div class="brand">
-      <img src="assets/logo/logo.png" alt="Tunisie Chirurgie Center" onerror="this.onerror=null;this.src='assets/logo/logo.png'">
+      <img src="https://dynamic.design.com/asset/logo/94df530f-3f85-454a-94b6-a83d69710700/logo-search-grid-1x?logoTemplateVersion=1&v=638878464389530000&text=tunisiechirurgiecenter.com&layout=auto&colorpalette=orange" alt="Tunisie Chirurgie Center" onerror="this.onerror=null;this.src='assets/logo/logo.png'">
       <span>TUNISIE CHIRURGIE CENTER</span>
     </div>
     <nav class="menu">
@@ -117,8 +125,8 @@ footer{color:#7a6f83;text-align:center;padding:28px}
 
       <a href="#cliniques">Nos cliniques</a>
       <a href="#hotels" id="openHotelsBtn">Hôtels</a>
-      <a href="#vip" id="openVipBtn">VIP Transfer</a>
-      <a href="#devis" id="openContactBtn">Contact</a>
+      <a href="#viptransfer" id="vipMenu">VIP Transfer</a>
+      <a href="#contact" id="openContactBtn">Contact</a>
 
       <div class="lang" id="lang">
         <button type="button" title="Langues" aria-label="Langues">🌐</button>
@@ -145,8 +153,8 @@ footer{color:#7a6f83;text-align:center;padding:28px}
     <div id="mCats"></div>
     <a href="#cliniques" class="m-link">Nos cliniques</a>
     <a href="#hotels" id="openHotelsBtnM" class="m-link">Hôtels</a>
-    <a href="#vip" id="openVipBtnM" class="m-link">VIP Transfer</a>
-    <a href="#devis" id="openContactBtnM" class="m-link" style="margin-top:10px">Contact</a>
+    <a href="#viptransfer" class="m-link">VIP Transfer</a>
+    <a href="#contact" id="openContactBtnM" class="m-link" style="margin-top:10px">Contact</a>
     <h4 style="margin-top:14px">Langues</h4>
     <div>
       <a href="#" class="m-lang" data-lang="fr">🇫🇷 Français</a>
@@ -159,33 +167,24 @@ footer{color:#7a6f83;text-align:center;padding:28px}
   </div>
 </div>
 
-<!-- Google Translate (hors écran) -->
+<!-- Google Translate (hors-écran) -->
 <div id="google_translate_element" style="position:absolute;left:-9999px;top:auto;"></div>
 
 <!-- HERO -->
 <section class="hero" id="accueil">
-  <div class="hero-inner" style="position:relative">
-    <div style="position:relative">
-      <!-- VIP SERVICES en haut à gauche (comme le 2e printscreen) -->
-      <div class="vip-top">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHWlHWKU0Lh8nAgUZKgeuAY2ADtuh04MuYwQ&s" alt="VIP Services">
-      </div>
-
-      <h1 class="gold" style="margin-top:40px">Élégance & bien-être,<br>en toute confiance.</h1>
+  <div class="hero-inner">
+    <div>
+      <!-- VIP badge — comme sur ton printscreen -->
+      <img class="vip-hero"
+           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyaa4_z8FYBH4X5chZANg_FWZ9uP9BZdrFuQ&s"
+           alt="VIP Services">
+      <h1 class="gold">Élégance & bien-être,<br>en toute confiance.</h1>
       <p class="lead">Plateforme premium pour la chirurgie esthétique, soins dentaires, greffe & chirurgie intime. Devis en 24 h, équipes certifiées.</p>
-
-      <!-- Badge VIP en dessous, à la gauche -->
-      <div style="margin:18px 0 0">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyaa4_z8FYBH4X5chZANg_FWZ9uP9BZdrFuQ&s" alt="VIP Badge" style="height:180px;border-radius:14px;box-shadow:0 10px 24px rgba(0,0,0,.08);background:#fff;padding:8px;border:1px solid var(--sep)">
-      </div>
-
       <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
         <a class="btn" href="#" id="ctaInterv">Voir les interventions</a>
-        <a class="btn" href="#vip">VIP Transfer</a>
         <a class="btn" href="#devis" id="ctaDevis">Demander un devis</a>
       </div>
     </div>
-
     <div class="hero-media" id="hero">
       <img class="active" src="https://lh3.googleusercontent.com/p/AF1QipMqHFishAAkCoir3ndgVC-u1pl9n5GJXST7tzGl=s680-w680-h510-rw" alt="Bloc 1">
       <img src="https://lh3.googleusercontent.com/p/AF1QipP_P5w2zgLpK5QhkCv8zCM7J-q5gmsqXKbHesRt=s680-w680-h510-rw" alt="Bloc 2">
@@ -211,24 +210,39 @@ footer{color:#7a6f83;text-align:center;padding:28px}
   </div>
 </section>
 
-<!-- HÔTELS (affichage au clic) -->
+<!-- HÔTELS (caché par défaut, s'affiche au clic) -->
 <section id="hotels" style="display:none">
   <h2 class="gold" style="font-family:Cinzel;margin:0 0 10px">Hôtels partenaires</h2>
-  <div class="two">
-    <div class="panel" style="background:#fff;border:1px solid var(--sep);border-radius:18px;padding:16px">
-      <p>Nous collaborons avec des <b>hôtels haut de gamme</b> à Gammarth/Carthage. Votre séjour est organisé de A à Z : transferts <b>aéroport ⇄ hôtel ⇄ clinique</b>, accompagnement 24/7.</p>
-      <ul style="margin:8px 0 0 18px;color:#6f6176">
-        <li>Chambres spacieuses & room-service</li>
-        <li>Vue mer / piscines, espaces bien-être</li>
-        <li>Petits-déjeuners, conciergerie médicale</li>
-      </ul>
+  <div class="hotels-grid">
+    <div>
+      <div class="panel" style="background:#fff;border:1px solid var(--sep);border-radius:18px;padding:16px">
+        <p>Nous collaborons avec des <b>hôtels haut de gamme</b> à Gammarth/Carthage. Votre séjour est organisé de A à Z : transferts <b>aéroport ⇄ hôtel ⇄ clinique</b>, accompagnement 24/7.</p>
+        <ul style="margin:8px 0 0 18px;color:#6f6176">
+          <li>Chambres spacieuses & room-service</li>
+          <li>Vue mer / piscines, espaces bien-être</li>
+          <li>Petits-déjeuners, conciergerie médicale</li>
+        </ul>
+      </div>
+      <!-- VIP badge sous la carte Hôtels -->
+      <img class="vip-hotels"
+           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHWlHWKU0Lh8nAgUZKgeuAY2ADtuh04MuYwQ&s"
+           alt="VIP Transfer">
     </div>
+
     <div class="carousel" id="hotelCarousel" data-auto="6000">
-      <div class="slide active"><img src="https://static.promovacances.com/photos/vacances-tunisie/tunis/piscine-exterieure-el-mouradi-gammarth_486340_panohd.jpg" alt=""></div>
-      <div class="slide"><img src="https://x.cdrst.com/foto/hotel-sf/12666e5e/granderesp/foto-hotel-126663b4.jpg" alt=""></div>
-      <div class="slide"><img src="https://image.resabooking.com/images/hotel/el_mouradi_gammarth_6.jpg" alt=""></div>
-      <div class="slide"><img src="https://cxfile.advences.com/sunshinevacances/photosi/GCHAMBRE5.jpg" alt=""></div>
-      <div class="slide"><img src="https://www.magiclub.com/magiclub/visuals/tunisie_carthage_hotel_el_mouradi_gammarth_hotel.jpg" alt=""></div>
+      <div class="slide active"><img loading="eager" src="https://static.promovacances.com/photos/vacances-tunisie/tunis/piscine-exterieure-el-mouradi-gammarth_486340_panohd.jpg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://x.cdrst.com/foto/hotel-sf/12666e5e/granderesp/foto-hotel-126663b4.jpg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://image.resabooking.com/images/hotel/el_mouradi_gammarth_6.jpg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://cxfile.advences.com/sunshinevacances/photosi/GCHAMBRE5.jpg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://www.magiclub.com/magiclub/visuals/tunisie_carthage_hotel_el_mouradi_gammarth_hotel.jpg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://z.cdrst.com/foto/hotel-sf/12376e33/granderesp/foto-hotel-12376389.jpg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://www.corail-suites.com/img/slide_31.jpg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://q-xx.bstatic.com/xdata/images/hotel/max500/20821054.jpg?k=24668ca2f0305ecfda6419a083c920b96d0f58da5fc6fa8786a197146d96e13a&o=" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/23313676.jpg?k=2df6d0eed606dfc39a89889a1917db7eb6c141709e2ed5a0636551f713e856a8&o=&hp=1" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_267,q_40,w_400/partner-images/cd/03/232b0b0ae2bb0fdfa43a1d46bc3554bbe1060174e926bcba844002effb0f.jpeg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://image.resabooking.com/images/hotel/Le_Corail_Suite_Hotel_11.jpg" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://images.trvl-media.com/lodging/7000000/6510000/6505800/6505743/36faa188.jpg?impolicy=fcrop&w=1200&h=800&quality=medium" alt=""></div>
+      <div class="slide"><img loading="eager" src="https://www.corail-suites.com/img/patio.jpg" alt=""></div>
       <div class="nav">
         <button class="btn prev" aria-label="Précédent">❮</button>
         <button class="btn next" aria-label="Suivant">❯</button>
@@ -238,24 +252,23 @@ footer{color:#7a6f83;text-align:center;padding:28px}
   </div>
 </section>
 
-<!-- VIP TRANSFER -->
-<section id="vip" style="display:block">
-  <h2 class="gold" style="font-family:Cinzel;margin:0 0 10px">VIP Transfer — Séjour médical d’exception</h2>
-  <div class="two">
-    <div class="panel" style="background:#fff;border:1px solid var(--sep);border-radius:18px;padding:18px">
-      <p>Notre service <b>VIP Transfer</b> assure des trajets fluides et discrets entre <b>l’aéroport, l’hôtel et la clinique</b>. Vous êtes accueilli(e) dès votre arrivée, installé(e) confortablement et accompagné(e) tout au long du séjour.</p>
+<!-- VIP TRANSFER (section dédiée du menu) -->
+<section id="viptransfer" style="display:none">
+  <h2 class="gold" style="font-family:Cinzel;margin:0 0 14px">VIP Transfer</h2>
+  <div class="hotels-grid">
+    <div class="panel" style="background:#fff;border:1px solid var(--sep);border-radius:18px;padding:16px">
+      <p>Service <b>VIP Transfer</b> haut de gamme : prise en charge dès votre arrivée à l’aéroport, accueil personnalisé, transferts privés entre <b>aéroport ⇄ hôtel ⇄ clinique</b>. Chauffeur dédié, confort premium et discrétion totale pour un <b>séjour médical d’exception</b>.</p>
       <ul style="margin:8px 0 0 18px;color:#6f6176">
-        <li>Chauffeurs professionnels & véhicules premium</li>
-        <li>Coordination 24/7 avec les équipes cliniques</li>
-        <li>Horaires adaptés à vos rendez-vous médicaux</li>
-        <li>Confidentialité & confort garanti</li>
+        <li>Véhicules récents, climatisés & Wi-Fi</li>
+        <li>Suivi des vols & disponibilité 24/7</li>
+        <li>Coordination fluide avec nos équipes médicales</li>
       </ul>
     </div>
     <div class="carousel" id="vipCarousel" data-auto="6000">
-      <div class="slide active"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsA-lODOSbQQJJV70Xmnqwq19L6Z6yi6n8_w&s" alt="VIP 1"></div>
-      <div class="slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUe2Ka6Jr8H_IgOWzCh1pdQpl827N2W1O9sw&s" alt="VIP 2"></div>
-      <div class="slide"><img src="https://images.pexels.com/photos/5717060/pexels-photo-5717060.jpeg" alt="VIP 3"></div>
-      <div class="slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtPLe0TP6QE3MoBOLZra0WiLB3WjyQRyrT9Q&s" alt="VIP 4"></div>
+      <div class="slide active"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsA-lODOSbQQJJV70Xmnqwq19L6Z6yi6n8_w&s" alt=""></div>
+      <div class="slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUe2Ka6Jr8H_IgOWzCh1pdQpl827N2W1O9sw&s" alt=""></div>
+      <div class="slide"><img src="https://images.pexels.com/photos/5717060/pexels-photo-5717060.jpeg" alt=""></div>
+      <div class="slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtPLe0TP6QE3MoBOLZra0WiLB3WjyQRyrT9Q&s" alt=""></div>
       <div class="nav">
         <button class="btn prev" aria-label="Précédent">❮</button>
         <button class="btn next" aria-label="Suivant">❯</button>
@@ -268,10 +281,10 @@ footer{color:#7a6f83;text-align:center;padding:28px}
 <!-- DEMANDEZ UN DEVIS -->
 <section id="devis" style="max-width:1180px;margin:40px auto;padding:0 16px;border-top:1px solid var(--sep)">
   <h2 class="gold" style="font-family:Cinzel;margin:24px 0 16px">Demandez un devis</h2>
-  <div class="two">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start">
     <div class="panel" style="background:#fff;border:1px solid var(--sep);border-radius:18px;padding:18px">
       <p>Prenez contact dès maintenant avec nos équipes, nous nous engageons à vous répondre dans un délai de <b>48 h</b>.</p>
-      <p><b>Après avoir choisi l’intervention, notre équipe vous mettra en relation avec le service spécialisé pour traiter votre demande.</b></p>
+      <p>Après avoir choisi l’intervention, notre équipe vous mettra en relation avec le service spécialisé pour traiter votre demande.</p>
       <p>Email direct : <a href="mailto:contact@tunisiechirurgiecenter.com">contact@tunisiechirurgiecenter.com</a></p>
     </div>
 
@@ -288,11 +301,13 @@ footer{color:#7a6f83;text-align:center;padding:28px}
       <label>Intervention(s) souhaitée(s)</label>
       <select id="devisIntervention" name="intervention" style="width:100%;margin:6px 0 16px;padding:10px;border:1px solid #ccc;border-radius:8px">
         <option value="">Veuillez sélectionner</option>
+        <!-- SEINS -->
         <option>Augmentation mammaire</option>
         <option>Lipofilling mammaire</option>
         <option>Lifting mammaire</option>
         <option>Réduction mammaire</option>
         <option>Asymétrie mammaire</option>
+        <!-- CORPS -->
         <option>Liposuccion</option>
         <option>Lipofilling des fesses</option>
         <option>Abdominoplastie</option>
@@ -302,16 +317,21 @@ footer{color:#7a6f83;text-align:center;padding:28px}
         <option>Augmentation des fesses</option>
         <option>Double menton</option>
         <option>Bichectomie</option>
+        <!-- VISAGE -->
         <option>Lifting du visage</option>
         <option>Blépharoplastie</option>
         <option>Rhinoplastie</option>
         <option>Lipofilling visage</option>
         <option>Otoplastie</option>
+        <!-- OBESITE -->
         <option>Sleeve gastrectomie</option>
         <option>Ballon gastrique</option>
+        <!-- CHEVEUX -->
         <option>Greffe FUE</option>
+        <!-- DENTS -->
         <option>Facettes dentaires</option>
         <option>Orthodontie invisible</option>
+        <!-- INTIME -->
         <option>Nymphoplastie</option>
         <option>Vaginoplastie</option>
         <option>Lipostructure grandes lèvres</option>
@@ -320,10 +340,7 @@ footer{color:#7a6f83;text-align:center;padding:28px}
         <option>Je ne sais pas, je veux l’avis du chirurgien</option>
       </select>
 
-      <button type="submit" class="btn" style="width:100%;background:var(--gold2);color:#fff">
-        JE VEUX UN DEVIS
-      </button>
-
+      <button type="submit" class="btn" style="width:100%;background:var(--gold2);color:#fff">JE VEUX UN DEVIS</button>
       <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
         <a class="btn" href="https://wa.me/21628296239" target="_blank" rel="noopener">Devis WhatsApp</a>
         <a class="btn" href="mailto:contact@tunisiechirurgiecenter.com">Envoyer par e-mail</a>
@@ -331,6 +348,9 @@ footer{color:#7a6f83;text-align:center;padding:28px}
     </form>
   </div>
 </section>
+
+<!-- CONTACT (ancre) -->
+<section id="contact" style="padding:0;margin:0;border:0"></section>
 
 <footer>© <span id="y"></span> Tunisie Chirurgie Center</footer>
 
@@ -381,7 +401,7 @@ const INTERV={
                       ["Pénoplastie","intervention.html?slug=penoplastie"]]
 };
 
-/* ---- build mega menu ---- */
+/* ---- Build mega menu ---- */
 const grid=document.getElementById('deskGrid');
 ORDER.forEach(cat=>{
   const col=document.createElement('div');
@@ -392,7 +412,7 @@ ORDER.forEach(cat=>{
   grid.appendChild(col);
 });
 
-/* ---- drawer mobile ---- */
+/* ---- Drawer mobile list ---- */
 const mCats=document.getElementById('mCats');
 if(mCats){
   ORDER.forEach(cat=>{
@@ -403,7 +423,7 @@ if(mCats){
   });
 }
 
-/* ---- open/close menus ---- */
+/* ---- Open/close menus ---- */
 const drop=document.getElementById('dropInterv');
 drop.querySelector('button').addEventListener('click',(e)=>{e.stopPropagation();drop.classList.toggle('open');});
 drop.addEventListener('mouseenter',()=>drop.classList.add('open'));
@@ -415,54 +435,87 @@ burger.addEventListener('click',()=>mpanel.classList.add('open'));
 mpanel.querySelector('.back').addEventListener('click',()=>mpanel.classList.remove('open'));
 mpanel.querySelectorAll('.m-link').forEach(a=>a.addEventListener('click',()=>mpanel.classList.remove('open')));
 
-/* ---- hero slider ---- */
+/* ---- Hero slider ---- */
 const heroImgs=[...document.querySelectorAll('#hero img')]; let hi=0;
 setInterval(()=>{heroImgs[hi].classList.remove('active'); hi=(hi+1)%heroImgs.length; heroImgs[hi].classList.add('active');},5000);
 
-/* ---- carousels ---- */
+/* ---- Carousels ---- */
 function initCarousel(root){
   const slides = Array.from(root.querySelectorAll('.slide'));
-  const dotsBox = root.querySelector('.dots') || root.appendChild(Object.assign(document.createElement('div'),{className:'dots'}));
-  let i = 0, autoMs = +root.dataset.auto || 0, timer = null;
   if(!slides.length) return;
-  dotsBox.innerHTML='';
-  slides.forEach((_,idx)=>{ const d=document.createElement('span'); if(idx===0) d.classList.add('active'); d.addEventListener('click',()=>go(idx)); dotsBox.appendChild(d); });
+  const dotsBox = root.querySelector('.dots'); dotsBox.innerHTML='';
+  slides.forEach((_,idx)=>{
+    const d=document.createElement('span'); if(idx===0) d.classList.add('active');
+    d.addEventListener('click',()=>go(idx)); dotsBox.appendChild(d);
+  });
   const dots = Array.from(dotsBox.children);
-  function go(n){ slides[i].classList.remove('active'); dots[i].classList.remove('active'); i=(n+slides.length)%slides.length; slides[i].classList.add('active'); dots[i].classList.add('active'); }
+  let i = 0, autoMs = +root.dataset.auto || 0, timer = null;
+
+  function go(n){
+    slides[i].classList.remove('active'); dots[i].classList.remove('active');
+    i=(n+slides.length)%slides.length;
+    slides[i].classList.add('active'); dots[i].classList.add('active');
+  }
   root.querySelector('.prev')?.addEventListener('click',()=>go(i-1));
   root.querySelector('.next')?.addEventListener('click',()=>go(i+1));
+
   function start(){ if(autoMs>0){ timer=setInterval(()=>go(i+1), autoMs); } }
   function stop(){ if(timer){ clearInterval(timer); timer=null; } }
   root.addEventListener('mouseenter', stop);
   root.addEventListener('mouseleave', start);
   start();
+
   root.querySelectorAll('img').forEach(img=>img.addEventListener('error',function(){ this.onerror=null; this.src='assets/img/placeholder.jpg'; }));
 }
 document.querySelectorAll('#clinicCarousel,#hotelCarousel,#vipCarousel').forEach(initCarousel);
 
-/* ---- hotels show on click ---- */
+/* ---- Hôtels + VIP Transfer : affichage au clic ---- */
 const hotelsSection=document.getElementById('hotels');
 const hotelCarousel=document.getElementById('hotelCarousel');
 function openHotels(){
   hotelsSection.style.display='block';
-  if(hotelCarousel && !hotelCarousel.dataset.inited){ initCarousel(hotelCarousel); hotelCarousel.dataset.inited='1'; }
+  if(!hotelCarousel.dataset.inited){ initCarousel(hotelCarousel); hotelCarousel.dataset.inited='1'; }
   hotelsSection.scrollIntoView({behavior:'smooth', block:'start'});
 }
 document.getElementById('openHotelsBtn').addEventListener('click',(e)=>{ e.preventDefault(); openHotels(); });
 document.getElementById('openHotelsBtnM').addEventListener('click',(e)=>{ e.preventDefault(); mpanel.classList.remove('open'); openHotels(); });
+if(location.hash==='#hotels'){ openHotels(); }
+window.addEventListener('hashchange',()=>{ if(location.hash==='#hotels') openHotels(); });
 
-/* ---- VIP link scroll ---- */
-function openVip(){ document.getElementById('vip').scrollIntoView({behavior:'smooth',block:'start'}); }
-document.getElementById('openVipBtn').addEventListener('click',(e)=>{e.preventDefault(); openVip();});
-document.getElementById('openVipBtnM').addEventListener('click',(e)=>{e.preventDefault(); mpanel.classList.remove('open'); openVip();});
+/* VIP Transfer section open */
+const vipSec=document.getElementById('viptransfer');
+function openVip(){ vipSec.style.display='block'; vipSec.scrollIntoView({behavior:'smooth'}); }
+document.getElementById('vipMenu').addEventListener('click',(e)=>{ e.preventDefault(); openVip(); });
 
-/* ---- Contact/CTA scroll ---- */
+/* ---- Contact → Devis ---- */
 function openDevis(){ document.getElementById('devis').scrollIntoView({behavior:'smooth', block:'start'}); }
 document.getElementById('openContactBtn').addEventListener('click',(e)=>{ e.preventDefault(); openDevis(); });
 document.getElementById('openContactBtnM').addEventListener('click',(e)=>{ e.preventDefault(); mpanel.classList.remove('open'); openDevis(); });
 document.getElementById('ctaDevis').addEventListener('click',(e)=>{ e.preventDefault(); openDevis(); });
 
-/* ---- CTA interventions : ouvre seulement le méga-menu/ drawer ---- */
+/* ---- Langues ---- */
+const lang = document.getElementById('lang');
+lang.querySelector('button').addEventListener('click',(e)=>{e.stopPropagation(); const p=lang.querySelector('.panel'); p.style.display=(p.style.display==='block')?'none':'block';});
+document.addEventListener('click',()=>{ const p=lang.querySelector('.panel'); if(p) p.style.display='none';});
+function setLang(code){
+  const trySet=()=>{ const sel=document.querySelector('.goog-te-combo'); if(!sel){ setTimeout(trySet,300); return; } sel.value=code; sel.dispatchEvent(new Event('change')); };
+  trySet();
+  document.cookie=`googtrans=/fr/${code};path=/`;
+  document.cookie=`googtrans=/fr/${code};domain=.${location.hostname};path=/`;
+}
+lang.querySelectorAll('a[data-lang]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault(); setLang(a.dataset.lang);} ));
+document.querySelectorAll('.m-lang').forEach(a=>a.addEventListener('click',e=>{e.preventDefault(); setLang(a.dataset.lang); mpanel.classList.remove('open');}));
+
+/* ---- Tampon logo sur les images (carrousels + héro) ---- */
+const LOGO_URL = "https://dynamic.design.com/asset/logo/94df530f-3f85-454a-94b6-a83d69710700/logo-search-grid-1x?logoTemplateVersion=1&v=638878464389530000&text=tunisiechirurgiecenter.com&layout=auto&colorpalette=orange";
+function addWatermark(container){
+  const wm=document.createElement('div'); wm.className='watermark';
+  const img=document.createElement('img'); img.src=LOGO_URL; img.alt='Logo'; img.onerror=()=>{img.src='assets/logo/logo.png';};
+  wm.appendChild(img); container.appendChild(wm);
+}
+document.querySelectorAll('.carousel .slide, .hero-media').forEach(addWatermark);
+
+/* ---- CTA Interventions ---- */
 document.getElementById('ctaInterv').addEventListener('click',(e)=>{e.preventDefault();
   if (matchMedia('(min-width:981px)').matches){ drop.classList.add('open'); }
   else { mpanel.classList.add('open'); }
